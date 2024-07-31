@@ -38,13 +38,20 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 *Sensor de movimiento: Utilizado para sensar patrones de movimiento repetitivos que simulen actividad fisica de la mascota, aumentando su nivel de felicidad y salud.
 
 ### Sistema de visualizacion:
-* Matriz de Puntos 16x8: Representa visualmente el estado actual del Tamagotchi, incluyendo emociones y necesidades básicas.
+* Matriz de Puntos 16x16: Representa visualmente el estado actual del Tamagotchi, incluyendo emociones y necesidades básicas.
 * Display de 7 Segmentos: Utilizado para mostrar niveles y puntuaciones específicas, como el nivel de hambre o felicidad, complementando la visualización principal.
+* Buzzer: Incorporado en la FPGA que emite sonidos dependiendo de los estados del Tamagotchi y avisando sobre eventos importantes o si el Tamagotchi se encuentra en un estado crítico.
 
-## Componentes
+## Componentes:
+* 4 matrices 8x8
+* Buzzer
+* Display de 7 segmentos
+* Sensor de sonido
+* Sensor de luz
+* Sensor de movimiento
 
-### Descripcion funcional de componentes
+### Descripcion funcional de componentes:
 
-## Diagramas de caja negra
+## Diagramas de caja negra:
 
-## FSM 
+## FSM:
