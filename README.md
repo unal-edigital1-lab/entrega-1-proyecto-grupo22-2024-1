@@ -8,9 +8,9 @@
 ### 1. Objetivo
 Desarrollar un sistema de Tamagotchi en FPGA (Field-Programmable Gate Array) que simule el cuidado de una mascota virtual. El diseño incorporará una lógica de estados para reflejar las diversas necesidades y condiciones de la mascota, junto con mecanismos de interacción a través de sensores y botones que permitan al usuario cuidar adecuadamente de ella.
 #### 1.1 Objetivos especificos:
-* Aplicar las tematicas del curso de electronica digital I para diseñar e implementar un sistema de Tamagotchi en FPGA
-* 
-*
+* Aplicar las tematicas del curso de electronica digital I para diseñar e implementar un sistema de Tamagotchi en FPGA.
+* Diseñar e mplementar la lógica de control del tamagotchi en verilog.
+* Integrar y programar sensores y periféricos para la interacción del tamagotchi.
 
 ### 2. Delimitaciones
 El alcance del proyecto se centra en la creación de un sistema básico de Tamagotchi, que incluirá:
@@ -45,11 +45,33 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 * 4 matrices 8x8
 * Buzzer
 * Display de 7 segmentos
-* Sensor de sonido
-* Sensor de luz
-* Sensor de movimiento
+* Sensor de sonido KY038
+* Sensor de luz 
+* Sensor de movimiento MPU-6050
 
 ### Descripcion funcional de componentes:
+#### Matriz 8x8
+
+#### Buzzer
+
+#### Display de 7 segmentos
+
+#### Sensor de sonido KY038: Es un módulo que permite detectar la presencia y la intensidad de sonidos en el entorno. Sus componentes principales son un microfono Electret; un potenciometro que permite ajustar el umbral de sensibilidad para determinar el nivel de sonido necesario para activar la señal de salida; un comparador LM393 que se encarga de Comparar la señal del micrófono con el umbral ajustable, generando una señal digital de salida; Indicadores LED de alimentacion y señal digital de salida.
+* Entradas y salidas:
+  * VCC: Pin de alimentación (5V)
+  * GND: Pin de conexión a tierra.
+  * DO (Digital Output): Pin de salida digital que se activa cuando el nivel de sonido supera el umbral ajustado.
+  * AO (Analog Output): Pin de salida analógica que proporciona una señal proporcional a la intensidad del sonido detectado.
+
+#### Sensor de luz 
+
+#### Sensor de movimiento MPU-6050: Es un módulo avanzado que combina un giroscopio de tres ejes y un acelerómetro de tres ejes, proporcionando una solución completa para la medición de la orientación y el movimiento a traves de su procesador de movimiento digital(DMP). El modulo cuenta con interfaz de comunicacion I2C.
+* Entradas y salidas:
+  * VCC: Pin de alimentación (3.3V - 5V)
+  * GND: Pin de conexión a tierra.
+  * SCL (Serial Clock Line): Pin de reloj para la comunicación I2C.
+  * SDA (Serial Data Line): Pin de datos para la comunicación I2C.
+  * INT: Pin de interrupción que puede ser configurado para notificar eventos específicos.
 
 ## Diagramas de caja negra:
 
