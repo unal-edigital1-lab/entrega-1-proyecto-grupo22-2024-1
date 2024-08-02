@@ -104,7 +104,34 @@ El Modo Normal es el estado de operación estándar del Tamagotchi, donde la int
 - **Activación:** El sistema arranca por defecto en el Modo Normal tras el encendido o reinicio del dispositivo. No requiere una secuencia de activación especial, ya que es el modo de funcionamiento predeterminado.
 
 ### 5.2 Estados y transiciones:
+#### 5.2.1 Estados:
+* Salud
+* Hambre
+* Descanso/sueño
+* Felicidad
+* Higiene
+* Condicion Fisica
+* Muerto
+#### 5.2.1 Transiciones:
+#### Sistema de niveles:
+Cada estado del tamagotchi tendra asociado un nivel de satisfaccion en escala del 0 al 7. Los niveles aumentan o disminuyen segun las interacciones del usuario y el tranascurso del tiempo de la siguiente forma:
 
+| Nivel | Interaccion | Inactividad | 
+|------ | ----------- | ------------| 
+|   0   | +0,5        | -1salud     |
+|  1-3  | +1          | -1          |
+|  4-7  | +2          | -2          |
+|   7   | -0.5salud   | -2          |
+
+La salud es el unico estado que no dependera del paso del tiempo o la interaccion, en cambio su valor esta definido en funcion del nivel de los demas estados, un estado de 4-7 en cualquier atributo sumara un nivel a la salud al actualizarse positivamente, un estado del 1-3 no tendra efecto sobre la salud al actualizarse y un estado de 0 restara un nivel al ser detectado y por permanecer en dicho valor. Si el valor de la salud llega a 0 automaticamente hay una transicion al estado __Muerto__.
+
+#### Temporizadores:
+El temporizaron se encarga de generar cambios en los estados de la mascota simulando el paso del tiempo. El temporizaron contabilizara intervalos de 15 minutos para cada estado del tamagotchi a excepcion del estado __Salud__ y el estado __Muerto__, pasado este tiempo ocurrira un cambio en el nivel del estado y el contador se reiniciara, si el usuario realiza una interaccion durante el intervalo este tambien se reiniciara. En el modo test el valor del contador podra ser manipulado por el usuario para actualizar los estados rapidamente.
+
+#### Interacciones:
+Las interacciones del usuario pueden ser de dos tipos, cambio de estado y cuidado:
+* Cambio de estado: El usuario presionara el boton (1) lo que le permitira navegar por los diferentes estados de la mascota, cada pulsacion mostrara el siguiente estado (en la secuencia hambre, sueño, felicidad, higiene, condicion), esta interaccion no afectara los niveles de estado ni los temporizadores.
+* Cuidado: El ususario interactua ya sea con el boton (2) o con un sensor. Cada interaccion de cuidado afectara el nivel del estado activo de la mascota segun la tabla mostrada anteriormente, en el caso de un nivel de estado 0 el sistema contara hasta 2 interaciones antes de actualizar el estado, este contador especial se reinicia sincronamente con el temporizador del estado y lo mismo aplica para un nivel de 7.
 
 ### 5.3 FSM:
 
