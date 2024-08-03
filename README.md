@@ -135,12 +135,38 @@ El Modo Normal es el estado de operación estándar del Tamagotchi, donde la int
 #### Sistema de niveles:
 Cada estado del tamagotchi tendra asociado un nivel de satisfaccion en escala del 0 al 7. Los niveles aumentan o disminuyen segun las interacciones del usuario y el tranascurso del tiempo de la siguiente forma:
 
-| Código | Nivel | Interaccion | Inactividad | 
-|------|------ | ----------- | ------------| 
-| 0000 |   0   | +2       | -1 salud     |
-|0001 - 0010 - 0011 |  1-3  | +1          | -1          |
-| 0100 - 0101 - 0111 |  4-6  | +1          | -2          |
-| 1111 |   7  | -1 salud   | -2          |
+<table>
+  <tr>
+    <th>Código</th>
+    <th>Nivel</th>
+    <th>Interacción</th>
+    <th>Inactividad</th>
+  </tr>
+  <tr>
+    <td>0000</td>
+    <td>0</td>
+    <td>+2</td>
+    <td>-1 salud </td>
+  </tr>
+  <tr>
+    <td>0001 - 0010 - 0011</td>
+    <td>1-3</td>
+    <td>+1</td>
+    <td>-1</td>
+  </tr>
+    <tr>
+    <td>0100 - 0101 - 0111</td>
+    <td>4-6 </td>
+    <td>+1</td>
+    <td>-2 </td>
+  </tr>
+    <tr>
+    <td>1111</td>
+    <td>7</td>
+    <td>-1 salud </td>
+    <td>-2 </td>
+  </tr>
+</table>
 
 La salud es el unico estado que no dependera del paso del tiempo o la interaccion, en cambio su valor esta definido en funcion del nivel de los demas estados, un estado de 4-7 en cualquier atributo sumara un nivel a la salud al actualizarse positivamente, un estado del 1-3 no tendra efecto sobre la salud al actualizarse y un estado de 0 restara un nivel al ser detectado y por permanecer en dicho valor. Si el valor de la salud llega a 0 automaticamente hay una transicion al estado __Muerto__.
 
