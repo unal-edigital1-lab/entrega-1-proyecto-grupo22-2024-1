@@ -164,7 +164,7 @@ Cada estado del tamagotchi tendra asociado un nivel de satisfaccion en escala de
     <td>1111</td>
     <td>7</td>
     <td>-1 salud </td>
-    <td>-2 </td>
+    <td>-2 - + 1 salud </td>
   </tr>
 </table>
 
