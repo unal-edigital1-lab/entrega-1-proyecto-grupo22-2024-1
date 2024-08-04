@@ -84,7 +84,7 @@ Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando 
     * ```AO (Analog Output)```: Pin de salida analógica que proporciona una señal proporcional a la intensidad del sonido detectado.
 
 * __Modulo Sensor de luz con fotoresistor:__ Este modulo esta conformado por LDR o fotoresistor, el cual es sensible a la exposición de intensidad lumínica ambiental, para así determinar el brillo e intensidad lumínica del medio, este modulo a través de una salida digital, se puede programar un rango de luminosidad, proporcionando un nivel de tensión alto o bajo, dependiendo de la configuración preestablecida.
- * __Componentes principales:__
+  * __Componentes principales:__
     * __Utiliza el comparador LM393 para mayor estabilidad__
     * __Potenciómetro__
     * __Leds de indicación__
