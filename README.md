@@ -139,6 +139,7 @@ Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando 
     * ```INT```: Pin de interrupción que puede ser configurado para notificar eventos específicos.
     
 ### 4.3 Interfaces de comunicacion:
+En este proyecto se plantea usar 2 interfaces de comunicación, el I2C que se usa para comunicar un giroscopio con la maquina de estados, asi mismo se usa el SPI el cual logra hacer la transmisión correcta de datos entre la maquina de estados y una matriz de 8x8 led, la cual muestra las caras de nuestro tamagotchi.
 
 #### SPI (Serial Peripheral Interface)
 - **Descripción:**
