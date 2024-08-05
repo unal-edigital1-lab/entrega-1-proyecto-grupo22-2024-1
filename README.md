@@ -81,7 +81,7 @@ Un buzzer es un dispositivo de salida que emite un sonido cuando se le aplica un
   * __Componentes principales:__
     * __Elemento piezoeléctrico:__ La parte del buzzer que produce sonido cuando se deforma eléctricamente.
     * __Carcasa:__ Protege el elemento piezoeléctrico y amplifica el sonido.
-  * __Entradas y salidas:__
+  *__Entradas y salidas:__
     * __VCC:__ Pin de alimentación (generalmente 5V).
     * __GND:__ Pin de conexión a tierra.
     * __Pin de señal:__ Pin que recibe la señal de control para activar el buzzer.
@@ -91,14 +91,14 @@ Un buzzer es un dispositivo de salida que emite un sonido cuando se le aplica un
 Un display de 7 segmentos es un dispositivo de salida que puede mostrar dígitos del 0 al 9 usando siete segmentos LED que se encienden en diferentes combinaciones.
 
   * __Componentes principales:__
-    *__Segmentos LED:__ Siete LEDs organizados en forma de número 8.
-    *__Controlador de Display:__ Opcional, facilita el control de los segmentos individuales.
-  *__Entradas y salidas:__
-    *__VCC:__ Pin de alimentación (generalmente 5V).
-    *__GND:__ Pin de conexión a tierra.
-    *__Segmentos A-G:__ Pines para controlar cada uno de los siete segmentos.
-    *__DP:__ Pin opcional para el punto decimal.
-  *__Función:__
+    * __Segmentos LED:__ Siete LEDs organizados en forma de número 8.
+    * __Controlador de Display:__ Opcional, facilita el control de los segmentos individuales.
+  * __Entradas y salidas:__
+    * __VCC:__ Pin de alimentación (generalmente 5V).
+    * __GND:__ Pin de conexión a tierra.
+    * __Segmentos A-G:__ Pines para controlar cada uno de los siete segmentos.
+    * __DP:__ Pin opcional para el punto decimal.
+  * __Función:__
 El display de 7 segmentos se utiliza para mostrar información numérica relevante, como el nivel de hambre, la felicidad, o el tiempo del Tamagotchi.
 
 * __Sensor de sonido KY038:__ Es un módulo que permite detectar la presencia y la intensidad de sonidos en el entorno. Este módulo tiene dos salidas de información:
