@@ -144,6 +144,7 @@ Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando 
   
 
 ### 4.4 Diagramas de caja negra:
+[<img src="img/G22 Edigital1 - Caja Negra.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=0_0##)
 
 ### 4.5 Diagrama de bloques:
 [<img src="img/G22 Edigital1 - Diagrama de bloques.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=PHj0tElPAV7X#)
