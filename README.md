@@ -15,7 +15,7 @@ Desarrollar un sistema de Tamagotchi en FPGA (Field-Programmable Gate Array) que
 ## 2. Delimitaciones
 El alcance del proyecto se centra en la creación de un sistema básico de Tamagotchi, que incluirá:
 
-* Una interfaz de usuario operada mediante cinco botones físicos (rst, test y tres botones de acción).
+* Una interfaz de usuario operada mediante cuatro botones físicos (rst, test y dos botones de acción).
 * Tres sensores de interaccion: Sensor de sonido KY038; sensor XXX de luz; Giroscopio MPU-6050.
 * Un sistema de visualizacion compuesto por 4 matrices LED 8x8 y un 7segg para representar el estado actual y las necesidades de la mascota virtual.
 El proyecto se diseñará e implementará utilizando la FPGA ciclone IV, con restricciones claras en términos de recursos de hardware disponibles. La implementación se detallará en Verilog.
