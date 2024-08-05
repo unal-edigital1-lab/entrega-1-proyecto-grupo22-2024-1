@@ -23,13 +23,13 @@ El proyecto se diseñará e implementará utilizando la FPGA ciclone IV, con res
 ## 3. Especificaciones de diseño
 
 El proyecto Tamagotchi en FPGA sera un sistema diseñado para emular el cuidado de una mascota virtual, permitiendo al usuario participar en actividades esenciales para su salud. El usuario tendra como objetivo mantener a su mascota en un estado optimo mediante un grupo acciones recurrentes: alimentar, jugar, dormir y asear. 
-El sistema notificara al usuario del estado y las necesidades de la mascota a través de una interfaz visual y una alarma. Para que el usuario interactue, el sistema contara con cinco botones fisicos y tres sensores.
+El sistema notificara al usuario del estado y las necesidades de la mascota a través de una interfaz visual y una alarma. Para que el usuario interactue, el sistema contara con cuatro botones fisicos y tres sensores.
 
 ### 3.1 Sistema de botones:
 La interacción usuario-sistema se realizará mediante los siguientes botones configurados:
 * __Reset:__  Reestablece el Tamagotchi a un estado inicial conocido al mantener pulsado el botón durante al menos 5 segundos. Este estado inicial simula el despertar de la mascota con salud óptima.
 * __Test:__ Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario navegar entre los diferentes estados del Tamagotchi con cada pulsación de los botones de interacción.
-* __Botones de interaccion (3):__ Facilitan acciones directas como alimentar, jugar, o curar, posibilitando la implementación de actividades específicas para el bienestar del Tamagotchi. El boton de interacción (1) permitira al usuario navegar por los distintos estados del tamagotchi en los cuales los botones (2) y (3) permitiran realizar acciones especificas asociadas a dicho estado y la visualización de los niveles actuales para cada estado.
+* __Botones de interaccion (2):__ Facilitan acciones directas como alimentar, jugar, o curar, posibilitando la implementación de actividades específicas para el bienestar del Tamagotchi. El boton de interacción (1) permitira al usuario navegar por los distintos estados del tamagotchi en los cuales el boton (2) permitirá realizar acciones especificas asociadas a dicho estado y la visualización de los niveles actuales para cada estado.
 
 ### 3.2 Sistema de sensado:
 Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de interacción, se incorporarán tres sensores que modifique el comportamiento de la mascota virtual en respuesta a estímulos externos:
@@ -136,9 +136,11 @@ Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando 
     
 ### 4.3 Interfaces de comunicacion:
 * SPI
-  
+
 ### 4.4 Diagramas de caja negra:
 
+### 4.5 Diagrama de bloques:
+[<img src="img/G22 Edigital1 - Diagrama de bloques.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=PHj0tElPAV7X#)
 
 ## 5 Especificaciones de diseño detalladas:
 ### 5.1 Modos de operacion:
@@ -204,11 +206,9 @@ Cada estado del tamagotchi tendra asociado un nivel de satisfaccion en escala de
 La salud es el unico estado que no dependera del paso del tiempo o la interaccion, en cambio su valor esta definido en funcion del nivel de los demas estados, un estado de 4-7 en cualquier atributo sumara un nivel a la salud al actualizarse positivamente, un estado del 1-3 no tendra efecto sobre la salud al actualizarse y un estado de 0 restara un nivel al ser detectado y por permanecer en dicho valor. Si el valor de la salud llega a 0 automaticamente hay una transicion al estado __Muerto__. Una vez en el estado __Muerto__ la unica interacion posible sera usar el boton __reset__ para reiniciar la mascota.
 
 #### Temporizadores:
-El temporizaron se encarga de generar cambios en los estados de la mascota simulando el paso del tiempo. El temporizaron contabilizara intervalos de 15 minutos para todos los estados del tamagotchi a excepcion del estado __Salud__ y el estado __Muerto__, pasado este tiempo ocurrira un cambio en el nivel del estado y el contador se reiniciara. En el modo test el valor del contador podra ser manipulado por el usuario para actualizar los estados rapidamente.
+El temporizardor se encarga de generar cambios en los estados de la mascota simulando el paso del tiempo. El temporizaron contabilizara intervalos de tiempo diferentes para todos los estados del tamagotchi a excepcion del estado __Salud__ y el estado __Muerto__, pasado este tiempo ocurrira un cambio en el nivel del estado y el contador se reiniciara. En el modo test el valor del contador podra ser manipulado por el usuario para actualizar los estados rapidamente.
 
 #### Interacciones:
 Las interacciones del usuario pueden ser de dos tipos, cambio de estado y cuidado:
 * Cambio de estado: El usuario presionara el boton (1) lo que le permitira navegar por los diferentes estados de la mascota, cada pulsacion mostrara el siguiente estado (en la secuencia hambre, sueño, felicidad, higiene, condicion), esta interaccion no afectara los niveles de estado ni los temporizadores.
 * Cuidado: El ususario interactua ya sea con el boton (2) o con un sensor. Cada interaccion de cuidado afectara el nivel del estado activo de la mascota segun la tabla mostrada anteriormente.
-
-### 5.3 FSM:
