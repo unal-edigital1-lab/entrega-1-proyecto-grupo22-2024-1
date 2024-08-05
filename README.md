@@ -63,7 +63,43 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 * Sensor de movimiento MPU-6050
 
 ### 4.2 Descripcion funcional de componentes:
-* __Matriz 8x8:__
+*__Matriz 8x8:__ Una matriz 8x8 de LEDs es un arreglo de 64 LEDs organizados en 8 filas y 8 columnas. Se utiliza para mostrar patrones, caracteres y gráficos de manera visual.
+
+ *__Componentes principales:__
+    *__LEDs:__ 64 LEDs organizados en una matriz de 8x8.
+    *__Controlador de Matriz:__ Un chip que facilita el control de cada LED individual.
+    *__Resistores:__ Para limitar la corriente que pasa a través de los LEDs.
+ *__Entradas y salidas:__
+    *__VCC:__ Pin de alimentación (generalmente 5V).
+    *__GND:__ Pin de conexión a tierra.
+    *__Filas y Columnas:__ Pines para controlar las filas y columnas de la matriz, normalmente a través de un controlador de matriz.
+ *__Función:__ La matriz 8x8 se utiliza para representar visualmente el estado del Tamagotchi, como sus emociones o acciones, mediante patrones de luz.
+
+*__Buzzer:__
+Un buzzer es un dispositivo de salida que emite un sonido cuando se le aplica una corriente eléctrica.
+
+  *__Componentes principales:__
+    *__Elemento piezoeléctrico:__ La parte del buzzer que produce sonido cuando se deforma eléctricamente.
+    *__Carcasa:__ Protege el elemento piezoeléctrico y amplifica el sonido.
+  *__Entradas y salidas:__
+    *__VCC:__ Pin de alimentación (generalmente 5V).
+    *__GND:__ Pin de conexión a tierra.
+    *__Pin de señal:__ Pin que recibe la señal de control para activar el buzzer.
+  *__Función:__ El buzzer se utiliza para alertar al usuario de eventos importantes, como cuando el Tamagotchi necesita atención.
+
+*__Display de 7 segmentos:__
+Un display de 7 segmentos es un dispositivo de salida que puede mostrar dígitos del 0 al 9 usando siete segmentos LED que se encienden en diferentes combinaciones.
+
+Componentes principales:
+Segmentos LED: Siete LEDs organizados en forma de número 8.
+Controlador de Display: Opcional, facilita el control de los segmentos individuales.
+Entradas y salidas:
+VCC: Pin de alimentación (generalmente 5V).
+GND: Pin de conexión a tierra.
+Segmentos A-G: Pines para controlar cada uno de los siete segmentos.
+DP: Pin opcional para el punto decimal.
+Función:
+El display de 7 segmentos se utiliza para mostrar información numérica relevante, como el nivel de hambre, la felicidad, o el tiempo del Tamagotchi.
 
 * __Buzzer:__
 
