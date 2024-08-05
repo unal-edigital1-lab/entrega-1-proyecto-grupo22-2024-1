@@ -139,9 +139,38 @@ Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando 
     * ```INT```: Pin de interrupción que puede ser configurado para notificar eventos específicos.
     
 ### 4.3 Interfaces de comunicacion:
-* SPI
-* I2C:
+
+#### SPI (Serial Peripheral Interface)
+- **Descripción:**
+  - SPI es un protocolo de comunicación síncrona de alta velocidad utilizado principalmente para la comunicación entre microcontroladores y periféricos como sensores, tarjetas de memoria, y pantallas.
   
+- **Características:**
+  - **Full-Dúplex:** Permite la transmisión y recepción de datos simultáneamente.
+  - **Cables:** Utiliza cuatro líneas de comunicación:
+    - **MOSI (Master Out Slave In):** Línea de datos desde el maestro hacia el esclavo.
+    - **MISO (Master In Slave Out):** Línea de datos desde el esclavo hacia el maestro.
+    - **SCK (Serial Clock):** Reloj generado por el maestro para sincronizar la transmisión de datos.
+    - **SS/CS (Slave Select/Chip Select):** Línea para seleccionar el esclavo activo.
+  - **Velocidades:** Puede operar a velocidades de hasta varios MHz.
+  - **Topología:** Un maestro y múltiples esclavos, seleccionados mediante la línea SS/CS.
+  - **Sin direccionamiento:** No tiene un esquema de direccionamiento incorporado, lo que simplifica el hardware pero requiere una línea SS/CS por cada esclavo.
+
+#### I2C (Inter-Integrated Circuit)
+- **Descripción:**
+  - I2C es un protocolo de comunicación síncrona que permite la comunicación entre múltiples dispositivos utilizando solo dos líneas de comunicación. Es muy utilizado para conectar microcontroladores con sensores y otros periféricos de baja velocidad.
+  
+- **Características:**
+  - **Bidireccional:** Utiliza un bus de datos bidireccional compartido.
+  - **Cables:** Utiliza dos líneas de comunicación:
+    - **SDA (Serial Data Line):** Línea de datos bidireccional.
+    - **SCL (Serial Clock Line):** Línea de reloj generada por el maestro para sincronizar la transmisión de datos.
+  - **Velocidades:** Soporta varias velocidades de operación:
+    - **Estándar:** 100 kHz.
+    - **Rápido:** 400 kHz.
+    - **Alta Velocidad:** 3.4 MHz.
+  - **Multipunto:** Permite múltiples maestros y esclavos en el mismo bus.
+  - **Direccionamiento:** Utiliza direcciones de 7 o 10 bits para identificar dispositivos esclavos.
+  - **Protocolos de transferencia:** Soporta transferencias de datos simples y complejas, incluyendo lecturas y escrituras combinadas.
 
 ### 4.4 Diagramas de caja negra:
 [<img src="img/G22 Edigital1 - Caja Negra.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=0_0##)
