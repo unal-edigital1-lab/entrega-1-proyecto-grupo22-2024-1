@@ -64,16 +64,15 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 
 ### 4.2 Descripcion funcional de componentes:
 * __Matriz 8x8:__ Una matriz 8x8 de LEDs es un arreglo de 64 LEDs organizados en 8 filas y 8 columnas. Se utiliza para mostrar patrones, caracteres y gráficos de manera visual.
-
- * __Componentes principales:__
+  * __Componentes principales:__
     * __LEDs:__ 64 LEDs organizados en una matriz de 8x8.
     * __Controlador de Matriz:__ Un chip que facilita el control de cada LED individual.
     * __Resistores:__ Para limitar la corriente que pasa a través de los LEDs.
- * __Entradas y salidas:__
+  * __Entradas y salidas:__
     * __VCC:__ Pin de alimentación (generalmente 5V).
     * __GND:__ Pin de conexión a tierra.
     * __Filas y Columnas:__ Pines para controlar las filas y columnas de la matriz, normalmente a través de un controlador de matriz.
- * __Función:__ La matriz 8x8 se utiliza para representar visualmente el estado del Tamagotchi, como sus emociones o acciones, mediante patrones de luz.
+  * __Función:__ La matriz 8x8 se utiliza para representar visualmente el estado del Tamagotchi, como sus emociones o acciones, mediante patrones de luz.
 
 * __Buzzer:__
 Un buzzer es un dispositivo de salida que emite un sonido cuando se le aplica una corriente eléctrica.
