@@ -240,6 +240,7 @@ Cada estado del tamagotchi tendra asociado un nivel de satisfaccion en escala de
   </tr>
 </table>
 
+El estado de _descanso/sueño_ sera el estado inicial de la mascota. Pasado un perido de incatividad y dependiendo del nivel de luz, la mascota siempre regresara a el estado _dencanso/sueño_. Cuando la mascota acumula un tiempo de sueño de 15 minutos se considera como una interaccion y su nivel asociado se actualiza. 
 La salud es el unico estado que no dependera del paso del tiempo o la interaccion, en cambio su valor esta definido en funcion del nivel de los demas estados, un estado de 4-7 en cualquier atributo sumara un nivel a la salud al actualizarse positivamente, un estado del 1-3 no tendra efecto sobre la salud al actualizarse y un estado de 0 restara un nivel al ser detectado y por permanecer en dicho valor. Si el valor de la salud llega a 0 automaticamente hay una transicion al estado __Muerto__. Una vez en el estado __Muerto__ la unica interacion posible sera usar el boton __reset__ para reiniciar la mascota.
 
 #### Temporizadores:
