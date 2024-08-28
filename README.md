@@ -123,7 +123,6 @@ Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando 
     * __VCC:__ Pin de alimentación (3.3V)
     * __GND:__ Pin de conexión a tierra.
     * ```DO (Digital Output)```: Pin de salida digital que se activa cuando el nivel de luz supera el umbral ajustado.
-    * ```AO (Analog Output)```: Pin de salida analógica que proporciona una señal proporcional a la intensidad de luz detectada.
 
 * __Sensor de movimiento MPU-6050:__ Es un módulo avanzado que proporcionando una solución completa para la medición de la orientación y el movimiento. 
   * __Componentes principales:__
