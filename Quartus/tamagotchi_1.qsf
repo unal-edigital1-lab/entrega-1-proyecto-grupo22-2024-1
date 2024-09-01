@@ -79,3 +79,6 @@ set_global_assignment -name EDA_TEST_BENCH_NAME LightSensor_tb -section_id eda_s
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id LightSensor_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME LightSensor_tb -section_id LightSensor_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE db/LightSensor_tb.v -section_id LightSensor_tb
+set_global_assignment -name VERILOG_FILE db/FSM.v
+set_global_assignment -name VERILOG_FILE db/SoundSensor.v
+set_global_assignment -name VERILOG_FILE db/i2c_master.v
