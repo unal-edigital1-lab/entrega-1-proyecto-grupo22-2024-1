@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tamagotchi_1
-Wed Aug 28 04:49:16 2024
+Wed Aug 28 05:37:34 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -48,7 +48,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Aug 28 04:49:16 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 28 05:37:34 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; tamagotchi_1                                   ;
 ; Top-level Entity Name              ; tamagotchi_1                                   ;
@@ -164,7 +164,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -351,7 +352,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Wed Aug 28 04:49:10 2024
+    Info: Processing started: Wed Aug 28 05:37:28 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tamagotchi_1 -c tamagotchi_1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -360,6 +361,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/tama
 Info (12021): Found 0 design units, including 0 entities, in source file db/Visualizacion.vhd
 Info (12021): Found 1 design units, including 1 entities, in source file db/spi_master.v
     Info (12023): Found entity 1: spi_master File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/spi_master.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file db/LightSensor.v
+    Info (12023): Found entity 1: LightSensor File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file db/LightSensor_tb.v
+    Info (12023): Found entity 1: LightSensor_tb File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor_tb.v Line: 3
 Info (12127): Elaborating entity "tamagotchi_1" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at tamagotchi_1.v(77): object "c2" assigned a value but never read File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 77
 Warning (10230): Verilog HDL assignment warning at tamagotchi_1.v(97): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 97
@@ -388,9 +393,9 @@ Info (21057): Implemented 96 device resources after synthesis - the final resour
     Info (21059): Implemented 3 output pins
     Info (21061): Implemented 89 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 449 megabytes
-    Info: Processing ended: Wed Aug 28 04:49:16 2024
+    Info: Peak virtual memory: 485 megabytes
+    Info: Processing ended: Wed Aug 28 05:37:34 2024
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:21
 
 
