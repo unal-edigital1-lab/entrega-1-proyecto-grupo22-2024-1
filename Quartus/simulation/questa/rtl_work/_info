@@ -1,6 +1,8 @@
 m255
 K4
 z2
+!s12c _opt
+Z0 !s99 nomlopt
 !s11f vlog 2023.3 2023.07, Jul 17 2023
 13
 !s112 1.1
@@ -8,77 +10,66 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/simulation/questa
+Z1 d/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/simulation/questa
+T_opt
+Z2 !s110 1725290298
+V9fW;N>A4Dh<YjGOlN;dlD2
+04 14 4 work LightSensor_tb fast 0
+=1-000ae431a4f1-66d5d73a-8227e-2416
+R0
+!s12b OEM100
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work +acc
+Z3 tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+vLightSensor
+2/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor.v
+R2
+!i10b 1
+!s100 PIi`zjPhRW?8XFSKPlMMH3
+I:nQdCMj^4Fl[gCPUmHR?Y3
+R1
+w1724841380
+8/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor.v
+F/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor.v
+!i122 0
+L0 1 17
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2023.3;77
+r1
+!s85 0
+31
+Z6 !s108 1725290298.000000
+!s107 /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db|/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor.v|
+!i113 0
+Z7 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 !s92 -vlog01compat -work work +incdir+/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+n@light@sensor
 vLightSensor_tb
 2/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor_tb.v
-Z1 !s110 1724842079
+R2
 !i10b 1
 !s100 AX:6i:0VDBaQX=lc0:m^M1
 IAXAha[_<KmooLhJd3?K:]3
-R0
+R1
 w1724841371
 8/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor_tb.v
 F/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor_tb.v
-!i122 2
+!i122 1
 L0 3 43
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-Z3 OL;L;2023.3;77
+R4
+R5
 r1
 !s85 0
 31
-Z4 !s108 1724842079.000000
+R6
 !s107 /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor_tb.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db|/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor_tb.v|
 !i113 0
-Z5 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z6 !s92 -vlog01compat -work work +incdir+/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z7 tCvgOpt 0
+R7
+R8
+R3
 n@light@sensor_tb
-vspi_master
-2/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/spi_master.v
-R1
-!i10b 1
-!s100 ^Lj]5blTbck5TY;ze5Al^2
-IgWlH^ncm=I42=elE3LHNA1
-R0
-w1724837764
-8/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/spi_master.v
-F/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/spi_master.v
-!i122 1
-L0 40 64
-R2
-R3
-r1
-!s85 0
-31
-R4
-!s107 /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/spi_master.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db|/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/spi_master.v|
-!i113 0
-R5
-R6
-R7
-vtamagotchi_1
-2/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v
-R1
-!i10b 1
-!s100 lQNTfjTE[OR>]D>U`9J@20
-IXZ[PYhd?S=z95ob9IaJ803
-R0
-w1724837692
-8/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v
-F/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v
-!i122 0
-L0 1 132
-R2
-R3
-r1
-!s85 0
-31
-R4
-!s107 /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db|/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v|
-!i113 0
-R5
-R6
-R7

@@ -8,14 +8,12 @@ module TamagotchiFSM (
 );
 
 // Definición de estados
-typedef enum reg [1:0] {
-    SLEEPING = 2'b00,
-    AWAKE = 2'b01,
-    PLAYING = 2'b10,
-    HUNGRY = 2'b11
-} state_t;
+localparam SLEEPING = 2'b00;
+localparam AWAKE = 2'b01;
+localparam PLAYING = 2'b10;
+localparam HUNGRY = 2'b11;
 
-state_t current_state, next_state;
+reg [1:0] current_state, next_state;
 
 // Lógica de transición de estados
 always @(posedge clk or posedge rst) begin

@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Wed Aug 28 05:37:34 2024
+Analysis & Synthesis Status : Successful - Mon Sep  2 10:17:57 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : tamagotchi_1
-Top-level Entity Name : tamagotchi_1
+Top-level Entity Name : LightSensor
 Family : Cyclone IV E
-Total logic elements : 86
-    Total combinational functions : 86
-    Dedicated logic registers : 54
-Total registers : 54
-Total pins : 7
+Total logic elements : 1
+    Total combinational functions : 0
+    Dedicated logic registers : 1
+Total registers : 1
+Total pins : 4
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
