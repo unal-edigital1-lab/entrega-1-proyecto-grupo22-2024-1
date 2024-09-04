@@ -4,11 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "light_detected",
+					"name" : "mosi",
 					"strict" : false
 				},
 				{
-<<<<<<< HEAD
 					"name" : "sclk",
 					"strict" : false
 				},
@@ -22,17 +21,10 @@
 				},
 				{
 					"name" : "reset",
-=======
-					"name" : "DO",
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 					"strict" : false
 				},
 				{
 					"name" : "clk",
-					"strict" : false
-				},
-				{
-					"name" : "rst",
 					"strict" : false
 				}
 			]

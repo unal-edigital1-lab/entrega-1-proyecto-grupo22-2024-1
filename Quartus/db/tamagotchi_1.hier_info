@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 |tamagotchi_1
 clk => clk.IN1
 reset => start.OUTPUTSELECT
@@ -157,12 +156,5 @@ data_out[6] <= data_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_out[7] <= data_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 busy <= busy~reg0.DB_MAX_OUTPUT_PORT_TYPE
 avail <= avail~reg0.DB_MAX_OUTPUT_PORT_TYPE
-=======
-|LightSensor
-clk => light_detected~reg0.CLK
-rst => light_detected~reg0.ACLR
-DO => light_detected~reg0.DATAIN
-light_detected << light_detected~reg0.DB_MAX_OUTPUT_PORT_TYPE
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 
 

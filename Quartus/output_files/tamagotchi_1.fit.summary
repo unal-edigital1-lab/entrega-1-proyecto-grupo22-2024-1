@@ -1,27 +1,15 @@
-<<<<<<< HEAD
 Fitter Status : Successful - Tue Sep  3 23:11:14 2024
-=======
-Fitter Status : Successful - Mon Sep  2 10:16:56 2024
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : tamagotchi_1
-Top-level Entity Name : LightSensor
+Top-level Entity Name : tamagotchi_1
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-<<<<<<< HEAD
 Total logic elements : 92 / 6,272 ( 1 % )
     Total combinational functions : 90 / 6,272 ( 1 % )
     Dedicated logic registers : 55 / 6,272 ( < 1 % )
 Total registers : 55
 Total pins : 9 / 92 ( 10 % )
-=======
-Total logic elements : 1 / 6,272 ( < 1 % )
-    Total combinational functions : 0 / 6,272 ( 0 % )
-    Dedicated logic registers : 1 / 6,272 ( < 1 % )
-Total registers : 1
-Total pins : 4 / 92 ( 4 % )
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )

@@ -17,11 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition"
 
-<<<<<<< HEAD
 // DATE "09/03/2024 23:11:18"
-=======
-// DATE "09/02/2024 10:17:02"
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 
 // 
 // Device: Altera EP4CE6E22C8 Package TQFP144
@@ -33,9 +29,8 @@
 
 `timescale 1 ps/ 1 ps
 
-module LightSensor (
+module tamagotchi_1 (
 	clk,
-<<<<<<< HEAD
 	reset,
 	state,
 	mosi,
@@ -61,21 +56,7 @@ output 	lcd_rst;
 // dc	=>  Location: PIN_44,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // lcd_rst	=>  Location: PIN_49,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // reset	=>  Location: PIN_87,	 I/O Standard: 2.5 V,	 Current Strength: Default
-=======
-	rst,
-	\DO ,
-	light_detected);
-input 	clk;
-input 	rst;
-input 	\DO ;
-output 	light_detected;
-
-// Design Ports Information
-// light_detected	=>  Location: PIN_33,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DO	=>  Location: PIN_30,	 I/O Standard: 2.5 V,	 Current Strength: Default
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 // clk	=>  Location: PIN_23,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// rst	=>  Location: PIN_28,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -89,7 +70,6 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
-<<<<<<< HEAD
 wire \state[0]~input_o ;
 wire \state[1]~input_o ;
 wire \mosi~output_o ;
@@ -230,13 +210,6 @@ wire [7:0] data_in;
 wire [15:0] \spi|clk_count ;
 wire [7:0] \spi|shift_reg ;
 wire [5:0] mem_index;
-=======
-wire \light_detected~output_o ;
-wire \clk~input_o ;
-wire \DO~input_o ;
-wire \rst~input_o ;
-wire \light_detected~reg0_q ;
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 
 
 hard_block auto_generated_inst(
@@ -244,7 +217,6 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-<<<<<<< HEAD
 // Location: IOOBUF_X5_Y0_N23
 cycloneive_io_obuf \mosi~output (
 	.i(\spi|mosi~q ),
@@ -261,18 +233,12 @@ defparam \mosi~output .open_drain_output = "false";
 // Location: IOOBUF_X3_Y0_N2
 cycloneive_io_obuf \sclk~output (
 	.i(\spi|sclk~q ),
-=======
-// Location: IOOBUF_X0_Y6_N23
-cycloneive_io_obuf \light_detected~output (
-	.i(\light_detected~reg0_q ),
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
-	.o(\light_detected~output_o ),
+	.o(\sclk~output_o ),
 	.obar());
 // synopsys translate_off
-<<<<<<< HEAD
 defparam \sclk~output .bus_hold = "false";
 defparam \sclk~output .open_drain_output = "false";
 // synopsys translate_on
@@ -288,10 +254,6 @@ cycloneive_io_obuf \cs~output (
 // synopsys translate_off
 defparam \cs~output .bus_hold = "false";
 defparam \cs~output .open_drain_output = "false";
-=======
-defparam \light_detected~output .bus_hold = "false";
-defparam \light_detected~output .open_drain_output = "false";
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 // synopsys translate_on
 
 // Location: IOOBUF_X5_Y0_N16
@@ -330,7 +292,6 @@ defparam \clk~input .bus_hold = "false";
 defparam \clk~input .simulate_z_as = "z";
 // synopsys translate_on
 
-<<<<<<< HEAD
 // Location: CLKCTRL_G2
 cycloneive_clkctrl \clk~inputclkctrl (
 	.ena(vcc),
@@ -2986,56 +2947,28 @@ defparam \dc~reg0 .power_up = "low";
 // Location: IOIBUF_X0_Y9_N8
 cycloneive_io_ibuf \state[0]~input (
 	.i(state[0]),
-=======
-// Location: IOIBUF_X0_Y8_N15
-cycloneive_io_ibuf \DO~input (
-	.i(\DO ),
 	.ibar(gnd),
-	.o(\DO~input_o ));
+	.o(\state[0]~input_o ));
 // synopsys translate_off
-defparam \DO~input .bus_hold = "false";
-defparam \DO~input .simulate_z_as = "z";
+defparam \state[0]~input .bus_hold = "false";
+defparam \state[0]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y9_N8
-cycloneive_io_ibuf \rst~input (
-	.i(rst),
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
-	.ibar(gnd),
-	.o(\rst~input_o ));
-// synopsys translate_off
-defparam \rst~input .bus_hold = "false";
-defparam \rst~input .simulate_z_as = "z";
-// synopsys translate_on
-
-<<<<<<< HEAD
 // Location: IOIBUF_X16_Y24_N15
 cycloneive_io_ibuf \state[1]~input (
 	.i(state[1]),
 	.ibar(gnd),
 	.o(\state[1]~input_o ));
-=======
-// Location: FF_X1_Y7_N25
-dffeas \light_detected~reg0 (
-	.clk(\clk~input_o ),
-	.d(gnd),
-	.asdata(\DO~input_o ),
-	.clrn(!\rst~input_o ),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(vcc),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\light_detected~reg0_q ),
-	.prn(vcc));
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 // synopsys translate_off
-defparam \light_detected~reg0 .is_wysiwyg = "true";
-defparam \light_detected~reg0 .power_up = "low";
+defparam \state[1]~input .bus_hold = "false";
+defparam \state[1]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-assign light_detected = \light_detected~output_o ;
+assign mosi = \mosi~output_o ;
+
+assign sclk = \sclk~output_o ;
+
+assign cs = \cs~output_o ;
 
 assign dc = \dc~output_o ;
 

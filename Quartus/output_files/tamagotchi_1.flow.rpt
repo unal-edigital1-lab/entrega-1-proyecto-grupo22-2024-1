@@ -1,9 +1,5 @@
 Flow report for tamagotchi_1
-<<<<<<< HEAD
 Tue Sep  3 23:11:18 2024
-=======
-Mon Sep  2 10:17:57 2024
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -45,34 +41,22 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-<<<<<<< HEAD
 ; Flow Status                        ; Successful - Tue Sep  3 23:11:18 2024          ;
-=======
-; Flow Status                        ; Successful - Mon Sep  2 10:17:57 2024          ;
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; tamagotchi_1                                   ;
-; Top-level Entity Name              ; LightSensor                                    ;
+; Top-level Entity Name              ; tamagotchi_1                                   ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE6E22C8                                    ;
 ; Timing Models                      ; Final                                          ;
-<<<<<<< HEAD
 ; Total logic elements               ; 92 / 6,272 ( 1 % )                             ;
 ;     Total combinational functions  ; 90 / 6,272 ( 1 % )                             ;
 ;     Dedicated logic registers      ; 55 / 6,272 ( < 1 % )                           ;
 ; Total registers                    ; 55                                             ;
 ; Total pins                         ; 9 / 92 ( 10 % )                                ;
-=======
-; Total logic elements               ; 1                                              ;
-;     Total combinational functions  ; 0                                              ;
-;     Dedicated logic registers      ; 1                                              ;
-; Total registers                    ; 1                                              ;
-; Total pins                         ; 4                                              ;
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 ; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
-; Embedded Multiplier 9-bit elements ; 0                                              ;
-; Total PLLs                         ; 0                                              ;
+; Total memory bits                  ; 0 / 276,480 ( 0 % )                            ;
+; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                                 ;
+; Total PLLs                         ; 0 / 2 ( 0 % )                                  ;
 +------------------------------------+------------------------------------------------+
 
 
@@ -81,17 +65,12 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-<<<<<<< HEAD
 ; Start date & time ; 09/03/2024 23:11:05 ;
-=======
-; Start date & time ; 09/02/2024 10:17:49 ;
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 ; Main task         ; Compilation         ;
 ; Revision Name     ; tamagotchi_1        ;
 +-------------------+---------------------+
 
 
-<<<<<<< HEAD
 +------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Flow Non-Default Global Settings                                                                                                               ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
@@ -115,38 +94,6 @@ https://fpgasoftware.intel.com/eula.
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-=======
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                ;
-+--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
-+--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 256165214801339.172529026909075        ; --            ; --          ; --                                ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; LightSensor_tb                    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_symbol           ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; LightSensor_tb                         ; --            ; --          ; eda_simulation                    ;
-; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                  ; Questa Intel FPGA (Verilog)            ; <None>        ; --          ; --                                ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation                    ;
-; EDA_TEST_BENCH_FILE                  ; db/LightSensor_tb.v                    ; --            ; --          ; LightSensor_tb                    ;
-; EDA_TEST_BENCH_MODULE_NAME           ; LightSensor_tb                         ; --            ; --          ; LightSensor_tb                    ;
-; EDA_TEST_BENCH_NAME                  ; LightSensor_tb                         ; --            ; --          ; eda_simulation                    ;
-; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                                ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                                ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                   ; --            ; --          ; --                                ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; LightSensor ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; LightSensor ; Top                               ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; LightSensor ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                     ; LightSensor                            ; tamagotchi_1  ; --          ; --                                ;
-+--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -154,7 +101,6 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-<<<<<<< HEAD
 ; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 473 MB              ; 00:00:16                           ;
 ; Fitter               ; 00:00:03     ; 1.1                     ; 1933 MB             ; 00:00:04                           ;
 ; Assembler            ; 00:00:00     ; 1.0                     ; 351 MB              ; 00:00:00                           ;
@@ -175,26 +121,16 @@ https://fpgasoftware.intel.com/eula.
 ; Timing Analyzer      ; la-maldita-pc    ; Linux Mint ; 22         ; x86_64         ;
 ; EDA Netlist Writer   ; la-maldita-pc    ; Linux Mint ; 22         ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
-=======
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 407 MB              ; 00:00:29                           ;
-; Total                ; 00:00:09     ; --                      ; --                  ; 00:00:29                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                           ;
-+----------------------+---------------------+----------------+------------+----------------+
-; Module Name          ; Machine Hostname    ; OS Name        ; OS Version ; Processor type ;
-+----------------------+---------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; bartlessby-Vivobook ; Ubuntu 22.04.4 ; 22         ; x86_64         ;
-+----------------------+---------------------+----------------+------------+----------------+
->>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off tamagotchi_1 -c tamagotchi_1
+quartus_fit --read_settings_files=off --write_settings_files=off tamagotchi_1 -c tamagotchi_1
+quartus_asm --read_settings_files=off --write_settings_files=off tamagotchi_1 -c tamagotchi_1
+quartus_sta tamagotchi_1 -c tamagotchi_1
+quartus_eda --read_settings_files=off --write_settings_files=off tamagotchi_1 -c tamagotchi_1
 
 
 
