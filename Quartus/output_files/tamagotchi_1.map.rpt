@@ -1,5 +1,9 @@
 Analysis & Synthesis report for tamagotchi_1
+<<<<<<< HEAD
 Tue Sep  3 23:11:10 2024
+=======
+Mon Sep  2 10:17:57 2024
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,15 +17,10 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |tamagotchi_1|state_send
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Port Connectivity Checks: "spi_master:spi"
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -48,16 +47,28 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
+<<<<<<< HEAD
 ; Analysis & Synthesis Status        ; Successful - Tue Sep  3 23:11:10 2024          ;
+=======
+; Analysis & Synthesis Status        ; Successful - Mon Sep  2 10:17:57 2024          ;
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; tamagotchi_1                                   ;
-; Top-level Entity Name              ; tamagotchi_1                                   ;
+; Top-level Entity Name              ; LightSensor                                    ;
 ; Family                             ; Cyclone IV E                                   ;
+<<<<<<< HEAD
 ; Total logic elements               ; 90                                             ;
 ;     Total combinational functions  ; 90                                             ;
 ;     Dedicated logic registers      ; 55                                             ;
 ; Total registers                    ; 55                                             ;
 ; Total pins                         ; 9                                              ;
+=======
+; Total logic elements               ; 1                                              ;
+;     Total combinational functions  ; 0                                              ;
+;     Dedicated logic registers      ; 1                                              ;
+; Total registers                    ; 1                                              ;
+; Total pins                         ; 4                                              ;
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -71,7 +82,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE6E22C8        ;                    ;
-; Top-level entity name                                            ; tamagotchi_1       ; tamagotchi_1       ;
+; Top-level entity name                                            ; LightSensor        ; tamagotchi_1       ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -160,6 +171,7 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
+<<<<<<< HEAD
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
@@ -256,61 +268,93 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 
 
+=======
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                     ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; db/LightSensor.v                 ; yes             ; Auto-Generated Megafunction  ; /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor.v ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimated Total logic elements              ; 1                   ;
+;                                             ;                     ;
+; Total combinational functions               ; 0                   ;
+; Logic element usage by number of LUT inputs ;                     ;
+;     -- 4 input functions                    ; 0                   ;
+;     -- 3 input functions                    ; 0                   ;
+;     -- <=2 input functions                  ; 0                   ;
+;                                             ;                     ;
+; Logic elements by mode                      ;                     ;
+;     -- normal mode                          ; 0                   ;
+;     -- arithmetic mode                      ; 0                   ;
+;                                             ;                     ;
+; Total registers                             ; 1                   ;
+;     -- Dedicated logic registers            ; 1                   ;
+;     -- I/O registers                        ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 4                   ;
+;                                             ;                     ;
+; Embedded Multiplier 9-bit elements          ; 0                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; light_detected~reg0 ;
+; Maximum fan-out                             ; 1                   ;
+; Total fan-out                               ; 8                   ;
+; Average fan-out                             ; 0.89                ;
++---------------------------------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |LightSensor               ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |LightSensor        ; LightSensor ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
+<<<<<<< HEAD
 ; Total registers                              ; 55    ;
 ; Number of registers using Synchronous Clear  ; 27    ;
 ; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 33    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 34    ;
+=======
+; Total registers                              ; 1     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; spi_master:spi|cs                      ; 2       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tamagotchi_1|spi_master:spi|avail        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |tamagotchi_1|spi_master:spi|bit_count[3] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |tamagotchi_1|spi_master:spi|shift_reg[7] ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |tamagotchi_1|mem_index                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "spi_master:spi"                                                                                                                                                                                   ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port               ; Type   ; Severity ; Details                                                                                                                                                                             ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; div_factor         ; Input  ; Warning  ; Input port expression (26 bits) is wider than the input port (16 bits) it drives.  The 10 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; div_factor[14..11] ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                        ;
-; div_factor[10..7]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                        ;
-; div_factor[5..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                        ;
-; div_factor[15]     ; Input  ; Info     ; Stuck at GND                                                                                                                                                                        ;
-; div_factor[6]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                        ;
-; data_out           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                 ;
-; miso               ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.                                        ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
+<<<<<<< HEAD
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
@@ -337,6 +381,18 @@ Encoding Type:  One-Hot
 ; Max LUT depth         ; 5.00                        ;
 ; Average LUT depth     ; 2.62                        ;
 +-----------------------+-----------------------------+
+=======
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 4                               ;
+; cycloneiii_ff     ; 1                               ;
+;     CLR           ; 1                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 
 
 +-------------------------------+
@@ -354,11 +410,16 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+<<<<<<< HEAD
     Info: Processing started: Tue Sep  3 23:11:04 2024
+=======
+    Info: Processing started: Mon Sep  2 10:17:48 2024
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tamagotchi_1 -c tamagotchi_1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file db/tamagotchi_1.v
+<<<<<<< HEAD
     Info (12023): Found entity 1: tamagotchi_1 File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 1
 Info (12021): Found 0 design units, including 0 entities, in source file db/Visualizacion.vhd
 Info (12021): Found 1 design units, including 1 entities, in source file db/spi_master.v
@@ -381,10 +442,26 @@ Info (13000): Registers with preset signals will power-up high File: /home/dayz/
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "lcd_rst" is stuck at VCC File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 11
+=======
+    Info (12023): Found entity 1: tamagotchi_1 File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file db/spi_master.v
+    Info (12023): Found entity 1: spi_master File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/spi_master.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file db/LightSensor.v
+    Info (12023): Found entity 1: LightSensor File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file db/LightSensor_tb.v
+    Info (12023): Found entity 1: LightSensor_tb File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/LightSensor_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file db/FSM.v
+    Info (12023): Found entity 1: TamagotchiFSM File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/FSM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file db/SoundSensor.v
+    Info (12023): Found entity 1: SoundSensor File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/SoundSensor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file db/i2c_master.v
+    Info (12023): Found entity 1: I2C_Interface File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/i2c_master.v Line: 1
+Info (12127): Elaborating entity "LightSensor" for the top level hierarchy
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 11 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+<<<<<<< HEAD
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "state[0]" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 4
     Warning (15610): No output dependent on input pin "state[1]" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 4
@@ -397,5 +474,16 @@ Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
     Info: Processing ended: Tue Sep  3 23:11:10 2024
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:16
+=======
+Info (21057): Implemented 5 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 1 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 407 megabytes
+    Info: Processing ended: Mon Sep  2 10:17:57 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:29
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 
 

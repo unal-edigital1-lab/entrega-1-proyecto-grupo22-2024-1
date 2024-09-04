@@ -96,12 +96,21 @@ GND+                         : 24        :        :                   :         
 GND+                         : 25        :        :                   :         : 2         :                
 VCCIO2                       : 26        : power  :                   : 2.5V    : 2         :                
 GND                          : 27        : gnd    :                   :         :           :                
+<<<<<<< HEAD
 state[0]                     : 28        : input  : 2.5 V             :         : 2         : N              
 VCCINT                       : 29        : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 30        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 31        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 32        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 33        :        :                   :         : 2         :                
+=======
+rst                          : 28        : input  : 2.5 V             :         : 2         : N              
+VCCINT                       : 29        : power  :                   : 1.2V    :           :                
+DO                           : 30        : input  : 2.5 V             :         : 2         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 31        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 32        :        :                   :         : 2         :                
+light_detected               : 33        : output : 2.5 V             :         : 2         : N              
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 RESERVED_INPUT_WITH_WEAK_PULLUP : 34        :        :                   :         : 2         :                
 VCCA1                        : 35        : power  :                   : 2.5V    :           :                
 GNDA1                        : 36        : gnd    :                   :         :           :                
@@ -155,7 +164,11 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 83        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : 84        :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 85        :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 86        :        :                   :         : 5         :                
+<<<<<<< HEAD
 reset                        : 87        : input  : 2.5 V             :         : 5         : Y              
+=======
+RESERVED_INPUT_WITH_WEAK_PULLUP : 87        :        :                   :         : 5         :                
+>>>>>>> 770a258e28712bf61b8a6e56931be314e8e2b188
 GND+                         : 88        :        :                   :         : 5         :                
 GND+                         : 89        :        :                   :         : 5         :                
 GND+                         : 90        :        :                   :         : 6         :                
