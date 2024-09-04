@@ -21,11 +21,15 @@ reset => data_in.OUTPUTSELECT
 reset => data_in.OUTPUTSELECT
 reset => data_in.OUTPUTSELECT
 reset => data_in.OUTPUTSELECT
+reset => dc~reg0.ENA
+reset => lcd_rst~reg0.ENA
 state[0] => ~NO_FANOUT~
 state[1] => ~NO_FANOUT~
 mosi << spi_master:spi.mosi
 sclk << spi_master:spi.sclk
 cs << spi_master:spi.cs
+dc << dc~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_rst << lcd_rst~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |tamagotchi_1|spi_master:spi

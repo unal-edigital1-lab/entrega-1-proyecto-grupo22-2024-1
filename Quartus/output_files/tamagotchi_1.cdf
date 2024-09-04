@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE6E22) Path("/home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/output_files/") File("tamagotchi_1.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE6E22) Path("/home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Quartus/output_files/") File("tamagotchi_1.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -2,11 +2,10 @@ module tamagotchi_1 (
 	input clk,                // Reloj del sistema
    input reset,              // Señal de reset
    input [1:0] state,      // Datos de entrada para enviar
-	output mosi,               // Master Out Slave In
-   output sclk,          // Reloj SPI
-   output cs,           // Chip Select
-	output reg dc,
-	output reg lcd_rst
+	output  mosi,               // Master Out Slave In
+   output  sclk,          // Reloj SPI
+   output  cs            // Chip Select
+
   
 );
 /*TODO: VALIDAR  QUE EL CS SE ACIVE PARA LOS 16 BITS  Y NO SOO OCHO */
@@ -40,34 +39,38 @@ module tamagotchi_1 (
 	reg [5:0] mem_index = 0;
 	 
 	reg sendByte;
-	reg [10:0]state_send = 0;
+	reg [10:0]state_send=0;
 
 	
 	initial begin
-        memory4CommandSend[0] = 8'h21;
-        memory4CommandSend[1] = 8'hC0;
-        memory4CommandSend[2] = 8'h06;
-        memory4CommandSend[3] = 8'h13;
-		  memory4CommandSend[4] = 8'h20;
-		  memory4CommandSend[5] = 8'h0C;
-        memory4CommandSend[6] = 8'h23; 
+        memory4CommandSend[0] = 8'h0C;  // Shutdown command
+        memory4CommandSend[1] = 8'h01;  // Shutdown Normal Operation
+        memory4CommandSend[2] = 8'h09;  // Decode-Mode
+        memory4CommandSend[3] = 8'h00;  // Decode-Mode No decode for digits 7–0
+		  memory4CommandSend[4] = 8'h0A;  // Intensity
+		  memory4CommandSend[5] = 8'h0A;  // Intensity value
+        memory4CommandSend[6] = 8'h0B;  // Scan Limit
+        memory4CommandSend[7] = 8'h07;  // Scan Limit Value
+		  memory4CommandSend[8] = 8'h0F;  // Display Test 
+        memory4CommandSend[9] = 8'h00;  // Display Test Value
 		  
-        memory4CommandSend[7] = 8'h65;			//37-45
-		  memory4CommandSend[8] = 8'b00000001;
-        memory4CommandSend[9] = 8'h66;
-		  memory4CommandSend[10] = 8'b00000011;
-        memory4CommandSend[11] = 8'h67;
-        memory4CommandSend[12] = 8'b00000111; 
-        memory4CommandSend[13] = 8'h68; 
-        memory4CommandSend[14] = 8'b00001111; 
-        memory4CommandSend[15] = 8'h69; 
-        memory4CommandSend[16] = 8'b00011111;  
-        memory4CommandSend[17] = 8'h6A;  
-        memory4CommandSend[18] = 8'b00111111;  
-        memory4CommandSend[19] = 8'h6B;
-        memory4CommandSend[20] = 8'b01111111; 
-        memory4CommandSend[21] = 8'h6C; 
-        memory4CommandSend[22] = 8'b11111111; 
+		  
+		  memory4CommandSend[10] = 8'h02;  // 
+        memory4CommandSend[11] = 8'hFF;  // 
+        memory4CommandSend[12] = 8'h03;  // 
+        memory4CommandSend[13] = 8'h7f;  // 
+        memory4CommandSend[14] = 8'h04;  // 
+        memory4CommandSend[15] = 8'h3c;  // 
+        memory4CommandSend[16] = 8'h05;  // 
+        memory4CommandSend[17] = 8'h55;  // 
+        memory4CommandSend[18] = 8'h06;  // 
+        memory4CommandSend[19] = 8'hAA;  // 
+        memory4CommandSend[20] = 8'h07;  // 
+        memory4CommandSend[21] = 8'h0f;  // 
+        memory4CommandSend[22] = 8'h08;  // 
+        memory4CommandSend[23] = 8'hf0;  //
+        memory4CommandSend[24] = 8'h01;  //  Digital 1
+        memory4CommandSend[25] = 8'hff;  // 
 	  
     end
 	
@@ -77,15 +80,9 @@ module tamagotchi_1 (
            state_send <= 0;
            sendByte <= 0;
 			  mem_index <= 0;
-			  lcd_rst <= 1;
        end else begin
 		 case (state_send)
 			0:	begin
-				if (mem_index > 6 && !mem_index[0]) begin
-					dc <= 1;
-				end else begin
-					dc <= 0;
-				end
 				data_in <= memory4CommandSend[mem_index]; 
 				sendByte <=1; 
 				state_send <= 1;
@@ -94,13 +91,14 @@ module tamagotchi_1 (
 				state_send <= 2;
 				end
 			2: begin
-				sendByte <= 0; 
+				sendByte <=0; 
 				if (avail) begin
 					state_send <= 0;	
-   				mem_index <= mem_index + 1;
-					if (mem_index > 21)begin
-						  mem_index <= 7;	
+   				mem_index <= mem_index+1;
+					if (mem_index > 24)begin
+						  mem_index <= 10;	
 						 state_send <= 3;	
+  
 					end
 				end
 				end
