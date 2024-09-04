@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FSM_pet
-Wed Sep  4 04:38:47 2024
+Wed Sep  4 08:47:03 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,16 +13,17 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |FSM_pet|state_send
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 14. Port Connectivity Checks: "spi_master:spi"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  8. State Machine - |FSM_pet|state
+  9. State Machine - |FSM_pet|state_send
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |FSM_pet
+ 15. Port Connectivity Checks: "spi_master:spi"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -49,16 +50,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Sep  4 04:38:47 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep  4 08:47:03 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; FSM_pet                                        ;
 ; Top-level Entity Name              ; FSM_pet                                        ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 142                                            ;
-;     Total combinational functions  ; 141                                            ;
-;     Dedicated logic registers      ; 56                                             ;
-; Total registers                    ; 56                                             ;
-; Total pins                         ; 9                                              ;
+; Total logic elements               ; 165                                            ;
+;     Total combinational functions  ; 165                                            ;
+;     Dedicated logic registers      ; 67                                             ;
+; Total registers                    ; 67                                             ;
+; Total pins                         ; 7                                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -165,28 +166,18 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-16        ;   0.0%      ;
+;     Processors 2-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
-; spi_master.v                     ; yes             ; User Verilog HDL File        ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v               ;         ;
-; FSM_pet.v                        ; yes             ; User Verilog HDL File        ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v                  ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/dayz/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf            ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/dayz/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc           ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/dayz/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc       ;         ;
-; aglobal231.inc                   ; yes             ; Megafunction                 ; /home/dayz/intelFPGA_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc            ;         ;
-; db/lpm_divide_1bm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/lpm_divide_1bm.tdf      ;         ;
-; db/sign_div_unsign_mlh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/sign_div_unsign_mlh.tdf ;         ;
-; db/alt_u_div_07f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/alt_u_div_07f.tdf       ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/add_sub_8pc.tdf         ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+; spi_master.v                     ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v ;         ;
+; FSM_pet.v                        ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v    ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -194,79 +185,82 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 142       ;
+; Estimated Total logic elements              ; 165       ;
 ;                                             ;           ;
-; Total combinational functions               ; 141       ;
+; Total combinational functions               ; 165       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 65        ;
+;     -- 4 input functions                    ; 97        ;
 ;     -- 3 input functions                    ; 20        ;
-;     -- <=2 input functions                  ; 56        ;
+;     -- <=2 input functions                  ; 48        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 103       ;
-;     -- arithmetic mode                      ; 38        ;
+;     -- normal mode                          ; 137       ;
+;     -- arithmetic mode                      ; 28        ;
 ;                                             ;           ;
-; Total registers                             ; 56        ;
-;     -- Dedicated logic registers            ; 56        ;
+; Total registers                             ; 67        ;
+;     -- Dedicated logic registers            ; 67        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 9         ;
+; I/O pins                                    ; 7         ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 56        ;
-; Total fan-out                               ; 638       ;
-; Average fan-out                             ; 2.97      ;
+; Maximum fan-out                             ; 67        ;
+; Total fan-out                               ; 803       ;
+; Average fan-out                             ; 3.26      ;
 +---------------------------------------------+-----------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                               ;
-+----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                      ; Entity Name         ; Library Name ;
-+----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |FSM_pet                               ; 141 (60)            ; 56 (22)                   ; 0           ; 0            ; 0       ; 0         ; 9    ; 0            ; |FSM_pet                                                                                                 ; FSM_pet             ; work         ;
-;    |lpm_divide:Mod0|                   ; 35 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSM_pet|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_1bm:auto_generated|  ; 35 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSM_pet|lpm_divide:Mod0|lpm_divide_1bm:auto_generated                                                   ; lpm_divide_1bm      ; work         ;
-;          |sign_div_unsign_mlh:divider| ; 35 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSM_pet|lpm_divide:Mod0|lpm_divide_1bm:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh ; work         ;
-;             |alt_u_div_07f:divider|    ; 35 (35)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSM_pet|lpm_divide:Mod0|lpm_divide_1bm:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_07f:divider ; alt_u_div_07f       ; work         ;
-;    |spi_master:spi|                    ; 46 (46)             ; 34 (34)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSM_pet|spi_master:spi                                                                                  ; spi_master          ; work         ;
-+----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------+---------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                          ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name     ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
+; |FSM_pet                   ; 165 (116)           ; 67 (33)                   ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |FSM_pet                ; FSM_pet     ; work         ;
+;    |spi_master:spi|        ; 49 (49)             ; 34 (34)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSM_pet|spi_master:spi ; spi_master  ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |FSM_pet|state_send                                                                                        ;
-+------------------------+------------------------+------------------------+------------------------+------------------------+
-; Name                   ; state_send.00000000011 ; state_send.00000000010 ; state_send.00000000001 ; state_send.00000000000 ;
-+------------------------+------------------------+------------------------+------------------------+------------------------+
-; state_send.00000000000 ; 0                      ; 0                      ; 0                      ; 0                      ;
-; state_send.00000000001 ; 0                      ; 0                      ; 1                      ; 1                      ;
-; state_send.00000000010 ; 0                      ; 1                      ; 0                      ; 1                      ;
-; state_send.00000000011 ; 1                      ; 0                      ; 0                      ; 1                      ;
-+------------------------+------------------------+------------------------+------------------------+------------------------+
++---------------------------------------------------+
+; State Machine - |FSM_pet|state                    ;
++------------+------------+------------+------------+
+; Name       ; state.0000 ; state.0010 ; state.0001 ;
++------------+------------+------------+------------+
+; state.0000 ; 0          ; 0          ; 0          ;
+; state.0001 ; 1          ; 0          ; 1          ;
+; state.0010 ; 1          ; 1          ; 0          ;
++------------+------------+------------+------------+
 
 
-+-------------------------------------------------------------+
-; Registers Removed During Synthesis                          ;
-+----------------------------------------+--------------------+
-; Register name                          ; Reason for Removal ;
-+----------------------------------------+--------------------+
-; state_send~6                           ; Lost fanout        ;
-; state_send~7                           ; Lost fanout        ;
-; state_send~8                           ; Lost fanout        ;
-; state_send~9                           ; Lost fanout        ;
-; state_send~10                          ; Lost fanout        ;
-; state_send~11                          ; Lost fanout        ;
-; state_send~12                          ; Lost fanout        ;
-; state_send~13                          ; Lost fanout        ;
-; state_send~14                          ; Lost fanout        ;
-; state_send~15                          ; Lost fanout        ;
-; state_send~16                          ; Lost fanout        ;
-; Total Number of Removed Registers = 11 ;                    ;
-+----------------------------------------+--------------------+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------+
+; State Machine - |FSM_pet|state_send                                                     ;
++-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name            ; state_send.0011 ; state_send.0010 ; state_send.0001 ; state_send.0000 ;
++-----------------+-----------------+-----------------+-----------------+-----------------+
+; state_send.0000 ; 0               ; 0               ; 0               ; 0               ;
+; state_send.0001 ; 0               ; 0               ; 1               ; 1               ;
+; state_send.0010 ; 0               ; 1               ; 0               ; 1               ;
+; state_send.0011 ; 1               ; 0               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+-----------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; state~8                               ; Lost fanout        ;
+; state~9                               ; Lost fanout        ;
+; state_send~2                          ; Lost fanout        ;
+; state_send~3                          ; Lost fanout        ;
+; state_send~4                          ; Lost fanout        ;
+; state_send~5                          ; Lost fanout        ;
+; Total Number of Removed Registers = 6 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -274,12 +268,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 56    ;
-; Number of registers using Synchronous Clear  ; 26    ;
-; Number of registers using Synchronous Load   ; 1     ;
+; Total registers                              ; 67    ;
+; Number of registers using Synchronous Clear  ; 36    ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 33    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 33    ;
+; Number of registers using Clock Enable       ; 48    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -289,7 +283,7 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; spi_master:spi|cs                      ; 2       ;
+; spi_master:spi|cs                      ; 1       ;
 ; Total number of inverted registers = 1 ;         ;
 +----------------------------------------+---------+
 
@@ -299,33 +293,27 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |FSM_pet|spi_master:spi|avail        ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FSM_pet|data_in[7]                  ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FSM_pet|spi_master:spi|bit_count[3] ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |FSM_pet|spi_master:spi|shift_reg[7] ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FSM_pet|mem_index                   ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |FSM_pet|count[0]                    ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 12 LEs               ; 9 LEs                  ; Yes        ; |FSM_pet|mem_index[0]                ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |FSM_pet|mem_index[3]                ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |FSM_pet|state                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 2              ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_1bm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |FSM_pet ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; INIT           ; 0000  ; Unsigned Binary                                ;
+; WIPE           ; 0001  ; Unsigned Binary                                ;
+; DRAWPET        ; 0010  ; Unsigned Binary                                ;
+; DRAWICON       ; 0011  ; Unsigned Binary                                ;
+; IDLE           ; 0100  ; Unsigned Binary                                ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -341,6 +329,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; div_factor[15]     ; Input  ; Info     ; Stuck at GND                                                                                                                                                                        ;
 ; div_factor[6]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                        ;
 ; data_out           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                 ;
+; busy               ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                 ;
 ; miso               ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.                                        ;
 +--------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -350,28 +339,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 9                           ;
-; cycloneiii_ff         ; 56                          ;
-;     CLR               ; 7                           ;
-;     CLR SLD           ; 1                           ;
-;     ENA               ; 8                           ;
+; boundary_port         ; 7                           ;
+; cycloneiii_ff         ; 67                          ;
+;     CLR               ; 8                           ;
+;     ENA               ; 6                           ;
 ;     ENA CLR           ; 9                           ;
 ;     ENA CLR SCLR      ; 16                          ;
-;     SCLR              ; 10                          ;
-;     plain             ; 5                           ;
-; cycloneiii_lcell_comb ; 142                         ;
-;     arith             ; 38                          ;
-;         2 data inputs ; 30                          ;
-;         3 data inputs ; 8                           ;
-;     normal            ; 104                         ;
-;         0 data inputs ; 5                           ;
+;     ENA SCLR          ; 17                          ;
+;     SCLR              ; 3                           ;
+;     plain             ; 8                           ;
+; cycloneiii_lcell_comb ; 166                         ;
+;     arith             ; 28                          ;
+;         2 data inputs ; 28                          ;
+;     normal            ; 138                         ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 17                          ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 65                          ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 20                          ;
+;         4 data inputs ; 97                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 13.30                       ;
-; Average LUT depth     ; 5.21                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.99                        ;
 +-----------------------+-----------------------------+
 
 
@@ -390,63 +377,50 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Wed Sep  4 04:38:41 2024
+    Info: Processing started: Wed Sep  4 08:46:58 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FSM_pet -c FSM_pet
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file spi_master.v
-    Info (12023): Found entity 1: spi_master File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 40
+    Info (12023): Found entity 1: spi_master File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file FSM_pet.v
     Info (12023): Found entity 1: FSM_pet File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 1
 Info (12127): Elaborating entity "FSM_pet" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at FSM_pet.v(83): object "c2" assigned a value but never read File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 83
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(105): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 105
-Warning (10030): Net "memory4CommandSend.data_a" at FSM_pet.v(37) has no driver or initial value, using a default initial value '0' File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 37
-Warning (10030): Net "memory4CommandSend.waddr_a" at FSM_pet.v(37) has no driver or initial value, using a default initial value '0' File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 37
-Warning (10030): Net "memory4CommandSend.we_a" at FSM_pet.v(37) has no driver or initial value, using a default initial value '0' File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 37
-Info (12128): Elaborating entity "spi_master" for hierarchy "spi_master:spi" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 34
-Warning (10230): Verilog HDL assignment warning at spi_master.v(81): truncated value with size 32 to match size of target (16) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 81
-Warning (10230): Verilog HDL assignment warning at spi_master.v(90): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 90
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(98): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 98
+Info (10264): Verilog HDL Case Statement information at FSM_pet.v(91): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 91
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(122): truncated value with size 32 to match size of target (9) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 122
+Info (10264): Verilog HDL Case Statement information at FSM_pet.v(115): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 115
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(153): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 153
+Info (10264): Verilog HDL Case Statement information at FSM_pet.v(141): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 141
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(188): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 188
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(189): truncated value with size 32 to match size of target (9) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 189
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(199): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 199
+Info (10264): Verilog HDL Case Statement information at FSM_pet.v(177): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 177
+Warning (10030): Net "memory4CommandSend.data_a" at FSM_pet.v(36) has no driver or initial value, using a default initial value '0' File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 36
+Warning (10030): Net "memory4CommandSend.waddr_a" at FSM_pet.v(36) has no driver or initial value, using a default initial value '0' File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 36
+Warning (10030): Net "memory4CommandSend.we_a" at FSM_pet.v(36) has no driver or initial value, using a default initial value '0' File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 36
+Info (12128): Elaborating entity "spi_master" for hierarchy "spi_master:spi" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 33
+Warning (10230): Verilog HDL assignment warning at spi_master.v(45): truncated value with size 32 to match size of target (16) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 45
+Warning (10230): Verilog HDL assignment warning at spi_master.v(54): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 54
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "memory4CommandSend" is uninferred due to inappropriate RAM size File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 37
+    Info (276004): RAM logic "memory4CommandSend" is uninferred due to inappropriate RAM size File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 36
 Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (41) in the Memory Initialization File "/home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/FSM_pet.ram0_FSM_pet_e46e8356.hdl.mif" -- setting initial value for remaining addresses to 0
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/FSM_pet.ram0_FSM_pet_e46e8356.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 129
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 129
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 129
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "2"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_1bm.tdf
-    Info (12023): Found entity 1: lpm_divide_1bm File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/lpm_divide_1bm.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_mlh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_mlh File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/sign_div_unsign_mlh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_07f.tdf
-    Info (12023): Found entity 1: alt_u_div_07f File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/alt_u_div_07f.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/add_sub_7pc.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/db/add_sub_8pc.tdf Line: 23
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (13000): Registers with preset signals will power-up high File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 49
+Info (13000): Registers with preset signals will power-up high File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 10
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "state[0]" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 4
-    Warning (15610): No output dependent on input pin "state[1]" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 4
-Info (21057): Implemented 154 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
+Info (21057): Implemented 173 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 145 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 476 megabytes
-    Info: Processing ended: Wed Sep  4 04:38:47 2024
-    Info: Elapsed time: 00:00:06
+    Info (21061): Implemented 166 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 497 megabytes
+    Info: Processing ended: Wed Sep  4 08:47:03 2024
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:16
 
 

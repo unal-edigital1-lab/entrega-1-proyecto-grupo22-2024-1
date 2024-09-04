@@ -1,15 +1,15 @@
-Fitter Status : Successful - Wed Sep  4 04:38:51 2024
+Fitter Status : Successful - Wed Sep  4 08:47:07 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : FSM_pet
 Top-level Entity Name : FSM_pet
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 145 / 6,272 ( 2 % )
-    Total combinational functions : 141 / 6,272 ( 2 % )
-    Dedicated logic registers : 56 / 6,272 ( < 1 % )
-Total registers : 56
-Total pins : 9 / 92 ( 10 % )
+Total logic elements : 165 / 6,272 ( 3 % )
+    Total combinational functions : 165 / 6,272 ( 3 % )
+    Dedicated logic registers : 67 / 6,272 ( 1 % )
+Total registers : 67
+Total pins : 7 / 92 ( 8 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
