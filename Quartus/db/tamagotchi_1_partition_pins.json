@@ -16,10 +16,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "dc",
-					"strict" : false
-				},
-				{
 					"name" : "reset",
 					"strict" : false
 				},
