@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Wed Sep  4 08:47:03 2024
+Analysis & Synthesis Status : Successful - Thu Sep  5 03:44:43 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : FSM_pet
 Top-level Entity Name : FSM_pet
 Family : Cyclone IV E
-Total logic elements : 165
-    Total combinational functions : 165
-    Dedicated logic registers : 67
-Total registers : 67
+Total logic elements : 183
+    Total combinational functions : 183
+    Dedicated logic registers : 83
+Total registers : 83
 Total pins : 7
 Total virtual pins : 0
 Total memory bits : 0

@@ -5,12 +5,14 @@ module spi_master(
    input start,              	// begin transmission
    input [15:0] div_factor,   // sclk div
    input  miso,          		// master in slave out
+	input cmd,
    output reg mosi,           // master out slave in
    output reg sclk,          	// spi clk
-   output reg cs,            	// chip Select
+   output reg ce,            	// chip Select
    output reg [7:0] data_out, // data received
    output reg busy,          	// busy
    output reg avail,  			// go ahead
+	output reg dc,
 	output reg lcd_rst			// rst out
 );
 
@@ -23,31 +25,33 @@ module spi_master(
 
 	always @(posedge clk or posedge reset) begin
 	  if (reset) begin
+			lcd_rst <= 0;
 			sclk <= 0;
-			cs <= 1;
+			ce <= 1;
 			shift_reg <= 0;
 			bit_count <= 0;
 			clk_count <= 0;
 			active <= 0;
 			busy <= 0;
 			avail <= 0;
-			lcd_rst <= 0;
 	  end else if (start && !active) begin
 			lcd_rst <= 1;
 			active <= 1;
 			busy <= 1;
 			avail <= 0;
-			cs <= 0;
+			ce <= 0;
+			dc <= cmd;
 			shift_reg <= data_in;
 			bit_count <= 7;
 	  end else if (active) begin
+			mosi <= shift_reg[7];
 			if (clk_count < div_factor - 1) begin
 				 clk_count <= clk_count + 1;
 			end else begin
 				 clk_count <= 0;
 				 sclk <= !sclk;
 
-				 if (sclk) begin
+				 if (!sclk) begin
 						mosi <= shift_reg[7];
 				 end else begin
 					  if (bit_count > 0) begin
@@ -55,7 +59,7 @@ module spi_master(
 							shift_reg <= {shift_reg[6:0], miso};
 					  end else begin
 							data_out <= shift_reg;
-							cs <= 1;
+							ce <= 1;
 							active <= 0;
 							busy <= 0;
 							avail <= 1;
