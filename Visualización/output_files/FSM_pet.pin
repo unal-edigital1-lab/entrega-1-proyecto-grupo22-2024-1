@@ -114,7 +114,7 @@ sclk                         : 42        : output : 2.5 V             :         
 mosi                         : 43        : output : 2.5 V             :         : 3         : Y              
 dc                           : 44        : output : 2.5 V             :         : 3         : Y              
 VCCINT                       : 45        : power  :                   : 1.2V    :           :                
-cs                           : 46        : output : 2.5 V             :         : 3         : Y              
+ce                           : 46        : output : 2.5 V             :         : 3         : Y              
 VCCIO3                       : 47        : power  :                   : 2.5V    : 3         :                
 GND                          : 48        : gnd    :                   :         :           :                
 lcd_rst                      : 49        : output : 2.5 V             :         : 3         : Y              
