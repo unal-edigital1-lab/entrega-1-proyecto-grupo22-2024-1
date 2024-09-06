@@ -30,6 +30,34 @@
 				{
 					"name" : "clk",
 					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				},
+				{
+					"name" : "icon[0]",
+					"strict" : false
+				},
+				{
+					"name" : "icon[2]",
+					"strict" : false
+				},
+				{
+					"name" : "icon[1]",
+					"strict" : false
+				},
+				{
+					"name" : "face[0]",
+					"strict" : false
+				},
+				{
+					"name" : "face[2]",
+					"strict" : false
+				},
+				{
+					"name" : "face[1]",
+					"strict" : false
 				}
 			]
 		}

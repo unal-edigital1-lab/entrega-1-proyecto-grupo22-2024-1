@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FSM_pet
-Thu Sep  5 03:44:43 2024
+Fri Sep  6 02:19:58 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -50,16 +50,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Sep  5 03:44:43 2024          ;
+; Analysis & Synthesis Status        ; Successful - Fri Sep  6 02:19:58 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; FSM_pet                                        ;
 ; Top-level Entity Name              ; FSM_pet                                        ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 183                                            ;
-;     Total combinational functions  ; 183                                            ;
-;     Dedicated logic registers      ; 83                                             ;
-; Total registers                    ; 83                                             ;
-; Total pins                         ; 7                                              ;
+; Total logic elements               ; 373                                            ;
+;     Total combinational functions  ; 367                                            ;
+;     Dedicated logic registers      ; 127                                            ;
+; Total registers                    ; 127                                            ;
+; Total pins                         ; 14                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -185,30 +185,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 183       ;
+; Estimated Total logic elements              ; 373       ;
 ;                                             ;           ;
-; Total combinational functions               ; 183       ;
+; Total combinational functions               ; 367       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 93        ;
-;     -- 3 input functions                    ; 37        ;
-;     -- <=2 input functions                  ; 53        ;
+;     -- 4 input functions                    ; 195       ;
+;     -- 3 input functions                    ; 82        ;
+;     -- <=2 input functions                  ; 90        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 145       ;
+;     -- normal mode                          ; 329       ;
 ;     -- arithmetic mode                      ; 38        ;
 ;                                             ;           ;
-; Total registers                             ; 83        ;
-;     -- Dedicated logic registers            ; 83        ;
+; Total registers                             ; 127       ;
+;     -- Dedicated logic registers            ; 127       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 7         ;
+; I/O pins                                    ; 14        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 83        ;
-; Total fan-out                               ; 908       ;
-; Average fan-out                             ; 3.24      ;
+; Maximum fan-out                             ; 127       ;
+; Total fan-out                               ; 1662      ;
+; Average fan-out                             ; 3.18      ;
 +---------------------------------------------+-----------+
 
 
@@ -217,7 +217,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name     ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
-; |FSM_pet                   ; 183 (132)           ; 83 (48)                   ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |FSM_pet                ; FSM_pet     ; work         ;
+; |FSM_pet                   ; 367 (316)           ; 127 (92)                  ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |FSM_pet                ; FSM_pet     ; work         ;
 ;    |spi_master:spi|        ; 51 (51)             ; 35 (35)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSM_pet|spi_master:spi ; spi_master  ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -240,16 +240,17 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------+
-; State Machine - |FSM_pet|state                                 ;
-+------------+------------+------------+------------+------------+
-; Name       ; state.0011 ; state.0010 ; state.0001 ; state.0000 ;
-+------------+------------+------------+------------+------------+
-; state.0000 ; 0          ; 0          ; 0          ; 0          ;
-; state.0001 ; 0          ; 0          ; 1          ; 1          ;
-; state.0010 ; 0          ; 1          ; 0          ; 1          ;
-; state.0011 ; 1          ; 0          ; 0          ; 1          ;
-+------------+------------+------------+------------+------------+
++-----------------------------------------------------------------------------+
+; State Machine - |FSM_pet|state                                              ;
++------------+------------+------------+------------+------------+------------+
+; Name       ; state.0011 ; state.0010 ; state.0001 ; state.0000 ; state.0100 ;
++------------+------------+------------+------------+------------+------------+
+; state.0000 ; 0          ; 0          ; 0          ; 0          ; 0          ;
+; state.0001 ; 0          ; 0          ; 1          ; 1          ; 0          ;
+; state.0010 ; 0          ; 1          ; 0          ; 1          ; 0          ;
+; state.0011 ; 1          ; 0          ; 0          ; 1          ; 0          ;
+; state.0100 ; 0          ; 0          ; 0          ; 1          ; 1          ;
++------------+------------+------------+------------+------------+------------+
 
 
 +----------------------------------------------------------------------------------+
@@ -257,134 +258,22 @@ Encoding Type:  One-Hot
 +-----------------------------------------+----------------------------------------+
 ; Register name                           ; Reason for Removal                     ;
 +-----------------------------------------+----------------------------------------+
-; dataline[15][0]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[15][1]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[15][2]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[15][3]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[15][4]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[15][5]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[15][6]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[15][7]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[14][0]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[14][1]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[14][2]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[14][3]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[14][4]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[14][5]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[14][6]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[14][7]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[13][0]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[13][1]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[13][2]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[13][3]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[13][4]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[13][5]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[13][6]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[13][7]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[12][0]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[12][1]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[12][2]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[12][3]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[12][4]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[12][5]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[12][6]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[12][7]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[11][0]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[11][1]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[11][2]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[11][3]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[11][4]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[11][5]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[11][6]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[11][7]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[10][0]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[10][1]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[10][2]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[10][3]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[10][4]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[10][5]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[10][6]                         ; Stuck at GND due to stuck port data_in ;
-; dataline[10][7]                         ; Stuck at VCC due to stuck port data_in ;
-; dataline[9][0]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[9][1]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[9][2]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[9][3]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[9][4]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[9][5]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[9][6]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[9][7]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[8][0]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[8][1]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[8][2]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[8][3]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[8][4]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[8][5]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[8][6]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[8][7]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[7][0]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[7][1]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[7][2]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[7][3]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[7][4]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[7][5]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[7][6]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[7][7]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[6][0]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[6][1]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[6][2]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[6][3]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[6][4]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[6][5]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[6][6]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[6][7]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[5][0]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[5][1]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[5][2]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[5][3]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[5][4]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[5][5]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[5][6]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[5][7]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[4][0]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[4][1]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[4][2]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[4][3]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[4][4]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[4][5]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[4][6]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[4][7]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[3][0]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[3][1]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[3][2]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[3][3]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[3][4]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[3][5]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[3][6]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[3][7]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[2][0]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[2][1]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[2][2]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[2][3]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[2][4]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[2][5]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[2][6]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[2][7]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[1][0]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[1][1]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[1][2]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[1][3]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[1][4]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[1][5]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[1][6]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[1][7]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[0][0]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[0][1]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[0][2]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[0][3]                          ; Stuck at VCC due to stuck port data_in ;
-; dataline[0][4]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[0][5]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[0][6]                          ; Stuck at GND due to stuck port data_in ;
-; dataline[0][7]                          ; Stuck at GND due to stuck port data_in ;
+; cmdline[5][0]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[5][1]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[5][2]                           ; Stuck at VCC due to stuck port data_in ;
+; cmdline[5][3]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[5][4]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[5][5]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[5][6]                           ; Stuck at VCC due to stuck port data_in ;
+; cmdline[5][7]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[4][0]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[4][1]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[4][2]                           ; Stuck at VCC due to stuck port data_in ;
+; cmdline[4][3]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[4][4]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[4][5]                           ; Stuck at VCC due to stuck port data_in ;
+; cmdline[4][6]                           ; Stuck at GND due to stuck port data_in ;
+; cmdline[4][7]                           ; Stuck at VCC due to stuck port data_in ;
 ; cmdline[3][0]                           ; Stuck at VCC due to stuck port data_in ;
 ; cmdline[3][1]                           ; Stuck at GND due to stuck port data_in ;
 ; cmdline[3][2]                           ; Stuck at GND due to stuck port data_in ;
@@ -457,6 +346,161 @@ Encoding Type:  One-Hot
 ; initline[0][5]                          ; Stuck at VCC due to stuck port data_in ;
 ; initline[0][6]                          ; Stuck at GND due to stuck port data_in ;
 ; initline[0][7]                          ; Stuck at GND due to stuck port data_in ;
+; iconline[4][2]                          ; Stuck at GND due to stuck port data_in ;
+; iconline[4][1]                          ; Stuck at GND due to stuck port data_in ;
+; iconline[6][6]                          ; Stuck at GND due to stuck port data_in ;
+; iconline[7][0]                          ; Stuck at GND due to stuck port data_in ;
+; iconline[3][6]                          ; Stuck at GND due to stuck port data_in ;
+; iconline[1][3]                          ; Stuck at GND due to stuck port data_in ;
+; iconline[1][6]                          ; Stuck at GND due to stuck port data_in ;
+; iconline[0][0]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[15][2]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[15][3]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[15][4]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[15][6]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[15][7]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[14][3]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[14][4]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[14][6]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[13][0]                         ; Stuck at VCC due to stuck port data_in ;
+; dataline[13][1]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[13][2]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[13][3]                         ; Stuck at VCC due to stuck port data_in ;
+; dataline[13][5]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[13][6]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[13][7]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[12][0]                         ; Stuck at VCC due to stuck port data_in ;
+; dataline[12][1]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[12][2]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[12][3]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[12][4]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[12][5]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[11][4]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[11][6]                         ; Stuck at GND due to stuck port data_in ;
+; dataline[10][0]                         ; Stuck at VCC due to stuck port data_in ;
+; dataline[10][5]                         ; Stuck at VCC due to stuck port data_in ;
+; dataline[10][7]                         ; Stuck at VCC due to stuck port data_in ;
+; dataline[9][0]                          ; Stuck at VCC due to stuck port data_in ;
+; dataline[9][1]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[9][2]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[9][5]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[9][6]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[9][7]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[8][0]                          ; Stuck at VCC due to stuck port data_in ;
+; dataline[8][1]                          ; Stuck at VCC due to stuck port data_in ;
+; dataline[8][2]                          ; Stuck at VCC due to stuck port data_in ;
+; dataline[8][4]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[8][5]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[8][6]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[8][7]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[7][3]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[7][4]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[7][5]                          ; Stuck at VCC due to stuck port data_in ;
+; dataline[7][6]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[7][7]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[6][3]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[6][4]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[6][5]                          ; Stuck at VCC due to stuck port data_in ;
+; dataline[6][7]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[5][3]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[5][6]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[4][0]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[4][6]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[3][0]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[3][5]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[3][6]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[2][2]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[2][3]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[2][4]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[2][7]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[1][1]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[1][2]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[1][3]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[1][5]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[1][6]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[1][7]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[0][0]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[0][4]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[0][5]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[0][6]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[0][7]                          ; Stuck at GND due to stuck port data_in ;
+; dataline[0][2]                          ; Merged with dataline[0][1]             ;
+; dataline[0][3]                          ; Merged with dataline[0][1]             ;
+; dataline[11][1]                         ; Merged with dataline[0][1]             ;
+; dataline[11][2]                         ; Merged with dataline[0][1]             ;
+; dataline[11][3]                         ; Merged with dataline[0][1]             ;
+; dataline[11][5]                         ; Merged with dataline[0][1]             ;
+; dataline[11][7]                         ; Merged with dataline[0][1]             ;
+; dataline[12][6]                         ; Merged with dataline[0][1]             ;
+; dataline[14][1]                         ; Merged with dataline[0][1]             ;
+; dataline[14][2]                         ; Merged with dataline[0][1]             ;
+; dataline[15][1]                         ; Merged with dataline[0][1]             ;
+; dataline[1][0]                          ; Merged with dataline[0][1]             ;
+; dataline[1][4]                          ; Merged with dataline[0][1]             ;
+; dataline[2][5]                          ; Merged with dataline[0][1]             ;
+; dataline[2][6]                          ; Merged with dataline[0][1]             ;
+; dataline[3][7]                          ; Merged with dataline[0][1]             ;
+; dataline[4][7]                          ; Merged with dataline[0][1]             ;
+; dataline[5][7]                          ; Merged with dataline[0][1]             ;
+; dataline[6][6]                          ; Merged with dataline[0][1]             ;
+; dataline[8][3]                          ; Merged with dataline[0][1]             ;
+; dataline[9][4]                          ; Merged with dataline[0][1]             ;
+; dataline[10][2]                         ; Merged with dataline[10][1]            ;
+; dataline[10][3]                         ; Merged with dataline[10][1]            ;
+; dataline[10][4]                         ; Merged with dataline[10][1]            ;
+; dataline[10][6]                         ; Merged with dataline[10][1]            ;
+; dataline[11][0]                         ; Merged with dataline[10][1]            ;
+; dataline[12][7]                         ; Merged with dataline[10][1]            ;
+; dataline[13][4]                         ; Merged with dataline[10][1]            ;
+; dataline[14][0]                         ; Merged with dataline[10][1]            ;
+; dataline[14][5]                         ; Merged with dataline[10][1]            ;
+; dataline[14][7]                         ; Merged with dataline[10][1]            ;
+; dataline[15][0]                         ; Merged with dataline[10][1]            ;
+; dataline[15][5]                         ; Merged with dataline[10][1]            ;
+; dataline[2][0]                          ; Merged with dataline[10][1]            ;
+; dataline[2][1]                          ; Merged with dataline[10][1]            ;
+; dataline[3][3]                          ; Merged with dataline[10][1]            ;
+; dataline[5][5]                          ; Merged with dataline[10][1]            ;
+; dataline[9][3]                          ; Merged with dataline[10][1]            ;
+; iconline[1][2]                          ; Merged with iconline[0][7]             ;
+; iconline[4][7]                          ; Merged with iconline[0][7]             ;
+; iconline[6][2]                          ; Merged with iconline[0][7]             ;
+; iconline[0][5]                          ; Merged with iconline[0][1]             ;
+; iconline[0][6]                          ; Merged with iconline[0][1]             ;
+; iconline[1][0]                          ; Merged with iconline[0][1]             ;
+; iconline[1][7]                          ; Merged with iconline[0][1]             ;
+; iconline[5][1]                          ; Merged with iconline[0][1]             ;
+; iconline[5][2]                          ; Merged with iconline[0][1]             ;
+; iconline[6][0]                          ; Merged with iconline[0][1]             ;
+; iconline[7][1]                          ; Merged with iconline[0][1]             ;
+; iconline[5][5]                          ; Merged with iconline[2][7]             ;
+; dataline[6][0]                          ; Merged with dataline[4][5]             ;
+; dataline[5][4]                          ; Merged with dataline[4][3]             ;
+; iconline[5][3]                          ; Merged with iconline[2][1]             ;
+; iconline[5][7]                          ; Merged with iconline[2][1]             ;
+; iconline[3][2]                          ; Merged with iconline[3][1]             ;
+; iconline[3][5]                          ; Merged with iconline[3][1]             ;
+; iconline[6][3]                          ; Merged with iconline[3][1]             ;
+; iconline[7][7]                          ; Merged with iconline[3][1]             ;
+; iconline[2][6]                          ; Merged with iconline[2][2]             ;
+; iconline[3][3]                          ; Merged with iconline[2][2]             ;
+; iconline[4][3]                          ; Merged with iconline[2][2]             ;
+; iconline[4][6]                          ; Merged with iconline[4][5]             ;
+; iconline[7][5]                          ; Merged with iconline[2][4]             ;
+; iconline[7][6]                          ; Merged with iconline[2][4]             ;
+; iconline[6][5]                          ; Merged with iconline[1][5]             ;
+; iconline[0][3]                          ; Merged with iconline[0][2]             ;
+; iconline[0][4]                          ; Merged with iconline[0][2]             ;
+; iconline[3][4]                          ; Merged with iconline[2][0]             ;
+; iconline[4][4]                          ; Merged with iconline[2][0]             ;
+; iconline[5][0]                          ; Merged with iconline[2][0]             ;
+; iconline[7][2]                          ; Merged with iconline[2][0]             ;
+; iconline[7][4]                          ; Merged with iconline[7][3]             ;
+; dataline[4][1]                          ; Merged with dataline[3][2]             ;
+; dataline[5][2]                          ; Merged with dataline[4][2]             ;
+; dataline[6][2]                          ; Merged with dataline[4][2]             ;
+; dataline[7][1]                          ; Merged with dataline[5][1]             ;
+; iconline[4][0]                          ; Merged with iconline[3][0]             ;
 ; count~9                                 ; Lost fanout                            ;
 ; count~10                                ; Lost fanout                            ;
 ; count~11                                ; Lost fanout                            ;
@@ -466,11 +510,10 @@ Encoding Type:  One-Hot
 ; count~15                                ; Lost fanout                            ;
 ; count~16                                ; Lost fanout                            ;
 ; count~17                                ; Lost fanout                            ;
-; state~6                                 ; Lost fanout                            ;
 ; state~7                                 ; Lost fanout                            ;
 ; state~8                                 ; Lost fanout                            ;
-; state~9                                 ; Lost fanout                            ;
-; Total Number of Removed Registers = 213 ;                                        ;
+; state~10                                ; Lost fanout                            ;
+; Total Number of Removed Registers = 255 ;                                        ;
 +-----------------------------------------+----------------------------------------+
 
 
@@ -479,12 +522,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 83    ;
-; Number of registers using Synchronous Clear  ; 34    ;
-; Number of registers using Synchronous Load   ; 10    ;
+; Total registers                              ; 127   ;
+; Number of registers using Synchronous Clear  ; 52    ;
+; Number of registers using Synchronous Load   ; 9     ;
 ; Number of registers using Asynchronous Clear ; 33    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 61    ;
+; Number of registers using Clock Enable       ; 102   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -504,14 +547,17 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FSM_pet|iconindex[0]                ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FSM_pet|spi_master:spi|bit_count[3] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |FSM_pet|spi_master:spi|shift_reg[6] ;
-; 9:1                ; 6 bits    ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |FSM_pet|cmdindex[3]                 ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; Yes        ; |FSM_pet|data_in[4]                  ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |FSM_pet|data_in[0]                  ;
-; 17:1               ; 6 bits    ; 66 LEs        ; 24 LEs               ; 42 LEs                 ; Yes        ; |FSM_pet|dataindex[1]                ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FSM_pet|state                       ;
-; 19:1               ; 7 bits    ; 84 LEs        ; 42 LEs               ; 42 LEs                 ; No         ; |FSM_pet|count                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |FSM_pet|spi_master:spi|shift_reg[5] ;
+; 8:1                ; 13 bits   ; 65 LEs        ; 52 LEs               ; 13 LEs                 ; Yes        ; |FSM_pet|dataline[0][1]              ;
+; 8:1                ; 23 bits   ; 115 LEs       ; 69 LEs               ; 46 LEs                 ; Yes        ; |FSM_pet|iconline[2][0]              ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FSM_pet|initindex[5]                ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 15 LEs               ; 20 LEs                 ; Yes        ; |FSM_pet|cmdindex[0]                 ;
+; 17:1               ; 6 bits    ; 66 LEs        ; 24 LEs               ; 42 LEs                 ; Yes        ; |FSM_pet|dataindex[5]                ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |FSM_pet|state                       ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |FSM_pet|state                       ;
+; 24:1               ; 7 bits    ; 112 LEs       ; 42 LEs               ; 70 LEs                 ; No         ; |FSM_pet|count                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 
 
@@ -522,8 +568,9 @@ Encoding Type:  One-Hot
 +----------------+-------+------------------------------------------------+
 ; INIT           ; 0000  ; Unsigned Binary                                ;
 ; WIPE           ; 0001  ; Unsigned Binary                                ;
-; DRAWPET        ; 0010  ; Unsigned Binary                                ;
-; DRAWICON       ; 0011  ; Unsigned Binary                                ;
+; WAIT           ; 0010  ; Unsigned Binary                                ;
+; DRAWPET        ; 0011  ; Unsigned Binary                                ;
+; DRAWICON       ; 0100  ; Unsigned Binary                                ;
 +----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -551,30 +598,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 7                           ;
-; cycloneiii_ff         ; 83                          ;
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 127                         ;
 ;     CLR               ; 7                           ;
 ;     CLR SLD           ; 1                           ;
-;     ENA               ; 10                          ;
+;     ENA               ; 37                          ;
 ;     ENA CLR           ; 9                           ;
 ;     ENA CLR SCLR      ; 16                          ;
-;     ENA SCLR          ; 17                          ;
-;     ENA SLD           ; 9                           ;
-;     SCLR              ; 1                           ;
+;     ENA SCLR          ; 32                          ;
+;     ENA SLD           ; 8                           ;
+;     SCLR              ; 4                           ;
 ;     plain             ; 13                          ;
-; cycloneiii_lcell_comb ; 184                         ;
+; cycloneiii_lcell_comb ; 368                         ;
 ;     arith             ; 38                          ;
-;         2 data inputs ; 34                          ;
-;         3 data inputs ; 4                           ;
-;     normal            ; 146                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 6                           ;
-;         2 data inputs ; 13                          ;
-;         3 data inputs ; 33                          ;
-;         4 data inputs ; 93                          ;
+;         2 data inputs ; 33                          ;
+;         3 data inputs ; 5                           ;
+;     normal            ; 330                         ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 43                          ;
+;         3 data inputs ; 77                          ;
+;         4 data inputs ; 195                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.25                        ;
+; Average LUT depth     ; 3.89                        ;
 +-----------------------+-----------------------------+
 
 
@@ -583,7 +629,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -593,7 +639,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Thu Sep  5 03:44:38 2024
+    Info: Processing started: Fri Sep  6 02:19:52 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FSM_pet -c FSM_pet
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -603,36 +649,38 @@ Info (12021): Found 1 design units, including 1 entities, in source file FSM_pet
     Info (12023): Found entity 1: FSM_pet File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file spi_Testbench.v
     Info (12023): Found entity 1: spi_Testbench File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_Testbench.v Line: 3
-Warning (10236): Verilog HDL Implicit Net warning at FSM_pet.v(43): created implicit net for "data_out" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 43
+Warning (10236): Verilog HDL Implicit Net warning at FSM_pet.v(48): created implicit net for "data_out" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 48
 Info (12127): Elaborating entity "FSM_pet" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(103): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 103
-Info (10264): Verilog HDL Case Statement information at FSM_pet.v(90): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 90
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(121): truncated value with size 32 to match size of target (9) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 121
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(144): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 144
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(157): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 157
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(170): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 170
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(183): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 183
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(196): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 196
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(209): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 209
-Info (10264): Verilog HDL Case Statement information at FSM_pet.v(88): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 88
-Info (12128): Elaborating entity "spi_master" for hierarchy "spi_master:spi" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 48
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(94): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 94
+Info (10264): Verilog HDL Case Statement information at FSM_pet.v(81): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 81
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(112): truncated value with size 32 to match size of target (9) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 112
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(321): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 321
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(334): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 334
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(347): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 347
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(360): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 360
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(373): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 373
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(386): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 386
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(412): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 412
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(424): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 424
+Info (10264): Verilog HDL Case Statement information at FSM_pet.v(398): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 398
+Info (12128): Elaborating entity "spi_master" for hierarchy "spi_master:spi" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/FSM_pet.v Line: 53
 Warning (10230): Verilog HDL assignment warning at spi_master.v(49): truncated value with size 32 to match size of target (16) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 49
 Warning (10230): Verilog HDL assignment warning at spi_master.v(58): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 58
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13000): Registers with preset signals will power-up high File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Visualización/spi_master.v Line: 11
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 13 registers lost all their fanouts during netlist optimizations.
+Info (17049): 12 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 191 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
+Info (21057): Implemented 398 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 184 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info (21061): Implemented 384 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
     Info: Peak virtual memory: 473 megabytes
-    Info: Processing ended: Thu Sep  5 03:44:43 2024
-    Info: Elapsed time: 00:00:05
+    Info: Processing ended: Fri Sep  6 02:19:58 2024
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:16
 
 
