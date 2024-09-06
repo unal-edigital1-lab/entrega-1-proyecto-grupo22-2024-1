@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tamagotchi_1
-Wed Sep  4 16:57:57 2024
+Thu Sep  5 19:13:14 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -48,7 +48,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Sep  4 16:57:57 2024          ;
+; Analysis & Synthesis Status        ; Successful - Thu Sep  5 19:13:14 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; tamagotchi_1                                   ;
 ; Top-level Entity Name              ; tamagotchi_1                                   ;
@@ -164,8 +164,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-12        ;   0.0%      ;
+;     Processors 2-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -342,7 +341,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -352,7 +351,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Wed Sep  4 16:57:48 2024
+    Info: Processing started: Thu Sep  5 19:13:06 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tamagotchi_1 -c tamagotchi_1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -361,8 +360,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/tama
 Info (12021): Found 0 design units, including 0 entities, in source file db/Visualizacion.vhd
 Info (12021): Found 1 design units, including 1 entities, in source file db/spi_master.v
     Info (12023): Found entity 1: spi_master File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/spi_master.v Line: 40
-Info (12021): Found 1 design units, including 1 entities, in source file db/tamagotchiFSM.v
-    Info (12023): Found entity 1: tamagotchiFSM File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchiFSM.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file db/Lightsensor.v
     Info (12023): Found entity 1: LightSensor File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/Lightsensor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file db/Soundsensor.v
@@ -371,6 +368,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/I2C_
     Info (12023): Found entity 1: I2C_Interface File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/I2C_Interface.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file db/bttons_antirrebote.v
     Info (12023): Found entity 1: button_driver File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/bttons_antirrebote.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file db/tamagotchi_fsm.v
+    Info (12023): Found entity 1: tamagotchi_fsm File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_fsm.v Line: 1
 Info (12127): Elaborating entity "tamagotchi_1" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at tamagotchi_1.v(77): object "c2" assigned a value but never read File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 77
 Warning (10230): Verilog HDL assignment warning at tamagotchi_1.v(97): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/Quartus/db/tamagotchi_1.v Line: 97
@@ -399,9 +398,9 @@ Info (21057): Implemented 96 device resources after synthesis - the final resour
     Info (21059): Implemented 3 output pins
     Info (21061): Implemented 89 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 453 megabytes
-    Info: Processing ended: Wed Sep  4 16:57:57 2024
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:29
+    Info: Peak virtual memory: 449 megabytes
+    Info: Processing ended: Thu Sep  5 19:13:14 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:30
 
 
