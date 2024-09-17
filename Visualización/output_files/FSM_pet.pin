@@ -65,7 +65,7 @@
  ---------------------------------------------------------------------------------
 
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-CHIP  "FSM_pet"  ASSIGNED TO AN: EP4CE6E22C8
+CHIP  "FSM_pet"  ASSIGNED TO AN: EP4CE10E22C8
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------

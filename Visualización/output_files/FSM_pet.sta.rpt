@@ -1,5 +1,5 @@
 Timing Analyzer report for FSM_pet
-Fri Sep  6 02:20:06 2024
+Tue Sep 17 05:00:10 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -84,7 +84,7 @@ https://fpgasoftware.intel.com/eula.
 ; Timing Analyzer       ; Legacy Timing Analyzer                                 ;
 ; Revision Name         ; FSM_pet                                                ;
 ; Device Family         ; Cyclone IV E                                           ;
-; Device Name           ; EP4CE6E22C8                                            ;
+; Device Name           ; EP4CE10E22C8                                           ;
 ; Timing Models         ; Final                                                  ;
 ; Delay Model           ; Combined                                               ;
 ; Rise/Fall Delays      ; Enabled                                                ;
@@ -99,12 +99,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 32          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.14        ;
+; Average used               ; 1.12        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.9%      ;
+;     Processors 2-16        ;   0.8%      ;
 +----------------------------+-------------+
 
 
@@ -122,7 +122,7 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
 +------------+-----------------+------------+------+
-; 197.01 MHz ; 197.01 MHz      ; clk        ;      ;
+; 183.82 MHz ; 183.82 MHz      ; clk        ;      ;
 +------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -138,7 +138,7 @@ HTML report is unavailable in plain text report export.
 +-------+--------+--------------------+
 ; Clock ; Slack  ; End Point TNS      ;
 +-------+--------+--------------------+
-; clk   ; -4.076 ; -369.410           ;
+; clk   ; -4.440 ; -376.680           ;
 +-------+--------+--------------------+
 
 
@@ -147,7 +147,7 @@ HTML report is unavailable in plain text report export.
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; clk   ; 0.434 ; 0.000              ;
+; clk   ; 0.453 ; 0.000              ;
 +-------+-------+--------------------+
 
 
@@ -177,106 +177,106 @@ No paths to report.
 +--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node                   ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
-; -4.076 ; state.0000                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.990      ;
-; -4.076 ; state.0000                  ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.990      ;
-; -4.075 ; state.0000                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.989      ;
-; -4.049 ; spi_master:spi|avail        ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.089     ; 4.961      ;
-; -4.049 ; spi_master:spi|avail        ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.089     ; 4.961      ;
-; -4.049 ; spi_master:spi|avail        ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.089     ; 4.961      ;
-; -4.029 ; cmdindex[3]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.080     ; 4.950      ;
-; -4.029 ; cmdindex[3]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.080     ; 4.950      ;
-; -4.029 ; cmdindex[3]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.080     ; 4.950      ;
-; -4.000 ; initindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.921      ;
-; -4.000 ; initindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.921      ;
-; -3.999 ; initindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.920      ;
-; -3.979 ; initindex[2]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.900      ;
-; -3.979 ; initindex[2]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.900      ;
-; -3.978 ; initindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.899      ;
-; -3.957 ; dataindex[1]                ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.094     ; 4.864      ;
-; -3.957 ; dataindex[1]                ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.094     ; 4.864      ;
-; -3.957 ; dataindex[1]                ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.094     ; 4.864      ;
-; -3.925 ; dataindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.834      ;
-; -3.924 ; dataindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.833      ;
-; -3.919 ; dataindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.828      ;
-; -3.916 ; count.000000110             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.837      ;
-; -3.915 ; count.000000110             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.836      ;
-; -3.910 ; count.000000110             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.831      ;
-; -3.864 ; dataindex[1]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.773      ;
-; -3.863 ; dataindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.772      ;
-; -3.858 ; dataindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.767      ;
-; -3.848 ; dataindex[3]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.757      ;
-; -3.847 ; dataindex[3]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.756      ;
-; -3.842 ; dataindex[3]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.751      ;
-; -3.828 ; iconindex[2]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.088     ; 4.741      ;
-; -3.828 ; iconindex[2]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.088     ; 4.741      ;
-; -3.827 ; iconindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.088     ; 4.740      ;
-; -3.823 ; iconindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.088     ; 4.736      ;
-; -3.823 ; iconindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.088     ; 4.736      ;
-; -3.822 ; iconindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.088     ; 4.735      ;
-; -3.811 ; spi_master:spi|clk_count[8] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.077     ; 4.735      ;
-; -3.799 ; spi_master:spi|avail        ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.088     ; 4.712      ;
-; -3.799 ; spi_master:spi|avail        ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.088     ; 4.712      ;
-; -3.792 ; spi_master:spi|clk_count[8] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.075     ; 4.718      ;
-; -3.785 ; spi_master:spi|clk_count[1] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.077     ; 4.709      ;
-; -3.783 ; dataindex[5]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.692      ;
-; -3.783 ; dataindex[5]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.692      ;
-; -3.782 ; dataindex[5]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.691      ;
-; -3.779 ; cmdindex[3]                 ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.079     ; 4.701      ;
-; -3.779 ; cmdindex[3]                 ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.079     ; 4.701      ;
-; -3.766 ; count.000000000             ; data_in[2]           ; clk          ; clk         ; 1.000        ; -0.561     ; 4.206      ;
-; -3.766 ; initindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.687      ;
-; -3.766 ; initindex[1]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.687      ;
-; -3.766 ; spi_master:spi|clk_count[1] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.075     ; 4.692      ;
-; -3.765 ; initindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.686      ;
-; -3.759 ; cmdindex[2]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.667      ;
-; -3.759 ; cmdindex[2]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.667      ;
-; -3.759 ; cmdindex[2]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.667      ;
-; -3.750 ; cmdindex[3]                 ; dataindex[2]         ; clk          ; clk         ; 1.000        ; -0.067     ; 4.684      ;
-; -3.750 ; cmdindex[3]                 ; dataindex[4]         ; clk          ; clk         ; 1.000        ; -0.067     ; 4.684      ;
-; -3.750 ; cmdindex[3]                 ; dataindex[0]         ; clk          ; clk         ; 1.000        ; -0.067     ; 4.684      ;
-; -3.750 ; cmdindex[3]                 ; dataindex[1]         ; clk          ; clk         ; 1.000        ; -0.067     ; 4.684      ;
-; -3.750 ; cmdindex[3]                 ; dataindex[5]         ; clk          ; clk         ; 1.000        ; -0.067     ; 4.684      ;
-; -3.750 ; cmdindex[3]                 ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.067     ; 4.684      ;
-; -3.736 ; count.000000010             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.657      ;
-; -3.735 ; count.000000010             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.656      ;
-; -3.734 ; cmdindex[5]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.080     ; 4.655      ;
-; -3.734 ; cmdindex[5]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.080     ; 4.655      ;
-; -3.734 ; cmdindex[5]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.080     ; 4.655      ;
-; -3.730 ; count.000000010             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.651      ;
-; -3.722 ; count.000000101             ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.576     ; 4.147      ;
-; -3.722 ; count.000000101             ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.576     ; 4.147      ;
-; -3.722 ; count.000000101             ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.576     ; 4.147      ;
-; -3.720 ; dataindex[0]                ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.094     ; 4.627      ;
-; -3.720 ; dataindex[0]                ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.094     ; 4.627      ;
-; -3.720 ; dataindex[0]                ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.094     ; 4.627      ;
-; -3.707 ; dataindex[1]                ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.615      ;
-; -3.707 ; dataindex[1]                ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.615      ;
-; -3.704 ; spi_master:spi|clk_count[0] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.077     ; 4.628      ;
-; -3.696 ; state.0100                  ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.610      ;
-; -3.695 ; state.0100                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.609      ;
-; -3.691 ; count.000000000             ; data_in[0]           ; clk          ; clk         ; 1.000        ; -0.561     ; 4.131      ;
-; -3.690 ; state.0100                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.604      ;
-; -3.685 ; spi_master:spi|clk_count[0] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.075     ; 4.611      ;
-; -3.676 ; cmdindex[3]                 ; cmdindex[2]          ; clk          ; clk         ; 1.000        ; -0.067     ; 4.610      ;
-; -3.676 ; cmdindex[1]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.596      ;
-; -3.676 ; cmdindex[1]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.596      ;
-; -3.676 ; cmdindex[1]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.596      ;
-; -3.670 ; dataindex[4]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.579      ;
-; -3.670 ; dataindex[4]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.579      ;
-; -3.669 ; dataindex[4]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.092     ; 4.578      ;
-; -3.663 ; spi_master:spi|avail        ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.577      ;
-; -3.662 ; count.000000011             ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.563     ; 4.100      ;
-; -3.662 ; spi_master:spi|avail        ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.576      ;
-; -3.658 ; dataindex[0]                ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.081     ; 4.578      ;
-; -3.657 ; spi_master:spi|avail        ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.571      ;
-; -3.646 ; spi_master:spi|clk_count[3] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.077     ; 4.570      ;
-; -3.639 ; count.000000001             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.560      ;
-; -3.638 ; count.000000001             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.559      ;
-; -3.633 ; count.000000001             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.554      ;
-; -3.627 ; count.000000011             ; dataindex[2]         ; clk          ; clk         ; 1.000        ; -0.563     ; 4.065      ;
-; -3.627 ; spi_master:spi|clk_count[3] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.075     ; 4.553      ;
-; -3.624 ; state.0000                  ; count.000000000      ; clk          ; clk         ; 1.000        ; 0.387      ; 5.012      ;
-; -3.623 ; count.000000001             ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.082     ; 4.542      ;
+; -4.440 ; iconindex[5]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.089     ; 5.352      ;
+; -4.420 ; count.000000110             ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.094     ; 5.327      ;
+; -4.363 ; iconindex[1]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.089     ; 5.275      ;
+; -4.334 ; iconindex[3]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.089     ; 5.246      ;
+; -4.332 ; cmdindex[0]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.252      ;
+; -4.313 ; dataindex[3]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.087     ; 5.227      ;
+; -4.307 ; state.0011                  ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.094     ; 5.214      ;
+; -4.254 ; dataindex[1]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.086     ; 5.169      ;
+; -4.250 ; iconindex[0]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.089     ; 5.162      ;
+; -4.248 ; initindex[3]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.093     ; 5.156      ;
+; -4.247 ; dataindex[4]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.087     ; 5.161      ;
+; -4.247 ; dataindex[0]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.086     ; 5.162      ;
+; -4.239 ; state.0000                  ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.094     ; 5.146      ;
+; -4.230 ; initindex[2]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.093     ; 5.138      ;
+; -4.225 ; initindex[0]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.093     ; 5.133      ;
+; -4.207 ; cmdindex[4]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.127      ;
+; -4.199 ; iconindex[4]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.089     ; 5.111      ;
+; -4.178 ; cmdindex[1]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.098      ;
+; -4.163 ; initindex[4]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.093     ; 5.071      ;
+; -4.150 ; cmdindex[2]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.070      ;
+; -4.145 ; iconindex[5]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.076     ; 5.070      ;
+; -4.144 ; iconindex[5]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.076     ; 5.069      ;
+; -4.144 ; iconindex[5]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.076     ; 5.069      ;
+; -4.139 ; iconindex[5]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.076     ; 5.064      ;
+; -4.129 ; spi_master:spi|avail        ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.093     ; 5.037      ;
+; -4.125 ; count.000000110             ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.045      ;
+; -4.124 ; count.000000110             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.044      ;
+; -4.124 ; count.000000110             ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.044      ;
+; -4.119 ; count.000000110             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.039      ;
+; -4.107 ; count.000000001             ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.094     ; 5.014      ;
+; -4.106 ; iconindex[2]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.089     ; 5.018      ;
+; -4.102 ; iconindex[0]                ; data_in[7]           ; clk          ; clk         ; 1.000        ; -0.088     ; 5.015      ;
+; -4.068 ; iconindex[1]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.993      ;
+; -4.067 ; iconindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.992      ;
+; -4.067 ; iconindex[1]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.992      ;
+; -4.065 ; dataindex[5]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.087     ; 4.979      ;
+; -4.062 ; iconindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.987      ;
+; -4.060 ; cmdindex[4]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.980      ;
+; -4.060 ; cmdindex[4]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.980      ;
+; -4.060 ; cmdindex[4]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.980      ;
+; -4.060 ; cmdindex[4]                 ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.980      ;
+; -4.060 ; cmdindex[4]                 ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.980      ;
+; -4.039 ; iconindex[3]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.964      ;
+; -4.038 ; iconindex[3]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.963      ;
+; -4.038 ; iconindex[3]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.963      ;
+; -4.033 ; iconindex[3]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.958      ;
+; -4.027 ; initindex[5]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.093     ; 4.935      ;
+; -4.012 ; state.0011                  ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.932      ;
+; -4.011 ; state.0011                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.931      ;
+; -4.011 ; state.0011                  ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.931      ;
+; -4.006 ; state.0011                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.926      ;
+; -3.998 ; dataindex[3]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.925      ;
+; -3.997 ; dataindex[3]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.924      ;
+; -3.997 ; dataindex[3]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.924      ;
+; -3.992 ; dataindex[3]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.919      ;
+; -3.982 ; cmdindex[0]                 ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.068     ; 4.915      ;
+; -3.981 ; cmdindex[0]                 ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.068     ; 4.914      ;
+; -3.980 ; cmdindex[0]                 ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.068     ; 4.913      ;
+; -3.980 ; cmdindex[0]                 ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.068     ; 4.913      ;
+; -3.979 ; cmdindex[0]                 ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.068     ; 4.912      ;
+; -3.967 ; cmdindex[5]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.887      ;
+; -3.955 ; iconindex[0]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.880      ;
+; -3.954 ; iconindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.879      ;
+; -3.954 ; iconindex[0]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.879      ;
+; -3.953 ; initindex[3]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.874      ;
+; -3.952 ; initindex[3]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.873      ;
+; -3.952 ; initindex[3]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.873      ;
+; -3.949 ; spi_master:spi|clk_count[9] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.071     ; 4.879      ;
+; -3.949 ; iconindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.874      ;
+; -3.948 ; spi_master:spi|avail        ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.856      ;
+; -3.948 ; spi_master:spi|avail        ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.856      ;
+; -3.948 ; spi_master:spi|avail        ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.856      ;
+; -3.948 ; spi_master:spi|avail        ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.856      ;
+; -3.948 ; spi_master:spi|avail        ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.093     ; 4.856      ;
+; -3.947 ; initindex[3]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.868      ;
+; -3.943 ; spi_master:spi|clk_count[3] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.071     ; 4.873      ;
+; -3.942 ; iconindex[0]                ; data_in[5]           ; clk          ; clk         ; 1.000        ; -0.092     ; 4.851      ;
+; -3.935 ; initindex[2]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.856      ;
+; -3.934 ; initindex[1]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.093     ; 4.842      ;
+; -3.934 ; state.0100                  ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.094     ; 4.841      ;
+; -3.934 ; dataindex[4]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.861      ;
+; -3.934 ; initindex[2]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.855      ;
+; -3.934 ; initindex[2]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.855      ;
+; -3.933 ; dataindex[4]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.860      ;
+; -3.933 ; dataindex[4]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.860      ;
+; -3.929 ; initindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.850      ;
+; -3.928 ; dataindex[4]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.074     ; 4.855      ;
+; -3.922 ; iconindex[5]                ; count.000000000      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.847      ;
+; -3.922 ; dataindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.850      ;
+; -3.921 ; dataindex[1]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.849      ;
+; -3.921 ; iconindex[5]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.846      ;
+; -3.920 ; dataindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.848      ;
+; -3.920 ; dataindex[1]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.848      ;
+; -3.919 ; cmdindex[1]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.839      ;
+; -3.919 ; cmdindex[1]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.839      ;
+; -3.919 ; cmdindex[1]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.839      ;
+; -3.919 ; cmdindex[1]                 ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.839      ;
+; -3.919 ; cmdindex[1]                 ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.839      ;
+; -3.915 ; dataindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.843      ;
+; -3.914 ; dataindex[0]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.842      ;
 +--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -285,106 +285,106 @@ No paths to report.
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                    ; To Node                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.434 ; count.000000011              ; count.000000011              ; clk          ; clk         ; 0.000        ; 0.100      ; 0.746      ;
-; 0.434 ; count.000000101              ; count.000000101              ; clk          ; clk         ; 0.000        ; 0.100      ; 0.746      ;
-; 0.434 ; count.000000100              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.100      ; 0.746      ;
-; 0.434 ; count.000000000              ; count.000000000              ; clk          ; clk         ; 0.000        ; 0.100      ; 0.746      ;
-; 0.435 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[0]  ; clk          ; clk         ; 0.000        ; 0.099      ; 0.746      ;
-; 0.436 ; cmd                          ; cmd                          ; clk          ; clk         ; 0.000        ; 0.098      ; 0.746      ;
-; 0.436 ; data_in[1]                   ; data_in[1]                   ; clk          ; clk         ; 0.000        ; 0.098      ; 0.746      ;
-; 0.453 ; spi_master:spi|lcd_rst       ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; spi_master:spi|dc            ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cmd                          ; cmd                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; spi_master:spi|mosi          ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; dataline[7][0]               ; dataline[7][0]               ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[0]  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; spi_master:spi|bit_count[3]  ; spi_master:spi|bit_count[3]  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; spi_master:spi|bit_count[1]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; spi_master:spi|bit_count[2]  ; spi_master:spi|bit_count[2]  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; spi_master:spi|sclk          ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; start                        ; start                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; state.0000                   ; state.0000                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; count.000000010              ; count.000000010              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; count.000000011              ; count.000000011              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; count.000000110              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; count.000000101              ; count.000000101              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; count.000000100              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; count.000000000              ; count.000000000              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; count.000000001              ; count.000000001              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; state.0001                   ; state.0001                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; state.0100                   ; state.0100                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; state.0010                   ; state.0010                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; iconindex[5]                 ; iconindex[5]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; iconindex[0]                 ; iconindex[0]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; iconindex[4]                 ; iconindex[4]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; iconindex[3]                 ; iconindex[3]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; iconindex[2]                 ; iconindex[2]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; iconindex[1]                 ; iconindex[1]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.454 ; spi_master:spi|dc            ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.453 ; iconindex[0]                 ; iconindex[0]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cmdindex[3]                  ; cmdindex[3]                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cmdindex[4]                  ; cmdindex[4]                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cmdindex[5]                  ; cmdindex[5]                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cmdindex[1]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cmdindex[2]                  ; cmdindex[2]                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; state.0011                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.454 ; spi_master:spi|lcd_rst       ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.454 ; data_in[1]                   ; data_in[1]                   ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.454 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[0]  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
 ; 0.454 ; data_in[0]                   ; data_in[0]                   ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; count.000000110              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; count.000000010              ; count.000000010              ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; count.000000001              ; count.000000001              ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; cmdindex[2]                  ; cmdindex[2]                  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; cmdindex[1]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; cmdindex[4]                  ; cmdindex[4]                  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; cmdindex[3]                  ; cmdindex[3]                  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; cmdindex[5]                  ; cmdindex[5]                  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.454 ; state.0011                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
-; 0.466 ; cmdindex[0]                  ; cmdindex[0]                  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.758      ;
-; 0.493 ; line[8]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 0.785      ;
-; 0.725 ; state.0000                   ; start                        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.018      ;
-; 0.739 ; spi_master:spi|shift_reg[6]  ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.032      ;
-; 0.739 ; spi_master:spi|shift_reg[1]  ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.032      ;
-; 0.740 ; spi_master:spi|shift_reg[3]  ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.033      ;
-; 0.742 ; spi_master:spi|shift_reg[5]  ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.035      ;
-; 0.742 ; spi_master:spi|shift_reg[4]  ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.035      ;
-; 0.742 ; spi_master:spi|shift_reg[2]  ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.035      ;
-; 0.742 ; spi_master:spi|shift_reg[7]  ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.035      ;
-; 0.746 ; line[1]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.038      ;
-; 0.746 ; line[3]                      ; line[3]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.038      ;
-; 0.748 ; initindex[3]                 ; initindex[3]                 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.040      ;
-; 0.748 ; line[7]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.040      ;
-; 0.748 ; line[4]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.040      ;
-; 0.748 ; line[5]                      ; line[5]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.040      ;
-; 0.749 ; line[2]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.041      ;
-; 0.750 ; line[6]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.042      ;
+; 0.454 ; spi_master:spi|sclk          ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.454 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[0]  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.454 ; spi_master:spi|bit_count[3]  ; spi_master:spi|bit_count[3]  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.454 ; spi_master:spi|bit_count[1]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.454 ; spi_master:spi|bit_count[2]  ; spi_master:spi|bit_count[2]  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.746      ;
+; 0.465 ; cmdindex[0]                  ; cmdindex[0]                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.758      ;
+; 0.498 ; initindex[5]                 ; initindex[5]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.791      ;
+; 0.502 ; spi_master:spi|shift_reg[4]  ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.794      ;
+; 0.526 ; spi_master:spi|active        ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.080      ; 0.818      ;
+; 0.527 ; spi_master:spi|active        ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.080      ; 0.819      ;
+; 0.642 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[1]  ; clk          ; clk         ; 0.000        ; 0.080      ; 0.934      ;
+; 0.741 ; spi_master:spi|shift_reg[3]  ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.033      ;
+; 0.741 ; spi_master:spi|shift_reg[2]  ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.033      ;
+; 0.741 ; cmd                          ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; 0.081      ; 1.034      ;
+; 0.743 ; spi_master:spi|shift_reg[6]  ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.035      ;
+; 0.743 ; spi_master:spi|shift_reg[5]  ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.035      ;
+; 0.744 ; spi_master:spi|shift_reg[1]  ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.036      ;
+; 0.745 ; line[1]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.038      ;
+; 0.746 ; initindex[3]                 ; initindex[3]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.039      ;
+; 0.746 ; line[3]                      ; line[3]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.039      ;
+; 0.746 ; line[5]                      ; line[5]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.039      ;
+; 0.746 ; line[6]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.039      ;
+; 0.749 ; line[8]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.042      ;
+; 0.749 ; line[4]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.042      ;
+; 0.749 ; line[2]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.042      ;
+; 0.755 ; initindex[4]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.048      ;
 ; 0.761 ; spi_master:spi|clk_count[3]  ; spi_master:spi|clk_count[3]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.054      ;
 ; 0.762 ; spi_master:spi|clk_count[13] ; spi_master:spi|clk_count[13] ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
 ; 0.762 ; spi_master:spi|clk_count[11] ; spi_master:spi|clk_count[11] ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
 ; 0.762 ; spi_master:spi|clk_count[5]  ; spi_master:spi|clk_count[5]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
 ; 0.762 ; spi_master:spi|clk_count[1]  ; spi_master:spi|clk_count[1]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.762 ; initindex[2]                 ; initindex[2]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
 ; 0.763 ; spi_master:spi|clk_count[15] ; spi_master:spi|clk_count[15] ; clk          ; clk         ; 0.000        ; 0.081      ; 1.056      ;
 ; 0.764 ; spi_master:spi|clk_count[9]  ; spi_master:spi|clk_count[9]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
 ; 0.764 ; spi_master:spi|clk_count[7]  ; spi_master:spi|clk_count[7]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
 ; 0.764 ; spi_master:spi|clk_count[6]  ; spi_master:spi|clk_count[6]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
 ; 0.764 ; spi_master:spi|clk_count[2]  ; spi_master:spi|clk_count[2]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.764 ; line[0]                      ; line[0]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.764 ; line[7]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
 ; 0.765 ; spi_master:spi|clk_count[14] ; spi_master:spi|clk_count[14] ; clk          ; clk         ; 0.000        ; 0.081      ; 1.058      ;
 ; 0.765 ; spi_master:spi|clk_count[4]  ; spi_master:spi|clk_count[4]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.058      ;
 ; 0.766 ; spi_master:spi|clk_count[12] ; spi_master:spi|clk_count[12] ; clk          ; clk         ; 0.000        ; 0.081      ; 1.059      ;
 ; 0.766 ; spi_master:spi|clk_count[8]  ; spi_master:spi|clk_count[8]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.059      ;
 ; 0.766 ; spi_master:spi|clk_count[10] ; spi_master:spi|clk_count[10] ; clk          ; clk         ; 0.000        ; 0.081      ; 1.059      ;
-; 0.772 ; initindex[5]                 ; initindex[5]                 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.064      ;
-; 0.772 ; line[0]                      ; line[0]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.064      ;
-; 0.775 ; initindex[4]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.067      ;
-; 0.775 ; initindex[2]                 ; initindex[2]                 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.067      ;
+; 0.771 ; count.000000101              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.081      ; 1.064      ;
 ; 0.786 ; spi_master:spi|clk_count[0]  ; spi_master:spi|clk_count[0]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.079      ;
-; 0.786 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.079      ;
-; 0.797 ; initindex[1]                 ; initindex[1]                 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.089      ;
-; 0.814 ; initindex[0]                 ; initindex[0]                 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.106      ;
-; 0.848 ; cmdindex[0]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.140      ;
-; 0.982 ; count.000000011              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.101      ; 1.295      ;
-; 0.995 ; cmdindex[0]                  ; data_in[5]                   ; clk          ; clk         ; 0.000        ; 0.584      ; 1.791      ;
-; 1.063 ; data_in[3]                   ; data_in[3]                   ; clk          ; clk         ; 0.000        ; 0.080      ; 1.355      ;
-; 1.092 ; spi_master:spi|sclk          ; spi_master:spi|active        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.385      ;
-; 1.101 ; line[3]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.393      ;
-; 1.101 ; line[1]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.393      ;
-; 1.102 ; line[7]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.394      ;
-; 1.102 ; line[5]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.394      ;
-; 1.102 ; initindex[3]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.080      ; 1.394      ;
-; 1.108 ; spi_master:spi|active        ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.401      ;
-; 1.109 ; line[4]                      ; line[5]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.401      ;
-; 1.110 ; line[0]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.402      ;
-; 1.110 ; line[2]                      ; line[3]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.402      ;
-; 1.111 ; spi_master:spi|active        ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.081      ; 1.404      ;
-; 1.111 ; line[6]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 1.403      ;
-; 1.113 ; state.0100                   ; state.0010                   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.406      ;
-; 1.116 ; spi_master:spi|clk_count[1]  ; spi_master:spi|clk_count[2]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.409      ;
-; 1.116 ; spi_master:spi|clk_count[3]  ; spi_master:spi|clk_count[4]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.409      ;
-; 1.117 ; spi_master:spi|clk_count[5]  ; spi_master:spi|clk_count[6]  ; clk          ; clk         ; 0.000        ; 0.081      ; 1.410      ;
-; 1.117 ; spi_master:spi|clk_count[13] ; spi_master:spi|clk_count[14] ; clk          ; clk         ; 0.000        ; 0.081      ; 1.410      ;
-; 1.117 ; spi_master:spi|clk_count[11] ; spi_master:spi|clk_count[12] ; clk          ; clk         ; 0.000        ; 0.081      ; 1.410      ;
+; 0.787 ; initindex[1]                 ; initindex[1]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.080      ;
+; 0.802 ; state.0010                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.095      ;
+; 0.806 ; spi_master:spi|active        ; spi_master:spi|bit_count[0]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.098      ;
+; 0.810 ; spi_master:spi|active        ; spi_master:spi|shift_reg[1]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.102      ;
+; 0.811 ; spi_master:spi|active        ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.103      ;
+; 0.813 ; initindex[0]                 ; initindex[0]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.106      ;
+; 0.816 ; spi_master:spi|active        ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.108      ;
+; 0.816 ; spi_master:spi|active        ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.108      ;
+; 0.818 ; spi_master:spi|active        ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.110      ;
+; 0.819 ; spi_master:spi|active        ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.111      ;
+; 0.883 ; spi_master:spi|sclk          ; spi_master:spi|active        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.175      ;
+; 0.987 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.279      ;
+; 1.003 ; spi_master:spi|shift_reg[7]  ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.091      ; 1.306      ;
+; 1.059 ; state.0000                   ; start                        ; clk          ; clk         ; 0.000        ; 0.080      ; 1.351      ;
+; 1.067 ; data_in[2]                   ; data_in[2]                   ; clk          ; clk         ; 0.000        ; 0.080      ; 1.359      ;
+; 1.099 ; spi_master:spi|active        ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.080      ; 1.391      ;
+; 1.100 ; line[5]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.393      ;
+; 1.100 ; line[3]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.393      ;
+; 1.100 ; line[1]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.393      ;
+; 1.100 ; initindex[3]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.393      ;
+; 1.107 ; line[6]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.400      ;
+; 1.108 ; line[0]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.401      ;
+; 1.110 ; line[2]                      ; line[3]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.403      ;
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -394,13 +394,13 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+--------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                ;
-+------------+-----------------+------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
-+------------+-----------------+------------+------+
-; 211.37 MHz ; 211.37 MHz      ; clk        ;      ;
-+------------+-----------------+------------+------+
++-------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary               ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 199.0 MHz ; 199.0 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -409,7 +409,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; clk   ; -3.731 ; -338.461          ;
+; clk   ; -4.025 ; -345.459          ;
 +-------+--------+-------------------+
 
 
@@ -418,7 +418,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; clk   ; 0.383 ; 0.000             ;
+; clk   ; 0.401 ; 0.000             ;
 +-------+-------+-------------------+
 
 
@@ -448,106 +448,106 @@ No paths to report.
 +--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node                   ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
-; -3.731 ; spi_master:spi|avail        ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.652      ;
-; -3.731 ; spi_master:spi|avail        ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.652      ;
-; -3.731 ; spi_master:spi|avail        ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.081     ; 4.652      ;
-; -3.679 ; state.0000                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.602      ;
-; -3.679 ; state.0000                  ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.602      ;
-; -3.678 ; state.0000                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.601      ;
-; -3.677 ; count.000000110             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.607      ;
-; -3.676 ; dataindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.597      ;
-; -3.675 ; count.000000110             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.605      ;
-; -3.674 ; dataindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.595      ;
-; -3.663 ; count.000000110             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.593      ;
-; -3.662 ; dataindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.583      ;
-; -3.643 ; cmdindex[3]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.573      ;
-; -3.643 ; cmdindex[3]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.573      ;
-; -3.643 ; cmdindex[3]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.573      ;
-; -3.636 ; initindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.566      ;
-; -3.634 ; initindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.564      ;
-; -3.627 ; dataindex[1]                ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.546      ;
-; -3.627 ; dataindex[1]                ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.546      ;
-; -3.627 ; dataindex[1]                ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.546      ;
-; -3.622 ; initindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.552      ;
-; -3.617 ; initindex[2]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.547      ;
-; -3.615 ; initindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.545      ;
-; -3.603 ; initindex[2]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.533      ;
-; -3.550 ; dataindex[1]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.471      ;
-; -3.548 ; dataindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.469      ;
-; -3.536 ; dataindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.457      ;
-; -3.530 ; spi_master:spi|clk_count[8] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.068     ; 4.464      ;
-; -3.509 ; spi_master:spi|clk_count[8] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.069     ; 4.442      ;
-; -3.501 ; count.000000010             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.431      ;
-; -3.500 ; count.000000000             ; data_in[2]           ; clk          ; clk         ; 1.000        ; -0.522     ; 3.980      ;
-; -3.499 ; count.000000010             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.429      ;
-; -3.493 ; spi_master:spi|clk_count[1] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.068     ; 4.427      ;
-; -3.487 ; count.000000010             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.417      ;
-; -3.478 ; spi_master:spi|avail        ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.080     ; 4.400      ;
-; -3.478 ; spi_master:spi|avail        ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.080     ; 4.400      ;
-; -3.472 ; spi_master:spi|clk_count[1] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.069     ; 4.405      ;
-; -3.466 ; iconindex[2]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.388      ;
-; -3.466 ; iconindex[2]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.388      ;
-; -3.465 ; iconindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.387      ;
-; -3.461 ; iconindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.383      ;
-; -3.461 ; iconindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.383      ;
-; -3.460 ; dataindex[3]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.381      ;
-; -3.460 ; iconindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.382      ;
-; -3.458 ; dataindex[3]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.379      ;
-; -3.446 ; dataindex[3]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.367      ;
-; -3.436 ; state.0100                  ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.359      ;
-; -3.434 ; state.0100                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.357      ;
-; -3.427 ; cmdindex[3]                 ; dataindex[2]         ; clk          ; clk         ; 1.000        ; -0.061     ; 4.368      ;
-; -3.427 ; cmdindex[3]                 ; dataindex[4]         ; clk          ; clk         ; 1.000        ; -0.061     ; 4.368      ;
-; -3.427 ; cmdindex[3]                 ; dataindex[0]         ; clk          ; clk         ; 1.000        ; -0.061     ; 4.368      ;
-; -3.427 ; cmdindex[3]                 ; dataindex[1]         ; clk          ; clk         ; 1.000        ; -0.061     ; 4.368      ;
-; -3.427 ; cmdindex[3]                 ; dataindex[5]         ; clk          ; clk         ; 1.000        ; -0.061     ; 4.368      ;
-; -3.427 ; cmdindex[3]                 ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.061     ; 4.368      ;
-; -3.427 ; dataindex[0]                ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.346      ;
-; -3.427 ; dataindex[0]                ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.346      ;
-; -3.427 ; dataindex[0]                ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.346      ;
-; -3.424 ; count.000000000             ; data_in[0]           ; clk          ; clk         ; 1.000        ; -0.522     ; 3.904      ;
-; -3.422 ; state.0100                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.345      ;
-; -3.420 ; initindex[1]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.350      ;
-; -3.418 ; dataindex[0]                ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.072     ; 4.348      ;
-; -3.418 ; initindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.348      ;
-; -3.414 ; spi_master:spi|avail        ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.337      ;
-; -3.412 ; spi_master:spi|avail        ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.335      ;
-; -3.407 ; spi_master:spi|clk_count[0] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.068     ; 4.341      ;
-; -3.406 ; initindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.336      ;
-; -3.403 ; count.000000000             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.535     ; 3.870      ;
-; -3.401 ; count.000000000             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.535     ; 3.868      ;
-; -3.400 ; spi_master:spi|avail        ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.323      ;
-; -3.394 ; cmdindex[5]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.324      ;
-; -3.394 ; cmdindex[5]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.324      ;
-; -3.394 ; cmdindex[5]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.324      ;
-; -3.394 ; cmdindex[2]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.313      ;
-; -3.394 ; cmdindex[2]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.313      ;
-; -3.394 ; cmdindex[2]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.083     ; 4.313      ;
-; -3.392 ; count.000000101             ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.537     ; 3.857      ;
-; -3.392 ; count.000000101             ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.537     ; 3.857      ;
-; -3.392 ; count.000000101             ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.537     ; 3.857      ;
-; -3.392 ; count.000000001             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.322      ;
-; -3.390 ; cmdindex[3]                 ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.071     ; 4.321      ;
-; -3.390 ; cmdindex[3]                 ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.071     ; 4.321      ;
-; -3.390 ; count.000000001             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.320      ;
-; -3.389 ; dataindex[5]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.310      ;
-; -3.389 ; count.000000000             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.535     ; 3.856      ;
-; -3.387 ; dataindex[5]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.308      ;
-; -3.386 ; spi_master:spi|clk_count[0] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.069     ; 4.319      ;
-; -3.378 ; count.000000001             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.308      ;
-; -3.375 ; dataindex[5]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.296      ;
-; -3.374 ; dataindex[1]                ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.082     ; 4.294      ;
-; -3.374 ; dataindex[1]                ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.082     ; 4.294      ;
-; -3.371 ; cmdindex[3]                 ; cmdindex[2]          ; clk          ; clk         ; 1.000        ; -0.062     ; 4.311      ;
-; -3.367 ; count.000000011             ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.526     ; 3.843      ;
-; -3.362 ; state.0011                  ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.069     ; 4.295      ;
-; -3.360 ; state.0011                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.069     ; 4.293      ;
-; -3.348 ; state.0011                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.069     ; 4.281      ;
-; -3.347 ; spi_master:spi|clk_count[3] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.068     ; 4.281      ;
-; -3.330 ; dataindex[2]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.251      ;
-; -3.328 ; dataindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.081     ; 4.249      ;
-; -3.326 ; spi_master:spi|clk_count[3] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.069     ; 4.259      ;
-; -3.318 ; cmdindex[1]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.073     ; 4.247      ;
+; -4.025 ; iconindex[5]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.951      ;
+; -4.024 ; cmdindex[0]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.954      ;
+; -4.004 ; count.000000110             ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.083     ; 4.923      ;
+; -3.971 ; state.0011                  ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.083     ; 4.890      ;
+; -3.958 ; iconindex[1]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.884      ;
+; -3.953 ; iconindex[3]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.879      ;
+; -3.935 ; dataindex[3]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.075     ; 4.862      ;
+; -3.926 ; cmdindex[4]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.856      ;
+; -3.919 ; cmdindex[2]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.849      ;
+; -3.911 ; dataindex[4]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.075     ; 4.838      ;
+; -3.881 ; cmdindex[1]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.811      ;
+; -3.866 ; iconindex[0]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.792      ;
+; -3.861 ; initindex[0]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.781      ;
+; -3.860 ; state.0000                  ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.083     ; 4.779      ;
+; -3.847 ; initindex[3]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.767      ;
+; -3.841 ; dataindex[0]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.075     ; 4.768      ;
+; -3.839 ; dataindex[1]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.075     ; 4.766      ;
+; -3.832 ; initindex[2]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.752      ;
+; -3.823 ; iconindex[4]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.749      ;
+; -3.814 ; spi_master:spi|avail        ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.734      ;
+; -3.801 ; count.000000001             ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.083     ; 4.720      ;
+; -3.788 ; iconindex[0]                ; data_in[7]           ; clk          ; clk         ; 1.000        ; -0.076     ; 4.714      ;
+; -3.760 ; iconindex[5]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.696      ;
+; -3.760 ; iconindex[5]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.696      ;
+; -3.759 ; iconindex[5]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.695      ;
+; -3.754 ; iconindex[5]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.690      ;
+; -3.749 ; initindex[4]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.669      ;
+; -3.732 ; iconindex[2]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.076     ; 4.658      ;
+; -3.701 ; cmdindex[5]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.631      ;
+; -3.697 ; dataindex[5]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.075     ; 4.624      ;
+; -3.693 ; iconindex[1]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.629      ;
+; -3.693 ; iconindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.629      ;
+; -3.693 ; count.000000110             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.622      ;
+; -3.692 ; iconindex[1]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.628      ;
+; -3.688 ; iconindex[3]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.624      ;
+; -3.688 ; iconindex[3]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.624      ;
+; -3.687 ; iconindex[3]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.623      ;
+; -3.687 ; iconindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.623      ;
+; -3.685 ; count.000000110             ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.614      ;
+; -3.684 ; count.000000110             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.613      ;
+; -3.684 ; count.000000110             ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.613      ;
+; -3.682 ; iconindex[3]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.618      ;
+; -3.673 ; cmdindex[0]                 ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.613      ;
+; -3.670 ; dataindex[3]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.607      ;
+; -3.670 ; dataindex[3]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.607      ;
+; -3.669 ; dataindex[3]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.606      ;
+; -3.665 ; cmdindex[0]                 ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.605      ;
+; -3.664 ; cmdindex[4]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.594      ;
+; -3.664 ; cmdindex[4]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.594      ;
+; -3.664 ; cmdindex[4]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.594      ;
+; -3.664 ; cmdindex[4]                 ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.594      ;
+; -3.664 ; cmdindex[4]                 ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.594      ;
+; -3.664 ; dataindex[3]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.601      ;
+; -3.664 ; cmdindex[0]                 ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.604      ;
+; -3.664 ; cmdindex[0]                 ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.604      ;
+; -3.660 ; spi_master:spi|clk_count[9] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.065     ; 4.597      ;
+; -3.660 ; state.0011                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.589      ;
+; -3.652 ; state.0011                  ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.581      ;
+; -3.651 ; state.0011                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.580      ;
+; -3.651 ; state.0011                  ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.073     ; 4.580      ;
+; -3.639 ; iconindex[0]                ; data_in[5]           ; clk          ; clk         ; 1.000        ; -0.081     ; 4.560      ;
+; -3.639 ; spi_master:spi|clk_count[3] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.065     ; 4.576      ;
+; -3.632 ; dataindex[2]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.075     ; 4.559      ;
+; -3.615 ; cmdindex[0]                 ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.555      ;
+; -3.611 ; initindex[5]                ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.082     ; 4.531      ;
+; -3.608 ; count.000000000             ; data_in[3]           ; clk          ; clk         ; 1.000        ; -0.088     ; 4.522      ;
+; -3.607 ; state.0100                  ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.083     ; 4.526      ;
+; -3.605 ; cmdindex[3]                 ; count.000000100      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.535      ;
+; -3.601 ; iconindex[0]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.537      ;
+; -3.601 ; iconindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.537      ;
+; -3.600 ; iconindex[0]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.536      ;
+; -3.598 ; iconindex[5]                ; cmd                  ; clk          ; clk         ; 1.000        ; -0.076     ; 4.524      ;
+; -3.595 ; iconindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.531      ;
+; -3.582 ; spi_master:spi|avail        ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.082     ; 4.502      ;
+; -3.582 ; spi_master:spi|avail        ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.082     ; 4.502      ;
+; -3.582 ; spi_master:spi|avail        ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.082     ; 4.502      ;
+; -3.582 ; spi_master:spi|avail        ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.082     ; 4.502      ;
+; -3.582 ; spi_master:spi|avail        ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.082     ; 4.502      ;
+; -3.576 ; dataindex[0]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.513      ;
+; -3.576 ; dataindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.513      ;
+; -3.575 ; cmdindex[4]                 ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.515      ;
+; -3.575 ; dataindex[0]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.512      ;
+; -3.574 ; dataindex[1]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.511      ;
+; -3.574 ; dataindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.511      ;
+; -3.573 ; dataindex[1]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.510      ;
+; -3.572 ; iconindex[5]                ; count.000000000      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.508      ;
+; -3.572 ; dataindex[4]                ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.509      ;
+; -3.572 ; dataindex[4]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.509      ;
+; -3.571 ; iconindex[5]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.066     ; 4.507      ;
+; -3.571 ; dataindex[4]                ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.508      ;
+; -3.570 ; dataindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.507      ;
+; -3.568 ; cmdindex[2]                 ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.508      ;
+; -3.568 ; dataindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.505      ;
+; -3.567 ; cmdindex[4]                 ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.507      ;
+; -3.566 ; dataindex[4]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.065     ; 4.503      ;
+; -3.566 ; cmdindex[4]                 ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.506      ;
+; -3.566 ; cmdindex[4]                 ; count.000000101      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.506      ;
+; -3.563 ; dataindex[0]                ; data_in[1]           ; clk          ; clk         ; 1.000        ; -0.075     ; 4.490      ;
+; -3.561 ; cmdindex[4]                 ; cmdindex[2]          ; clk          ; clk         ; 1.000        ; -0.072     ; 4.491      ;
+; -3.560 ; cmdindex[2]                 ; count.000000011      ; clk          ; clk         ; 1.000        ; -0.062     ; 4.500      ;
 +--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -556,61 +556,63 @@ No paths to report.
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                    ; To Node                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.383 ; count.000000011              ; count.000000011              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.669      ;
-; 0.383 ; count.000000101              ; count.000000101              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.669      ;
-; 0.383 ; count.000000100              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.669      ;
-; 0.383 ; count.000000000              ; count.000000000              ; clk          ; clk         ; 0.000        ; 0.091      ; 0.669      ;
-; 0.385 ; cmd                          ; cmd                          ; clk          ; clk         ; 0.000        ; 0.089      ; 0.669      ;
-; 0.385 ; data_in[1]                   ; data_in[1]                   ; clk          ; clk         ; 0.000        ; 0.089      ; 0.669      ;
-; 0.386 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[0]  ; clk          ; clk         ; 0.000        ; 0.088      ; 0.669      ;
-; 0.401 ; dataline[7][0]               ; dataline[7][0]               ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
-; 0.401 ; cmdindex[2]                  ; cmdindex[2]                  ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; spi_master:spi|mosi          ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; start                        ; start                        ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; state.0000                   ; state.0000                   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; count.000000010              ; count.000000010              ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; count.000000011              ; count.000000011              ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; count.000000110              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; count.000000101              ; count.000000101              ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; count.000000000              ; count.000000000              ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; count.000000001              ; count.000000001              ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; state.0001                   ; state.0001                   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; state.0100                   ; state.0100                   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; state.0010                   ; state.0010                   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; state.0011                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
 ; 0.402 ; spi_master:spi|lcd_rst       ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; spi_master:spi|dc            ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; spi_master:spi|mosi          ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; cmd                          ; cmd                          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; data_in[1]                   ; data_in[1]                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[0]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; data_in[0]                   ; data_in[0]                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; spi_master:spi|sclk          ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[0]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; spi_master:spi|bit_count[3]  ; spi_master:spi|bit_count[3]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; spi_master:spi|bit_count[1]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; spi_master:spi|bit_count[2]  ; spi_master:spi|bit_count[2]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; spi_master:spi|sclk          ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; start                        ; start                        ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; state.0000                   ; state.0000                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; count.000000110              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; count.000000010              ; count.000000010              ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; count.000000001              ; count.000000001              ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; state.0001                   ; state.0001                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; state.0100                   ; state.0100                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; state.0010                   ; state.0010                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; count.000000100              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; iconindex[5]                 ; iconindex[5]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; iconindex[0]                 ; iconindex[0]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; iconindex[4]                 ; iconindex[4]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; iconindex[3]                 ; iconindex[3]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; iconindex[2]                 ; iconindex[2]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; iconindex[1]                 ; iconindex[1]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; cmdindex[1]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; cmdindex[4]                  ; cmdindex[4]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; iconindex[0]                 ; iconindex[0]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; cmdindex[3]                  ; cmdindex[3]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; cmdindex[4]                  ; cmdindex[4]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.402 ; cmdindex[5]                  ; cmdindex[5]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
-; 0.402 ; state.0011                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; cmdindex[1]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; cmdindex[2]                  ; cmdindex[2]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
 ; 0.417 ; cmdindex[0]                  ; cmdindex[0]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.684      ;
-; 0.457 ; line[8]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.724      ;
-; 0.669 ; state.0000                   ; start                        ; clk          ; clk         ; 0.000        ; 0.072      ; 0.936      ;
-; 0.687 ; spi_master:spi|shift_reg[6]  ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.954      ;
-; 0.687 ; spi_master:spi|shift_reg[1]  ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.954      ;
-; 0.688 ; spi_master:spi|shift_reg[3]  ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.955      ;
-; 0.690 ; spi_master:spi|shift_reg[5]  ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.957      ;
-; 0.691 ; spi_master:spi|shift_reg[4]  ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.958      ;
-; 0.691 ; spi_master:spi|shift_reg[7]  ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.958      ;
-; 0.692 ; spi_master:spi|shift_reg[2]  ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.959      ;
-; 0.692 ; line[1]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.959      ;
-; 0.695 ; initindex[3]                 ; initindex[3]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.962      ;
-; 0.695 ; line[3]                      ; line[3]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.962      ;
-; 0.696 ; line[7]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.963      ;
-; 0.696 ; line[4]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.963      ;
+; 0.462 ; initindex[5]                 ; initindex[5]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.729      ;
+; 0.470 ; spi_master:spi|shift_reg[4]  ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.737      ;
+; 0.485 ; spi_master:spi|active        ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.752      ;
+; 0.486 ; spi_master:spi|active        ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.072      ; 0.753      ;
+; 0.599 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[1]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.866      ;
+; 0.689 ; spi_master:spi|shift_reg[2]  ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.956      ;
+; 0.689 ; cmd                          ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; 0.072      ; 0.956      ;
+; 0.690 ; spi_master:spi|shift_reg[3]  ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.957      ;
+; 0.691 ; spi_master:spi|shift_reg[6]  ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.958      ;
+; 0.691 ; spi_master:spi|shift_reg[5]  ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.958      ;
+; 0.692 ; spi_master:spi|shift_reg[1]  ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.959      ;
+; 0.694 ; line[1]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.961      ;
+; 0.696 ; initindex[3]                 ; initindex[3]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.963      ;
+; 0.696 ; line[3]                      ; line[3]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.963      ;
 ; 0.696 ; line[5]                      ; line[5]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.963      ;
+; 0.696 ; line[6]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.963      ;
+; 0.698 ; line[8]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.965      ;
+; 0.698 ; line[4]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.965      ;
 ; 0.699 ; line[2]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.966      ;
-; 0.700 ; line[6]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.967      ;
+; 0.704 ; initindex[4]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.971      ;
 ; 0.706 ; spi_master:spi|clk_count[13] ; spi_master:spi|clk_count[13] ; clk          ; clk         ; 0.000        ; 0.072      ; 0.973      ;
 ; 0.706 ; spi_master:spi|clk_count[5]  ; spi_master:spi|clk_count[5]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.973      ;
 ; 0.706 ; spi_master:spi|clk_count[3]  ; spi_master:spi|clk_count[3]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.973      ;
@@ -620,42 +622,40 @@ No paths to report.
 ; 0.708 ; spi_master:spi|clk_count[6]  ; spi_master:spi|clk_count[6]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.975      ;
 ; 0.709 ; spi_master:spi|clk_count[9]  ; spi_master:spi|clk_count[9]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.976      ;
 ; 0.709 ; spi_master:spi|clk_count[7]  ; spi_master:spi|clk_count[7]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.976      ;
+; 0.710 ; line[7]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.977      ;
 ; 0.711 ; spi_master:spi|clk_count[2]  ; spi_master:spi|clk_count[2]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.978      ;
 ; 0.712 ; spi_master:spi|clk_count[14] ; spi_master:spi|clk_count[14] ; clk          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
 ; 0.712 ; spi_master:spi|clk_count[12] ; spi_master:spi|clk_count[12] ; clk          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
 ; 0.712 ; spi_master:spi|clk_count[10] ; spi_master:spi|clk_count[10] ; clk          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
 ; 0.712 ; spi_master:spi|clk_count[4]  ; spi_master:spi|clk_count[4]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
+; 0.712 ; initindex[2]                 ; initindex[2]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
 ; 0.713 ; spi_master:spi|clk_count[8]  ; spi_master:spi|clk_count[8]  ; clk          ; clk         ; 0.000        ; 0.072      ; 0.980      ;
-; 0.715 ; initindex[5]                 ; initindex[5]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.982      ;
-; 0.719 ; initindex[4]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.986      ;
-; 0.721 ; initindex[2]                 ; initindex[2]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 0.988      ;
-; 0.722 ; line[0]                      ; line[0]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.989      ;
+; 0.715 ; line[0]                      ; line[0]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.982      ;
+; 0.715 ; count.000000101              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.073      ; 0.983      ;
+; 0.733 ; initindex[1]                 ; initindex[1]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 1.000      ;
 ; 0.734 ; spi_master:spi|clk_count[0]  ; spi_master:spi|clk_count[0]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.001      ;
-; 0.737 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.004      ;
-; 0.740 ; initindex[1]                 ; initindex[1]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 1.007      ;
-; 0.761 ; initindex[0]                 ; initindex[0]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 1.028      ;
-; 0.784 ; cmdindex[0]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.051      ;
-; 0.866 ; cmdindex[0]                  ; data_in[5]                   ; clk          ; clk         ; 0.000        ; 0.543      ; 1.604      ;
-; 0.922 ; count.000000011              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.095      ; 1.212      ;
-; 0.976 ; spi_master:spi|active        ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.243      ;
-; 0.997 ; data_in[3]                   ; data_in[3]                   ; clk          ; clk         ; 0.000        ; 0.072      ; 1.264      ;
-; 1.001 ; spi_master:spi|active        ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.072      ; 1.268      ;
-; 1.012 ; count.000000001              ; data_in[7]                   ; clk          ; clk         ; 0.000        ; 0.545      ; 1.752      ;
-; 1.012 ; spi_master:spi|sclk          ; spi_master:spi|active        ; clk          ; clk         ; 0.000        ; 0.072      ; 1.279      ;
-; 1.014 ; line[1]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.281      ;
-; 1.015 ; line[4]                      ; line[5]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.282      ;
-; 1.017 ; line[3]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.284      ;
-; 1.017 ; line[0]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.284      ;
+; 0.749 ; state.0010                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.073      ; 1.017      ;
+; 0.751 ; spi_master:spi|active        ; spi_master:spi|shift_reg[1]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.018      ;
+; 0.753 ; spi_master:spi|active        ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.020      ;
+; 0.757 ; spi_master:spi|active        ; spi_master:spi|bit_count[0]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.024      ;
+; 0.758 ; spi_master:spi|active        ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.025      ;
+; 0.759 ; spi_master:spi|active        ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.026      ;
+; 0.760 ; initindex[0]                 ; initindex[0]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 1.027      ;
+; 0.761 ; spi_master:spi|active        ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.028      ;
+; 0.762 ; spi_master:spi|active        ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.029      ;
+; 0.822 ; spi_master:spi|sclk          ; spi_master:spi|active        ; clk          ; clk         ; 0.000        ; 0.072      ; 1.089      ;
+; 0.877 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.144      ;
+; 0.896 ; spi_master:spi|shift_reg[7]  ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.172      ;
+; 0.946 ; state.0000                   ; start                        ; clk          ; clk         ; 0.000        ; 0.072      ; 1.213      ;
+; 0.992 ; spi_master:spi|active        ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.259      ;
+; 1.001 ; data_in[2]                   ; data_in[2]                   ; clk          ; clk         ; 0.000        ; 0.072      ; 1.268      ;
+; 1.011 ; spi_master:spi|bit_count[0]  ; spi_master:spi|active        ; clk          ; clk         ; 0.000        ; 0.072      ; 1.278      ;
+; 1.013 ; line[0]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.280      ;
+; 1.015 ; line[6]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.282      ;
+; 1.016 ; line[1]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.283      ;
+; 1.017 ; line[4]                      ; line[5]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.284      ;
 ; 1.018 ; line[2]                      ; line[3]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.285      ;
-; 1.019 ; initindex[3]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.072      ; 1.286      ;
-; 1.019 ; line[6]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.286      ;
-; 1.020 ; line[7]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.287      ;
 ; 1.020 ; line[5]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.072      ; 1.287      ;
-; 1.021 ; cmd                          ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; -0.335     ; 0.881      ;
-; 1.027 ; spi_master:spi|clk_count[6]  ; spi_master:spi|clk_count[7]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.294      ;
-; 1.028 ; state.0100                   ; state.0010                   ; clk          ; clk         ; 0.000        ; 0.072      ; 1.295      ;
-; 1.028 ; spi_master:spi|clk_count[0]  ; spi_master:spi|clk_count[1]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.295      ;
-; 1.028 ; spi_master:spi|clk_count[5]  ; spi_master:spi|clk_count[6]  ; clk          ; clk         ; 0.000        ; 0.072      ; 1.295      ;
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -670,7 +670,7 @@ No synchronizer chains to report.
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; clk   ; -1.159 ; -85.451           ;
+; clk   ; -1.374 ; -89.143           ;
 +-------+--------+-------------------+
 
 
@@ -679,7 +679,7 @@ No synchronizer chains to report.
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; clk   ; 0.179 ; 0.000             ;
+; clk   ; 0.186 ; 0.000             ;
 +-------+-------+-------------------+
 
 
@@ -700,116 +700,116 @@ No paths to report.
 +-------+--------+---------------------------------+
 ; Clock ; Slack  ; End Point TNS                   ;
 +-------+--------+---------------------------------+
-; clk   ; -3.000 ; -138.706                        ;
+; clk   ; -3.000 ; -138.260                        ;
 +-------+--------+---------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Fast 1200mV 0C Model Setup: 'clk'                                                                                                 ;
-+--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node                   ; To Node              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
-; -1.159 ; initindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.037     ; 2.109      ;
-; -1.158 ; initindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.037     ; 2.108      ;
-; -1.157 ; dataindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.103      ;
-; -1.156 ; dataindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.102      ;
-; -1.155 ; initindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.037     ; 2.105      ;
-; -1.153 ; dataindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.099      ;
-; -1.152 ; initindex[2]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.037     ; 2.102      ;
-; -1.151 ; state.0000                  ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.038     ; 2.100      ;
-; -1.151 ; initindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.037     ; 2.101      ;
-; -1.150 ; state.0000                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.038     ; 2.099      ;
-; -1.148 ; initindex[2]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.037     ; 2.098      ;
-; -1.147 ; state.0000                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.038     ; 2.096      ;
-; -1.116 ; count.000000110             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.067      ;
-; -1.115 ; count.000000110             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.066      ;
-; -1.114 ; spi_master:spi|avail        ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.040     ; 2.061      ;
-; -1.114 ; spi_master:spi|avail        ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.040     ; 2.061      ;
-; -1.114 ; spi_master:spi|avail        ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.040     ; 2.061      ;
-; -1.112 ; count.000000110             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.063      ;
-; -1.096 ; cmdindex[3]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.036     ; 2.047      ;
-; -1.096 ; cmdindex[3]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.036     ; 2.047      ;
-; -1.096 ; cmdindex[3]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.036     ; 2.047      ;
-; -1.087 ; state.0100                  ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.038     ; 2.036      ;
-; -1.086 ; state.0100                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.038     ; 2.035      ;
-; -1.083 ; state.0100                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.038     ; 2.032      ;
-; -1.082 ; count.000000010             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.033      ;
-; -1.081 ; count.000000010             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.032      ;
-; -1.079 ; dataindex[1]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.025      ;
-; -1.078 ; dataindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.024      ;
-; -1.078 ; count.000000010             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.029      ;
-; -1.075 ; dataindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.021      ;
-; -1.058 ; dataindex[3]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.004      ;
-; -1.057 ; dataindex[1]                ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.043     ; 2.001      ;
-; -1.057 ; dataindex[1]                ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.043     ; 2.001      ;
-; -1.057 ; dataindex[1]                ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.043     ; 2.001      ;
-; -1.057 ; dataindex[3]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.003      ;
-; -1.056 ; dataindex[3]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.041     ; 2.002      ;
-; -1.050 ; count.000000011             ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.231     ; 1.806      ;
-; -1.046 ; count.000000000             ; data_in[2]           ; clk          ; clk         ; 1.000        ; -0.227     ; 1.806      ;
-; -1.044 ; cmdindex[2]                 ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.042     ; 1.989      ;
-; -1.044 ; cmdindex[2]                 ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.042     ; 1.989      ;
-; -1.044 ; cmdindex[2]                 ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.042     ; 1.989      ;
-; -1.042 ; initindex[1]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.992      ;
-; -1.041 ; initindex[1]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.991      ;
-; -1.038 ; dataindex[5]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.984      ;
-; -1.038 ; initindex[1]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.037     ; 1.988      ;
-; -1.037 ; dataindex[5]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.983      ;
-; -1.036 ; iconindex[2]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.039     ; 1.984      ;
-; -1.035 ; iconindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.039     ; 1.983      ;
-; -1.034 ; dataindex[5]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.980      ;
-; -1.032 ; count.000000011             ; dataindex[2]         ; clk          ; clk         ; 1.000        ; -0.231     ; 1.788      ;
-; -1.032 ; iconindex[2]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.039     ; 1.980      ;
-; -1.031 ; spi_master:spi|avail        ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.038     ; 1.980      ;
-; -1.031 ; iconindex[0]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.039     ; 1.979      ;
-; -1.030 ; spi_master:spi|avail        ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.038     ; 1.979      ;
-; -1.030 ; iconindex[0]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.039     ; 1.978      ;
-; -1.027 ; spi_master:spi|avail        ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.038     ; 1.976      ;
-; -1.027 ; iconindex[0]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.039     ; 1.975      ;
-; -1.023 ; dataindex[0]                ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.037     ; 1.973      ;
-; -1.016 ; count.000000000             ; data_in[0]           ; clk          ; clk         ; 1.000        ; -0.227     ; 1.776      ;
-; -1.015 ; spi_master:spi|avail        ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.038     ; 1.964      ;
-; -1.015 ; spi_master:spi|avail        ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.038     ; 1.964      ;
-; -1.013 ; count.000000001             ; data_in[0]           ; clk          ; clk         ; 1.000        ; -0.028     ; 1.972      ;
-; -1.012 ; state.0011                  ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.032     ; 1.967      ;
-; -1.011 ; state.0011                  ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.032     ; 1.966      ;
-; -1.008 ; spi_master:spi|clk_count[8] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.032     ; 1.963      ;
-; -1.008 ; cmdindex[3]                 ; cmdindex[0]          ; clk          ; clk         ; 1.000        ; -0.034     ; 1.961      ;
-; -1.008 ; cmdindex[3]                 ; cmdindex[1]          ; clk          ; clk         ; 1.000        ; -0.034     ; 1.961      ;
-; -1.008 ; state.0011                  ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.032     ; 1.963      ;
-; -1.007 ; count.000000000             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.235     ; 1.759      ;
-; -1.006 ; spi_master:spi|clk_count[8] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.033     ; 1.960      ;
-; -1.006 ; count.000000000             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.235     ; 1.758      ;
-; -1.003 ; count.000000000             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.235     ; 1.755      ;
-; -1.000 ; count.000000001             ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.951      ;
-; -0.999 ; count.000000001             ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.950      ;
-; -0.997 ; dataindex[4]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.943      ;
-; -0.996 ; dataindex[4]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.942      ;
-; -0.996 ; count.000000001             ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.947      ;
-; -0.996 ; spi_master:spi|clk_count[1] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.032     ; 1.951      ;
-; -0.994 ; spi_master:spi|clk_count[1] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.033     ; 1.948      ;
-; -0.993 ; cmdindex[3]                 ; dataindex[2]         ; clk          ; clk         ; 1.000        ; -0.030     ; 1.950      ;
-; -0.993 ; cmdindex[3]                 ; dataindex[4]         ; clk          ; clk         ; 1.000        ; -0.030     ; 1.950      ;
-; -0.993 ; cmdindex[3]                 ; dataindex[0]         ; clk          ; clk         ; 1.000        ; -0.030     ; 1.950      ;
-; -0.993 ; cmdindex[3]                 ; dataindex[1]         ; clk          ; clk         ; 1.000        ; -0.030     ; 1.950      ;
-; -0.993 ; cmdindex[3]                 ; dataindex[5]         ; clk          ; clk         ; 1.000        ; -0.030     ; 1.950      ;
-; -0.993 ; cmdindex[3]                 ; dataindex[3]         ; clk          ; clk         ; 1.000        ; -0.030     ; 1.950      ;
-; -0.993 ; dataindex[4]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.939      ;
-; -0.990 ; cmdindex[3]                 ; cmdindex[2]          ; clk          ; clk         ; 1.000        ; -0.030     ; 1.947      ;
-; -0.988 ; initindex[0]                ; count.000000000      ; clk          ; clk         ; 1.000        ; 0.154      ; 2.129      ;
-; -0.988 ; dataindex[2]                ; count.000000001      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.934      ;
-; -0.987 ; dataindex[2]                ; count.000000010      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.933      ;
-; -0.986 ; count.000000000             ; data_in[5]           ; clk          ; clk         ; 1.000        ; -0.040     ; 1.933      ;
-; -0.985 ; count.000000000             ; data_in[6]           ; clk          ; clk         ; 1.000        ; -0.040     ; 1.932      ;
-; -0.984 ; dataindex[2]                ; count.000000110      ; clk          ; clk         ; 1.000        ; -0.041     ; 1.930      ;
-; -0.981 ; initindex[2]                ; count.000000000      ; clk          ; clk         ; 1.000        ; 0.154      ; 2.122      ;
-; -0.980 ; state.0000                  ; count.000000000      ; clk          ; clk         ; 1.000        ; 0.153      ; 2.120      ;
-; -0.979 ; spi_master:spi|clk_count[0] ; spi_master:spi|avail ; clk          ; clk         ; 1.000        ; -0.032     ; 1.934      ;
-; -0.977 ; spi_master:spi|clk_count[0] ; spi_master:spi|ce    ; clk          ; clk         ; 1.000        ; -0.033     ; 1.931      ;
-; -0.975 ; count.000000001             ; cmdindex[4]          ; clk          ; clk         ; 1.000        ; -0.038     ; 1.924      ;
-; -0.975 ; count.000000001             ; cmdindex[3]          ; clk          ; clk         ; 1.000        ; -0.038     ; 1.924      ;
-; -0.975 ; count.000000001             ; cmdindex[5]          ; clk          ; clk         ; 1.000        ; -0.038     ; 1.924      ;
-+--------+-----------------------------+----------------------+--------------+-------------+--------------+------------+------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                     ;
++--------+----------------------+-----------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+-----------------+--------------+-------------+--------------+------------+------------+
+; -1.374 ; count.000000110      ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.043     ; 2.318      ;
+; -1.331 ; state.0011           ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.043     ; 2.275      ;
+; -1.325 ; cmdindex[0]          ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.275      ;
+; -1.308 ; dataindex[3]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.039     ; 2.256      ;
+; -1.298 ; cmdindex[4]          ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.248      ;
+; -1.285 ; iconindex[5]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.235      ;
+; -1.275 ; dataindex[1]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.039     ; 2.223      ;
+; -1.271 ; cmdindex[1]          ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.221      ;
+; -1.270 ; initindex[3]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.042     ; 2.215      ;
+; -1.270 ; dataindex[0]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.039     ; 2.218      ;
+; -1.263 ; cmdindex[2]          ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.213      ;
+; -1.262 ; initindex[2]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.042     ; 2.207      ;
+; -1.259 ; dataindex[4]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.039     ; 2.207      ;
+; -1.248 ; iconindex[1]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.198      ;
+; -1.244 ; iconindex[3]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.194      ;
+; -1.241 ; initindex[0]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.042     ; 2.186      ;
+; -1.231 ; spi_master:spi|avail ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.041     ; 2.177      ;
+; -1.228 ; count.000000110      ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.178      ;
+; -1.228 ; count.000000110      ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.178      ;
+; -1.227 ; count.000000110      ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.177      ;
+; -1.226 ; count.000000110      ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.176      ;
+; -1.221 ; count.000000001      ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.042     ; 2.166      ;
+; -1.212 ; state.0000           ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.043     ; 2.156      ;
+; -1.208 ; initindex[4]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.042     ; 2.153      ;
+; -1.199 ; iconindex[0]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.149      ;
+; -1.187 ; dataindex[5]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.039     ; 2.135      ;
+; -1.186 ; iconindex[4]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.136      ;
+; -1.185 ; state.0011           ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.135      ;
+; -1.185 ; state.0011           ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.135      ;
+; -1.184 ; state.0011           ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.134      ;
+; -1.183 ; state.0011           ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.133      ;
+; -1.182 ; iconindex[0]         ; data_in[5]      ; clk          ; clk         ; 1.000        ; -0.040     ; 2.129      ;
+; -1.177 ; iconindex[0]         ; data_in[7]      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.128      ;
+; -1.176 ; dataindex[3]         ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.130      ;
+; -1.176 ; dataindex[3]         ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.130      ;
+; -1.175 ; dataindex[3]         ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.129      ;
+; -1.174 ; cmdindex[5]          ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.124      ;
+; -1.171 ; dataindex[3]         ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.125      ;
+; -1.169 ; cmdindex[0]          ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.125      ;
+; -1.169 ; cmdindex[0]          ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.125      ;
+; -1.168 ; cmdindex[0]          ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.124      ;
+; -1.167 ; cmdindex[0]          ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.123      ;
+; -1.154 ; count.000000000      ; data_in[3]      ; clk          ; clk         ; 1.000        ; -0.045     ; 2.096      ;
+; -1.154 ; initindex[5]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.042     ; 2.099      ;
+; -1.148 ; cmdindex[3]          ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.098      ;
+; -1.145 ; iconindex[0]         ; data_in[0]      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.096      ;
+; -1.143 ; iconindex[5]         ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.099      ;
+; -1.143 ; dataindex[1]         ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.097      ;
+; -1.143 ; iconindex[5]         ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.099      ;
+; -1.143 ; dataindex[1]         ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.097      ;
+; -1.142 ; dataindex[2]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.039     ; 2.090      ;
+; -1.142 ; iconindex[5]         ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.098      ;
+; -1.142 ; dataindex[1]         ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.096      ;
+; -1.142 ; cmdindex[4]          ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.098      ;
+; -1.142 ; cmdindex[4]          ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.098      ;
+; -1.141 ; cmdindex[4]          ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.097      ;
+; -1.140 ; cmdindex[4]          ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.096      ;
+; -1.138 ; iconindex[2]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.088      ;
+; -1.138 ; dataindex[0]         ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.092      ;
+; -1.138 ; dataindex[0]         ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.092      ;
+; -1.138 ; iconindex[5]         ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.094      ;
+; -1.138 ; dataindex[1]         ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.092      ;
+; -1.137 ; dataindex[0]         ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.091      ;
+; -1.133 ; dataindex[0]         ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.087      ;
+; -1.132 ; cmdindex[0]          ; count.000000001 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.088      ;
+; -1.130 ; count.000000100      ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.080      ;
+; -1.124 ; cmdindex[4]          ; cmdindex[3]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.074      ;
+; -1.124 ; cmdindex[4]          ; cmdindex[4]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.074      ;
+; -1.124 ; cmdindex[4]          ; cmdindex[5]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.074      ;
+; -1.124 ; cmdindex[4]          ; cmdindex[0]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.074      ;
+; -1.124 ; cmdindex[4]          ; cmdindex[1]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.074      ;
+; -1.124 ; initindex[1]         ; count.000000100 ; clk          ; clk         ; 1.000        ; -0.042     ; 2.069      ;
+; -1.124 ; initindex[3]         ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.036     ; 2.075      ;
+; -1.124 ; initindex[3]         ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.036     ; 2.075      ;
+; -1.123 ; initindex[3]         ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.036     ; 2.074      ;
+; -1.122 ; initindex[3]         ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.036     ; 2.073      ;
+; -1.121 ; count.000000110      ; count.000000000 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.071      ;
+; -1.119 ; count.000000110      ; count.000000001 ; clk          ; clk         ; 1.000        ; -0.037     ; 2.069      ;
+; -1.116 ; initindex[2]         ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.036     ; 2.067      ;
+; -1.116 ; initindex[2]         ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.036     ; 2.067      ;
+; -1.115 ; count.000000010      ; data_in[4]      ; clk          ; clk         ; 1.000        ; -0.046     ; 2.056      ;
+; -1.115 ; cmdindex[1]          ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.071      ;
+; -1.115 ; cmdindex[1]          ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.071      ;
+; -1.115 ; initindex[2]         ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.036     ; 2.066      ;
+; -1.114 ; cmdindex[1]          ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.070      ;
+; -1.114 ; cmdindex[1]          ; cmdindex[3]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.064      ;
+; -1.114 ; cmdindex[1]          ; cmdindex[4]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.064      ;
+; -1.114 ; cmdindex[1]          ; cmdindex[5]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.064      ;
+; -1.114 ; cmdindex[1]          ; cmdindex[0]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.064      ;
+; -1.114 ; cmdindex[1]          ; cmdindex[1]     ; clk          ; clk         ; 1.000        ; -0.037     ; 2.064      ;
+; -1.114 ; initindex[2]         ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.036     ; 2.065      ;
+; -1.113 ; cmdindex[1]          ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.069      ;
+; -1.112 ; iconindex[3]         ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.068      ;
+; -1.112 ; iconindex[3]         ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.068      ;
+; -1.111 ; iconindex[3]         ; count.000000101 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.067      ;
+; -1.107 ; dataindex[4]         ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.061      ;
+; -1.107 ; dataindex[4]         ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.033     ; 2.061      ;
+; -1.107 ; cmdindex[2]          ; count.000000011 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.063      ;
+; -1.107 ; cmdindex[2]          ; count.000000110 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.063      ;
+; -1.107 ; iconindex[3]         ; count.000000010 ; clk          ; clk         ; 1.000        ; -0.031     ; 2.063      ;
++--------+----------------------+-----------------+--------------+-------------+--------------+------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------+
@@ -817,106 +817,106 @@ No paths to report.
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                    ; To Node                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.179 ; count.000000011              ; count.000000011              ; clk          ; clk         ; 0.000        ; 0.044      ; 0.307      ;
-; 0.179 ; count.000000101              ; count.000000101              ; clk          ; clk         ; 0.000        ; 0.044      ; 0.307      ;
-; 0.179 ; count.000000100              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.044      ; 0.307      ;
-; 0.179 ; count.000000000              ; count.000000000              ; clk          ; clk         ; 0.000        ; 0.044      ; 0.307      ;
-; 0.180 ; cmd                          ; cmd                          ; clk          ; clk         ; 0.000        ; 0.043      ; 0.307      ;
-; 0.180 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[0]  ; clk          ; clk         ; 0.000        ; 0.043      ; 0.307      ;
-; 0.180 ; data_in[1]                   ; data_in[1]                   ; clk          ; clk         ; 0.000        ; 0.043      ; 0.307      ;
+; 0.186 ; state.0000                   ; state.0000                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; count.000000010              ; count.000000010              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; count.000000011              ; count.000000011              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; count.000000110              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; count.000000101              ; count.000000101              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; count.000000100              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; state.0001                   ; state.0001                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; state.0100                   ; state.0100                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; state.0010                   ; state.0010                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; iconindex[5]                 ; iconindex[5]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; iconindex[4]                 ; iconindex[4]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; iconindex[3]                 ; iconindex[3]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; iconindex[2]                 ; iconindex[2]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; iconindex[1]                 ; iconindex[1]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; iconindex[0]                 ; iconindex[0]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cmdindex[3]                  ; cmdindex[3]                  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cmdindex[4]                  ; cmdindex[4]                  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cmdindex[5]                  ; cmdindex[5]                  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cmdindex[1]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cmdindex[2]                  ; cmdindex[2]                  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; state.0011                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
 ; 0.187 ; spi_master:spi|lcd_rst       ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; spi_master:spi|dc            ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; cmd                          ; cmd                          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; spi_master:spi|mosi          ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; data_in[1]                   ; data_in[1]                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[0]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; data_in[0]                   ; data_in[0]                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; dataline[7][0]               ; dataline[7][0]               ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; spi_master:spi|sclk          ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[0]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; spi_master:spi|bit_count[3]  ; spi_master:spi|bit_count[3]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; spi_master:spi|bit_count[1]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; spi_master:spi|bit_count[2]  ; spi_master:spi|bit_count[2]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; spi_master:spi|sclk          ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; start                        ; start                        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; state.0000                   ; state.0000                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; count.000000110              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; count.000000010              ; count.000000010              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; count.000000000              ; count.000000000              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
 ; 0.187 ; count.000000001              ; count.000000001              ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; state.0001                   ; state.0001                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; state.0100                   ; state.0100                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; state.0010                   ; state.0010                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; iconindex[5]                 ; iconindex[5]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; iconindex[0]                 ; iconindex[0]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; iconindex[4]                 ; iconindex[4]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; iconindex[3]                 ; iconindex[3]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; iconindex[2]                 ; iconindex[2]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; iconindex[1]                 ; iconindex[1]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; cmdindex[2]                  ; cmdindex[2]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; cmdindex[1]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; cmdindex[4]                  ; cmdindex[4]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; cmdindex[3]                  ; cmdindex[3]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; cmdindex[5]                  ; cmdindex[5]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.187 ; state.0011                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
-; 0.194 ; cmdindex[0]                  ; cmdindex[0]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
-; 0.198 ; line[8]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.318      ;
-; 0.282 ; state.0000                   ; start                        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.402      ;
-; 0.294 ; spi_master:spi|shift_reg[3]  ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.414      ;
-; 0.294 ; spi_master:spi|shift_reg[1]  ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.414      ;
-; 0.295 ; spi_master:spi|shift_reg[6]  ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
-; 0.296 ; spi_master:spi|shift_reg[4]  ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.416      ;
-; 0.296 ; spi_master:spi|shift_reg[7]  ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.416      ;
-; 0.297 ; spi_master:spi|shift_reg[5]  ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.417      ;
-; 0.297 ; spi_master:spi|shift_reg[2]  ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.417      ;
-; 0.298 ; line[1]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.418      ;
-; 0.299 ; initindex[3]                 ; initindex[3]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.419      ;
+; 0.193 ; cmdindex[0]                  ; cmdindex[0]                  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.194 ; spi_master:spi|shift_reg[4]  ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.314      ;
+; 0.200 ; initindex[5]                 ; initindex[5]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.321      ;
+; 0.214 ; spi_master:spi|active        ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.334      ;
+; 0.219 ; spi_master:spi|active        ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.036      ; 0.339      ;
+; 0.253 ; spi_master:spi|shift_reg[0]  ; spi_master:spi|shift_reg[1]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.373      ;
+; 0.294 ; spi_master:spi|shift_reg[2]  ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.414      ;
+; 0.295 ; spi_master:spi|shift_reg[3]  ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
+; 0.295 ; cmd                          ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; 0.036      ; 0.415      ;
+; 0.296 ; spi_master:spi|shift_reg[6]  ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.416      ;
+; 0.296 ; spi_master:spi|shift_reg[5]  ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.416      ;
+; 0.297 ; spi_master:spi|shift_reg[1]  ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.417      ;
+; 0.298 ; initindex[3]                 ; initindex[3]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.299 ; line[1]                      ; line[1]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.419      ;
 ; 0.299 ; line[3]                      ; line[3]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.419      ;
-; 0.299 ; line[7]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.419      ;
+; 0.300 ; line[8]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.420      ;
 ; 0.300 ; line[4]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.420      ;
+; 0.300 ; line[2]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.420      ;
 ; 0.300 ; line[5]                      ; line[5]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.420      ;
-; 0.301 ; line[2]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.421      ;
-; 0.301 ; line[6]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.421      ;
-; 0.304 ; spi_master:spi|clk_count[15] ; spi_master:spi|clk_count[15] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.424      ;
-; 0.305 ; spi_master:spi|clk_count[13] ; spi_master:spi|clk_count[13] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
-; 0.305 ; spi_master:spi|clk_count[11] ; spi_master:spi|clk_count[11] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
-; 0.305 ; spi_master:spi|clk_count[5]  ; spi_master:spi|clk_count[5]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
-; 0.305 ; spi_master:spi|clk_count[3]  ; spi_master:spi|clk_count[3]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
-; 0.305 ; spi_master:spi|clk_count[1]  ; spi_master:spi|clk_count[1]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
-; 0.306 ; spi_master:spi|clk_count[9]  ; spi_master:spi|clk_count[9]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
-; 0.306 ; spi_master:spi|clk_count[7]  ; spi_master:spi|clk_count[7]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
-; 0.306 ; spi_master:spi|clk_count[6]  ; spi_master:spi|clk_count[6]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
-; 0.307 ; spi_master:spi|clk_count[14] ; spi_master:spi|clk_count[14] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
-; 0.307 ; spi_master:spi|clk_count[8]  ; spi_master:spi|clk_count[8]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
-; 0.307 ; spi_master:spi|clk_count[4]  ; spi_master:spi|clk_count[4]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
-; 0.307 ; spi_master:spi|clk_count[2]  ; spi_master:spi|clk_count[2]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
-; 0.308 ; spi_master:spi|clk_count[12] ; spi_master:spi|clk_count[12] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
-; 0.308 ; spi_master:spi|clk_count[10] ; spi_master:spi|clk_count[10] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
-; 0.310 ; initindex[5]                 ; initindex[5]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.430      ;
-; 0.311 ; initindex[4]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.431      ;
-; 0.312 ; initindex[2]                 ; initindex[2]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.432      ;
-; 0.312 ; line[0]                      ; line[0]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.432      ;
-; 0.315 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.435      ;
-; 0.317 ; spi_master:spi|clk_count[0]  ; spi_master:spi|clk_count[0]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.437      ;
-; 0.322 ; initindex[1]                 ; initindex[1]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.442      ;
-; 0.332 ; initindex[0]                 ; initindex[0]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.452      ;
-; 0.346 ; cmdindex[0]                  ; cmdindex[1]                  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.466      ;
-; 0.387 ; count.000000011              ; count.000000100              ; clk          ; clk         ; 0.000        ; 0.044      ; 0.515      ;
-; 0.407 ; cmdindex[0]                  ; data_in[5]                   ; clk          ; clk         ; 0.000        ; 0.239      ; 0.730      ;
-; 0.415 ; data_in[3]                   ; data_in[3]                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.535      ;
-; 0.423 ; spi_master:spi|active        ; spi_master:spi|sclk          ; clk          ; clk         ; 0.000        ; 0.036      ; 0.543      ;
-; 0.426 ; spi_master:spi|active        ; spi_master:spi|lcd_rst       ; clk          ; clk         ; 0.000        ; 0.036      ; 0.546      ;
-; 0.435 ; cmd                          ; spi_master:spi|dc            ; clk          ; clk         ; 0.000        ; -0.140     ; 0.379      ;
-; 0.447 ; line[1]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.567      ;
-; 0.448 ; spi_master:spi|sclk          ; spi_master:spi|active        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.568      ;
-; 0.448 ; line[7]                      ; line[8]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.568      ;
+; 0.300 ; line[6]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.420      ;
+; 0.303 ; spi_master:spi|clk_count[15] ; spi_master:spi|clk_count[15] ; clk          ; clk         ; 0.000        ; 0.037      ; 0.424      ;
+; 0.304 ; spi_master:spi|clk_count[13] ; spi_master:spi|clk_count[13] ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; spi_master:spi|clk_count[11] ; spi_master:spi|clk_count[11] ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; spi_master:spi|clk_count[5]  ; spi_master:spi|clk_count[5]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; spi_master:spi|clk_count[3]  ; spi_master:spi|clk_count[3]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; spi_master:spi|clk_count[1]  ; spi_master:spi|clk_count[1]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; initindex[4]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.305 ; spi_master:spi|clk_count[9]  ; spi_master:spi|clk_count[9]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; spi_master:spi|clk_count[7]  ; spi_master:spi|clk_count[7]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; spi_master:spi|clk_count[6]  ; spi_master:spi|clk_count[6]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.306 ; spi_master:spi|clk_count[14] ; spi_master:spi|clk_count[14] ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; spi_master:spi|clk_count[8]  ; spi_master:spi|clk_count[8]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; spi_master:spi|clk_count[4]  ; spi_master:spi|clk_count[4]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; spi_master:spi|clk_count[2]  ; spi_master:spi|clk_count[2]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.307 ; spi_master:spi|clk_count[12] ; spi_master:spi|clk_count[12] ; clk          ; clk         ; 0.000        ; 0.037      ; 0.428      ;
+; 0.307 ; spi_master:spi|clk_count[10] ; spi_master:spi|clk_count[10] ; clk          ; clk         ; 0.000        ; 0.037      ; 0.428      ;
+; 0.307 ; line[7]                      ; line[7]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.308 ; initindex[2]                 ; initindex[2]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.429      ;
+; 0.308 ; line[0]                      ; line[0]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.309 ; count.000000101              ; count.000000110              ; clk          ; clk         ; 0.000        ; 0.037      ; 0.430      ;
+; 0.316 ; spi_master:spi|clk_count[0]  ; spi_master:spi|clk_count[0]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.437      ;
+; 0.319 ; initindex[1]                 ; initindex[1]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.440      ;
+; 0.319 ; spi_master:spi|active        ; spi_master:spi|shift_reg[1]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.439      ;
+; 0.320 ; spi_master:spi|active        ; spi_master:spi|bit_count[0]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.440      ;
+; 0.321 ; spi_master:spi|active        ; spi_master:spi|shift_reg[6]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.441      ;
+; 0.325 ; spi_master:spi|active        ; spi_master:spi|shift_reg[7]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.445      ;
+; 0.326 ; state.0010                   ; state.0011                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.447      ;
+; 0.326 ; spi_master:spi|active        ; spi_master:spi|shift_reg[4]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.446      ;
+; 0.328 ; spi_master:spi|active        ; spi_master:spi|shift_reg[3]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.448      ;
+; 0.328 ; spi_master:spi|active        ; spi_master:spi|shift_reg[2]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.448      ;
+; 0.331 ; initindex[0]                 ; initindex[0]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.452      ;
+; 0.363 ; spi_master:spi|sclk          ; spi_master:spi|active        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.483      ;
+; 0.384 ; spi_master:spi|bit_count[0]  ; spi_master:spi|bit_count[1]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.504      ;
+; 0.407 ; spi_master:spi|shift_reg[7]  ; spi_master:spi|mosi          ; clk          ; clk         ; 0.000        ; 0.040      ; 0.531      ;
+; 0.415 ; state.0000                   ; start                        ; clk          ; clk         ; 0.000        ; 0.035      ; 0.534      ;
+; 0.419 ; data_in[2]                   ; data_in[2]                   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.539      ;
+; 0.438 ; spi_master:spi|active        ; spi_master:spi|shift_reg[5]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.558      ;
+; 0.441 ; spi_master:spi|bit_count[0]  ; spi_master:spi|active        ; clk          ; clk         ; 0.000        ; 0.036      ; 0.561      ;
+; 0.447 ; initindex[3]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.568      ;
 ; 0.448 ; line[3]                      ; line[4]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.568      ;
-; 0.448 ; initindex[3]                 ; initindex[4]                 ; clk          ; clk         ; 0.000        ; 0.036      ; 0.568      ;
-; 0.449 ; count.000000001              ; data_in[7]                   ; clk          ; clk         ; 0.000        ; 0.241      ; 0.774      ;
+; 0.448 ; line[1]                      ; line[2]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.568      ;
 ; 0.449 ; line[5]                      ; line[6]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.569      ;
-; 0.454 ; spi_master:spi|clk_count[5]  ; spi_master:spi|clk_count[6]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.574      ;
-; 0.454 ; spi_master:spi|clk_count[13] ; spi_master:spi|clk_count[14] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.574      ;
-; 0.454 ; spi_master:spi|clk_count[3]  ; spi_master:spi|clk_count[4]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.574      ;
-; 0.454 ; spi_master:spi|clk_count[1]  ; spi_master:spi|clk_count[2]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.574      ;
-; 0.454 ; spi_master:spi|clk_count[11] ; spi_master:spi|clk_count[12] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.574      ;
-; 0.455 ; spi_master:spi|clk_count[7]  ; spi_master:spi|clk_count[8]  ; clk          ; clk         ; 0.000        ; 0.036      ; 0.575      ;
-; 0.455 ; spi_master:spi|clk_count[9]  ; spi_master:spi|clk_count[10] ; clk          ; clk         ; 0.000        ; 0.036      ; 0.575      ;
-; 0.458 ; line[4]                      ; line[5]                      ; clk          ; clk         ; 0.000        ; 0.036      ; 0.578      ;
+; 0.453 ; spi_master:spi|clk_count[5]  ; spi_master:spi|clk_count[6]  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.574      ;
+; 0.453 ; spi_master:spi|clk_count[13] ; spi_master:spi|clk_count[14] ; clk          ; clk         ; 0.000        ; 0.037      ; 0.574      ;
 +-------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -931,10 +931,10 @@ No synchronizer chains to report.
 +------------------+----------+-------+----------+---------+---------------------+
 ; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -4.076   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
-;  clk             ; -4.076   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS  ; -369.41  ; 0.0   ; 0.0      ; 0.0     ; -191.849            ;
-;  clk             ; -369.410 ; 0.000 ; N/A      ; N/A     ; -191.849            ;
+; Worst-case Slack ; -4.440   ; 0.186 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -4.440   ; 0.186 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -376.68  ; 0.0   ; 0.0      ; 0.0     ; -191.849            ;
+;  clk             ; -376.680 ; 0.000 ; N/A      ; N/A     ; -191.849            ;
 +------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -1137,7 +1137,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Sep  6 02:20:05 2024
+    Info: Processing started: Tue Sep 17 05:00:09 2024
 Info: Command: quartus_sta FSM_pet -c FSM_pet
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1154,14 +1154,14 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -4.076
+Info (332146): Worst-case setup slack is -4.440
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.076            -369.410 clk 
-Info (332146): Worst-case hold slack is 0.434
+    Info (332119):    -4.440            -376.680 clk 
+Info (332146): Worst-case hold slack is 0.453
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.434               0.000 clk 
+    Info (332119):     0.453               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
@@ -1174,14 +1174,14 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -3.731
+Info (332146): Worst-case setup slack is -4.025
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.731            -338.461 clk 
-Info (332146): Worst-case hold slack is 0.383
+    Info (332119):    -4.025            -345.459 clk 
+Info (332146): Worst-case hold slack is 0.401
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.383               0.000 clk 
+    Info (332119):     0.401               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
@@ -1192,25 +1192,25 @@ Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -1.159
+Info (332146): Worst-case setup slack is -1.374
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.159             -85.451 clk 
-Info (332146): Worst-case hold slack is 0.179
+    Info (332119):    -1.374             -89.143 clk 
+Info (332146): Worst-case hold slack is 0.186
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.179               0.000 clk 
+    Info (332119):     0.186               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -138.706 clk 
+    Info (332119):    -3.000            -138.260 clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 578 megabytes
-    Info: Processing ended: Fri Sep  6 02:20:06 2024
+    Info: Peak virtual memory: 590 megabytes
+    Info: Processing ended: Tue Sep 17 05:00:10 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

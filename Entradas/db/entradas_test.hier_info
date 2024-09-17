@@ -1,0 +1,15 @@
+|entradas_test
+entradas[0] => leds[0].DATAIN
+entradas[1] => leds[1].DATAIN
+entradas[2] => leds[2].DATAIN
+entradas[3] => leds[3].DATAIN
+entradas[4] => leds[4].DATAIN
+entradas[5] => leds[5].DATAIN
+leds[0] <= entradas[0].DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= entradas[1].DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= entradas[2].DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= entradas[3].DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= entradas[4].DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= entradas[5].DB_MAX_OUTPUT_PORT_TYPE
+
+

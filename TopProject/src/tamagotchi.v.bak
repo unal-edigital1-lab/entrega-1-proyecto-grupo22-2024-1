@@ -1,0 +1,267 @@
+module tamagotchi(
+    input wire clk,              // 50MHz clock
+    input wire rst_n,            // Active low reset
+    input wire b1,               // Reset button
+    input wire b2,               // Test button
+    input wire b3,               // Mode change button
+    input wire b4,               // Action button
+    input wire light_sensor,
+    input wire sound_sensor,
+    output reg [2:0] face,
+    output reg [2:0] mode
+);
+
+// Parameters for modes and faces
+parameter SLEEP = 3'd0, FOOD = 3'd1, BATH = 3'd2, MUSIC = 3'd3, EXERCISE = 3'd4, DEAD = 3'd5;
+
+parameter NORMAL = 3'd0, HAPPY = 3'd1, SAD = 3'd2, SLEEPY = 3'd3, SICK = 3'd4, DEAD_FACE = 3'd5;
+
+// State registers
+reg [3:0] sleep_state, food_state, bath_state, music_state, exercise_state, health_state;
+reg [31:0] main_timer;
+reg [31:0] face_timer;
+reg [31:0] button_timer;
+reg test_mode;
+reg [2:0] next_mode;
+
+// Timers (in clock cycles for 50MHz clock)
+parameter SLEEP_TIME  = 50_000_000 * 60 * 30;  // 30 minutes
+parameter FOOD_TIME   = 50_000_000 * 60 * 10;  // 10 minutes
+parameter BATH_TIME   = 50_000_000 * 60 * 20;  // 20 minutes
+parameter MUSIC_TIME  = 50_000_000 * 60 * 15;  // 15 minutes
+parameter EXERCISE_TIME = 50_000_000 * 60 * 25; // 25 minutes
+parameter FACE_CHANGE_TIME = 50_000_000;        // 1 second
+parameter BUTTON_HOLD_TIME = 50_000_000 * 5;    // 5 seconds
+
+// Button debounce
+reg [3:0] button_state;
+reg [3:0] button_sync;
+reg [19:0] debounce_counter [3:0];
+parameter DEBOUNCE_TIME = 50000;  // 1ms at 50MHz
+
+// Sound detection
+reg sound_detected;
+reg [31:0] sound_timer;
+parameter SOUND_CHECK_TIME = 50_000_000 * 5;  // 5 seconds
+
+// Initialize
+initial begin
+    sleep_state = 4'd9;
+    food_state = 4'd9;
+    bath_state = 4'd9;
+    music_state = 4'd9;
+    exercise_state = 4'd9;
+    health_state = 4'd9;
+    face = NORMAL;
+    mode = SLEEP;
+    main_timer = 0;
+    face_timer = 0;
+    button_timer = 0;
+    test_mode = 0;
+    sound_detected = 0;
+    sound_timer = 0;
+end
+
+// Button debounce logic
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        button_sync <= 4'b0;
+        button_state <= 4'b0;
+        for (int i = 0; i < 4; i = i + 1) debounce_counter[i] <= 0;
+    end else begin
+        button_sync <= {b4, b3, b2, b1};
+        for (int i = 0; i < 4; i = i + 1) begin
+            if (button_sync[i] != button_state[i]) begin
+                if (debounce_counter[i] == DEBOUNCE_TIME - 1)
+                    button_state[i] <= button_sync[i];
+                else
+                    debounce_counter[i] <= debounce_counter[i] + 1;
+            end else begin
+                debounce_counter[i] <= 0;
+            end
+        end
+    end
+end
+
+// Main logic
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        // Reset logic
+        sleep_state <= 4'd9;
+        food_state <= 4'd9;
+        bath_state <= 4'd9;
+        music_state <= 4'd9;
+        exercise_state <= 4'd9;
+        health_state <= 4'd9;
+        face <= NORMAL;
+        mode <= SLEEP;
+        main_timer <= 0;
+        face_timer <= 0;
+        button_timer <= 0;
+        test_mode <= 0;
+        sound_detected <= 0;
+        sound_timer <= 0;
+    end else begin
+        // Button hold detection for test mode
+        if (button_state[1]) begin  // b2 pressed
+            if (button_timer == BUTTON_HOLD_TIME - 1) begin
+                test_mode <= ~test_mode;
+                button_timer <= 0;
+            end else begin
+                button_timer <= button_timer + 1;
+            end
+        end else begin
+            button_timer <= 0;
+        end
+
+        // Sound detection
+        if (sound_sensor) begin
+            sound_detected <= 1;
+            sound_timer <= 0;
+        end else if (sound_timer < SOUND_CHECK_TIME) begin
+            sound_timer <= sound_timer + 1;
+        end else begin
+            sound_detected <= 0;
+        end
+
+        // Mode-specific logic
+        case (mode)
+            SLEEP: begin
+                if (button_state[3] && !light_sensor) begin  // b4 pressed
+                    face <= SLEEPY;
+                    face_timer <= 0;
+                    if (sleep_state == 0) begin
+                        sleep_state <= sleep_state + 2;
+                    end else if (sleep_state >= 1 && sleep_state <= 6) begin
+                        sleep_state <= sleep_state + 1;
+                    end else if (sleep_state == 7) begin
+                        health_state <= health_state - 1;
+                    end
+                end
+                if (button_state[2]) mode <= FOOD;  // b3 pressed
+            end
+            
+            FOOD: begin
+                if (button_state[3]) begin  // b4 pressed
+                    if (food_state == 0) begin
+                        food_state <= food_state + 2;
+                        face <= HAPPY;
+                    end else if (food_state >= 1 && food_state <= 6) begin
+                        food_state <= food_state + 1;
+                        face <= HAPPY;
+                    end else if (food_state == 7) begin
+                        health_state <= health_state - 1;
+                        face <= SAD;
+                    end
+                    face_timer <= 0;
+                end
+                if (button_state[2]) mode <= BATH;  // b3 pressed
+            end
+            
+            BATH: begin
+                if (button_state[3]) begin  // b4 pressed
+                    if (bath_state == 0) begin
+                        bath_state <= bath_state + 2;
+                        face <= HAPPY;
+                    end else if (bath_state >= 1 && bath_state <= 6) begin
+                        bath_state <= bath_state + 1;
+                        face <= HAPPY;
+                    end else if (bath_state == 7) begin
+                        health_state <= health_state - 1;
+                        face <= SAD;
+                    end
+                    face_timer <= 0;
+                end
+                if (button_state[2]) mode <= MUSIC;  // b3 pressed
+            end
+            
+            MUSIC: begin
+                if (sound_detected) begin
+                    if (music_state == 0) begin
+                        music_state <= music_state + 2;
+                        face <= HAPPY;
+                    end else if (music_state >= 1 && music_state <= 6) begin
+                        music_state <= music_state + 1;
+                        face <= HAPPY;
+                    end else if (music_state == 7) begin
+                        health_state <= health_state - 1;
+                        face <= SAD;
+                    end
+                    face_timer <= 0;
+                end
+                if (button_state[2]) mode <= EXERCISE;  // b3 pressed
+            end
+            
+            EXERCISE: begin
+                if (button_state[3]) begin  // b4 pressed
+                    if (exercise_state == 0) begin
+                        exercise_state <= exercise_state + 2;
+                        face <= HAPPY;
+                    end else if (exercise_state >= 1 && exercise_state <= 6) begin
+                        exercise_state <= exercise_state + 1;
+                        face <= HAPPY;
+                    end else if (exercise_state == 7) begin
+                        health_state <= health_state - 1;
+                        face <= SAD;
+                    end
+                    face_timer <= 0;
+                end
+                if (button_state[2]) mode <= SLEEP;  // b3 pressed
+            end
+            
+            DEAD: begin
+                // Only reset button works in DEAD mode
+                if (button_state[0]) begin  // b1 pressed
+                    sleep_state <= 4'd9;
+                    food_state <= 4'd9;
+                    bath_state <= 4'd9;
+                    music_state <= 4'd9;
+                    exercise_state <= 4'd9;
+                    health_state <= 4'd9;
+                    face <= NORMAL;
+                    mode <= SLEEP;
+                end
+            end
+            
+            TEST: begin
+                // Test mode logic
+                if (button_state[1]) begin  // Quick press of b2
+                    main_timer <= main_timer + (test_mode ? 50_000_000 * 60 : 1);  // Advance time by 1 minute in test mode
+                end
+            end
+        endcase
+
+        // Face timer logic
+        if (face_timer < FACE_CHANGE_TIME) begin
+            face_timer <= face_timer + 1;
+        end else begin
+            face <= NORMAL;
+        end
+
+        // Main timer logic
+        if (main_timer >= SLEEP_TIME) begin
+            main_timer <= 0;
+            if (sleep_state == 0) health_state <= health_state - 1;
+            else if (sleep_state >= 1 && sleep_state <= 3) sleep_state <= sleep_state - 1;
+            else if (sleep_state >= 4 && sleep_state <= 6) sleep_state <= sleep_state - 2;
+            else if (sleep_state == 7) begin
+                sleep_state <= sleep_state - 2;
+                health_state <= (health_state < 9) ? health_state + 1 : health_state;
+            end
+        end else begin
+            main_timer <= main_timer + 1;
+        end
+        
+        // Similar timer logic for other states (FOOD, BATH, MUSIC, EXERCISE)
+        // ... (implement similar to SLEEP_TIME logic)
+        
+        // Health check
+        if (health_state <= 3 && health_state > 0) face <= SICK;
+        else if (health_state == 0) begin
+            face <= DEAD_FACE;
+            mode <= DEAD;
+        end
+    end
+end
+
+endmodule
