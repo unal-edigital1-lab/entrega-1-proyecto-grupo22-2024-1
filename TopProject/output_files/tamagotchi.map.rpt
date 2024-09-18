@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tamagotchi
-Tue Sep 17 09:52:22 2024
+Wed Sep 18 10:50:50 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -52,15 +52,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Sep 17 09:52:22 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 18 10:50:50 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; tamagotchi                                     ;
 ; Top-level Entity Name              ; tamagotchi                                     ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 598                                            ;
-;     Total combinational functions  ; 592                                            ;
-;     Dedicated logic registers      ; 225                                            ;
-; Total registers                    ; 225                                            ;
+; Total logic elements               ; 506                                            ;
+;     Total combinational functions  ; 500                                            ;
+;     Dedicated logic registers      ; 199                                            ;
+; Total registers                    ; 199                                            ;
 ; Total pins                         ; 28                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -160,36 +160,30 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 32          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 16          ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-16        ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                   ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
-; src/spi_master.v                 ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v  ;         ;
-; src/FSM_pet.v                    ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v     ;         ;
-; src/display_hex.v                ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v ;         ;
-; src/BCDtoSSeg.v                  ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/BCDtoSSeg.v   ;         ;
-; src/tamagotchi.v                 ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v  ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                         ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------+---------+
+; src/spi_master.v                 ; yes             ; User Verilog HDL File  ; /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v  ;         ;
+; src/FSM_pet.v                    ; yes             ; User Verilog HDL File  ; /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v     ;         ;
+; src/display_hex.v                ; yes             ; User Verilog HDL File  ; /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v ;         ;
+; src/BCDtoSSeg.v                  ; yes             ; User Verilog HDL File  ; /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/BCDtoSSeg.v   ;         ;
+; src/tamagotchi.v                 ; yes             ; User Verilog HDL File  ; /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v  ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -197,20 +191,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 598       ;
+; Estimated Total logic elements              ; 506       ;
 ;                                             ;           ;
-; Total combinational functions               ; 592       ;
+; Total combinational functions               ; 500       ;
 ; Logic element usage by number of LUT inputs ;           ;
 ;     -- 4 input functions                    ; 274       ;
-;     -- 3 input functions                    ; 110       ;
-;     -- <=2 input functions                  ; 208       ;
+;     -- 3 input functions                    ; 96        ;
+;     -- <=2 input functions                  ; 130       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 446       ;
-;     -- arithmetic mode                      ; 146       ;
+;     -- normal mode                          ; 420       ;
+;     -- arithmetic mode                      ; 80        ;
 ;                                             ;           ;
-; Total registers                             ; 225       ;
-;     -- Dedicated logic registers            ; 225       ;
+; Total registers                             ; 199       ;
+;     -- Dedicated logic registers            ; 199       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 28        ;
@@ -218,9 +212,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 209       ;
-; Total fan-out                               ; 2714      ;
-; Average fan-out                             ; 3.11      ;
+; Maximum fan-out                             ; 183       ;
+; Total fan-out                               ; 2380      ;
+; Average fan-out                             ; 3.15      ;
 +---------------------------------------------+-----------+
 
 
@@ -229,10 +223,10 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+-------------+--------------+
-; |tamagotchi                  ; 592 (212)           ; 225 (70)                  ; 0           ; 0            ; 0       ; 0         ; 28   ; 0            ; |tamagotchi                                             ; tamagotchi  ; work         ;
-;    |FSM_pet:pet_display|     ; 322 (276)           ; 122 (87)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tamagotchi|FSM_pet:pet_display                         ; FSM_pet     ; work         ;
+; |tamagotchi                  ; 500 (105)           ; 199 (51)                  ; 0           ; 0            ; 0       ; 0         ; 28   ; 0            ; |tamagotchi                                             ; tamagotchi  ; work         ;
+;    |FSM_pet:pet_display|     ; 323 (277)           ; 115 (80)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tamagotchi|FSM_pet:pet_display                         ; FSM_pet     ; work         ;
 ;       |spi_master:spi|       ; 46 (46)             ; 35 (35)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tamagotchi|FSM_pet:pet_display|spi_master:spi          ; spi_master  ; work         ;
-;    |display_hex:seg_display| ; 58 (42)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tamagotchi|display_hex:seg_display                     ; display_hex ; work         ;
+;    |display_hex:seg_display| ; 72 (56)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tamagotchi|display_hex:seg_display                     ; display_hex ; work         ;
 ;       |BCDtoSSeg:bcdtosseg|  ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tamagotchi|display_hex:seg_display|BCDtoSSeg:bcdtosseg ; BCDtoSSeg   ; work         ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -361,12 +355,11 @@ Encoding Type:  One-Hot
 ; FSM_pet:pet_display|initline[0][5]      ; Stuck at VCC due to stuck port data_in          ;
 ; FSM_pet:pet_display|initline[0][6]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|initline[0][7]      ; Stuck at GND due to stuck port data_in          ;
-; enable                                  ; Stuck at VCC due to stuck port data_in          ;
+; FSM_pet:pet_display|iconline[3][6]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|iconline[4][2]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|iconline[4][1]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|iconline[6][6]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|iconline[7][0]      ; Stuck at GND due to stuck port data_in          ;
-; FSM_pet:pet_display|iconline[3][6]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|iconline[1][3]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|iconline[1][6]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|iconline[0][0]      ; Stuck at GND due to stuck port data_in          ;
@@ -490,6 +483,7 @@ Encoding Type:  One-Hot
 ; FSM_pet:pet_display|iconline[6][0]      ; Merged with FSM_pet:pet_display|iconline[0][1]  ;
 ; FSM_pet:pet_display|iconline[7][1]      ; Merged with FSM_pet:pet_display|iconline[0][1]  ;
 ; FSM_pet:pet_display|iconline[5][5]      ; Merged with FSM_pet:pet_display|iconline[2][7]  ;
+; face[2]                                 ; Merged with face[0]                             ;
 ; FSM_pet:pet_display|dataline[6][0]      ; Merged with FSM_pet:pet_display|dataline[4][5]  ;
 ; FSM_pet:pet_display|iconline[6][5]      ; Merged with FSM_pet:pet_display|iconline[1][5]  ;
 ; FSM_pet:pet_display|dataline[5][4]      ; Merged with FSM_pet:pet_display|dataline[4][3]  ;
@@ -517,33 +511,15 @@ Encoding Type:  One-Hot
 ; FSM_pet:pet_display|dataline[6][2]      ; Merged with FSM_pet:pet_display|dataline[4][2]  ;
 ; FSM_pet:pet_display|dataline[7][1]      ; Merged with FSM_pet:pet_display|dataline[5][1]  ;
 ; FSM_pet:pet_display|iconline[4][0]      ; Merged with FSM_pet:pet_display|iconline[3][0]  ;
-; sleep_state[3]                          ; Stuck at VCC due to stuck port data_in          ;
-; food_state[3]                           ; Stuck at VCC due to stuck port data_in          ;
-; bath_state[3]                           ; Stuck at VCC due to stuck port data_in          ;
-; music_state[3]                          ; Stuck at VCC due to stuck port data_in          ;
-; exercise_state[3]                       ; Stuck at VCC due to stuck port data_in          ;
-; sleep_state[1]                          ; Stuck at GND due to stuck port data_in          ;
-; food_state[1]                           ; Stuck at GND due to stuck port data_in          ;
-; bath_state[1]                           ; Stuck at GND due to stuck port data_in          ;
-; music_state[1]                          ; Stuck at GND due to stuck port data_in          ;
-; exercise_state[1]                       ; Stuck at GND due to stuck port data_in          ;
-; sleep_state[2]                          ; Stuck at GND due to stuck port data_in          ;
-; food_state[2]                           ; Stuck at GND due to stuck port data_in          ;
-; bath_state[2]                           ; Stuck at GND due to stuck port data_in          ;
-; music_state[2]                          ; Stuck at GND due to stuck port data_in          ;
-; exercise_state[2]                       ; Stuck at GND due to stuck port data_in          ;
-; health_state[0]                         ; Stuck at VCC due to stuck port data_in          ;
-; sleep_state[0]                          ; Stuck at VCC due to stuck port data_in          ;
-; food_state[0]                           ; Stuck at VCC due to stuck port data_in          ;
-; bath_state[0]                           ; Stuck at VCC due to stuck port data_in          ;
-; music_state[0]                          ; Stuck at VCC due to stuck port data_in          ;
-; exercise_state[0]                       ; Stuck at VCC due to stuck port data_in          ;
-; health_state[3]                         ; Stuck at VCC due to stuck port data_in          ;
-; face[2]                                 ; Stuck at GND due to stuck port data_in          ;
-; FSM_pet:pet_display|dataline[0][1]      ; Stuck at VCC due to stuck port data_in          ;
-; FSM_pet:pet_display|dataline[10][1]     ; Stuck at GND due to stuck port data_in          ;
-; FSM_pet:pet_display|dataline[7][0]      ; Stuck at VCC due to stuck port data_in          ;
-; health_state[1,2]                       ; Stuck at GND due to stuck port clock_enable     ;
+; FSM_pet:pet_display|dataline[4][3]      ; Stuck at GND due to stuck port data_in          ;
+; FSM_pet:pet_display|dataline[4][4]      ; Stuck at VCC due to stuck port data_in          ;
+; FSM_pet:pet_display|dataline[6][1]      ; Stuck at VCC due to stuck port data_in          ;
+; face[1]                                 ; Stuck at GND due to stuck port data_in          ;
+; FSM_pet:pet_display|dataline[3][4]      ; Stuck at GND due to stuck port data_in          ;
+; FSM_pet:pet_display|dataline[3][2]      ; Stuck at VCC due to stuck port data_in          ;
+; FSM_pet:pet_display|dataline[4][2]      ; Stuck at GND due to stuck port data_in          ;
+; FSM_pet:pet_display|dataline[7][2]      ; Stuck at GND due to stuck port data_in          ;
+; FSM_pet:pet_display|dataline[3][1]      ; Stuck at GND due to stuck port data_in          ;
 ; FSM_pet:pet_display|count~9             ; Lost fanout                                     ;
 ; FSM_pet:pet_display|count~10            ; Lost fanout                                     ;
 ; FSM_pet:pet_display|count~11            ; Lost fanout                                     ;
@@ -556,70 +532,24 @@ Encoding Type:  One-Hot
 ; FSM_pet:pet_display|state~7             ; Lost fanout                                     ;
 ; FSM_pet:pet_display|state~8             ; Lost fanout                                     ;
 ; FSM_pet:pet_display|state~10            ; Lost fanout                                     ;
-; FSM_pet:pet_display|dataline[4][5]      ; Merged with FSM_pet:pet_display|dataline[4][4]  ;
-; FSM_pet:pet_display|dataline[7][2]      ; Merged with FSM_pet:pet_display|dataline[4][2]  ;
+; FSM_pet:pet_display|dataline[4][5]      ; Merged with FSM_pet:pet_display|dataline[0][1]  ;
+; FSM_pet:pet_display|dataline[5][1]      ; Merged with FSM_pet:pet_display|dataline[0][1]  ;
+; FSM_pet:pet_display|dataline[7][0]      ; Merged with FSM_pet:pet_display|dataline[0][1]  ;
+; FSM_pet:pet_display|dataline[5][0]      ; Merged with FSM_pet:pet_display|dataline[10][1] ;
 ; display_hex:seg_display|cfreq[17..26]   ; Lost fanout                                     ;
-; Total Number of Removed Registers = 296 ;                                                 ;
+; Total Number of Removed Registers = 279 ;                                                 ;
 +-----------------------------------------+-------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                               ;
-+-------------------+---------------------------+---------------------------------------------------------------------------+
-; Register name     ; Reason for Removal        ; Registers Removed due to This Register                                    ;
-+-------------------+---------------------------+---------------------------------------------------------------------------+
-; enable            ; Stuck at VCC              ; FSM_pet:pet_display|iconline[4][2], FSM_pet:pet_display|iconline[4][1],   ;
-;                   ; due to stuck port data_in ; FSM_pet:pet_display|iconline[6][6], FSM_pet:pet_display|iconline[7][0],   ;
-;                   ;                           ; FSM_pet:pet_display|iconline[3][6], FSM_pet:pet_display|iconline[1][3],   ;
-;                   ;                           ; FSM_pet:pet_display|iconline[1][6], FSM_pet:pet_display|iconline[0][0],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[15][2], FSM_pet:pet_display|dataline[15][3], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[15][4], FSM_pet:pet_display|dataline[15][6], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[15][7], FSM_pet:pet_display|dataline[14][3], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[14][4], FSM_pet:pet_display|dataline[14][6], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[13][0], FSM_pet:pet_display|dataline[13][1], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[13][2], FSM_pet:pet_display|dataline[13][3], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[13][5], FSM_pet:pet_display|dataline[13][6], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[13][7], FSM_pet:pet_display|dataline[12][0], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[12][1], FSM_pet:pet_display|dataline[12][2], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[12][3], FSM_pet:pet_display|dataline[12][4], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[12][5], FSM_pet:pet_display|dataline[11][4], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[11][6], FSM_pet:pet_display|dataline[10][0], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[10][5], FSM_pet:pet_display|dataline[10][7], ;
-;                   ;                           ; FSM_pet:pet_display|dataline[9][0], FSM_pet:pet_display|dataline[9][1],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[9][2], FSM_pet:pet_display|dataline[9][5],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[9][6], FSM_pet:pet_display|dataline[9][7],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[8][0], FSM_pet:pet_display|dataline[8][1],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[8][2], FSM_pet:pet_display|dataline[8][4],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[8][5], FSM_pet:pet_display|dataline[8][6],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[8][7], FSM_pet:pet_display|dataline[7][3],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[7][4], FSM_pet:pet_display|dataline[7][5],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[7][6], FSM_pet:pet_display|dataline[7][7],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[6][3], FSM_pet:pet_display|dataline[6][4],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[6][5], FSM_pet:pet_display|dataline[6][7],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[5][3], FSM_pet:pet_display|dataline[5][6],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[4][0], FSM_pet:pet_display|dataline[4][6],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[3][0], FSM_pet:pet_display|dataline[3][5],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[3][6], FSM_pet:pet_display|dataline[2][2],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[2][3], FSM_pet:pet_display|dataline[2][4],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[2][7], FSM_pet:pet_display|dataline[1][1],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[1][2], FSM_pet:pet_display|dataline[1][3],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[1][5], FSM_pet:pet_display|dataline[1][6],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[1][7], FSM_pet:pet_display|dataline[0][0],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[0][4], FSM_pet:pet_display|dataline[0][5],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[0][6], FSM_pet:pet_display|dataline[0][7],   ;
-;                   ;                           ; FSM_pet:pet_display|dataline[0][1], FSM_pet:pet_display|dataline[10][1],  ;
-;                   ;                           ; FSM_pet:pet_display|dataline[7][0]                                        ;
-; sleep_state[3]    ; Stuck at VCC              ; sleep_state[1], sleep_state[2], health_state[1], health_state[2]          ;
-;                   ; due to stuck port data_in ;                                                                           ;
-; music_state[3]    ; Stuck at VCC              ; music_state[1], music_state[2], face[2]                                   ;
-;                   ; due to stuck port data_in ;                                                                           ;
-; food_state[3]     ; Stuck at VCC              ; food_state[1], food_state[2]                                              ;
-;                   ; due to stuck port data_in ;                                                                           ;
-; bath_state[3]     ; Stuck at VCC              ; bath_state[1], bath_state[2]                                              ;
-;                   ; due to stuck port data_in ;                                                                           ;
-; exercise_state[3] ; Stuck at VCC              ; exercise_state[1], exercise_state[2]                                      ;
-;                   ; due to stuck port data_in ;                                                                           ;
-+-------------------+---------------------------+---------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                         ;
++---------------+---------------------------+-------------------------------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register                                  ;
++---------------+---------------------------+-------------------------------------------------------------------------+
+; face[1]       ; Stuck at GND              ; FSM_pet:pet_display|dataline[3][4], FSM_pet:pet_display|dataline[3][2], ;
+;               ; due to stuck port data_in ; FSM_pet:pet_display|dataline[4][2], FSM_pet:pet_display|dataline[7][2], ;
+;               ;                           ; FSM_pet:pet_display|dataline[3][1]                                      ;
++---------------+---------------------------+-------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -627,24 +557,42 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 225   ;
-; Number of registers using Synchronous Clear  ; 84    ;
-; Number of registers using Synchronous Load   ; 46    ;
-; Number of registers using Asynchronous Clear ; 120   ;
+; Total registers                              ; 199   ;
+; Number of registers using Synchronous Clear  ; 80    ;
+; Number of registers using Synchronous Load   ; 18    ;
+; Number of registers using Asynchronous Clear ; 101   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 105   ;
+; Number of registers using Clock Enable       ; 96    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; FSM_pet:pet_display|spi_master:spi|ce  ; 1       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; FSM_pet:pet_display|spi_master:spi|ce   ; 1       ;
+; bath_state[0]                           ; 5       ;
+; music_state[0]                          ; 5       ;
+; food_state[0]                           ; 5       ;
+; sleep_state[0]                          ; 5       ;
+; health_state[0]                         ; 5       ;
+; exercise_state[0]                       ; 6       ;
+; health_state[1]                         ; 5       ;
+; exercise_state[1]                       ; 5       ;
+; bath_state[1]                           ; 4       ;
+; food_state[1]                           ; 5       ;
+; sleep_state[1]                          ; 5       ;
+; music_state[1]                          ; 5       ;
+; exercise_state[2]                       ; 4       ;
+; bath_state[2]                           ; 3       ;
+; music_state[2]                          ; 5       ;
+; food_state[2]                           ; 5       ;
+; sleep_state[2]                          ; 5       ;
+; health_state[2]                         ; 5       ;
+; Total number of inverted registers = 19 ;         ;
++-----------------------------------------+---------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -652,26 +600,19 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|iconindex[1]                ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|iconline[1][1]              ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |tamagotchi|test_timer[31]                                  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|iconindex[2]                ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|iconline[1][5]              ;
+; 3:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |tamagotchi|test_timer[9]                                   ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|spi_master:spi|bit_count[0] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|spi_master:spi|shift_reg[6] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tamagotchi|sleep_state[2]                                  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tamagotchi|food_state[2]                                   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tamagotchi|bath_state[1]                                   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tamagotchi|music_state[1]                                  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |tamagotchi|exercise_state[1]                               ;
-; 8:1                ; 21 bits   ; 105 LEs       ; 84 LEs               ; 21 LEs                 ; Yes        ; |tamagotchi|FSM_pet:pet_display|iconline[2][2]              ;
-; 8:1                ; 13 bits   ; 65 LEs        ; 52 LEs               ; 13 LEs                 ; Yes        ; |tamagotchi|FSM_pet:pet_display|dataline[5][1]              ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|initindex[1]                ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; Yes        ; |tamagotchi|current_mode[2]                                 ;
-; 13:1               ; 15 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |tamagotchi|timer[1]                                        ;
-; 11:1               ; 5 bits    ; 35 LEs        ; 15 LEs               ; 20 LEs                 ; Yes        ; |tamagotchi|FSM_pet:pet_display|cmdindex[0]                 ;
-; 17:1               ; 17 bits   ; 187 LEs       ; 102 LEs              ; 85 LEs                 ; Yes        ; |tamagotchi|timer[27]                                       ;
-; 17:1               ; 6 bits    ; 66 LEs        ; 24 LEs               ; 42 LEs                 ; Yes        ; |tamagotchi|FSM_pet:pet_display|dataindex[3]                ;
-; 28:1               ; 3 bits    ; 54 LEs        ; 12 LEs               ; 42 LEs                 ; Yes        ; |tamagotchi|face[0]                                         ;
-; 19:1               ; 2 bits    ; 24 LEs        ; 2 LEs                ; 22 LEs                 ; Yes        ; |tamagotchi|health_state[1]                                 ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|spi_master:spi|shift_reg[4] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|dataline[4][2]              ;
+; 8:1                ; 21 bits   ; 105 LEs       ; 84 LEs               ; 21 LEs                 ; Yes        ; |tamagotchi|FSM_pet:pet_display|iconline[1][4]              ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |tamagotchi|FSM_pet:pet_display|initindex[5]                ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |tamagotchi|face[1]                                         ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 15 LEs               ; 20 LEs                 ; Yes        ; |tamagotchi|FSM_pet:pet_display|cmdindex[4]                 ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |tamagotchi|current[2]                                      ;
+; 17:1               ; 6 bits    ; 66 LEs        ; 24 LEs               ; 42 LEs                 ; Yes        ; |tamagotchi|FSM_pet:pet_display|dataindex[0]                ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |tamagotchi|health_state[0]                                 ;
 ; 10:1               ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; No         ; |tamagotchi|FSM_pet:pet_display|state                       ;
 ; 24:1               ; 7 bits    ; 112 LEs       ; 42 LEs               ; 70 LEs                 ; No         ; |tamagotchi|FSM_pet:pet_display|count                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
@@ -697,9 +638,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port        ; Type  ; Severity ; Details            ;
 +-------------+-------+----------+--------------------+
 ; num[13..11] ; Input ; Info     ; Stuck at VCC       ;
+; num[24..23] ; Input ; Info     ; Stuck at GND       ;
 ; num[15..14] ; Input ; Info     ; Stuck at GND       ;
 ; num[8..6]   ; Input ; Info     ; Stuck at GND       ;
-; num[24]     ; Input ; Info     ; Stuck at GND       ;
+; num[4..3]   ; Input ; Info     ; Stuck at GND       ;
 ; num[19]     ; Input ; Info     ; Stuck at GND       ;
 ; num[18]     ; Input ; Info     ; Stuck at VCC       ;
 ; num[17]     ; Input ; Info     ; Stuck at GND       ;
@@ -707,7 +649,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; num[10]     ; Input ; Info     ; Stuck at GND       ;
 ; num[9]      ; Input ; Info     ; Stuck at VCC       ;
 ; num[5]      ; Input ; Info     ; Stuck at VCC       ;
-; num[4]      ; Input ; Info     ; Stuck at GND       ;
 +-------------+-------+----------+--------------------+
 
 
@@ -735,30 +676,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 28                          ;
-; cycloneiii_ff         ; 225                         ;
-;     CLR               ; 31                          ;
-;     CLR SCLR          ; 32                          ;
-;     CLR SLD           ; 30                          ;
-;     ENA               ; 38                          ;
-;     ENA CLR           ; 11                          ;
+; cycloneiii_ff         ; 199                         ;
+;     CLR               ; 47                          ;
+;     CLR SCLR          ; 28                          ;
+;     CLR SLD           ; 1                           ;
+;     ENA               ; 30                          ;
+;     ENA CLR           ; 9                           ;
 ;     ENA CLR SCLR      ; 16                          ;
 ;     ENA SCLR          ; 32                          ;
-;     ENA SLD           ; 8                           ;
+;     ENA SLD           ; 9                           ;
 ;     SCLR              ; 4                           ;
 ;     SLD               ; 8                           ;
 ;     plain             ; 15                          ;
-; cycloneiii_lcell_comb ; 594                         ;
-;     arith             ; 146                         ;
-;         2 data inputs ; 140                         ;
+; cycloneiii_lcell_comb ; 502                         ;
+;     arith             ; 80                          ;
+;         2 data inputs ; 74                          ;
 ;         3 data inputs ; 6                           ;
-;     normal            ; 448                         ;
-;         1 data inputs ; 22                          ;
-;         2 data inputs ; 48                          ;
-;         3 data inputs ; 104                         ;
+;     normal            ; 422                         ;
+;         1 data inputs ; 18                          ;
+;         2 data inputs ; 40                          ;
+;         3 data inputs ; 90                          ;
 ;         4 data inputs ; 274                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 3.86                        ;
+; Average LUT depth     ; 3.67                        ;
 +-----------------------+-----------------------------+
 
 
@@ -767,7 +708,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -777,78 +718,74 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Tue Sep 17 09:52:15 2024
+    Info: Processing started: Wed Sep 18 10:50:39 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tamagotchi -c tamagotchi
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file src/spi_master.v
-    Info (12023): Found entity 1: spi_master File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v Line: 1
+    Info (12023): Found entity 1: spi_master File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file src/FSM_pet.v
-    Info (12023): Found entity 1: FSM_pet File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 1
+    Info (12023): Found entity 1: FSM_pet File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file src/display_hex.v
-    Info (12023): Found entity 1: display_hex File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v Line: 2
+    Info (12023): Found entity 1: display_hex File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file src/BCDtoSSeg.v
-    Info (12023): Found entity 1: BCDtoSSeg File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/BCDtoSSeg.v Line: 1
+    Info (12023): Found entity 1: BCDtoSSeg File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/BCDtoSSeg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file src/tamagotchi.v
-    Info (12023): Found entity 1: tamagotchi File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at FSM_pet.v(48): created implicit net for "data_out" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 48
+    Info (12023): Found entity 1: tamagotchi File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at FSM_pet.v(47): created implicit net for "data_out" File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 47
 Info (12127): Elaborating entity "tamagotchi" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(76): truncated value with size 41 to match size of target (40) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 76
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(131): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 131
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(134): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 134
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(137): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 137
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(149): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 149
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(152): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 152
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(155): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 155
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(167): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 167
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(170): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 170
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(173): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 173
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(185): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 185
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(188): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 188
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(191): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 191
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(203): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 203
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(206): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 206
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(209): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 209
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(258): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 258
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(259): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 259
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(260): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 260
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(262): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 262
-Warning (10230): Verilog HDL assignment warning at tamagotchi.v(263): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 263
-Info (12128): Elaborating entity "FSM_pet" for hierarchy "FSM_pet:pet_display" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 54
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(94): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 94
-Info (10264): Verilog HDL Case Statement information at FSM_pet.v(81): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 81
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(112): truncated value with size 32 to match size of target (9) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 112
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(332): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 332
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(345): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 345
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(358): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 358
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(371): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 371
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(384): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 384
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(397): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 397
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(423): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 423
-Warning (10230): Verilog HDL assignment warning at FSM_pet.v(435): truncated value with size 32 to match size of target (6) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 435
-Info (10264): Verilog HDL Case Statement information at FSM_pet.v(409): all case item expressions in this case statement are onehot File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 409
-Info (12128): Elaborating entity "spi_master" for hierarchy "FSM_pet:pet_display|spi_master:spi" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 53
-Warning (10230): Verilog HDL assignment warning at spi_master.v(49): truncated value with size 32 to match size of target (16) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v Line: 49
-Warning (10230): Verilog HDL assignment warning at spi_master.v(58): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v Line: 58
-Info (12128): Elaborating entity "display_hex" for hierarchy "display_hex:seg_display" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 66
-Warning (10230): Verilog HDL assignment warning at display_hex.v(27): truncated value with size 32 to match size of target (27) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v Line: 27
-Warning (10230): Verilog HDL assignment warning at display_hex.v(37): truncated value with size 32 to match size of target (3) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v Line: 37
-Info (12128): Elaborating entity "BCDtoSSeg" for hierarchy "display_hex:seg_display|BCDtoSSeg:bcdtosseg" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v Line: 15
+Warning (10036): Verilog HDL or VHDL warning at tamagotchi.v(23): object "timer" assigned a value but never read File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 23
+Warning (10036): Verilog HDL or VHDL warning at tamagotchi.v(24): object "state_timer" assigned a value but never read File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 24
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(100): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 100
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(103): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 103
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(113): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 113
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(116): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 116
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(126): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 126
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(129): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 129
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(139): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 139
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(142): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 142
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(152): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 152
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(155): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 155
+Warning (10230): Verilog HDL assignment warning at tamagotchi.v(168): truncated value with size 32 to match size of target (28) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 168
+Info (12128): Elaborating entity "FSM_pet" for hierarchy "FSM_pet:pet_display" File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 51
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(93): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 93
+Info (10264): Verilog HDL Case Statement information at FSM_pet.v(80): all case item expressions in this case statement are onehot File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 80
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(111): truncated value with size 32 to match size of target (9) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 111
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(327): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 327
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(340): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 340
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(353): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 353
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(366): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 366
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(379): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 379
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(392): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 392
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(418): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 418
+Warning (10230): Verilog HDL assignment warning at FSM_pet.v(430): truncated value with size 32 to match size of target (6) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 430
+Info (10264): Verilog HDL Case Statement information at FSM_pet.v(404): all case item expressions in this case statement are onehot File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 404
+Info (12128): Elaborating entity "spi_master" for hierarchy "FSM_pet:pet_display|spi_master:spi" File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/FSM_pet.v Line: 52
+Warning (10230): Verilog HDL assignment warning at spi_master.v(49): truncated value with size 32 to match size of target (16) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v Line: 49
+Warning (10230): Verilog HDL assignment warning at spi_master.v(58): truncated value with size 32 to match size of target (4) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v Line: 58
+Info (12128): Elaborating entity "display_hex" for hierarchy "display_hex:seg_display" File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 63
+Warning (10230): Verilog HDL assignment warning at display_hex.v(27): truncated value with size 32 to match size of target (27) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v Line: 27
+Warning (10230): Verilog HDL assignment warning at display_hex.v(37): truncated value with size 32 to match size of target (3) File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v Line: 37
+Info (12128): Elaborating entity "BCDtoSSeg" for hierarchy "display_hex:seg_display|BCDtoSSeg:bcdtosseg" File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/display_hex.v Line: 15
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (13000): Registers with preset signals will power-up high File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v Line: 11
+Info (13000): Registers with preset signals will power-up high File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/spi_master.v Line: 11
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 22 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 637 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "b4" File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 4
+    Warning (15610): No output dependent on input pin "light_sensor" File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 5
+    Warning (15610): No output dependent on input pin "sound_sensor" File: /home/bonbartlessby/Documentos/Github/entrega-1-proyecto-grupo22-2024-1/TopProject/src/tamagotchi.v Line: 6
+Info (21057): Implemented 542 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 21 output pins
-    Info (21061): Implemented 609 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
-    Info: Peak virtual memory: 476 megabytes
-    Info: Processing ended: Tue Sep 17 09:52:22 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:17
+    Info (21061): Implemented 514 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 472 megabytes
+    Info: Processing ended: Wed Sep 18 10:50:50 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:30
 
 

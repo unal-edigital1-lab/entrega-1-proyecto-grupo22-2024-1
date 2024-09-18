@@ -102,18 +102,6 @@
 				{
 					"name" : "b3",
 					"strict" : false
-				},
-				{
-					"name" : "b4",
-					"strict" : false
-				},
-				{
-					"name" : "sound_sensor",
-					"strict" : false
-				},
-				{
-					"name" : "light_sensor",
-					"strict" : false
 				}
 			]
 		}

@@ -1,7 +1,6 @@
 module FSM_pet (
 	input clk,                	// sys. clk
    input reset,              	// rst in
-	input enable,
 	input [2:0] face,
 	input [2:0] icon,
 	output mosi,               // master out slave in
@@ -120,7 +119,6 @@ module FSM_pet (
 				end
 		
 		WAIT: begin
-					if (enable) begin
 						case (face)
 							0: begin
 										  dataline[0] <= 8'b00001110;
@@ -310,9 +308,6 @@ module FSM_pet (
 										end
 						endcase
 						state <= 3;
-					end else begin
-					state <= 2;
-					end
 				end
 			
 		DRAWPET: begin //Draw pet
