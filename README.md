@@ -42,7 +42,7 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 
 ### 3.3 Sistema de visualizacion:
 
-* __Matriz de Puntos 16x16:__ 4 matrices 8x8 conectadas simultáneamente que simularán una matriz 16x16 para visualización más compleja. Representa visualmente el estado actual del Tamagotchi, incluyendo emociones y necesidades básicas.
+* __Pantalla nokia 5110__ Pequeña pantalla gráfica LCD montada sobre una PCB de 4.5cm x 4.5cm. Posee una resolución de 84 x 48 pí­xeles sobre la que se pueden dibujar gráficos o textos. Representa visualmente el estado actual del Tamagotchi, incluyendo emociones y necesidades básicas.
 
 * __Display de 7 Segmentos:__ Utilizado para mostrar niveles y puntuaciones específicas, como el nivel de hambre o felicidad, complementando la visualización principal.
 
@@ -50,7 +50,7 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 
 ## 4. Arquitectura del sistema:
 ### 4.1 Componentes:
-* 4 matrices 8x8
+* Display nokia 5110
 
 * Buzzer
 
@@ -62,18 +62,22 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 
 * Sensor de movimiento MPU-6050
 
-### 4.2 Descripcion funcional de componentes:
-* __Matriz 8x8:__ Una matriz 8x8 de LEDs es un arreglo de 64 LEDs organizados en 8 filas y 8 columnas. Se utiliza para mostrar patrones, caracteres y gráficos de manera visual.
+### 4.2 Descripción funcional de componentes:
+* __Display Nokia 5110:__ Pequeña pantalla gráfica LCD montada sobre una PCB de 4.5 cm x 4.5 cm. Posee una resolución de 84 x 48 píxeles sobre la que se pueden dibujar gráficos o textos.
   * __Componentes principales:__
-    * __LEDs:__ 64 LEDs organizados en una matriz de 8x8.
-    * __Controlador de Matriz:__ Un chip que facilita el control de cada LED individual.
-    * __Resistores:__ Para limitar la corriente que pasa a través de los LEDs.
+    * __LCD:__ La pantalla gráfica que permite dibujar y mostrar imágenes o texto.
+    * __Controlador PCD8544:__ Un chip que facilita la interfaz entre el microcontrolador y la pantalla, permitiendo el control de los píxeles.
+    * __Resistores:__ Para asegurar que los niveles de voltaje sean adecuados para la pantalla.
   * __Entradas y salidas:__
-    * __VCC:__ Pin de alimentación (generalmente 5V).
+    * __VCC:__ Pin de alimentación (generalmente 3.3V).
     * __GND:__ Pin de conexión a tierra.
-    * __Filas y Columnas:__ Pines para controlar las filas y columnas de la matriz, normalmente a través de un controlador de matriz.
-  * __Función:__ La matriz 8x8 se utiliza para representar visualmente el estado del Tamagotchi, como sus emociones o acciones, mediante patrones de luz.
-
+    * __SCE (Chip Enable):__ Pin para habilitar la comunicación con el display.
+    * __RST (Reset):__ Pin para reiniciar el display.
+    * __D/C (Data/Command):__ Pin que determina si se envía un comando o datos al display.
+    * __DIN (Data In):__ Pin para la transmisión de datos.
+    * __CLK (Clock):__ Pin para la señal de reloj que sincroniza la transmisión de datos.
+  * __Función:__ El display Nokia 5110 se utiliza para mostrar gráficos o texto en diversas aplicaciones, como juegos o sistemas de monitoreo, y en el caso del Tamagotchi, muestra información sobre el estado, emociones o acciones del personaje.
+  * 
 * __Buzzer:__
 Un buzzer es un dispositivo de salida que emite un sonido cuando se le aplica una corriente eléctrica.
 
@@ -138,7 +142,7 @@ Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando 
     * ```INT```: Pin de interrupción que puede ser configurado para notificar eventos específicos.
     
 ### 4.3 Interfaces de comunicacion:
-En este proyecto se plantea usar 2 interfaces de comunicación, el I2C que se usa para comunicar los datos obtenidos de un giroscopio con la maquina de estados, asi mismo se usa el SPI el cual logra hacer la transmisión correcta de datos entre la maquina de estados y una matriz de 8x8 led, la cual muestra las caras de nuestro tamagotchi.
+En este proyecto se plantea usar 2 interfaces de comunicación, el I2C que se usa para comunicar los datos obtenidos de un giroscopio con la maquina de estados, asi mismo se usa el SPI el cual logra hacer la transmisión correcta de datos entre la maquina de estados y la pantalla nokia 5110, la cual muestra las caras de nuestro tamagotchi.
 
 #### SPI (Serial Peripheral Interface)
 - **Descripción:**
@@ -173,11 +177,16 @@ En este proyecto se plantea usar 2 interfaces de comunicación, el I2C que se us
   - **Protocolos de transferencia:** Soporta transferencias de datos simples y complejas, incluyendo lecturas y escrituras combinadas.
 
 ### 4.4 Diagramas de caja negra:
+A continuaciion se muestra el diagrama de caja negra que se planteo al inicio del proyecto. Este era solo un prototipo de la maquina de estados principal.
 [<img src="img/G22 Edigital1 - Caja Negra.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=0_0##)
+
+Seguidamente presentamos los diagramas de caja negra de cada uno de los modulos en los que se dividio el proyecto esto con el fin de lograr 
+
 
 ### 4.5 Diagrama de bloques:
 [<img src="img/G22 Edigital1 - Diagrama de bloques.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=PHj0tElPAV7X#)
 
+[<img src="img/Diagrama FSM.png">](//www.plantuml.com/plantuml/png/xPR1Yjim48RlUehfPSco1BOjfR36PRU9omOsJMcsq5jGx0aHMDOYAL1ww1lrAVfYjHrvTnfPiIxDAJv5urypclaS-xyrbckxaoLhVp1sCwj4BdWfVdATi1kD1ct2n0P6xKz8KxY-1Bl52aRBFxyl6TGNtGHOPogKIVPtJ8dujAf35Y65zowwKQhmWcjkjrvGxep8lIZ-G9qBWzwDBVAo9qk-qnehMqUM3rdsfJi5pnlHjLjQ8L7JDHgxagh0mzYXiAr6erWQXD5dvQOpLuM2PkTUtmnp_QP_ajrzKZk5rxwCI9zxSytrYya6YkH3u0pqeWp7uyJJ_DjjNqLA9QeaPUdN7QvDqqouN0kkWSCqkvlsfpbuIC92-joy2nofAiI63KP9943pqs8n7OH9_abHB9t-ZFAaA3_UFTuFeYJlloYKJdzIb6UKys_BsMIG9VbinS4a6qv7yqmp-vvzdSoMsI1GuZYYcP8z_mNh6IjP-VR96R8KxXSFqzNZR9x1EEIbQBUIs3LtUNxmr_E2Y086CJ1jPvnpZH8hMzTzsHhCUNML7BHD1l3IX882spQ8uNpR6awuk80ErgizhTw1X8qb2u1lt8ftk05Z4qpMV2yZapNIOydS6pigczCUJzUzCY8pTl9ZITs0msmTOMFL4xkj5pjP_WK0)
 ## 5 Especificaciones de diseño detalladas:
 ### 5.1 Modos de operacion:
 #### 5.1.1 Modo Test
@@ -251,5 +260,3 @@ Las interacciones del usuario pueden ser de dos tipos, cambio de estado y cuidad
 * Cambio de estado: El usuario presionara el boton (1) lo que le permitira navegar por los diferentes estados de la mascota, cada pulsacion mostrara el siguiente estado (en la secuencia hambre, sueño, felicidad, higiene, condicion), esta interaccion no afectara los niveles de estado ni los temporizadores.
 * Cuidado: El ususario interactua ya sea con el boton (2) o con un sensor. Cada interaccion de cuidado afectara el nivel del estado activo de la mascota segun la tabla mostrada anteriormente.
 
-### 4.5 Diagrama de bloques:
-[<img src="img/Diagrama FSM">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=PHj0tElPAV7X#)
