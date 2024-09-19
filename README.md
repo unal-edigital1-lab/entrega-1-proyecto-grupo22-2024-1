@@ -250,3 +250,6 @@ El temporizardor se encarga de generar cambios en los estados de la mascota simu
 Las interacciones del usuario pueden ser de dos tipos, cambio de estado y cuidado:
 * Cambio de estado: El usuario presionara el boton (1) lo que le permitira navegar por los diferentes estados de la mascota, cada pulsacion mostrara el siguiente estado (en la secuencia hambre, sueño, felicidad, higiene, condicion), esta interaccion no afectara los niveles de estado ni los temporizadores.
 * Cuidado: El ususario interactua ya sea con el boton (2) o con un sensor. Cada interaccion de cuidado afectara el nivel del estado activo de la mascota segun la tabla mostrada anteriormente.
+
+### 4.5 Diagrama de bloques:
+[<img src="img/Diagrama FSM">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=PHj0tElPAV7X#)
