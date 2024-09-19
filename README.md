@@ -184,11 +184,32 @@ Seguidamente presentamos los diagramas de caja negra de cada uno de los modulos 
 
 
 ### 4.5 Diagrama de bloques:
+En la siguiente imagen se presenta el diagrama de bloques inicial que se habia planteado el cual solo evidenciaba la maquina de estados principla, como se observa es bastante extenso. Asi mismo en los avances siguintes se intento realizar una mejor version y mas entendible.  
 [<img src="img/G22 Edigital1 - Diagrama de bloques.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=PHj0tElPAV7X#)
+
+## Diagrama de bloques Modulo FSM principal
+
+Este diagrama de flujo describe la lógica principal del código con las decisiones clave, incluyendo el manejo de estados (como SLEEP, FOOD, BATH, etc.), el temporizador de prueba (test_timer), y la transición entre modos.
 
 [<img src="img/Diagrama FSM.png">](//www.plantuml.com/plantuml/png/xPR1Yjim48RlUehfPSco1BOjfR36PRU9omOsJMcsq5jGx0aHMDOYAL1ww1lrAVfYjHrvTnfPiIxDAJv5urypclaS-xyrbckxaoLhVp1sCwj4BdWfVdATi1kD1ct2n0P6xKz8KxY-1Bl52aRBFxyl6TGNtGHOPogKIVPtJ8dujAf35Y65zowwKQhmWcjkjrvGxep8lIZ-G9qBWzwDBVAo9qk-qnehMqUM3rdsfJi5pnlHjLjQ8L7JDHgxagh0mzYXiAr6erWQXD5dvQOpLuM2PkTUtmnp_QP_ajrzKZk5rxwCI9zxSytrYya6YkH3u0pqeWp7uyJJ_DjjNqLA9QeaPUdN7QvDqqouN0kkWSCqkvlsfpbuIC92-joy2nofAiI63KP9943pqs8n7OH9_abHB9t-ZFAaA3_UFTuFeYJlloYKJdzIb6UKys_BsMIG9VbinS4a6qv7yqmp-vvzdSoMsI1GuZYYcP8z_mNh6IjP-VR96R8KxXSFqzNZR9x1EEIbQBUIs3LtUNxmr_E2Y086CJ1jPvnpZH8hMzTzsHhCUNML7BHD1l3IX882spQ8uNpR6awuk80ErgizhTw1X8qb2u1lt8ftk05Z4qpMV2yZapNIOydS6pigczCUJzUzCY8pTl9ZITs0msmTOMFL4xkj5pjP_WK0)
 
+## Diagrama de bloques Modulo FSM pet (Caras)
+
+1. El sistema espera el comando de reinicio (reset) o el inicio (start).
+2. Si start es alto, se inicializa la FSM_pet:
+- En el estado INIT, se envían los comandos de configuración del LCD.
+- Luego, pasa al estado WIPE para limpiar la pantalla.
+- Posteriormente, según las entradas face e icon, se dibujan los gráficos correspondientes en la pantalla.
+- Cada vez que se manda un comando o datos al LCD, se espera a que el módulo spi_master termine su tarea antes de continuar.
+
 [<img src="img/Diagrama FSM pet.png">](//www.plantuml.com/plantuml/png/VPBDRjD04CVl-nHpjAKUoZMXebAJIf4AGhI2epLTZvk1_J0xuo1u9vw25yDU1rXZw26nvcF--lzcvreKamxU6MLr13l6fuGUeIMuTSF723O6U8-9yT6HRE3s_dNJaveyPypctVv-_m32ekHnQxY3Af6Grg172b39Z--r0G3OEDisIHHUNi7bTaw9TP_AsD8KlVXLFNAdJQAdikMHjR5n20kTKMQTHAjyeiNi85yN7ITaLoH4Os_82K4LujdrNdfAc23ppcqJOmxXQZIx0irZdVXfJM2ZPmhVS9uyAogs4Gvl3Wz5zYPw36FwxcO754uyjI18pur7KKfGjQZOSBW0wzjwQtwFVZco8wZE0WA9H34eoQiQMFuoLZALwdaLcUUF9mfjrfwtiGBuS7YxBm3ksFUC2NeCYixXHB9skKED0drCCsJwlyTSXZRtLnrQkW2sCTIBhMp_3ORmUQ0IR_nv3WHLFe4Hyx9-dhDymuu3EYxUC1zA3efZMPL2ovsP_w_7p-3TJm00)
+
+## Diagrama de bloques Modulo SPI Master
+1. El módulo espera a que la señal start sea alta.
+2. Una vez que start es alto, el módulo comienza la transmisión SPI:
+- Carga los datos en un registro de desplazamiento (shift_reg).
+- Alterna el reloj (sclk) para enviar los bits uno por uno a través de MOSI.
+- Cuando se han enviado todos los bits, levanta la señal avail para indicar que está listo para una nueva transmisión.
 
 [<img src="img/Diagrama SPI master.png">](//www.plantuml.com/plantuml/png/ZLFDYXD14BxFKvINPHSLPYyk94Rse88tGV4YOQXqzoIb_HEwUY8YFf8d7o4lvan3KetjcEIIgQz-lg-_xdhaX34DpZQ9aZNmcd0RqI5e0s_jy2M02Xu-OIJSMCCBu3rr3ZcPs3Ivjm40MBpXlOaO8KFBZ54Fjpc4rGhkuUO6K2Kwc2bixo3jZ1yBZh_kSdMUOfNk8YTuEJOi1SRSzpUw6VXxLNb0iXFO5g0o5U8q8DFMemw0e5MHuntrgOjcEpLfJDYHBrafTIeCFejyM3RdpBSTMGEtad-LZqbS7F8ynGMcQS2PxFF3MaXExYdxzSG5cWvTZog52C_XlhQld5xqhK22fuLL-MSiZufzk32Yj4vi6Ykct9Ffex2Xr9zhPc_xMaCk2nRAqluhQEiRbM1qkHRmxrVoGrI_MBJhP-28mq_flke8CZi_kZ0aAFsOqIBl-tzgPO7QkgfQgFaQMR0vEkCrzSq5L129ylf0DaQMxQE9ZZn2YkZP4TFnjuSFxzy9ToMezfTJs3V2-JZ-3Sx-0G00)
 
