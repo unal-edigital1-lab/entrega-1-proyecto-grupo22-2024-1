@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition"
 
-// DATE "09/17/2024 05:11:36"
+// DATE "09/20/2024 06:14:23"
 
 // 
 // Device: Altera EP4CE10E22C8 Package TQFP144
@@ -36,11 +36,11 @@ input 	[5:0] entradas;
 output 	[5:0] leds;
 
 // Design Ports Information
-// leds[0]	=>  Location: PIN_72,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leds[0]	=>  Location: PIN_50,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // leds[1]	=>  Location: PIN_73,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // leds[2]	=>  Location: PIN_74,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // leds[3]	=>  Location: PIN_80,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// leds[4]	=>  Location: PIN_83,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// leds[4]	=>  Location: PIN_141,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // leds[5]	=>  Location: PIN_84,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // entradas[0]	=>  Location: PIN_51,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // entradas[1]	=>  Location: PIN_52,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -80,7 +80,7 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-// Location: IOOBUF_X32_Y0_N9
+// Location: IOOBUF_X13_Y0_N2
 cycloneive_io_obuf \leds[0]~output (
 	.i(\entradas[0]~input_o ),
 	.oe(vcc),
@@ -132,7 +132,7 @@ defparam \leds[3]~output .bus_hold = "false";
 defparam \leds[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X34_Y9_N23
+// Location: IOOBUF_X5_Y24_N9
 cycloneive_io_obuf \leds[4]~output (
 	.i(\entradas[4]~input_o ),
 	.oe(vcc),

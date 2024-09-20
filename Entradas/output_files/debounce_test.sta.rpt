@@ -1,0 +1,1461 @@
+Timing Analyzer report for debounce_test
+Thu Sep 19 03:40:05 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Setup: 'Boton_AR:B_Energia|boton_out'
+ 14. Slow 1200mV 85C Model Setup: 'Boton_AR:B_Sueno|boton_out'
+ 15. Slow 1200mV 85C Model Setup: 'Boton_AR:B_Test|boton_out'
+ 16. Slow 1200mV 85C Model Hold: 'Boton_AR:B_Energia|boton_out'
+ 17. Slow 1200mV 85C Model Hold: 'Boton_AR:B_Sueno|boton_out'
+ 18. Slow 1200mV 85C Model Hold: 'Boton_AR:B_Test|boton_out'
+ 19. Slow 1200mV 85C Model Hold: 'clk'
+ 20. Slow 1200mV 85C Model Metastability Summary
+ 21. Slow 1200mV 0C Model Fmax Summary
+ 22. Slow 1200mV 0C Model Setup Summary
+ 23. Slow 1200mV 0C Model Hold Summary
+ 24. Slow 1200mV 0C Model Recovery Summary
+ 25. Slow 1200mV 0C Model Removal Summary
+ 26. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 27. Slow 1200mV 0C Model Setup: 'clk'
+ 28. Slow 1200mV 0C Model Setup: 'Boton_AR:B_Energia|boton_out'
+ 29. Slow 1200mV 0C Model Setup: 'Boton_AR:B_Sueno|boton_out'
+ 30. Slow 1200mV 0C Model Setup: 'Boton_AR:B_Test|boton_out'
+ 31. Slow 1200mV 0C Model Hold: 'Boton_AR:B_Energia|boton_out'
+ 32. Slow 1200mV 0C Model Hold: 'Boton_AR:B_Sueno|boton_out'
+ 33. Slow 1200mV 0C Model Hold: 'Boton_AR:B_Test|boton_out'
+ 34. Slow 1200mV 0C Model Hold: 'clk'
+ 35. Slow 1200mV 0C Model Metastability Summary
+ 36. Fast 1200mV 0C Model Setup Summary
+ 37. Fast 1200mV 0C Model Hold Summary
+ 38. Fast 1200mV 0C Model Recovery Summary
+ 39. Fast 1200mV 0C Model Removal Summary
+ 40. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 41. Fast 1200mV 0C Model Setup: 'clk'
+ 42. Fast 1200mV 0C Model Setup: 'Boton_AR:B_Energia|boton_out'
+ 43. Fast 1200mV 0C Model Setup: 'Boton_AR:B_Sueno|boton_out'
+ 44. Fast 1200mV 0C Model Setup: 'Boton_AR:B_Test|boton_out'
+ 45. Fast 1200mV 0C Model Hold: 'clk'
+ 46. Fast 1200mV 0C Model Hold: 'Boton_AR:B_Energia|boton_out'
+ 47. Fast 1200mV 0C Model Hold: 'Boton_AR:B_Sueno|boton_out'
+ 48. Fast 1200mV 0C Model Hold: 'Boton_AR:B_Test|boton_out'
+ 49. Fast 1200mV 0C Model Metastability Summary
+ 50. Multicorner Timing Analysis Summary
+ 51. Board Trace Model Assignments
+ 52. Input Transition Times
+ 53. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 54. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 55. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 56. Setup Transfers
+ 57. Hold Transfers
+ 58. Report TCCS
+ 59. Report RSKM
+ 60. Unconstrained Paths Summary
+ 61. Clock Status Summary
+ 62. Unconstrained Input Ports
+ 63. Unconstrained Output Ports
+ 64. Unconstrained Input Ports
+ 65. Unconstrained Output Ports
+ 66. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++--------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                        ;
++-----------------------+--------------------------------------------------------+
+; Quartus Prime Version ; Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                 ;
+; Revision Name         ; debounce_test                                          ;
+; Device Family         ; Cyclone IV E                                           ;
+; Device Name           ; EP4CE10E22C8                                           ;
+; Timing Models         ; Final                                                  ;
+; Delay Model           ; Combined                                               ;
+; Rise/Fall Delays      ; Enabled                                                ;
++-----------------------+--------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 32          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.06        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.5%      ;
+;     Processors 3-16        ;   0.4%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                     ;
++------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
+; Clock Name                   ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                          ;
++------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
+; Boton_AR:B_Energia|boton_out ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Boton_AR:B_Energia|boton_out } ;
+; Boton_AR:B_Sueno|boton_out   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Boton_AR:B_Sueno|boton_out }   ;
+; Boton_AR:B_Test|boton_out    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Boton_AR:B_Test|boton_out }    ;
+; clk                          ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                          ;
++------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                            ;
++-------------+-----------------+------------------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name                   ; Note                                           ;
++-------------+-----------------+------------------------------+------------------------------------------------+
+; 159.16 MHz  ; 159.16 MHz      ; clk                          ;                                                ;
+; 1128.67 MHz ; 402.09 MHz      ; Boton_AR:B_Energia|boton_out ; limit due to minimum period restriction (tmin) ;
+; 1128.67 MHz ; 402.09 MHz      ; Boton_AR:B_Sueno|boton_out   ; limit due to minimum period restriction (tmin) ;
+; 1128.67 MHz ; 402.09 MHz      ; Boton_AR:B_Test|boton_out    ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+------------------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                   ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; clk                          ; -5.283 ; -339.775      ;
+; Boton_AR:B_Energia|boton_out ; 0.114  ; 0.000         ;
+; Boton_AR:B_Sueno|boton_out   ; 0.114  ; 0.000         ;
+; Boton_AR:B_Test|boton_out    ; 0.114  ; 0.000         ;
++------------------------------+--------+---------------+
+
+
++------------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                   ;
++------------------------------+-------+---------------+
+; Clock                        ; Slack ; End Point TNS ;
++------------------------------+-------+---------------+
+; Boton_AR:B_Energia|boton_out ; 0.497 ; 0.000         ;
+; Boton_AR:B_Sueno|boton_out   ; 0.497 ; 0.000         ;
+; Boton_AR:B_Test|boton_out    ; 0.497 ; 0.000         ;
+; clk                          ; 0.501 ; 0.000         ;
++------------------------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++-------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary     ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; clk                          ; -3.000 ; -101.142      ;
+; Boton_AR:B_Energia|boton_out ; -1.487 ; -1.487        ;
+; Boton_AR:B_Sueno|boton_out   ; -1.487 ; -1.487        ;
+; Boton_AR:B_Test|boton_out    ; -1.487 ; -1.487        ;
++------------------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                             ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.283 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.204      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[9]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[0]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[1]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[2]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[3]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[4]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[5]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[6]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[7]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.258 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[8]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.178      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[9]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[0]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[1]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[2]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[3]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[4]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[5]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[6]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[7]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.248 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[8]  ; clk          ; clk         ; 1.000        ; -0.081     ; 6.168      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[17] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[10] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[11] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[12] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[13] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[14] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[15] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[16] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[18] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[20] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.215 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 6.135      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.166 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.087      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[9]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[0]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[1]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[2]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[3]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[4]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[5]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[6]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[7]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.141 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[8]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.061      ;
+; -5.116 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|boton_out      ; clk          ; clk         ; 1.000        ; -0.081     ; 6.036      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.110 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.080     ; 6.031      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[9]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[0]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[1]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[2]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[3]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[4]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[5]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[6]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[7]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.085 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[8]     ; clk          ; clk         ; 1.000        ; -0.081     ; 6.005      ;
+; -5.008 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[13]   ; clk          ; clk         ; 1.000        ; -0.080     ; 5.929      ;
+; -5.008 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[16]   ; clk          ; clk         ; 1.000        ; -0.080     ; 5.929      ;
+; -5.008 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[19]   ; clk          ; clk         ; 1.000        ; -0.080     ; 5.929      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[9]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[0]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[1]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[2]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[3]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[4]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[5]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[6]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[7]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[8]  ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -5.000 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|boton_out      ; clk          ; clk         ; 1.000        ; -0.081     ; 5.920      ;
+; -4.996 ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|counter[13]   ; clk          ; clk         ; 1.000        ; -0.080     ; 5.917      ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Boton_AR:B_Energia|boton_out'                                                                          ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock                 ; Latch Clock                  ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; 0.114 ; led2~reg0 ; led2~reg0 ; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; 1.000        ; -0.049     ; 0.858      ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Boton_AR:B_Sueno|boton_out'                                                                        ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock               ; Latch Clock                ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; 0.114 ; led3~reg0 ; led3~reg0 ; Boton_AR:B_Sueno|boton_out ; Boton_AR:B_Sueno|boton_out ; 1.000        ; -0.049     ; 0.858      ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Boton_AR:B_Test|boton_out'                                                                       ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.114 ; led1~reg0 ; led1~reg0 ; Boton_AR:B_Test|boton_out ; Boton_AR:B_Test|boton_out ; 1.000        ; -0.049     ; 0.858      ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Boton_AR:B_Energia|boton_out'                                                                           ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock                 ; Latch Clock                  ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; 0.497 ; led2~reg0 ; led2~reg0 ; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; 0.000        ; 0.049      ; 0.758      ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Boton_AR:B_Sueno|boton_out'                                                                         ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock               ; Latch Clock                ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; 0.497 ; led3~reg0 ; led3~reg0 ; Boton_AR:B_Sueno|boton_out ; Boton_AR:B_Sueno|boton_out ; 0.000        ; 0.049      ; 0.758      ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Boton_AR:B_Test|boton_out'                                                                        ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.497 ; led1~reg0 ; led1~reg0 ; Boton_AR:B_Test|boton_out ; Boton_AR:B_Test|boton_out ; 0.000        ; 0.049      ; 0.758      ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                             ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock                 ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+; 0.501 ; Boton_AR:B_Test|counter[20]    ; Boton_AR:B_Test|counter[20]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 0.793      ;
+; 0.517 ; Boton_AR:B_Energia|counter[20] ; Boton_AR:B_Energia|counter[20] ; clk                          ; clk         ; 0.000        ; 0.081      ; 0.810      ;
+; 0.518 ; Boton_AR:B_Sueno|counter[20]   ; Boton_AR:B_Sueno|counter[20]   ; clk                          ; clk         ; 0.000        ; 0.080      ; 0.810      ;
+; 0.742 ; Boton_AR:B_Energia|counter[9]  ; Boton_AR:B_Energia|counter[9]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.035      ;
+; 0.746 ; Boton_AR:B_Energia|counter[1]  ; Boton_AR:B_Energia|counter[1]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.039      ;
+; 0.747 ; Boton_AR:B_Energia|counter[2]  ; Boton_AR:B_Energia|counter[2]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.040      ;
+; 0.752 ; Boton_AR:B_Test|counter[11]    ; Boton_AR:B_Test|counter[11]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.044      ;
+; 0.753 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[15]   ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.045      ;
+; 0.754 ; Boton_AR:B_Sueno|counter[12]   ; Boton_AR:B_Sueno|counter[12]   ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.046      ;
+; 0.754 ; Boton_AR:B_Test|counter[15]    ; Boton_AR:B_Test|counter[15]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.046      ;
+; 0.755 ; Boton_AR:B_Test|counter[12]    ; Boton_AR:B_Test|counter[12]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.047      ;
+; 0.757 ; Boton_AR:B_Energia|counter[18] ; Boton_AR:B_Energia|counter[18] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.050      ;
+; 0.758 ; Boton_AR:B_Sueno|counter[18]   ; Boton_AR:B_Sueno|counter[18]   ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.050      ;
+; 0.759 ; Boton_AR:B_Test|counter[18]    ; Boton_AR:B_Test|counter[18]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.051      ;
+; 0.760 ; Boton_AR:B_Sueno|counter[9]    ; Boton_AR:B_Sueno|counter[9]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.053      ;
+; 0.760 ; Boton_AR:B_Test|counter[9]     ; Boton_AR:B_Test|counter[9]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.053      ;
+; 0.761 ; Boton_AR:B_Test|counter[5]     ; Boton_AR:B_Test|counter[5]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.054      ;
+; 0.761 ; Boton_AR:B_Test|counter[7]     ; Boton_AR:B_Test|counter[7]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.054      ;
+; 0.762 ; Boton_AR:B_Sueno|counter[1]    ; Boton_AR:B_Sueno|counter[1]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.762 ; Boton_AR:B_Sueno|counter[3]    ; Boton_AR:B_Sueno|counter[3]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.762 ; Boton_AR:B_Energia|counter[13] ; Boton_AR:B_Energia|counter[13] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.763 ; Boton_AR:B_Energia|counter[3]  ; Boton_AR:B_Energia|counter[3]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.056      ;
+; 0.763 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[1]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.056      ;
+; 0.763 ; Boton_AR:B_Test|counter[13]    ; Boton_AR:B_Test|counter[13]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.055      ;
+; 0.764 ; Boton_AR:B_Sueno|counter[10]   ; Boton_AR:B_Sueno|counter[10]   ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; Boton_AR:B_Energia|counter[17] ; Boton_AR:B_Energia|counter[17] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.764 ; Boton_AR:B_Energia|counter[10] ; Boton_AR:B_Energia|counter[10] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.764 ; Boton_AR:B_Energia|counter[16] ; Boton_AR:B_Energia|counter[16] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.764 ; Boton_AR:B_Test|counter[8]     ; Boton_AR:B_Test|counter[8]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.765 ; Boton_AR:B_Sueno|counter[2]    ; Boton_AR:B_Sueno|counter[2]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.058      ;
+; 0.765 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[2]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.058      ;
+; 0.765 ; Boton_AR:B_Test|counter[6]     ; Boton_AR:B_Test|counter[6]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.058      ;
+; 0.765 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[10]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; Boton_AR:B_Test|counter[16]    ; Boton_AR:B_Test|counter[16]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; Boton_AR:B_Test|counter[19]    ; Boton_AR:B_Test|counter[19]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.766 ; Boton_AR:B_Test|counter[14]    ; Boton_AR:B_Test|counter[14]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.058      ;
+; 0.767 ; Boton_AR:B_Sueno|counter[7]    ; Boton_AR:B_Sueno|counter[7]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.060      ;
+; 0.768 ; Boton_AR:B_Sueno|counter[5]    ; Boton_AR:B_Sueno|counter[5]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.061      ;
+; 0.770 ; Boton_AR:B_Sueno|counter[8]    ; Boton_AR:B_Sueno|counter[8]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.063      ;
+; 0.770 ; Boton_AR:B_Sueno|counter[11]   ; Boton_AR:B_Sueno|counter[11]   ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.062      ;
+; 0.770 ; Boton_AR:B_Test|counter[3]     ; Boton_AR:B_Test|counter[3]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.063      ;
+; 0.771 ; Boton_AR:B_Sueno|counter[6]    ; Boton_AR:B_Sueno|counter[6]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.064      ;
+; 0.772 ; Boton_AR:B_Sueno|counter[17]   ; Boton_AR:B_Sueno|counter[17]   ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.064      ;
+; 0.772 ; Boton_AR:B_Sueno|counter[4]    ; Boton_AR:B_Sueno|counter[4]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.065      ;
+; 0.773 ; Boton_AR:B_Test|counter[4]     ; Boton_AR:B_Test|counter[4]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.066      ;
+; 0.773 ; Boton_AR:B_Test|counter[17]    ; Boton_AR:B_Test|counter[17]    ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.065      ;
+; 0.780 ; Boton_AR:B_Sueno|counter[0]    ; Boton_AR:B_Sueno|counter[0]    ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.073      ;
+; 0.785 ; Boton_AR:B_Energia|counter[5]  ; Boton_AR:B_Energia|counter[5]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.078      ;
+; 0.788 ; Boton_AR:B_Test|counter[0]     ; Boton_AR:B_Test|counter[0]     ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.081      ;
+; 0.946 ; Boton_AR:B_Energia|counter[19] ; Boton_AR:B_Energia|counter[19] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.239      ;
+; 0.948 ; Boton_AR:B_Energia|counter[4]  ; Boton_AR:B_Energia|counter[4]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.241      ;
+; 0.961 ; Boton_AR:B_Energia|counter[12] ; Boton_AR:B_Energia|counter[12] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.254      ;
+; 0.967 ; Boton_AR:B_Energia|counter[7]  ; Boton_AR:B_Energia|counter[7]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.260      ;
+; 0.969 ; Boton_AR:B_Energia|counter[6]  ; Boton_AR:B_Energia|counter[6]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.262      ;
+; 0.969 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[14] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.262      ;
+; 0.970 ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|counter[14]   ; clk                          ; clk         ; 0.000        ; 0.080      ; 1.262      ;
+; 0.970 ; Boton_AR:B_Energia|counter[15] ; Boton_AR:B_Energia|counter[15] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.263      ;
+; 0.980 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[11] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.273      ;
+; 0.985 ; Boton_AR:B_Energia|counter[0]  ; Boton_AR:B_Energia|counter[0]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.278      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[17] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[10] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[12] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[13] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[15] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[16] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[18] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[20] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.049 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[19] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.138      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[9]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[0]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[1]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[2]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[3]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[4]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[5]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[6]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[7]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.080 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[8]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.596      ; 4.169      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[9]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[0]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[1]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[2]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[3]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[4]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[5]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[6]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[7]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.095 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[8]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.180      ;
+; 1.097 ; Boton_AR:B_Energia|counter[9]  ; Boton_AR:B_Energia|counter[10] ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.390      ;
+; 1.100 ; Boton_AR:B_Energia|counter[1]  ; Boton_AR:B_Energia|counter[2]  ; clk                          ; clk         ; 0.000        ; 0.081      ; 1.393      ;
+; 1.104 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[17]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.189      ;
+; 1.104 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[10]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.189      ;
+; 1.104 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[11]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.189      ;
+; 1.104 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[12]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.189      ;
+; 1.104 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.189      ;
+; 1.104 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.189      ;
+; 1.104 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[18]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.189      ;
+; 1.104 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[20]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 2.592      ; 4.189      ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                             ;
++-------------+-----------------+------------------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name                   ; Note                                           ;
++-------------+-----------------+------------------------------+------------------------------------------------+
+; 168.66 MHz  ; 168.66 MHz      ; clk                          ;                                                ;
+; 1262.63 MHz ; 402.09 MHz      ; Boton_AR:B_Energia|boton_out ; limit due to minimum period restriction (tmin) ;
+; 1262.63 MHz ; 402.09 MHz      ; Boton_AR:B_Sueno|boton_out   ; limit due to minimum period restriction (tmin) ;
+; 1262.63 MHz ; 402.09 MHz      ; Boton_AR:B_Test|boton_out    ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+------------------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                    ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; clk                          ; -4.929 ; -317.021      ;
+; Boton_AR:B_Energia|boton_out ; 0.208  ; 0.000         ;
+; Boton_AR:B_Sueno|boton_out   ; 0.208  ; 0.000         ;
+; Boton_AR:B_Test|boton_out    ; 0.208  ; 0.000         ;
++------------------------------+--------+---------------+
+
+
++------------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                    ;
++------------------------------+-------+---------------+
+; Clock                        ; Slack ; End Point TNS ;
++------------------------------+-------+---------------+
+; Boton_AR:B_Energia|boton_out ; 0.445 ; 0.000         ;
+; Boton_AR:B_Sueno|boton_out   ; 0.445 ; 0.000         ;
+; Boton_AR:B_Test|boton_out    ; 0.445 ; 0.000         ;
+; clk                          ; 0.464 ; 0.000         ;
++------------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++-------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary      ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; clk                          ; -3.000 ; -101.142      ;
+; Boton_AR:B_Energia|boton_out ; -1.487 ; -1.487        ;
+; Boton_AR:B_Sueno|boton_out   ; -1.487 ; -1.487        ;
+; Boton_AR:B_Test|boton_out    ; -1.487 ; -1.487        ;
++------------------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                              ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.929 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.859      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[9]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[0]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[1]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[2]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[3]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[4]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[5]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[6]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[7]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.893 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[8]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.823      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[9]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[0]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[1]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[2]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[3]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[4]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[5]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[6]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[7]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.878 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[8]  ; clk          ; clk         ; 1.000        ; -0.072     ; 5.808      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[17] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[10] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[11] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[12] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[13] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[14] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[15] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[16] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[18] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[20] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.845 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[19] ; clk          ; clk         ; 1.000        ; -0.072     ; 5.775      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.831 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.072     ; 5.761      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[9]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[0]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[1]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[2]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[3]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[4]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[5]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[6]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[7]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.795 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[8]     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.725      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.774 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.073     ; 5.703      ;
+; -4.744 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|boton_out      ; clk          ; clk         ; 1.000        ; -0.072     ; 5.674      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[9]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[0]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[1]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[2]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[3]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[4]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[5]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[6]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[7]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.738 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[8]     ; clk          ; clk         ; 1.000        ; -0.073     ; 5.667      ;
+; -4.697 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[13]   ; clk          ; clk         ; 1.000        ; -0.073     ; 5.626      ;
+; -4.697 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[16]   ; clk          ; clk         ; 1.000        ; -0.073     ; 5.626      ;
+; -4.697 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[19]   ; clk          ; clk         ; 1.000        ; -0.073     ; 5.626      ;
+; -4.689 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[17]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.619      ;
+; -4.689 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[10]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.619      ;
+; -4.689 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[11]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.619      ;
+; -4.689 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[12]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.619      ;
+; -4.689 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[14]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.619      ;
+; -4.689 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[15]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.619      ;
+; -4.689 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[18]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.619      ;
+; -4.689 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[20]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.619      ;
+; -4.687 ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|counter[13]   ; clk          ; clk         ; 1.000        ; -0.073     ; 5.616      ;
+; -4.687 ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|counter[16]   ; clk          ; clk         ; 1.000        ; -0.073     ; 5.616      ;
+; -4.687 ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|counter[19]   ; clk          ; clk         ; 1.000        ; -0.073     ; 5.616      ;
+; -4.679 ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|counter[17]   ; clk          ; clk         ; 1.000        ; -0.072     ; 5.609      ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Boton_AR:B_Energia|boton_out'                                                                           ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock                 ; Latch Clock                  ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; 0.208 ; led2~reg0 ; led2~reg0 ; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; 1.000        ; -0.044     ; 0.770      ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Boton_AR:B_Sueno|boton_out'                                                                         ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock               ; Latch Clock                ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; 0.208 ; led3~reg0 ; led3~reg0 ; Boton_AR:B_Sueno|boton_out ; Boton_AR:B_Sueno|boton_out ; 1.000        ; -0.044     ; 0.770      ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Boton_AR:B_Test|boton_out'                                                                        ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.208 ; led1~reg0 ; led1~reg0 ; Boton_AR:B_Test|boton_out ; Boton_AR:B_Test|boton_out ; 1.000        ; -0.044     ; 0.770      ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Boton_AR:B_Energia|boton_out'                                                                            ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock                 ; Latch Clock                  ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; 0.445 ; led2~reg0 ; led2~reg0 ; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; 0.000        ; 0.044      ; 0.684      ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Boton_AR:B_Sueno|boton_out'                                                                          ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock               ; Latch Clock                ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; 0.445 ; led3~reg0 ; led3~reg0 ; Boton_AR:B_Sueno|boton_out ; Boton_AR:B_Sueno|boton_out ; 0.000        ; 0.044      ; 0.684      ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Boton_AR:B_Test|boton_out'                                                                         ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.445 ; led1~reg0 ; led1~reg0 ; Boton_AR:B_Test|boton_out ; Boton_AR:B_Test|boton_out ; 0.000        ; 0.044      ; 0.684      ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                              ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock                 ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+; 0.464 ; Boton_AR:B_Test|counter[20]    ; Boton_AR:B_Test|counter[20]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.732      ;
+; 0.478 ; Boton_AR:B_Sueno|counter[20]   ; Boton_AR:B_Sueno|counter[20]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.745      ;
+; 0.478 ; Boton_AR:B_Energia|counter[20] ; Boton_AR:B_Energia|counter[20] ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.745      ;
+; 0.691 ; Boton_AR:B_Energia|counter[9]  ; Boton_AR:B_Energia|counter[9]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.958      ;
+; 0.695 ; Boton_AR:B_Energia|counter[1]  ; Boton_AR:B_Energia|counter[1]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.962      ;
+; 0.698 ; Boton_AR:B_Energia|counter[2]  ; Boton_AR:B_Energia|counter[2]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.965      ;
+; 0.698 ; Boton_AR:B_Test|counter[15]    ; Boton_AR:B_Test|counter[15]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.966      ;
+; 0.700 ; Boton_AR:B_Test|counter[11]    ; Boton_AR:B_Test|counter[11]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.968      ;
+; 0.702 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[15]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.969      ;
+; 0.703 ; Boton_AR:B_Test|counter[12]    ; Boton_AR:B_Test|counter[12]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.971      ;
+; 0.704 ; Boton_AR:B_Sueno|counter[9]    ; Boton_AR:B_Sueno|counter[9]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.971      ;
+; 0.704 ; Boton_AR:B_Sueno|counter[12]   ; Boton_AR:B_Sueno|counter[12]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.971      ;
+; 0.705 ; Boton_AR:B_Test|counter[9]     ; Boton_AR:B_Test|counter[9]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.972      ;
+; 0.705 ; Boton_AR:B_Test|counter[18]    ; Boton_AR:B_Test|counter[18]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.973      ;
+; 0.705 ; Boton_AR:B_Test|counter[7]     ; Boton_AR:B_Test|counter[7]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.972      ;
+; 0.705 ; Boton_AR:B_Test|counter[13]    ; Boton_AR:B_Test|counter[13]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.973      ;
+; 0.706 ; Boton_AR:B_Sueno|counter[18]   ; Boton_AR:B_Sueno|counter[18]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.973      ;
+; 0.706 ; Boton_AR:B_Energia|counter[13] ; Boton_AR:B_Energia|counter[13] ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.973      ;
+; 0.706 ; Boton_AR:B_Test|counter[5]     ; Boton_AR:B_Test|counter[5]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.973      ;
+; 0.707 ; Boton_AR:B_Energia|counter[18] ; Boton_AR:B_Energia|counter[18] ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.974      ;
+; 0.708 ; Boton_AR:B_Sueno|counter[1]    ; Boton_AR:B_Sueno|counter[1]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; Boton_AR:B_Sueno|counter[3]    ; Boton_AR:B_Sueno|counter[3]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; Boton_AR:B_Test|counter[16]    ; Boton_AR:B_Test|counter[16]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.976      ;
+; 0.709 ; Boton_AR:B_Energia|counter[3]  ; Boton_AR:B_Energia|counter[3]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.976      ;
+; 0.709 ; Boton_AR:B_Energia|counter[16] ; Boton_AR:B_Energia|counter[16] ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.976      ;
+; 0.709 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[1]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.976      ;
+; 0.709 ; Boton_AR:B_Test|counter[19]    ; Boton_AR:B_Test|counter[19]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.977      ;
+; 0.710 ; Boton_AR:B_Sueno|counter[10]   ; Boton_AR:B_Sueno|counter[10]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.977      ;
+; 0.710 ; Boton_AR:B_Energia|counter[17] ; Boton_AR:B_Energia|counter[17] ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.977      ;
+; 0.710 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[10]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.978      ;
+; 0.711 ; Boton_AR:B_Sueno|counter[2]    ; Boton_AR:B_Sueno|counter[2]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.978      ;
+; 0.711 ; Boton_AR:B_Sueno|counter[7]    ; Boton_AR:B_Sueno|counter[7]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.978      ;
+; 0.711 ; Boton_AR:B_Energia|counter[10] ; Boton_AR:B_Energia|counter[10] ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.978      ;
+; 0.711 ; Boton_AR:B_Test|counter[6]     ; Boton_AR:B_Test|counter[6]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.978      ;
+; 0.711 ; Boton_AR:B_Test|counter[8]     ; Boton_AR:B_Test|counter[8]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.978      ;
+; 0.711 ; Boton_AR:B_Test|counter[14]    ; Boton_AR:B_Test|counter[14]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.979      ;
+; 0.712 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[2]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.979      ;
+; 0.713 ; Boton_AR:B_Sueno|counter[5]    ; Boton_AR:B_Sueno|counter[5]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.980      ;
+; 0.713 ; Boton_AR:B_Sueno|counter[11]   ; Boton_AR:B_Sueno|counter[11]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.980      ;
+; 0.716 ; Boton_AR:B_Sueno|counter[8]    ; Boton_AR:B_Sueno|counter[8]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.983      ;
+; 0.717 ; Boton_AR:B_Sueno|counter[17]   ; Boton_AR:B_Sueno|counter[17]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.984      ;
+; 0.717 ; Boton_AR:B_Test|counter[3]     ; Boton_AR:B_Test|counter[3]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.984      ;
+; 0.717 ; Boton_AR:B_Test|counter[17]    ; Boton_AR:B_Test|counter[17]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 0.985      ;
+; 0.718 ; Boton_AR:B_Sueno|counter[4]    ; Boton_AR:B_Sueno|counter[4]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.985      ;
+; 0.718 ; Boton_AR:B_Sueno|counter[6]    ; Boton_AR:B_Sueno|counter[6]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.985      ;
+; 0.718 ; Boton_AR:B_Test|counter[4]     ; Boton_AR:B_Test|counter[4]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.985      ;
+; 0.728 ; Boton_AR:B_Sueno|counter[0]    ; Boton_AR:B_Sueno|counter[0]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.995      ;
+; 0.728 ; Boton_AR:B_Energia|counter[5]  ; Boton_AR:B_Energia|counter[5]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 0.995      ;
+; 0.738 ; Boton_AR:B_Test|counter[0]     ; Boton_AR:B_Test|counter[0]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.005      ;
+; 0.856 ; Boton_AR:B_Energia|counter[4]  ; Boton_AR:B_Energia|counter[4]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.123      ;
+; 0.870 ; Boton_AR:B_Energia|counter[15] ; Boton_AR:B_Energia|counter[15] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.137      ;
+; 0.871 ; Boton_AR:B_Energia|counter[19] ; Boton_AR:B_Energia|counter[19] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.138      ;
+; 0.872 ; Boton_AR:B_Energia|counter[6]  ; Boton_AR:B_Energia|counter[6]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.139      ;
+; 0.872 ; Boton_AR:B_Energia|counter[12] ; Boton_AR:B_Energia|counter[12] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.139      ;
+; 0.876 ; Boton_AR:B_Energia|counter[7]  ; Boton_AR:B_Energia|counter[7]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.143      ;
+; 0.877 ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|counter[14]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.144      ;
+; 0.881 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[11] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.148      ;
+; 0.883 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[14] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.150      ;
+; 0.890 ; Boton_AR:B_Energia|counter[0]  ; Boton_AR:B_Energia|counter[0]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.157      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[17] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[10] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[12] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[13] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[15] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[16] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[18] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[20] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.003 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[19] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.842      ;
+; 1.013 ; Boton_AR:B_Energia|counter[9]  ; Boton_AR:B_Energia|counter[10] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.280      ;
+; 1.017 ; Boton_AR:B_Energia|counter[2]  ; Boton_AR:B_Energia|counter[3]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.284      ;
+; 1.019 ; Boton_AR:B_Energia|counter[1]  ; Boton_AR:B_Energia|counter[2]  ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.286      ;
+; 1.020 ; Boton_AR:B_Test|counter[15]    ; Boton_AR:B_Test|counter[16]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.288      ;
+; 1.022 ; Boton_AR:B_Test|counter[12]    ; Boton_AR:B_Test|counter[13]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.290      ;
+; 1.024 ; Boton_AR:B_Test|counter[11]    ; Boton_AR:B_Test|counter[12]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.292      ;
+; 1.024 ; Boton_AR:B_Test|counter[18]    ; Boton_AR:B_Test|counter[19]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.292      ;
+; 1.025 ; Boton_AR:B_Sueno|counter[9]    ; Boton_AR:B_Sueno|counter[10]   ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.293      ;
+; 1.026 ; Boton_AR:B_Test|counter[9]     ; Boton_AR:B_Test|counter[10]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.294      ;
+; 1.026 ; Boton_AR:B_Sueno|counter[0]    ; Boton_AR:B_Sueno|counter[1]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.293      ;
+; 1.026 ; Boton_AR:B_Energia|counter[18] ; Boton_AR:B_Energia|counter[19] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.293      ;
+; 1.027 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[11]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.295      ;
+; 1.027 ; Boton_AR:B_Test|counter[7]     ; Boton_AR:B_Test|counter[8]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.294      ;
+; 1.027 ; Boton_AR:B_Test|counter[13]    ; Boton_AR:B_Test|counter[14]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.295      ;
+; 1.027 ; Boton_AR:B_Sueno|counter[10]   ; Boton_AR:B_Sueno|counter[11]   ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.294      ;
+; 1.027 ; Boton_AR:B_Test|counter[16]    ; Boton_AR:B_Test|counter[17]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.295      ;
+; 1.028 ; Boton_AR:B_Test|counter[8]     ; Boton_AR:B_Test|counter[9]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.295      ;
+; 1.028 ; Boton_AR:B_Test|counter[5]     ; Boton_AR:B_Test|counter[6]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.295      ;
+; 1.028 ; Boton_AR:B_Energia|counter[16] ; Boton_AR:B_Energia|counter[17] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.295      ;
+; 1.028 ; Boton_AR:B_Energia|counter[10] ; Boton_AR:B_Energia|counter[11] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.295      ;
+; 1.028 ; Boton_AR:B_Energia|counter[13] ; Boton_AR:B_Energia|counter[14] ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.295      ;
+; 1.029 ; Boton_AR:B_Test|counter[14]    ; Boton_AR:B_Test|counter[15]    ; clk                          ; clk         ; 0.000        ; 0.073      ; 1.297      ;
+; 1.029 ; Boton_AR:B_Test|counter[6]     ; Boton_AR:B_Test|counter[7]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.296      ;
+; 1.029 ; Boton_AR:B_Sueno|counter[2]    ; Boton_AR:B_Sueno|counter[3]    ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.296      ;
+; 1.030 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[3]     ; clk                          ; clk         ; 0.000        ; 0.072      ; 1.297      ;
+; 1.031 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[9]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.870      ;
+; 1.031 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[0]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.870      ;
+; 1.031 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[1]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.870      ;
+; 1.031 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[2]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.870      ;
+; 1.031 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[3]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 2.384      ; 3.870      ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary                    ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; clk                          ; -1.648 ; -102.936      ;
+; Boton_AR:B_Energia|boton_out ; 0.626  ; 0.000         ;
+; Boton_AR:B_Sueno|boton_out   ; 0.626  ; 0.000         ;
+; Boton_AR:B_Test|boton_out    ; 0.626  ; 0.000         ;
++------------------------------+--------+---------------+
+
+
++------------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary                    ;
++------------------------------+-------+---------------+
+; Clock                        ; Slack ; End Point TNS ;
++------------------------------+-------+---------------+
+; clk                          ; 0.203 ; 0.000         ;
+; Boton_AR:B_Energia|boton_out ; 0.208 ; 0.000         ;
+; Boton_AR:B_Sueno|boton_out   ; 0.208 ; 0.000         ;
+; Boton_AR:B_Test|boton_out    ; 0.208 ; 0.000         ;
++------------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++-------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary      ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; clk                          ; -3.000 ; -73.267       ;
+; Boton_AR:B_Energia|boton_out ; -1.000 ; -1.000        ;
+; Boton_AR:B_Sueno|boton_out   ; -1.000 ; -1.000        ;
+; Boton_AR:B_Test|boton_out    ; -1.000 ; -1.000        ;
++------------------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                              ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.648 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|boton_out      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.599      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[9]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[0]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[1]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[3]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[4]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[5]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[7]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.642 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[8]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.592      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[17] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[10] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[11] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[12] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[14] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[15] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[16] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[18] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[20] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.627 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|counter[19] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.578      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.602 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.553      ;
+; -1.591 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|boton_out      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.542      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[9]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[0]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[1]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[2]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[3]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[4]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[5]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[6]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[7]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.587 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[8]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.538      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[9]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[0]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[1]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[2]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[3]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[4]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[5]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[6]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[7]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.578 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[8]  ; clk          ; clk         ; 1.000        ; -0.037     ; 2.528      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[17] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[10] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[11] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[12] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[14] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[15] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[16] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[18] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[20] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.563 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[19] ; clk          ; clk         ; 1.000        ; -0.036     ; 2.514      ;
+; -1.556 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|boton_out      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.556 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.507      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[9]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[0]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[1]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[2]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[3]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[4]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[5]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[6]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[7]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.541 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[8]     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.492      ;
+; -1.539 ; Boton_AR:B_Test|counter[14]    ; Boton_AR:B_Test|boton_out      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.490      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[18]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[10]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[11]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[12]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[13]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[14]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[15]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[16]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[17]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[20]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.533 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[19]    ; clk          ; clk         ; 1.000        ; -0.036     ; 2.484      ;
+; -1.527 ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|boton_out   ; clk          ; clk         ; 1.000        ; -0.037     ; 2.477      ;
++--------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Boton_AR:B_Energia|boton_out'                                                                           ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock                 ; Latch Clock                  ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; 0.626 ; led2~reg0 ; led2~reg0 ; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; 1.000        ; -0.022     ; 0.359      ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Boton_AR:B_Sueno|boton_out'                                                                         ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock               ; Latch Clock                ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; 0.626 ; led3~reg0 ; led3~reg0 ; Boton_AR:B_Sueno|boton_out ; Boton_AR:B_Sueno|boton_out ; 1.000        ; -0.022     ; 0.359      ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Boton_AR:B_Test|boton_out'                                                                        ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.626 ; led1~reg0 ; led1~reg0 ; Boton_AR:B_Test|boton_out ; Boton_AR:B_Test|boton_out ; 1.000        ; -0.022     ; 0.359      ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                              ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock                 ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+; 0.203 ; Boton_AR:B_Test|counter[20]    ; Boton_AR:B_Test|counter[20]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.323      ;
+; 0.210 ; Boton_AR:B_Sueno|counter[20]   ; Boton_AR:B_Sueno|counter[20]   ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.330      ;
+; 0.210 ; Boton_AR:B_Energia|counter[20] ; Boton_AR:B_Energia|counter[20] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.330      ;
+; 0.296 ; Boton_AR:B_Energia|counter[9]  ; Boton_AR:B_Energia|counter[9]  ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.416      ;
+; 0.299 ; Boton_AR:B_Energia|counter[1]  ; Boton_AR:B_Energia|counter[1]  ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.419      ;
+; 0.300 ; Boton_AR:B_Energia|counter[2]  ; Boton_AR:B_Energia|counter[2]  ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.420      ;
+; 0.302 ; Boton_AR:B_Test|counter[11]    ; Boton_AR:B_Test|counter[11]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.422      ;
+; 0.302 ; Boton_AR:B_Test|counter[15]    ; Boton_AR:B_Test|counter[15]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.422      ;
+; 0.303 ; Boton_AR:B_Sueno|counter[9]    ; Boton_AR:B_Sueno|counter[9]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.423      ;
+; 0.303 ; Boton_AR:B_Sueno|counter[12]   ; Boton_AR:B_Sueno|counter[12]   ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.423      ;
+; 0.303 ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|counter[15]   ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.423      ;
+; 0.304 ; Boton_AR:B_Sueno|counter[18]   ; Boton_AR:B_Sueno|counter[18]   ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.304 ; Boton_AR:B_Test|counter[9]     ; Boton_AR:B_Test|counter[9]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.304 ; Boton_AR:B_Test|counter[18]    ; Boton_AR:B_Test|counter[18]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.304 ; Boton_AR:B_Test|counter[7]     ; Boton_AR:B_Test|counter[7]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.304 ; Boton_AR:B_Test|counter[12]    ; Boton_AR:B_Test|counter[12]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.305 ; Boton_AR:B_Sueno|counter[1]    ; Boton_AR:B_Sueno|counter[1]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; Boton_AR:B_Sueno|counter[3]    ; Boton_AR:B_Sueno|counter[3]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; Boton_AR:B_Sueno|counter[10]   ; Boton_AR:B_Sueno|counter[10]   ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; Boton_AR:B_Energia|counter[13] ; Boton_AR:B_Energia|counter[13] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; Boton_AR:B_Energia|counter[18] ; Boton_AR:B_Energia|counter[18] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; Boton_AR:B_Test|counter[1]     ; Boton_AR:B_Test|counter[1]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; Boton_AR:B_Test|counter[5]     ; Boton_AR:B_Test|counter[5]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; Boton_AR:B_Test|counter[13]    ; Boton_AR:B_Test|counter[13]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.306 ; Boton_AR:B_Sueno|counter[2]    ; Boton_AR:B_Sueno|counter[2]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; Boton_AR:B_Energia|counter[17] ; Boton_AR:B_Energia|counter[17] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; Boton_AR:B_Energia|counter[3]  ; Boton_AR:B_Energia|counter[3]  ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; Boton_AR:B_Energia|counter[10] ; Boton_AR:B_Energia|counter[10] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; Boton_AR:B_Energia|counter[16] ; Boton_AR:B_Energia|counter[16] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; Boton_AR:B_Test|counter[8]     ; Boton_AR:B_Test|counter[8]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; Boton_AR:B_Test|counter[10]    ; Boton_AR:B_Test|counter[10]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; Boton_AR:B_Test|counter[16]    ; Boton_AR:B_Test|counter[16]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.307 ; Boton_AR:B_Test|counter[2]     ; Boton_AR:B_Test|counter[2]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; Boton_AR:B_Test|counter[6]     ; Boton_AR:B_Test|counter[6]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; Boton_AR:B_Test|counter[14]    ; Boton_AR:B_Test|counter[14]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; Boton_AR:B_Test|counter[19]    ; Boton_AR:B_Test|counter[19]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.308 ; Boton_AR:B_Sueno|counter[7]    ; Boton_AR:B_Sueno|counter[7]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.308 ; Boton_AR:B_Sueno|counter[11]   ; Boton_AR:B_Sueno|counter[11]   ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.309 ; Boton_AR:B_Sueno|counter[5]    ; Boton_AR:B_Sueno|counter[5]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.429      ;
+; 0.309 ; Boton_AR:B_Sueno|counter[8]    ; Boton_AR:B_Sueno|counter[8]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.429      ;
+; 0.310 ; Boton_AR:B_Sueno|counter[17]   ; Boton_AR:B_Sueno|counter[17]   ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.430      ;
+; 0.310 ; Boton_AR:B_Test|counter[3]     ; Boton_AR:B_Test|counter[3]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.430      ;
+; 0.311 ; Boton_AR:B_Sueno|counter[4]    ; Boton_AR:B_Sueno|counter[4]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.431      ;
+; 0.311 ; Boton_AR:B_Sueno|counter[6]    ; Boton_AR:B_Sueno|counter[6]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.431      ;
+; 0.311 ; Boton_AR:B_Test|counter[4]     ; Boton_AR:B_Test|counter[4]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.431      ;
+; 0.311 ; Boton_AR:B_Test|counter[17]    ; Boton_AR:B_Test|counter[17]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.431      ;
+; 0.314 ; Boton_AR:B_Sueno|counter[0]    ; Boton_AR:B_Sueno|counter[0]    ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.434      ;
+; 0.316 ; Boton_AR:B_Energia|counter[5]  ; Boton_AR:B_Energia|counter[5]  ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.436      ;
+; 0.319 ; Boton_AR:B_Test|counter[0]     ; Boton_AR:B_Test|counter[0]     ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.439      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[17] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[10] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[11] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[12] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[13] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[15] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[16] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[18] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[20] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.321 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[19] ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.175      ; 1.705      ;
+; 0.322 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[17]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.705      ;
+; 0.322 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[10]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.705      ;
+; 0.322 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[11]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.705      ;
+; 0.322 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[12]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.705      ;
+; 0.322 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.705      ;
+; 0.322 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[15]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.705      ;
+; 0.322 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[18]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.705      ;
+; 0.322 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[20]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[9]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[0]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[1]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[2]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[3]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[4]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[5]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[6]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[7]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.323 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[8]    ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.173      ; 1.705      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[9]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[0]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[1]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[2]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[3]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[4]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[5]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[6]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[7]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.332 ; Boton_AR:B_Energia|boton_out   ; Boton_AR:B_Energia|counter[8]  ; Boton_AR:B_Energia|boton_out ; clk         ; 0.000        ; 1.174      ; 1.715      ;
+; 0.333 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[13]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.716      ;
+; 0.333 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[16]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.716      ;
+; 0.333 ; Boton_AR:B_Sueno|boton_out     ; Boton_AR:B_Sueno|counter[19]   ; Boton_AR:B_Sueno|boton_out   ; clk         ; 0.000        ; 1.174      ; 1.716      ;
+; 0.365 ; Boton_AR:B_Energia|counter[19] ; Boton_AR:B_Energia|counter[19] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.485      ;
+; 0.366 ; Boton_AR:B_Energia|counter[4]  ; Boton_AR:B_Energia|counter[4]  ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.486      ;
+; 0.369 ; Boton_AR:B_Test|boton_out      ; Boton_AR:B_Test|boton_out      ; Boton_AR:B_Test|boton_out    ; clk         ; 0.000        ; 1.172      ; 1.750      ;
+; 0.372 ; Boton_AR:B_Energia|counter[12] ; Boton_AR:B_Energia|counter[12] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.492      ;
+; 0.373 ; Boton_AR:B_Energia|counter[7]  ; Boton_AR:B_Energia|counter[7]  ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.493      ;
+; 0.375 ; Boton_AR:B_Energia|counter[6]  ; Boton_AR:B_Energia|counter[6]  ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.495      ;
+; 0.375 ; Boton_AR:B_Energia|counter[15] ; Boton_AR:B_Energia|counter[15] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.495      ;
+; 0.377 ; Boton_AR:B_Sueno|counter[14]   ; Boton_AR:B_Sueno|counter[14]   ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.497      ;
+; 0.377 ; Boton_AR:B_Energia|counter[14] ; Boton_AR:B_Energia|counter[14] ; clk                          ; clk         ; 0.000        ; 0.036      ; 0.497      ;
++-------+--------------------------------+--------------------------------+------------------------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Boton_AR:B_Energia|boton_out'                                                                            ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock                 ; Latch Clock                  ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+; 0.208 ; led2~reg0 ; led2~reg0 ; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; 0.000        ; 0.022      ; 0.314      ;
++-------+-----------+-----------+------------------------------+------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Boton_AR:B_Sueno|boton_out'                                                                          ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock               ; Latch Clock                ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+; 0.208 ; led3~reg0 ; led3~reg0 ; Boton_AR:B_Sueno|boton_out ; Boton_AR:B_Sueno|boton_out ; 0.000        ; 0.022      ; 0.314      ;
++-------+-----------+-----------+----------------------------+----------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Boton_AR:B_Test|boton_out'                                                                         ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.208 ; led1~reg0 ; led1~reg0 ; Boton_AR:B_Test|boton_out ; Boton_AR:B_Test|boton_out ; 0.000        ; 0.022      ; 0.314      ;
++-------+-----------+-----------+---------------------------+---------------------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++---------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                         ;
++-------------------------------+----------+-------+----------+---------+---------------------+
+; Clock                         ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++-------------------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack              ; -5.283   ; 0.203 ; N/A      ; N/A     ; -3.000              ;
+;  Boton_AR:B_Energia|boton_out ; 0.114    ; 0.208 ; N/A      ; N/A     ; -1.487              ;
+;  Boton_AR:B_Sueno|boton_out   ; 0.114    ; 0.208 ; N/A      ; N/A     ; -1.487              ;
+;  Boton_AR:B_Test|boton_out    ; 0.114    ; 0.208 ; N/A      ; N/A     ; -1.487              ;
+;  clk                          ; -5.283   ; 0.203 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS               ; -339.775 ; 0.0   ; 0.0      ; 0.0     ; -105.603            ;
+;  Boton_AR:B_Energia|boton_out ; 0.000    ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Boton_AR:B_Sueno|boton_out   ; 0.000    ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Boton_AR:B_Test|boton_out    ; 0.000    ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  clk                          ; -339.775 ; 0.000 ; N/A      ; N/A     ; -101.142            ;
++-------------------------------+----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; led1          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led2          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; led3          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; reset                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; test                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; b_energia               ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; b_sueno                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led1          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; led2          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.38 V              ; -0.0073 V           ; 0.097 V                              ; 0.018 V                              ; 4.24e-10 s                  ; 3.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.38 V             ; -0.0073 V          ; 0.097 V                             ; 0.018 V                             ; 4.24e-10 s                 ; 3.65e-10 s                 ; No                        ; Yes                       ;
+; led3          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.38 V              ; -0.0073 V           ; 0.097 V                              ; 0.018 V                              ; 4.24e-10 s                  ; 3.65e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.38 V             ; -0.0073 V          ; 0.097 V                             ; 0.018 V                             ; 4.24e-10 s                 ; 3.65e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.37 V              ; -0.0346 V           ; 0.198 V                              ; 0.094 V                              ; 3.14e-10 s                  ; 2.92e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.37 V             ; -0.0346 V          ; 0.198 V                             ; 0.094 V                             ; 3.14e-10 s                 ; 2.92e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.57e-09 V                   ; 2.37 V              ; -0.00683 V          ; 0.171 V                              ; 0.018 V                              ; 4.97e-10 s                  ; 6.66e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.57e-09 V                  ; 2.37 V             ; -0.00683 V         ; 0.171 V                             ; 0.018 V                             ; 4.97e-10 s                 ; 6.66e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led1          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; led2          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.35 V              ; -0.00834 V          ; 0.127 V                              ; 0.035 V                              ; 4.7e-10 s                   ; 4.64e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.35 V             ; -0.00834 V         ; 0.127 V                             ; 0.035 V                             ; 4.7e-10 s                  ; 4.64e-10 s                 ; Yes                       ; Yes                       ;
+; led3          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.35 V              ; -0.00834 V          ; 0.127 V                              ; 0.035 V                              ; 4.7e-10 s                   ; 4.64e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.35 V             ; -0.00834 V         ; 0.127 V                             ; 0.035 V                             ; 4.7e-10 s                  ; 4.64e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.55e-07 V                   ; 2.35 V              ; -0.00221 V          ; 0.097 V                              ; 0.005 V                              ; 4.49e-10 s                  ; 3.85e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.55e-07 V                  ; 2.35 V             ; -0.00221 V         ; 0.097 V                             ; 0.005 V                             ; 4.49e-10 s                 ; 3.85e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.54e-07 V                   ; 2.34 V              ; -0.00774 V          ; 0.109 V                              ; 0.026 V                              ; 6.58e-10 s                  ; 8.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.54e-07 V                  ; 2.34 V             ; -0.00774 V         ; 0.109 V                             ; 0.026 V                             ; 6.58e-10 s                 ; 8.24e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led1          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; led2          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; led3          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.73 V              ; -0.0384 V           ; 0.169 V                              ; 0.089 V                              ; 2.7e-10 s                   ; 2.62e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.73 V             ; -0.0384 V          ; 0.169 V                             ; 0.089 V                             ; 2.7e-10 s                  ; 2.62e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                         ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+; From Clock                   ; To Clock                     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; 1        ; 0        ; 0        ; 0        ;
+; Boton_AR:B_Sueno|boton_out   ; Boton_AR:B_Sueno|boton_out   ; 1        ; 0        ; 0        ; 0        ;
+; Boton_AR:B_Test|boton_out    ; Boton_AR:B_Test|boton_out    ; 1        ; 0        ; 0        ; 0        ;
+; Boton_AR:B_Energia|boton_out ; clk                          ; 22       ; 22       ; 0        ; 0        ;
+; Boton_AR:B_Sueno|boton_out   ; clk                          ; 22       ; 22       ; 0        ; 0        ;
+; Boton_AR:B_Test|boton_out    ; clk                          ; 22       ; 22       ; 0        ; 0        ;
+; clk                          ; clk                          ; 3465     ; 0        ; 0        ; 0        ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                          ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+; From Clock                   ; To Clock                     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; 1        ; 0        ; 0        ; 0        ;
+; Boton_AR:B_Sueno|boton_out   ; Boton_AR:B_Sueno|boton_out   ; 1        ; 0        ; 0        ; 0        ;
+; Boton_AR:B_Test|boton_out    ; Boton_AR:B_Test|boton_out    ; 1        ; 0        ; 0        ; 0        ;
+; Boton_AR:B_Energia|boton_out ; clk                          ; 22       ; 22       ; 0        ; 0        ;
+; Boton_AR:B_Sueno|boton_out   ; clk                          ; 22       ; 22       ; 0        ; 0        ;
+; Boton_AR:B_Test|boton_out    ; clk                          ; 22       ; 22       ; 0        ; 0        ;
+; clk                          ; clk                          ; 3465     ; 0        ; 0        ; 0        ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 132   ; 132  ;
+; Unconstrained Output Ports      ; 3     ; 3    ;
+; Unconstrained Output Port Paths ; 3     ; 3    ;
++---------------------------------+-------+------+
+
+
++----------------------------------------------------------------------------------+
+; Clock Status Summary                                                             ;
++------------------------------+------------------------------+------+-------------+
+; Target                       ; Clock                        ; Type ; Status      ;
++------------------------------+------------------------------+------+-------------+
+; Boton_AR:B_Energia|boton_out ; Boton_AR:B_Energia|boton_out ; Base ; Constrained ;
+; Boton_AR:B_Sueno|boton_out   ; Boton_AR:B_Sueno|boton_out   ; Base ; Constrained ;
+; Boton_AR:B_Test|boton_out    ; Boton_AR:B_Test|boton_out    ; Base ; Constrained ;
+; clk                          ; clk                          ; Base ; Constrained ;
++------------------------------+------------------------------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; b_energia  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; b_sueno    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; test       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; led1        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led2        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led3        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; b_energia  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; b_sueno    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; test       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; led1        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led2        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; led3        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Thu Sep 19 03:40:04 2024
+Info: Command: quartus_sta debounce_test -c debounce_test
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'debounce_test.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name Boton_AR:B_Test|boton_out Boton_AR:B_Test|boton_out
+    Info (332105): create_clock -period 1.000 -name Boton_AR:B_Energia|boton_out Boton_AR:B_Energia|boton_out
+    Info (332105): create_clock -period 1.000 -name Boton_AR:B_Sueno|boton_out Boton_AR:B_Sueno|boton_out
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -5.283
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -5.283            -339.775 clk 
+    Info (332119):     0.114               0.000 Boton_AR:B_Energia|boton_out 
+    Info (332119):     0.114               0.000 Boton_AR:B_Sueno|boton_out 
+    Info (332119):     0.114               0.000 Boton_AR:B_Test|boton_out 
+Info (332146): Worst-case hold slack is 0.497
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.497               0.000 Boton_AR:B_Energia|boton_out 
+    Info (332119):     0.497               0.000 Boton_AR:B_Sueno|boton_out 
+    Info (332119):     0.497               0.000 Boton_AR:B_Test|boton_out 
+    Info (332119):     0.501               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -101.142 clk 
+    Info (332119):    -1.487              -1.487 Boton_AR:B_Energia|boton_out 
+    Info (332119):    -1.487              -1.487 Boton_AR:B_Sueno|boton_out 
+    Info (332119):    -1.487              -1.487 Boton_AR:B_Test|boton_out 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.929
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.929            -317.021 clk 
+    Info (332119):     0.208               0.000 Boton_AR:B_Energia|boton_out 
+    Info (332119):     0.208               0.000 Boton_AR:B_Sueno|boton_out 
+    Info (332119):     0.208               0.000 Boton_AR:B_Test|boton_out 
+Info (332146): Worst-case hold slack is 0.445
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.445               0.000 Boton_AR:B_Energia|boton_out 
+    Info (332119):     0.445               0.000 Boton_AR:B_Sueno|boton_out 
+    Info (332119):     0.445               0.000 Boton_AR:B_Test|boton_out 
+    Info (332119):     0.464               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -101.142 clk 
+    Info (332119):    -1.487              -1.487 Boton_AR:B_Energia|boton_out 
+    Info (332119):    -1.487              -1.487 Boton_AR:B_Sueno|boton_out 
+    Info (332119):    -1.487              -1.487 Boton_AR:B_Test|boton_out 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.648
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.648            -102.936 clk 
+    Info (332119):     0.626               0.000 Boton_AR:B_Energia|boton_out 
+    Info (332119):     0.626               0.000 Boton_AR:B_Sueno|boton_out 
+    Info (332119):     0.626               0.000 Boton_AR:B_Test|boton_out 
+Info (332146): Worst-case hold slack is 0.203
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.203               0.000 clk 
+    Info (332119):     0.208               0.000 Boton_AR:B_Energia|boton_out 
+    Info (332119):     0.208               0.000 Boton_AR:B_Sueno|boton_out 
+    Info (332119):     0.208               0.000 Boton_AR:B_Test|boton_out 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -73.267 clk 
+    Info (332119):    -1.000              -1.000 Boton_AR:B_Energia|boton_out 
+    Info (332119):    -1.000              -1.000 Boton_AR:B_Sueno|boton_out 
+    Info (332119):    -1.000              -1.000 Boton_AR:B_Test|boton_out 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 584 megabytes
+    Info: Processing ended: Thu Sep 19 03:40:05 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Sep 19 03:39:58 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : debounce_test
+Top-level Entity Name : debounce_test
+Family : Cyclone IV E
+Total logic elements : 114
+    Total combinational functions : 114
+    Dedicated logic registers : 69
+Total registers : 69
+Total pins : 8
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

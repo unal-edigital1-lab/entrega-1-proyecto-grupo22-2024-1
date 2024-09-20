@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Sep 20 06:24:14 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : buzzer_test
+Top-level Entity Name : buzzer_test
+Family : Cyclone IV E
+Total logic elements : 48
+    Total combinational functions : 47
+    Dedicated logic registers : 35
+Total registers : 35
+Total pins : 4
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
