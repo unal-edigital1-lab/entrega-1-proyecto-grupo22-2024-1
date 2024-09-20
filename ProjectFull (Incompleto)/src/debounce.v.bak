@@ -1,0 +1,21 @@
+module debounce (
+    input clk,
+    input btn_in,
+    output reg btn_out
+);
+
+    reg [15:0] counter;
+    reg btn_prev;
+    
+    always @(posedge clk) begin
+        if (btn_prev != btn_in) begin
+            counter <= 0;
+            btn_prev <= btn_in;
+        end else if (counter < 16'hFFFF) begin
+            counter <= counter + 1;
+        end else begin
+            btn_out <= btn_prev;
+        end
+    end
+
+endmodule
