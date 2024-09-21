@@ -31,10 +31,8 @@ La interacción usuario-sistema se realizará mediante los siguientes botones co
 * __Test:__ Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario navegar entre los diferentes estados del Tamagotchi con cada pulsación de los botones de interacción.
 * __Botones de interaccion (2):__ Facilitan acciones directas como alimentar, jugar, descansar o bañar, posibilitando la implementación de actividades específicas para el bienestar del Tamagotchi. El boton de interacción (1) permitira al usuario navegar por los distintos estados del tamagotchi en los cuales el boton (2) permitirá realizar acciones especificas asociadas a dicho estado y la visualización de los niveles actuales para cada estado.
   
-Cuando el tamagotchi esta en modo test se encendera un led indicando que se encuentra en dicho modo
-<img src="img/led modo test.jpeg">
-
 Se presenta la imagen de los cuatro botones usados
+
 <img src="img/botones.jpeg">
 
 ### 3.2 Sistema de sensado:
@@ -318,6 +316,10 @@ El modo Test permite a los usuarios y desarrolladores validar la funcionalidad d
 El Modo Normal es el estado de operación estándar del Tamagotchi, donde la interacción y respuesta a las necesidades de la mascota virtual dependen enteramente de las acciones del usuario.
 
 - **Activación:** El sistema arranca por defecto en el Modo Normal tras el encendido o reinicio del dispositivo. No requiere una secuencia de activación especial, ya que es el modo de funcionamiento predeterminado.
+
+Cuando el tamagotchi esta en modo test se encendera un led indicando que se encuentra en dicho modo
+<img src="img/led modo test.jpeg">
+
 
 ### 5.2 Estados y transiciones:
 #### 5.2.1 Estados:
