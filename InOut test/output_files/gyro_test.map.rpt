@@ -1,0 +1,484 @@
+Analysis & Synthesis report for gyro_test
+Fri Sep 20 19:05:51 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |gyro_test|i2c_master:i2c_master|next_state
+  9. State Machine - |gyro_test|i2c_master:i2c_master|state
+ 10. State Machine - |gyro_test|MPU6050:mpu6050_ctrl|state
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: i2c_master:i2c_master
+ 16. Port Connectivity Checks: "i2c_master:i2c_master"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Sep 20 19:05:51 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; gyro_test                                      ;
+; Top-level Entity Name              ; gyro_test                                      ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 208                                            ;
+;     Total combinational functions  ; 197                                            ;
+;     Dedicated logic registers      ; 92                                             ;
+; Total registers                    ; 92                                             ;
+; Total pins                         ; 5                                              ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE10E22C8       ;                    ;
+; Top-level entity name                                            ; gyro_test          ; gyro_test          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 32          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                              ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
+; i2c_master.v                     ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/i2c_master.v ;         ;
+; gyro_test.v                      ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/gyro_test.v  ;         ;
+; compare.v                        ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/compare.v    ;         ;
+; mpu6050.v                        ; yes             ; User Verilog HDL File  ; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/mpu6050.v    ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 208       ;
+;                                             ;           ;
+; Total combinational functions               ; 197       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 114       ;
+;     -- 3 input functions                    ; 29        ;
+;     -- <=2 input functions                  ; 54        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 187       ;
+;     -- arithmetic mode                      ; 10        ;
+;                                             ;           ;
+; Total registers                             ; 92        ;
+;     -- Dedicated logic registers            ; 92        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 5         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 92        ;
+; Total fan-out                               ; 1013      ;
+; Average fan-out                             ; 3.37      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+-------------+--------------+
+; |gyro_test                 ; 197 (20)            ; 92 (16)                   ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |gyro_test                       ; gyro_test   ; work         ;
+;    |MPU6050:mpu6050_ctrl|  ; 72 (72)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gyro_test|MPU6050:mpu6050_ctrl  ; MPU6050     ; work         ;
+;    |compare:comparator|    ; 4 (4)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gyro_test|compare:comparator    ; compare     ; work         ;
+;    |i2c_master:i2c_master| ; 101 (101)           ; 49 (49)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gyro_test|i2c_master:i2c_master ; i2c_master  ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------+
+; State Machine - |gyro_test|i2c_master:i2c_master|next_state ;
++--------------------+----------------------------------------+
+; Name               ; next_state.S_READ                      ;
++--------------------+----------------------------------------+
+; next_state.S_WRITE ; 0                                      ;
+; next_state.S_READ  ; 1                                      ;
++--------------------+----------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |gyro_test|i2c_master:i2c_master|state                                                                                                                                                                                                                                                                                                                           ;
++----------------------+-----------------+---------------------+-------------------+-----------------+-------------------+-----------------+-----------------+--------------+--------------+-----------------+---------------+----------------------+--------------------+------------------+-------------------+-----------------+-----------------+---------------+--------------+
+; Name                 ; state.S_RESTART ; state.S_SENDACKDOWN ; state.S_SENDACKUP ; state.S_SENDACK ; state.S_RDSCLDOWN ; state.S_RDSCLUP ; state.S_RECVBIT ; state.S_READ ; state.S_STOP ; state.S_PRESTOP ; state.S_WRITE ; state.S_CHECKACKDOWN ; state.S_CHECKACKUP ; state.S_CHECKACK ; state.S_WESCLDOWN ; state.S_WESCLUP ; state.S_SENDBIT ; state.S_START ; state.S_IDLE ;
++----------------------+-----------------+---------------------+-------------------+-----------------+-------------------+-----------------+-----------------+--------------+--------------+-----------------+---------------+----------------------+--------------------+------------------+-------------------+-----------------+-----------------+---------------+--------------+
+; state.S_IDLE         ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 0            ;
+; state.S_START        ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 1             ; 1            ;
+; state.S_SENDBIT      ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 1               ; 0             ; 1            ;
+; state.S_WESCLUP      ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 1               ; 0               ; 0             ; 1            ;
+; state.S_WESCLDOWN    ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 1                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_CHECKACK     ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 1                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_CHECKACKUP   ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 1                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_CHECKACKDOWN ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 1                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_WRITE        ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 1             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_PRESTOP      ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 1               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_STOP         ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 1            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_READ         ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 1            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_RECVBIT      ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 1               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_RDSCLUP      ; 0               ; 0                   ; 0                 ; 0               ; 0                 ; 1               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_RDSCLDOWN    ; 0               ; 0                   ; 0                 ; 0               ; 1                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_SENDACK      ; 0               ; 0                   ; 0                 ; 1               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_SENDACKUP    ; 0               ; 0                   ; 1                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_SENDACKDOWN  ; 0               ; 1                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
+; state.S_RESTART      ; 1               ; 0                   ; 0                 ; 0               ; 0                 ; 0               ; 0               ; 0            ; 0            ; 0               ; 0             ; 0                    ; 0                  ; 0                ; 0                 ; 0               ; 0               ; 0             ; 1            ;
++----------------------+-----------------+---------------------+-------------------+-----------------+-------------------+-----------------+-----------------+--------------+--------------+-----------------+---------------+----------------------+--------------------+------------------+-------------------+-----------------+-----------------+---------------+--------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |gyro_test|MPU6050:mpu6050_ctrl|state                                                                             ;
++----------------------+----------------+----------------+----------------+----------------------+----------------------+-----------+
+; Name                 ; state.S_STABLE ; state.S_READ_1 ; state.S_READ_0 ; state.S_POWER_MGMT_1 ; state.S_POWER_MGMT_0 ; state.000 ;
++----------------------+----------------+----------------+----------------+----------------------+----------------------+-----------+
+; state.000            ; 0              ; 0              ; 0              ; 0                    ; 0                    ; 0         ;
+; state.S_POWER_MGMT_0 ; 0              ; 0              ; 0              ; 0                    ; 1                    ; 1         ;
+; state.S_POWER_MGMT_1 ; 0              ; 0              ; 0              ; 1                    ; 0                    ; 1         ;
+; state.S_READ_0       ; 0              ; 0              ; 1              ; 0                    ; 0                    ; 1         ;
+; state.S_READ_1       ; 0              ; 1              ; 0              ; 0                    ; 0                    ; 1         ;
+; state.S_STABLE       ; 1              ; 0              ; 0              ; 0                    ; 0                    ; 1         ;
++----------------------+----------------+----------------+----------------+----------------------+----------------------+-----------+
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++----------------------------------------+----------------------------------------------+
+; Register name                          ; Reason for Removal                           ;
++----------------------------------------+----------------------------------------------+
+; MPU6050:mpu6050_ctrl|sync_reset        ; Stuck at GND due to stuck port data_in       ;
+; MPU6050:mpu6050_ctrl|data_out[7]       ; Merged with MPU6050:mpu6050_ctrl|data_out[2] ;
+; MPU6050:mpu6050_ctrl|data_out[1,3,5]   ; Merged with MPU6050:mpu6050_ctrl|data_out[0] ;
+; MPU6050:mpu6050_ctrl|data_out[2]       ; Stuck at GND due to stuck port data_in       ;
+; i2c_master:i2c_master|next_state~5     ; Lost fanout                                  ;
+; i2c_master:i2c_master|next_state~6     ; Lost fanout                                  ;
+; i2c_master:i2c_master|next_state~7     ; Lost fanout                                  ;
+; i2c_master:i2c_master|next_state~8     ; Lost fanout                                  ;
+; i2c_master:i2c_master|state~23         ; Lost fanout                                  ;
+; i2c_master:i2c_master|state~24         ; Lost fanout                                  ;
+; i2c_master:i2c_master|state~25         ; Lost fanout                                  ;
+; i2c_master:i2c_master|state~26         ; Lost fanout                                  ;
+; i2c_master:i2c_master|state~27         ; Lost fanout                                  ;
+; MPU6050:mpu6050_ctrl|state~10          ; Lost fanout                                  ;
+; MPU6050:mpu6050_ctrl|state~11          ; Lost fanout                                  ;
+; MPU6050:mpu6050_ctrl|state~12          ; Lost fanout                                  ;
+; Total Number of Removed Registers = 18 ;                                              ;
++----------------------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 92    ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 7     ;
+; Number of registers using Asynchronous Clear ; 91    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 50    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; compare:comparator|led_sign             ; 2       ;
+; MPU6050:mpu6050_ctrl|data[6]            ; 1       ;
+; MPU6050:mpu6050_ctrl|data[5]            ; 1       ;
+; MPU6050:mpu6050_ctrl|data[4]            ; 1       ;
+; MPU6050:mpu6050_ctrl|data[3]            ; 1       ;
+; MPU6050:mpu6050_ctrl|data[2]            ; 1       ;
+; MPU6050:mpu6050_ctrl|data[1]            ; 1       ;
+; MPU6050:mpu6050_ctrl|data[0]            ; 1       ;
+; MPU6050:mpu6050_ctrl|data[7]            ; 1       ;
+; i2c_master:i2c_master|sda_out           ; 3       ;
+; i2c_master:i2c_master|scl_out           ; 2       ;
+; i2c_master:i2c_master|sda_in_qq         ; 2       ;
+; i2c_master:i2c_master|sda_in_q          ; 1       ;
+; Total number of inverted registers = 13 ;         ;
++-----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |gyro_test|MPU6050:mpu6050_ctrl|address_internal[3] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |gyro_test|MPU6050:mpu6050_ctrl|data_out[4]         ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |gyro_test|MPU6050:mpu6050_ctrl|data_out[6]         ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |gyro_test|i2c_master:i2c_master|shift[7]           ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; Yes        ; |gyro_test|i2c_master:i2c_master|counter[0]         ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |gyro_test|MPU6050:mpu6050_ctrl|data[7]             ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |gyro_test|MPU6050:mpu6050_ctrl|Selector25          ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |gyro_test|MPU6050:mpu6050_ctrl|Selector26          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |gyro_test|i2c_master:i2c_master|Selector36         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: i2c_master:i2c_master ;
++----------------+----------+----------------------------------------+
+; Parameter Name ; Value    ; Type                                   ;
++----------------+----------+----------------------------------------+
+; DEVICE_ADDRESS ; 01101000 ; Unsigned Binary                        ;
+; S_IDLE         ; 00000    ; Unsigned Binary                        ;
+; S_START        ; 00001    ; Unsigned Binary                        ;
+; S_SENDBIT      ; 00010    ; Unsigned Binary                        ;
+; S_WESCLUP      ; 00011    ; Unsigned Binary                        ;
+; S_WESCLDOWN    ; 00100    ; Unsigned Binary                        ;
+; S_CHECKACK     ; 00101    ; Unsigned Binary                        ;
+; S_CHECKACKUP   ; 00110    ; Unsigned Binary                        ;
+; S_CHECKACKDOWN ; 00111    ; Unsigned Binary                        ;
+; S_WRITE        ; 01000    ; Unsigned Binary                        ;
+; S_PRESTOP      ; 01001    ; Unsigned Binary                        ;
+; S_STOP         ; 01010    ; Unsigned Binary                        ;
+; S_READ         ; 01011    ; Unsigned Binary                        ;
+; S_RECVBIT      ; 01100    ; Unsigned Binary                        ;
+; S_RDSCLUP      ; 01101    ; Unsigned Binary                        ;
+; S_RDSCLDOWN    ; 01110    ; Unsigned Binary                        ;
+; S_SENDACK      ; 01111    ; Unsigned Binary                        ;
+; S_SENDACKUP    ; 10000    ; Unsigned Binary                        ;
+; S_SENDACKDOWN  ; 10001    ; Unsigned Binary                        ;
+; S_RESTART      ; 10010    ; Unsigned Binary                        ;
++----------------+----------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "i2c_master:i2c_master"                                                                ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; status ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 5                           ;
+; cycloneiii_ff         ; 92                          ;
+;     CLR               ; 33                          ;
+;     CLR SCLR          ; 8                           ;
+;     ENA CLR           ; 32                          ;
+;     ENA CLR SCLR      ; 11                          ;
+;     ENA CLR SCLR SLD  ; 7                           ;
+;     plain             ; 1                           ;
+; cycloneiii_io_obuf    ; 2                           ;
+; cycloneiii_lcell_comb ; 198                         ;
+;     arith             ; 10                          ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 188                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 33                          ;
+;         3 data inputs ; 28                          ;
+;         4 data inputs ; 114                         ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.62                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Fri Sep 20 19:05:45 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off gyro_test -c gyro_test
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file i2c_master.v
+    Info (12023): Found entity 1: i2c_master File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/i2c_master.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file gyro_test.v
+    Info (12023): Found entity 1: gyro_test File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/gyro_test.v Line: 1
+Warning (12019): Can't analyze file -- file output_files/acceleration_threshold_led.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file compare.v
+    Info (12023): Found entity 1: compare File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/compare.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mpu6050.v
+    Info (12023): Found entity 1: MPU6050 File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/mpu6050.v Line: 1
+Info (12127): Elaborating entity "gyro_test" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at gyro_test.v(96): truncated value with size 32 to match size of target (8) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/gyro_test.v Line: 96
+Info (12128): Elaborating entity "MPU6050" for hierarchy "MPU6050:mpu6050_ctrl" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/gyro_test.v Line: 52
+Warning (10230): Verilog HDL assignment warning at mpu6050.v(112): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/mpu6050.v Line: 112
+Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/gyro_test.v Line: 73
+Warning (10230): Verilog HDL assignment warning at i2c_master.v(53): truncated value with size 32 to match size of target (4) File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/i2c_master.v Line: 53
+Info (12128): Elaborating entity "compare" for hierarchy "compare:comparator" File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/gyro_test.v Line: 84
+Info (13000): Registers with preset signals will power-up high File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/compare.v Line: 9
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 12 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 213 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21060): Implemented 2 bidirectional pins
+    Info (21061): Implemented 208 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 485 megabytes
+    Info: Processing ended: Fri Sep 20 19:05:51 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:16
+
+

@@ -1,0 +1,115 @@
+module mpu6050_interface (
+    input wire clk,
+    input wire reset_n,
+    inout wire sda,
+    inout wire scl,
+    output wire movement
+);
+    // Internal signals
+    wire internal_clk;
+    wire sync_reset;
+    wire [7:0] data_out;
+    wire read_enable;
+    wire write_enable;
+    wire queued;
+    wire nack;
+    wire stop;
+    wire data_valid;
+    wire [7:0] data_in;
+    wire [3:0] address;
+    wire [7:0] data;
+    wire load;
+    wire completed;
+    wire rescan;
+    wire [2:0] status;
+    wire scl_in;
+    wire scl_out;
+    wire sda_in;
+    wire sda_out;
+    reg [7:0] counter = 0;
+    // Output registers
+    reg [7:0] x_reg;
+
+    mpu6050_controller mpu6050_ctrl (
+        .clk(clk),
+        .reset_n(reset_n),
+        .internal_clk(internal_clk),
+        .sync_reset(sync_reset),
+        .data_out(data_in),
+        .read_enable(read_enable),
+        .write_enable(write_enable),
+        .queued(queued),
+        .nack(nack),
+        .stop(stop),
+        .data_valid(data_valid),
+        .data_in(data_out),
+        .address(address),
+        .data(data),
+        .load(load),
+        .completed(completed),
+        .rescan(rescan)
+    );
+
+    // Instantiate I2C_Master component
+    i2c_master #(.DEVICE_ADDRESS(8'h68)) i2c_master (
+        .clk(clk),
+        .reset_n(reset_n),
+        .sync_reset(sync_reset),
+        .internal_clk(internal_clk),
+        .data_in(data_in),
+        .data_out(data_out),
+        .read_enable(read_enable),
+        .write_enable(write_enable),
+        .nack(nack),
+        .queued(queued),
+        .data_valid(data_valid),
+        .stop(stop),
+        .status(status),
+        .scl_in(scl_in),
+        .scl_out(scl_out),
+        .sda_in(sda_in),
+        .sda_out(sda_out)
+    );
+
+    // Instantiate Data_Comparator component
+    movement_detect detector (
+        .clk(clk),
+        .reset_n(reset_n),
+        .internal_clk(internal_clk),
+        .completed(completed),
+        .rescan(rescan),
+        .x_reg(x_reg),
+        .movement(movement)
+    );
+
+    // Generate TIC signal
+    assign internal_clk = counter[7] & counter[5];
+
+    // Counter process
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            counter <= 8'b0;
+        end else if (internal_clk) begin
+            counter <= 8'b0;
+        end else begin
+            counter <= counter + 1;
+        end
+    end
+
+    // Registers process
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            x_reg <= 8'b0;
+        end else if (internal_clk && load) begin
+            case (address)
+                4'h0: x_reg <= data;
+            endcase
+        end
+    end
+
+    // Open-drain configuration
+    assign scl = (scl_out) ? 1'bz : 1'b0;
+    assign scl_in = scl;
+    assign sda = (sda_out) ? 1'bz : 1'b0;
+    assign sda_in = sda;
+endmodule

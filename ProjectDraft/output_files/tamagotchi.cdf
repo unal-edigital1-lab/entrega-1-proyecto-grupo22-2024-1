@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE10E22) Path("/home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/TopProject/output_files/") File("tamagotchi.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE10E22) Path("/home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/ProjectDraft/output_files/") File("tamagotchi.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

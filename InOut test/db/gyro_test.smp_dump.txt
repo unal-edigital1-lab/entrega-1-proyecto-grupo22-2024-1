@@ -1,0 +1,36 @@
+
+State Machine - |gyro_test|i2c_master:i2c_master|next_state
+Name next_state.S_READ 
+next_state.S_WRITE 0 
+next_state.S_READ 1 
+
+State Machine - |gyro_test|i2c_master:i2c_master|state
+Name state.S_RESTART state.S_SENDACKDOWN state.S_SENDACKUP state.S_SENDACK state.S_RDSCLDOWN state.S_RDSCLUP state.S_RECVBIT state.S_READ state.S_STOP state.S_PRESTOP state.S_WRITE state.S_CHECKACKDOWN state.S_CHECKACKUP state.S_CHECKACK state.S_WESCLDOWN state.S_WESCLUP state.S_SENDBIT state.S_START state.S_IDLE 
+state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.S_START 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.S_SENDBIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.S_WESCLUP 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.S_WESCLDOWN 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.S_CHECKACK 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.S_CHECKACKUP 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.S_CHECKACKDOWN 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.S_WRITE 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.S_PRESTOP 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.S_STOP 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.S_READ 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.S_RECVBIT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_RDSCLUP 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_RDSCLDOWN 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_SENDACK 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_SENDACKUP 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_SENDACKDOWN 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_RESTART 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |gyro_test|MPU6050:mpu6050_ctrl|state
+Name state.S_STABLE state.S_READ_1 state.S_READ_0 state.S_POWER_MGMT_1 state.S_POWER_MGMT_0 state.000 
+state.000 0 0 0 0 0 0 
+state.S_POWER_MGMT_0 0 0 0 0 1 1 
+state.S_POWER_MGMT_1 0 0 0 1 0 1 
+state.S_READ_0 0 0 1 0 0 1 
+state.S_READ_1 0 1 0 0 0 1 
+state.S_STABLE 1 0 0 0 0 1 

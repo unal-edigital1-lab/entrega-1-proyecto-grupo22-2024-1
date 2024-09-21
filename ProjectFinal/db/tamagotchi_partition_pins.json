@@ -1,0 +1,133 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "mosi",
+					"strict" : false
+				},
+				{
+					"name" : "sclk",
+					"strict" : false
+				},
+				{
+					"name" : "ce",
+					"strict" : false
+				},
+				{
+					"name" : "dc",
+					"strict" : false
+				},
+				{
+					"name" : "lcd_rst",
+					"strict" : false
+				},
+				{
+					"name" : "sseg[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sseg[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sseg[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sseg[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sseg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sseg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sseg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "an[0]",
+					"strict" : false
+				},
+				{
+					"name" : "an[1]",
+					"strict" : false
+				},
+				{
+					"name" : "an[2]",
+					"strict" : false
+				},
+				{
+					"name" : "an[3]",
+					"strict" : false
+				},
+				{
+					"name" : "an[4]",
+					"strict" : false
+				},
+				{
+					"name" : "an[5]",
+					"strict" : false
+				},
+				{
+					"name" : "an[6]",
+					"strict" : false
+				},
+				{
+					"name" : "an[7]",
+					"strict" : false
+				},
+				{
+					"name" : "test_led",
+					"strict" : false
+				},
+				{
+					"name" : "buzzer_out",
+					"strict" : false
+				},
+				{
+					"name" : "scl",
+					"strict" : false
+				},
+				{
+					"name" : "sda",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "b2",
+					"strict" : false
+				},
+				{
+					"name" : "b3",
+					"strict" : false
+				},
+				{
+					"name" : "b4",
+					"strict" : false
+				},
+				{
+					"name" : "sound_sensor",
+					"strict" : false
+				},
+				{
+					"name" : "light_sensor",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

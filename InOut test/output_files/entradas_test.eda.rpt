@@ -1,5 +1,5 @@
 EDA Netlist Writer report for entradas_test
-Fri Sep 20 06:14:23 2024
+Fri Sep 20 13:05:16 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Sep 20 06:14:23 2024 ;
+; EDA Netlist Writer Status ; Successful - Fri Sep 20 13:05:16 2024 ;
 ; Revision Name             ; entradas_test                         ;
 ; Top-level Entity Name     ; entradas_test                         ;
 ; Family                    ; Cyclone IV E                          ;
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+-----------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                    ;
-+-----------------------------------------------------------------------------------------------+
-; Generated Files                                                                               ;
-+-----------------------------------------------------------------------------------------------+
-; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Entradas/simulation/questa/entradas_test.vo ;
-+-----------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                      ;
++-------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                 ;
++-------------------------------------------------------------------------------------------------+
+; /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/simulation/questa/entradas_test.vo ;
++-------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -81,13 +81,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Sep 20 06:14:23 2024
+    Info: Processing started: Fri Sep 20 13:05:16 2024
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off entradas_test -c entradas_test
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file entradas_test.vo in folder "/home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/Entradas/simulation/questa/" for EDA simulation tool
+Info (204019): Generated file entradas_test.vo in folder "/home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/simulation/questa/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 588 megabytes
-    Info: Processing ended: Fri Sep 20 06:14:23 2024
+    Info: Processing ended: Fri Sep 20 13:05:16 2024
     Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 

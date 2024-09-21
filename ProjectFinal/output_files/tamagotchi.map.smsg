@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at i2c_master.v(13): object "stop" differs only in case from object "STOP" in the same scope File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/ProjectFull (Incompleto)/src/i2c_master.v Line: 13

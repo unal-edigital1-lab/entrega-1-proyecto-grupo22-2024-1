@@ -342,7 +342,7 @@ module tamagotchi (
 				
 				// b4 logic for SLEEP
             if (current == SLEEP && !sleep_hold_active) begin
-                if (b4_posedge && light_sensor == 0) begin
+                if (b4_posedge && light_sensor) begin
                     face <= 3;
                     sleep_hold_active <= 1;
                     sleep_hold_timer <= 0;
@@ -418,7 +418,7 @@ module tamagotchi (
             if (current != DEAD && !sleep_hold_active) begin
                 if (face_timer < FACE_TIME - 1) begin
                     face_timer <= face_timer + 1;
-                end else if (face != 0 && face != 4) begin
+                end else if (face != 0) begin
                     if (health_state <= 3) begin
                         face <= 4;
                     end else begin
@@ -430,9 +430,9 @@ module tamagotchi (
 				
 				// Face update based on health
             if (current != DEAD && face != 1 && face != 2 && face != 3 && face != 5) begin
-                if (health_state <= 3) begin
+                if (health_state <= 3 && face != 4) begin
                     face <= 4;
-                end else if (face == 4) begin
+                end else if (health_state > 3 && face == 4) begin
                     face <= 0;
                 end
             end

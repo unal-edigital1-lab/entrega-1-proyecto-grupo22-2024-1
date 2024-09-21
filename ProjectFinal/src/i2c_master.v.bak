@@ -1,0 +1,355 @@
+module i2c_master ( 
+    input wire clk,
+    input wire reset_n,
+    input wire sync_reset,
+    input wire tic,
+    input wire [7:0] data_in,
+    output reg [7:0] data_out,
+    input wire read_enable,
+    input wire write_enable,
+    output reg nack,
+    output reg queued,
+    output reg data_valid,
+    output reg stop,
+    output reg [2:0] status,
+    input wire scl_in,
+    output reg scl_out,
+    input wire sda_in,
+    output reg sda_out
+);
+
+    parameter DEVICE_ADDRESS = 8'h68;
+
+    // State definition
+    parameter S_IDLE = 5'b00000,
+              S_START = 5'b00001,
+              S_SENDBIT = 5'b00010,
+              S_WESCLUP = 5'b00011,
+              S_WESCLDOWN = 5'b00100,
+              S_CHECKACK = 5'b00101,
+              S_CHECKACKUP = 5'b00110,
+              S_CHECKACKDOWN = 5'b00111,
+              S_WRITE = 5'b01000,
+              S_PRESTOP = 5'b01001,
+              S_STOP = 5'b01010,
+              S_READ = 5'b01011,
+              S_RECVBIT = 5'b01100,
+              S_RDSCLUP = 5'b01101,
+              S_RDSCLDOWN = 5'b01110,
+              S_SENDACK = 5'b01111,
+              S_SENDACKUP = 5'b10000,
+              S_SENDACKDOWN = 5'b10001,
+              S_RESTART = 5'b10010;
+
+    // State variables
+    reg [4:0] state, next_state;
+    reg [3:0] counter, next_counter;
+    reg [7:0] shift;
+    reg nack_detected;
+    reg sda_in_q, sda_in_qq;
+
+    // Combinational logic for counter
+    always @(*) begin
+        next_counter = counter + 1;
+    end
+
+    // Sequential logic for SDA_IN capture register
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            sda_in_q <= 1'b1;
+            sda_in_qq <= 1'b1;
+        end else if (clk) begin
+            sda_in_q <= sda_in;
+            sda_in_qq <= sda_in_q;
+        end
+    end
+
+    // Main sequential logic for state machine
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            status <= 3'b000;
+            state <= S_IDLE;
+            scl_out <= 1'b1;
+            sda_out <= 1'b1;
+            nack <= 1'b0;
+            queued <= 1'b0;
+            data_valid <= 1'b0;
+            data_out <= 8'b0;
+            counter <= 4'b0;
+            nack_detected <= 1'b0;
+            shift <= 8'b0;
+            stop <= 1'b0;
+        end else if (clk) begin
+            if (sync_reset) begin
+                state <= S_IDLE;
+            end else begin
+                case (state)
+                    S_IDLE: begin
+                        status <= 3'b000;
+                        scl_out <= 1'b1;
+                        sda_out <= 1'b1;
+                        nack <= 1'b0;
+                        queued <= 1'b0;
+                        data_valid <= 1'b0;
+                        data_out <= 8'h01;
+                        counter <= 4'b0;
+                        stop <= 1'b0;
+                        if (tic) begin
+                            if (write_enable || read_enable) begin
+                                state <= S_START;
+                            end
+                        end
+                    end
+                    S_START: begin
+                        status <= 3'b001;
+                        scl_out <= 1'b1;
+                        sda_out <= 1'b0;
+                        nack <= 1'b0;
+                        queued <= 1'b0;
+                        stop <= 1'b0;
+                        data_valid <= 1'b0;
+                        if (tic) begin
+                            scl_out <= 1'b0;
+                            counter <= 4'b0000;
+                            shift[7:1] <= DEVICE_ADDRESS[6:0];
+                            if (write_enable) begin
+                                shift[0] <= 1'b0;
+                                next_state <= S_WRITE; 
+                            end else begin
+                                shift[0] <= 1'b1;
+                                next_state <= S_READ;
+                            end
+                            state <= S_SENDBIT;
+                        end
+                    end
+                    S_SENDBIT: begin
+                        if (tic) begin
+                            status <= 3'b010;
+                            scl_out <= 1'b0;
+                            sda_out <= shift[7];
+                            shift[7:1] <= shift[6:0];
+                            counter <= next_counter; 
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            state <= S_WESCLUP;
+                        end
+                    end
+                    S_WESCLUP: begin
+                        if (tic) begin
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            data_valid <= 1'b0;
+                            scl_out <= 1'b1;
+                            state <= S_WESCLDOWN;
+                        end
+                    end
+                    S_WESCLDOWN: begin
+                        if (tic) begin
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            scl_out <= 1'b0;
+                            if (counter[3]) begin
+                                state <= S_CHECKACK;
+                            end else begin
+                                state <= S_SENDBIT;
+                            end
+                        end
+                    end
+                    S_CHECKACK: begin
+                        if (tic) begin
+                            status <= 3'b011;
+                            sda_out <= 1'b1;
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            scl_out <= 1'b0;
+                            state <= S_CHECKACKUP;    
+                        end
+                    end
+                    S_CHECKACKUP: begin
+                        if (tic) begin
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            scl_out <= 1'b1;
+                            nack_detected <= (sda_in_qq == 1'b1) ? 1'b1 : 1'b0;
+                            state <= S_CHECKACKDOWN;    
+                        end
+                    end
+                    S_CHECKACKDOWN: begin
+                        if (tic) begin
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            scl_out <= 1'b0;
+                            state <= next_state;
+                        end
+                    end
+                    S_WRITE: begin
+                        if (nack_detected) begin
+                            nack <= 1'b1;
+                            scl_out <= 1'b0;
+                            if (tic) begin
+                                nack_detected <= 1'b0;
+                                sda_out <= 1'b0;
+                                state <= S_PRESTOP;
+                            end
+                        end else begin
+                            if (write_enable) begin
+                                shift <= data_in;
+                                counter <= 4'b0000;
+                                queued <= 1'b1;
+                                data_valid <= 1'b0;
+                                state <= S_SENDBIT;
+                            end else if (read_enable) begin    
+                                scl_out <= 1'b0;
+                                sda_out <= 1'b1;
+                                if (tic) begin
+                                    state <= S_RESTART;
+                                end
+                            end else begin
+                                scl_out <= 1'b0;
+                                if (tic) begin
+                                    sda_out <= 1'b0;
+                                    state <= S_PRESTOP;
+                                end
+                            end
+                        end
+                    end
+                    S_RESTART: begin
+                        if (tic) begin
+                            state <= S_IDLE;
+                        end
+                    end
+                    S_READ: begin
+                        if (nack_detected) begin
+                            nack <= 1'b1;
+                            scl_out <= 1'b0;
+                            if (tic) begin
+                                nack_detected <= 1'b0;
+                                sda_out <= 1'b0;
+                                state <= S_PRESTOP;
+                            end
+                        end else begin
+                            if (read_enable) begin
+                                shift <= 8'b0;
+                                counter <= 4'b0000;
+                                queued <= 1'b1;
+                                state <= S_RECVBIT;
+                            end else if (write_enable) begin    
+                                scl_out <= 1'b0;
+                                sda_out <= 1'b1;
+                                if (tic) begin
+                                    state <= S_IDLE;
+                                end
+                            end else begin
+                                scl_out <= 1'b0;
+                                if (tic) begin
+                                    sda_out <= 1'b0;
+                                    state <= S_PRESTOP;
+                                end
+                            end
+                        end
+                    end
+                    S_RECVBIT: begin
+                        if (tic) begin
+                            status <= 3'b101;
+                            sda_out <= 1'b1;
+                            scl_out <= 1'b0;
+                            counter <= next_counter; 
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            state <= S_RDSCLUP;
+                        end
+                    end
+                    S_RDSCLUP: begin
+                        if (tic) begin
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            scl_out <= 1'b1;
+                            shift[7:1] <= shift[6:0];
+                            shift[0] <= sda_in_qq;
+                            state <= S_RDSCLDOWN;
+                        end
+                    end
+                    S_RDSCLDOWN: begin
+                        if (tic) begin
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            scl_out <= 1'b0;
+                            if (counter[3]) begin
+                                state <= S_SENDACK;
+                            end else begin
+                                state <= S_RECVBIT;
+                            end
+                        end
+                    end
+                    S_SENDACK: begin
+                        if (tic) begin
+                            status <= 3'b110;
+                            sda_out <= (read_enable) ? 1'b0 : 1'b1;
+                            data_out <= shift;
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b1;
+                            scl_out <= 1'b0;
+                            state <= S_SENDACKUP;
+                        end
+                    end
+                    S_SENDACKUP: begin
+                        if (tic) begin
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            scl_out <= 1'b1;
+                            state <= S_SENDACKDOWN;
+                        end
+                    end
+                    S_SENDACKDOWN: begin
+                        if (tic) begin
+                            nack <= 1'b0;
+                            queued <= 1'b0;
+                            stop <= 1'b0;
+                            data_valid <= 1'b0;
+                            scl_out <= 1'b0;
+                            state <= S_READ;
+                        end
+                    end
+                    S_PRESTOP: begin
+                        if (tic) begin
+                            status <= 3'b111;
+                            stop <= 1'b1;
+                            scl_out <= 1'b1;
+                            sda_out <= 1'b0;
+                            nack <= 1'b0;
+                            state <= S_STOP;
+                        end
+                    end
+                    S_STOP: begin
+                        if (tic) begin
+                            scl_out <= 1'b1;
+                            sda_out <= 1'b1;
+                            state <= S_IDLE;
+                        end
+                    end
+                    default: state <= S_IDLE;
+                endcase
+            end
+        end
+    end
+
+endmodule

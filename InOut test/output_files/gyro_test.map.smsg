@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at i2c_master.v(27): object "READ_DATA" differs only in case from object "read_data" in the same scope File: /home/dayz/Labs/entrega-1-proyecto-grupo22-2024-1/InOut test/i2c_master.v Line: 27

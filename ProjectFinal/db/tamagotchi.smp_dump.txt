@@ -1,0 +1,54 @@
+
+State Machine - |tamagotchi|FSM_pet:pet_display|count
+Name count.000000110 count.000000101 count.000000100 count.000000011 count.000000010 count.000000001 count.000000000 
+count.000000000 0 0 0 0 0 0 0 
+count.000000001 0 0 0 0 0 1 1 
+count.000000010 0 0 0 0 1 0 1 
+count.000000011 0 0 0 1 0 0 1 
+count.000000100 0 0 1 0 0 0 1 
+count.000000101 0 1 0 0 0 0 1 
+count.000000110 1 0 0 0 0 0 1 
+
+State Machine - |tamagotchi|FSM_pet:pet_display|state
+Name state.0011 state.0010 state.0001 state.0000 state.0100 
+state.0000 0 0 0 0 0 
+state.0001 0 0 1 1 0 
+state.0010 0 1 0 1 0 
+state.0011 1 0 0 1 0 
+state.0100 0 0 0 1 1 
+
+State Machine - |tamagotchi|mpu6050_interface:mpu6050|i2c_master:i2c_master|next_state
+Name next_state.READ 
+next_state.WRITE 0 
+next_state.READ 1 
+
+State Machine - |tamagotchi|mpu6050_interface:mpu6050|i2c_master:i2c_master|state
+Name state.RESTART state.SEND_ACK_LOW state.SEND_ACK_HIGH state.SEND_ACK state.RD_SCL_LOW state.RD_SCL_HIGH state.RECEIVE_BIT state.READ state.STOP state.PREP_STOP state.WRITE state.CHECK_ACK_LOW state.CHECK_ACK_HIGH state.CHECK_ACK state.WAIT_SCL_LOW state.WAIT_SCL_HIGH state.SEND_BIT state.START state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.SEND_BIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.WAIT_SCL_HIGH 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.WAIT_SCL_LOW 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.CHECK_ACK 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.CHECK_ACK_HIGH 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.CHECK_ACK_LOW 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.WRITE 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.PREP_STOP 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.STOP 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.READ 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.RECEIVE_BIT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.RD_SCL_HIGH 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.RD_SCL_LOW 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.SEND_ACK 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.SEND_ACK_HIGH 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.SEND_ACK_LOW 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.RESTART 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |tamagotchi|mpu6050_interface:mpu6050|mpu6050_controller:mpu6050_ctrl|state
+Name state.STABLE state.READ_1 state.READ_0 state.POWER_MGMT_1 state.POWER_MGMT_0 state.000 
+state.000 0 0 0 0 0 0 
+state.POWER_MGMT_0 0 0 0 0 1 1 
+state.POWER_MGMT_1 0 0 0 1 0 1 
+state.READ_0 0 0 1 0 0 1 
+state.READ_1 0 1 0 0 0 1 
+state.STABLE 1 0 0 0 0 1 
