@@ -116,6 +116,10 @@ Un display de 7 segmentos es un dispositivo de salida que puede mostrar dígitos
   * __Función:__
 El display de 7 segmentos se utiliza para mostrar información numérica relevante, como el nivel de hambre, la felicidad, o el tiempo del Tamagotchi.
 
+
+https://github.com/user-attachments/assets/394067d7-7c23-4738-9013-55a4e6c38fa7
+
+
 * __Sensor de sonido KY038:__ Es un módulo que permite detectar la presencia y la intensidad de sonidos en el entorno. Este módulo tiene dos salidas de información:
 Analógica (A0): Lleva toda la información que está detectando el micrófono.
 Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando el sonido supera un cierto volumen. Dicha salida de alta o baja se puede configurar mediante el ajuste del umbral.
@@ -150,7 +154,11 @@ Digital(D0): Obtendremos una salida de encendido o apagado que se activa cuando 
     * __VCC:__ Pin de alimentación (3.3V - 5V)
     * __GND:__ Pin de conexión a tierra.
     * ```SCL (Serial Clock Line)```: Pin de reloj para la comunicación I2C.
-    * ```SDA (Serial Data Line)```: Pin de datos para la comunicación I2C.
+    * ```
+
+https://github.com/user-attachments/assets/549e656f-d72d-4d6b-b836-e94bc46f38ec
+
+SDA (Serial Data Line)```: Pin de datos para la comunicación I2C.
     * ```INT```: Pin de interrupción que puede ser configurado para notificar eventos específicos.
     
 ### 4.3 Interfaces de comunicacion:
