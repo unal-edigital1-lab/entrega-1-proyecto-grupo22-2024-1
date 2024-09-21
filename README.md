@@ -253,6 +253,9 @@ El módulo Verilog  `display_hex`, es un controlador para una pantalla de 7 segm
   
 <img src="img/Diagrama display_hex.png">
 
+
+## Diagrama de bloques Modulo Debounce:
+
 `debounce` que implementa el anti-rebote para un botón
 
 1. **Inicialización:**
