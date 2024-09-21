@@ -274,6 +274,23 @@ El módulo Verilog  `display_hex`, es un controlador para una pantalla de 7 segm
 
 <img src="img/Diagrama Debounce.png">
 
+## Diagrama de bloques Modulo Buzzer:
+
+Este módulo activa el buzzer cuando se detecta un flanco de subida en la señal `trigger`, y lo mantiene activo por un tiempo determinado.
+
+1. **Inicialización**: Al comienzo del flujo, las variables `counter`, `trigger_prev`, `active` y `buzzer_out` se inicializan. Si `reset` es 0, se reinician las variables y el diagrama se detiene.
+   
+2. **Condición de `trigger_posedge`**: Si se detecta un flanco de subida en `trigger`, el sistema:
+   - Activa la señal `active`.
+   - Resetea el contador a 0.
+   - Activa el `buzzer_out` poniéndolo en bajo (buzzer encendido).
+   
+3. **Contador**: Mientras `active` sea 1, se incrementa el contador en cada ciclo de reloj.
+   - Si el contador alcanza el límite (determinado por `CLK_FREQ * DURATION`), se desactiva el buzzer (`buzzer_out` se pone en alto) y `active` se resetea.
+ <img src="img/Diagrama buzzer.png"> 
+    
+
+
 ## 5 Especificaciones de diseño detalladas:
 ### 5.1 Modos de operacion:
 #### 5.1.1 Modo Test
