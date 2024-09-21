@@ -31,20 +31,30 @@ La interacción usuario-sistema se realizará mediante los siguientes botones co
 * __Test:__ Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario navegar entre los diferentes estados del Tamagotchi con cada pulsación de los botones de interacción.
 * __Botones de interaccion (2):__ Facilitan acciones directas como alimentar, jugar, descansar o bañar, posibilitando la implementación de actividades específicas para el bienestar del Tamagotchi. El boton de interacción (1) permitira al usuario navegar por los distintos estados del tamagotchi en los cuales el boton (2) permitirá realizar acciones especificas asociadas a dicho estado y la visualización de los niveles actuales para cada estado.
 
+<img src="img/botones.jpeg">
+
 ### 3.2 Sistema de sensado:
 Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de interacción, se incorporarán tres sensores que modifique el comportamiento de la mascota virtual en respuesta a estímulos externos:
 
 * __Sensor de sonido KY038:__ Utilizado para que el tamagotchi responda a estimulos sonoros, si la intensidad de ruido es baja o moderada el tamagochi aumentara su felicidad, mientras que una intensidad de ruido alta asustará al Tamagotchi y la reducirá.
 
+<img src="img/sensor de sonido.jpeg">
+
 * __Sensor de luz:__ Utilizado para controlar el estado de descanso de la mascota, si la intensidad luminica es muy alta el usuario no se podrá enviar a descansar a la mascota. Si la intensidad luminica es muy baja por un tiempo determinado el Tamagotchi se dormirá y no permitirá interacciones.
 
+<img src="img/sensor de luz.jpeg">]
+ 
 * __Sensor de movimiento Giroscopio MPU-6050:__ Utilizado para sensar patrones de movimiento repetitivos que simulen actividad fisica de la mascota, aumentando su nivel de felicidad y salud. De igual modo, movimientos muy bruscos asustarán al Tamagotchi y reducirán su nivel de felicidad.
 
 ### 3.3 Sistema de visualizacion:
 
 * __Pantalla nokia 5110__ Pequeña pantalla gráfica LCD montada sobre una PCB de 4.5cm x 4.5cm. Posee una resolución de 84 x 48 pí­xeles sobre la que se pueden dibujar gráficos o textos. Representa visualmente el estado actual del Tamagotchi, incluyendo emociones y necesidades básicas.
 
+<img src="img/pantalla.jpeg">]
+
 * __Display de 7 Segmentos:__ Utilizado para mostrar niveles y puntuaciones específicas, como el nivel de hambre o felicidad, complementando la visualización principal.
+
+<img src="img/7 segmentos.jpeg">]
 
 * __Buzzer:__ Incorporado en la FPGA que emite sonidos dependiendo de los estados del Tamagotchi y avisando sobre eventos importantes o si el Tamagotchi se encuentra en un estado crítico.
 
@@ -213,7 +223,6 @@ Este diagrama de flujo describe la lógica principal del código con las decisio
 
 [<img src="img/Diagrama SPI master.png">](//www.plantuml.com/plantuml/png/ZLFDYXD14BxFKvINPHSLPYyk94Rse88tGV4YOQXqzoIb_HEwUY8YFf8d7o4lvan3KetjcEIIgQz-lg-_xdhaX34DpZQ9aZNmcd0RqI5e0s_jy2M02Xu-OIJSMCCBu3rr3ZcPs3Ivjm40MBpXlOaO8KFBZ54Fjpc4rGhkuUO6K2Kwc2bixo3jZ1yBZh_kSdMUOfNk8YTuEJOi1SRSzpUw6VXxLNb0iXFO5g0o5U8q8DFMemw0e5MHuntrgOjcEpLfJDYHBrafTIeCFejyM3RdpBSTMGEtad-LZqbS7F8ynGMcQS2PxFF3MaXExYdxzSG5cWvTZog52C_XlhQld5xqhK22fuLL-MSiZufzk32Yj4vi6Ykct9Ffex2Xr9zhPc_xMaCk2nRAqluhQEiRbM1qkHRmxrVoGrI_MBJhP-28mq_flke8CZi_kZ0aAFsOqIBl-tzgPO7QkgfQgFaQMR0vEkCrzSq5L129ylf0DaQMxQE9ZZn2YkZP4TFnjuSFxzy9ToMezfTJs3V2-JZ-3Sx-0G00)
 
-
 ## Diagrama de bloques Modulo Movement detect:
 El módulo `movement_detect` es responsable de detectar el movimiento basado en el registro `x_reg`, evaluando su magnitud y comparándola con un umbral.
 
@@ -276,7 +285,7 @@ El módulo Verilog  `display_hex`, es un controlador para una pantalla de 7 segm
 
 ## Diagrama de bloques Modulo Buzzer:
 
-Este módulo activa el buzzer cuando se detecta un flanco de subida en la señal `trigger`, y lo mantiene activo por un tiempo determinado.
+Este módulo activa el buzzer cuando se detecta un flanco de subida en la señal `trigger`, y lo mantiene activo por un tiempo determinado,.
 
 1. **Inicialización**: Al comienzo del flujo, las variables `counter`, `trigger_prev`, `active` y `buzzer_out` se inicializan. Si `reset` es 0, se reinician las variables y el diagrama se detiene.
    
@@ -287,6 +296,7 @@ Este módulo activa el buzzer cuando se detecta un flanco de subida en la señal
    
 3. **Contador**: Mientras `active` sea 1, se incrementa el contador en cada ciclo de reloj.
    - Si el contador alcanza el límite (determinado por `CLK_FREQ * DURATION`), se desactiva el buzzer (`buzzer_out` se pone en alto) y `active` se resetea.
+     
  <img src="img/Diagrama buzzer.png"> 
     
 
