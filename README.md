@@ -211,7 +211,7 @@ Este diagrama de flujo describe la lógica principal del código con las decisio
 - Alterna el reloj (sclk) para enviar los bits uno por uno a través de MOSI.
 - Cuando se han enviado todos los bits, levanta la señal avail para indicar que está listo para una nueva transmisión.
 
-[<img src="img/Diagrama movement_detect">](//www.plantuml.com/plantuml/png/ZLFDYXD14BxFKvINPHSLPYyk94Rse88tGV4YOQXqzoIb_HEwUY8YFf8d7o4lvan3KetjcEIIgQz-lg-_xdhaX34DpZQ9aZNmcd0RqI5e0s_jy2M02Xu-OIJSMCCBu3rr3ZcPs3Ivjm40MBpXlOaO8KFBZ54Fjpc4rGhkuUO6K2Kwc2bixo3jZ1yBZh_kSdMUOfNk8YTuEJOi1SRSzpUw6VXxLNb0iXFO5g0o5U8q8DFMemw0e5MHuntrgOjcEpLfJDYHBrafTIeCFejyM3RdpBSTMGEtad-LZqbS7F8ynGMcQS2PxFF3MaXExYdxzSG5cWvTZog52C_XlhQld5xqhK22fuLL-MSiZufzk32Yj4vi6Ykct9Ffex2Xr9zhPc_xMaCk2nRAqluhQEiRbM1qkHRmxrVoGrI_MBJhP-28mq_flke8CZi_kZ0aAFsOqIBl-tzgPO7QkgfQgFaQMR0vEkCrzSq5L129ylf0DaQMxQE9ZZn2YkZP4TFnjuSFxzy9ToMezfTJs3V2-JZ-3Sx-0G00)
+[<img src="img/Diagrama SPI master.png">](//www.plantuml.com/plantuml/png/ZLFDYXD14BxFKvINPHSLPYyk94Rse88tGV4YOQXqzoIb_HEwUY8YFf8d7o4lvan3KetjcEIIgQz-lg-_xdhaX34DpZQ9aZNmcd0RqI5e0s_jy2M02Xu-OIJSMCCBu3rr3ZcPs3Ivjm40MBpXlOaO8KFBZ54Fjpc4rGhkuUO6K2Kwc2bixo3jZ1yBZh_kSdMUOfNk8YTuEJOi1SRSzpUw6VXxLNb0iXFO5g0o5U8q8DFMemw0e5MHuntrgOjcEpLfJDYHBrafTIeCFejyM3RdpBSTMGEtad-LZqbS7F8ynGMcQS2PxFF3MaXExYdxzSG5cWvTZog52C_XlhQld5xqhK22fuLL-MSiZufzk32Yj4vi6Ykct9Ffex2Xr9zhPc_xMaCk2nRAqluhQEiRbM1qkHRmxrVoGrI_MBJhP-28mq_flke8CZi_kZ0aAFsOqIBl-tzgPO7QkgfQgFaQMR0vEkCrzSq5L129ylf0DaQMxQE9ZZn2YkZP4TFnjuSFxzy9ToMezfTJs3V2-JZ-3Sx-0G00)
 
 
 ## Diagrama de bloques Modulo Movement detect:
@@ -228,8 +228,48 @@ El módulo `movement_detect` es responsable de detectar el movimiento basado en 
 
 Este flujo cubre el proceso completo de cómo se maneja la detección de movimiento y el reinicio de la exploración. 
 
-[<img src="img/Diagrama SPI master.png">]
+[<img src="img/Diagrama movement_detect.png">]
 
+## Diagrama de bloques Modulo display_hex:
+El módulo Verilog  `display_hex`, es un controlador para una pantalla de 7 segmentos que convierte números binarios en formato BCD (Decimal Codificado en Binario) y los muestra en la pantalla, utilizando un temporizador para alternar entre los dígitos.
+
+1. **Inicialización:**
+   - Las variables `cfreq`, `bcd`, `count` y `an` se inicializan en 0 o en su valor predeterminado.
+   
+2. **Reinicio:**
+   - Si la señal `reset` está activa (`reset == 0`), todas las variables se reinician.
+
+3. **Divisor de Frecuencia:**
+   - El contador `cfreq` se incrementa con cada pulso de reloj (`clk`). Una vez que `cfreq[16]` es igual a 1, se genera una señal de habilitación (`enable`), lo que permite avanzar el conteo en `count`.
+
+4. **Selección de Dígito:**
+   - Dependiendo del valor de `count`, se selecciona una porción de 5 bits del número de entrada (`num[39:0]`) para mostrar en la pantalla de 7 segmentos.
+   - Se actualiza la señal de habilitación del ánodo (`an`) para seleccionar cuál de los 8 dígitos en la pantalla está activo en ese momento.
+
+### Detalles Importantes:
+- El contador de frecuencia (`cfreq`) divide el reloj para controlar el tiempo en que se actualiza cada dígito en la pantalla.
+- El contador `count` cicla entre 0 y 7, lo que permite activar uno de los 8 dígitos en cada ciclo.
+- El valor actual de `count` determina cuál de los segmentos de `num` se muestra en el dígito correspondiente de la pantalla.
+  
+<img src="img/Diagrama display_hex.png">
+
+`debounce` que implementa el anti-rebote para un botón
+
+1. **Inicialización:**
+   - Si `reset` está activo (0), se inicializa el contador (`counter = 0`) y la salida del botón se invierte con respecto a la entrada.
+   
+2. **Comparación del Estado del Botón:**
+   - Se compara si el estado del botón de entrada (`boton_in`) es igual a la salida del botón (`boton_out`):
+     - Si los estados son iguales, el sistema incrementa el contador.
+     - Si no son iguales, el contador se reinicia.
+   
+3. **Actualización del Estado del Botón:**
+   - Si el contador alcanza el valor de `COUNT_BOT`, se actualiza el estado del botón de salida (`boton_out`) para que sea igual al valor del botón de entrada (`boton_in`), indicando que el botón se ha estabilizado sin rebotes.
+   
+4. **Reinicio del Contador:**
+   - Después de actualizar la salida, el contador se reinicia a 0.
+
+<img src="img/Diagrama Debounce.png">
 
 ## 5 Especificaciones de diseño detalladas:
 ### 5.1 Modos de operacion:
