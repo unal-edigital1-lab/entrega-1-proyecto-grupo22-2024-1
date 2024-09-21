@@ -180,11 +180,11 @@ En este proyecto se plantea usar 2 interfaces de comunicación, el I2C que se us
 A continuaciion se muestra el diagrama de caja negra que se planteo al inicio del proyecto. Este era solo un prototipo de la maquina de estados principal.
 [<img src="img/G22 Edigital1 - Caja Negra.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=0_0##)
 
-Seguidamente presentamos los diagramas de caja negra de cada uno de los modulos en los que se dividio el proyecto esto con el fin de lograr 
+Seguidamente presentamos los diagramas de caja negra de cada uno de los modulos en los que se dividio el proyecto.
 
 
 ### 4.5 Diagrama de bloques:
-En la siguiente imagen se presenta el diagrama de bloques inicial que se habia planteado el cual solo evidenciaba la maquina de estados principla, como se observa es bastante extenso. Asi mismo en los avances siguintes se intento realizar una mejor version y mas entendible.  
+En la siguiente imagen se presenta el diagrama de bloques inicial que se habia planteado el cual solo evidenciaba la maquina de estados principal, como se observa es bastante extenso. Asi mismo en los avances siguintes se intento realizar una mejor version y mas entendible.  
 [<img src="img/G22 Edigital1 - Diagrama de bloques.png">](https://lucid.app/lucidchart/bbb5cb64-7045-4149-8ae4-b84de991304b/edit?invitationId=inv_c0b7014b-6840-4804-9726-d6e230216194&page=PHj0tElPAV7X#)
 
 ## Diagrama de bloques Modulo FSM principal
@@ -212,6 +212,24 @@ Este diagrama de flujo describe la lógica principal del código con las decisio
 - Cuando se han enviado todos los bits, levanta la señal avail para indicar que está listo para una nueva transmisión.
 
 [<img src="img/Diagrama SPI master.png">](//www.plantuml.com/plantuml/png/ZLFDYXD14BxFKvINPHSLPYyk94Rse88tGV4YOQXqzoIb_HEwUY8YFf8d7o4lvan3KetjcEIIgQz-lg-_xdhaX34DpZQ9aZNmcd0RqI5e0s_jy2M02Xu-OIJSMCCBu3rr3ZcPs3Ivjm40MBpXlOaO8KFBZ54Fjpc4rGhkuUO6K2Kwc2bixo3jZ1yBZh_kSdMUOfNk8YTuEJOi1SRSzpUw6VXxLNb0iXFO5g0o5U8q8DFMemw0e5MHuntrgOjcEpLfJDYHBrafTIeCFejyM3RdpBSTMGEtad-LZqbS7F8ynGMcQS2PxFF3MaXExYdxzSG5cWvTZog52C_XlhQld5xqhK22fuLL-MSiZufzk32Yj4vi6Ykct9Ffex2Xr9zhPc_xMaCk2nRAqluhQEiRbM1qkHRmxrVoGrI_MBJhP-28mq_flke8CZi_kZ0aAFsOqIBl-tzgPO7QkgfQgFaQMR0vEkCrzSq5L129ylf0DaQMxQE9ZZn2YkZP4TFnjuSFxzy9ToMezfTJs3V2-JZ-3Sx-0G00)
+
+
+## Diagrama de bloques Modulo Movement detect:
+El módulo `movement_detect` es responsable de detectar el movimiento basado en el registro `x_reg`, evaluando su magnitud y comparándola con un umbral.
+
+1. **Inicialización**: Al comenzar, si `reset_n` está en bajo (reset activo), el diagrama establece `movement` a `1` y `rescan` a `0`, y luego detiene el flujo.
+  
+2. **Condición `internal_clk`**: Si `internal_clk` está activo, se evalúa la señal `completed`:
+   - Si `completed` es `1`, el sistema:
+     - Calcula la magnitud de `x_reg` utilizando la función `magnitude`.
+     - Si la magnitud es mayor a 80 (`x_greater`), evalúa si el bit de signo de `x_reg[7]` es 0 para actualizar `movement`.
+     - Establece `rescan` a `1`.
+   - Si `completed` es `0`, simplemente se establece `rescan` a `0`.
+
+Este flujo cubre el proceso completo de cómo se maneja la detección de movimiento y el reinicio de la exploración. 
+
+[<img src="img/Diagrama SPI master.png">]
+
 
 ## 5 Especificaciones de diseño detalladas:
 ### 5.1 Modos de operacion:
