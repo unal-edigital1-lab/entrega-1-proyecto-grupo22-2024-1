@@ -382,7 +382,5 @@ Las interacciones del usuario pueden ser de dos tipos, cambio de estado y cuidad
 * Cambio de estado: El usuario presionara el boton (1) lo que le permitira navegar por los diferentes estados de la mascota, cada pulsacion mostrara el siguiente estado (en la secuencia hambre, sueño, felicidad, higiene, condicion), esta interaccion no afectara los niveles de estado ni los temporizadores.
 * Cuidado: El ususario interactua ya sea con el boton (2) o con un sensor. Cada interaccion de cuidado afectara el nivel del estado activo de la mascota segun la tabla mostrada anteriormente.
 
-https://github.com/unal-edigital1-lab/entrega-1-proyecto-grupo22-2024-1/blob/01ed05186392f84dd8ef8aa39b67baeb352a0b0c/videos/tamagotchi%20final.mp4
-
 
 
