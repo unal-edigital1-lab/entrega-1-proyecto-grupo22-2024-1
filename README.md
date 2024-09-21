@@ -30,7 +30,11 @@ La interacción usuario-sistema se realizará mediante los siguientes botones co
 * __Reset:__  Reestablece el Tamagotchi a un estado inicial conocido al mantener pulsado el botón durante al menos 5 segundos. Este estado inicial simula el despertar de la mascota con salud óptima.
 * __Test:__ Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario navegar entre los diferentes estados del Tamagotchi con cada pulsación de los botones de interacción.
 * __Botones de interaccion (2):__ Facilitan acciones directas como alimentar, jugar, descansar o bañar, posibilitando la implementación de actividades específicas para el bienestar del Tamagotchi. El boton de interacción (1) permitira al usuario navegar por los distintos estados del tamagotchi en los cuales el boton (2) permitirá realizar acciones especificas asociadas a dicho estado y la visualización de los niveles actuales para cada estado.
+  
+Cuando el tamagotchi esta en modo test se encendera un led indicando que se encuentra en dicho modo
+<img src="img/led modo test.jpeg">
 
+Se presenta la imagen de los cuatro botones usados
 <img src="img/botones.jpeg">
 
 ### 3.2 Sistema de sensado:
@@ -40,7 +44,7 @@ Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de i
 
 <img src="img/sensor de sonido.jpeg">
 
-* __Sensor de luz:__ Utilizado para controlar el estado de descanso de la mascota, si la intensidad luminica es muy alta el usuario no se podrá enviar a descansar a la mascota. Si la intensidad luminica es muy baja por un tiempo determinado el Tamagotchi se dormirá y no permitirá interacciones.
+* __Sensor de luz:__ Utilizado para controlar el estado de descanso de la mascota, si la intensidad luminica es muy alta el usuario no podrá enviar a descansar a la mascota. Si la intensidad luminica es muy baja por un tiempo determinado el Tamagotchi se dormirá y no permitirá interacciones.
 
 <img src="img/sensor de luz.jpeg">]
  
