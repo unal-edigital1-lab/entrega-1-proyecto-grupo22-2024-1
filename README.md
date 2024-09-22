@@ -28,7 +28,7 @@ El sistema notificara al usuario del estado y las necesidades de la mascota a tr
 ### 3.1 Sistema de botones:
 La interacción usuario-sistema se realizará mediante los siguientes botones configurados:
 * __Reset:__  Reestablece el Tamagotchi a un estado inicial conocido al mantener pulsado el botón durante al menos 5 segundos. Este estado inicial simula el despertar de la mascota con salud óptima.
-* __Test:__ Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario navegar entre los diferentes estados del Tamagotchi con cada pulsación de los botones de interacción.
+* __Test:__ Activa el modo de prueba al mantener pulsado por al menos 5 segundos, permitiendo al usuario modificar rapidamente los diferentes estados del Tamagotchi con cada pulsación del boton de test.
 * __Botones de interaccion (2):__ Facilitan acciones directas como alimentar, jugar, descansar o bañar, posibilitando la implementación de actividades específicas para el bienestar del Tamagotchi. El boton de interacción (1) permitira al usuario navegar por los distintos estados del tamagotchi en los cuales el boton (2) permitirá realizar acciones especificas asociadas a dicho estado y la visualización de los niveles actuales para cada estado.
   
 Se presenta la imagen de los cuatro botones usados
@@ -38,7 +38,7 @@ Se presenta la imagen de los cuatro botones usados
 ### 3.2 Sistema de sensado:
 Para integrar al Tamagotchi con el entorno real y enriquecer la experiencia de interacción, se incorporarán tres sensores que modifique el comportamiento de la mascota virtual en respuesta a estímulos externos:
 
-* __Sensor de sonido KY038:__ Utilizado para que el tamagotchi responda a estimulos sonoros, si la intensidad de ruido es baja o moderada el tamagochi aumentara su felicidad, mientras que una intensidad de ruido alta asustará al Tamagotchi y la reducirá.
+* __Sensor de sonido KY038:__ Utilizado para que el tamagotchi responda a estimulos sonoros, si la intensidad de ruido es baja o moderada el tamagochi aumentara su felicidad.
 
 <img src="img/sensor de sonido.jpeg">
 
@@ -312,15 +312,14 @@ El modo Test permite a los usuarios y desarrolladores validar la funcionalidad d
 
 - **Activación:** Se ingresa al modo Test manteniendo pulsado el botón "Test" por un periodo de 5 segundos.
 
-- **Funcionalidad:** Permite la navegación manual entre los estados del Tamagotchi, ignorando los temporizadores o eventos aleatorios, para observar directamente las respuestas y animaciones asociadas.
+- **Funcionalidad:** Permite alterar manualmente los estados del Tamagotchi, ignorando los temporizadores o eventos aleatorios, para observar directamente las respuestas y animaciones asociadas.
+Cuando el tamagotchi esta en modo test se encendera un led indicando que se encuentra en dicho modo
+<img src="img/led modo test.jpeg">
 
 ### 5.1.2 Modo Normal
 El Modo Normal es el estado de operación estándar del Tamagotchi, donde la interacción y respuesta a las necesidades de la mascota virtual dependen enteramente de las acciones del usuario.
 
 - **Activación:** El sistema arranca por defecto en el Modo Normal tras el encendido o reinicio del dispositivo. No requiere una secuencia de activación especial, ya que es el modo de funcionamiento predeterminado.
-
-Cuando el tamagotchi esta en modo test se encendera un led indicando que se encuentra en dicho modo
-<img src="img/led modo test.jpeg">
 
 
 ### 5.2 Estados y transiciones:
@@ -338,6 +337,7 @@ Cuando el tamagotchi esta en modo test se encendera un led indicando que se encu
 * Condicion Fisica
 
 * Muerto
+  
 #### 5.2.1 Transiciones:
 #### Sistema de niveles:
 Cada estado del tamagotchi tendra asociado un nivel de satisfaccion en escala del 0 al 7. Los niveles aumentan o disminuyen segun las interacciones del usuario y el transcurso del tiempo de la siguiente forma:
@@ -350,37 +350,39 @@ Cada estado del tamagotchi tendra asociado un nivel de satisfaccion en escala de
   </tr>
   <tr>
     <td>0</td>
-    <td>+2</td>
+    <td>+1</td>
     <td>-1 salud </td>
   </tr>
   <tr>
-    <td>1-3</td>
+    <td>1-6</td>
     <td>+1</td>
     <td>-1</td>
   </tr>
-    <tr>
-    <td>4-6 </td>
-    <td>+1</td>
-    <td>-2 </td>
   </tr>
     <tr>
     <td>7</td>
     <td>-1 salud </td>
-    <td>-2 - + 1 salud </td>
+    <td>-1 y + 1 salud </td>
   </tr>
 </table>
 
-El estado de _descanso/sueño_ sera el estado inicial de la mascota. Pasado un perido de incatividad y dependiendo del nivel de luz, la mascota siempre regresara a el estado _dencanso/sueño_. Cuando la mascota acumula un tiempo de sueño de 15 minutos se considera como una interaccion y su nivel asociado se actualiza. 
+El estado de _descanso/sueño_ sera el estado inicial de la mascota. Pasado un perido de incatividad y dependiendo del nivel de luz, la mascota siempre regresara a el estado _dencanso/sueño_. Cuando la mascota acumula un tiempo de sueño de 5 segundos se considera como una interaccion y su nivel asociado se actualiza. 
 
-La salud es el unico estado que no dependera del paso del tiempo o la interaccion, en cambio su valor esta definido en funcion del nivel de los demas estados, un estado de 4-7 en cualquier atributo sumara un nivel a la salud al actualizarse positivamente, un estado del 1-3 no tendra efecto sobre la salud al actualizarse y un estado de 0 restara un nivel al ser detectado y por permanecer en dicho valor. Si el valor de la salud llega a 0 automaticamente hay una transicion al estado __Muerto__. Una vez en el estado __Muerto__ la unica interacion posible sera usar el boton __reset__ para reiniciar la mascota.
+La salud es el unico estado que no dependera del paso del tiempo o la interaccion, en cambio su valor esta definido en funcion del nivel de los demas estados, si el valor asociado a cualquier estado llega o se encuentra al maximo sumara un nivel a la salud, un estado del 1-6 no tendra efecto sobre la salud al actualizarse y un estado de 0 restara un nivel al ser detectado y por permanecer en dicho valor. Si el valor de la salud llega a 0 automaticamente hay una transicion al estado __Muerto__. Una vez en el estado __Muerto__ la unica interacion posible sera usar el boton __reset__ para reiniciar la mascota.
 
 #### Temporizadores:
-El temporizardor se encarga de generar cambios en los estados de la mascota simulando el paso del tiempo. El temporizaron contabilizara intervalos de tiempo diferentes para todos los estados del tamagotchi a excepcion del estado __Salud__ y el estado __Muerto__, pasado este tiempo ocurrira un cambio en el nivel del estado y el contador se reiniciara. En el modo test el valor del contador podra ser manipulado por el usuario para actualizar los estados rapidamente.
+El temporizardor se encarga de generar cambios en los estados de la mascota simulando el paso del tiempo. El temporizaron contabilizara intervalos de tiempo de 5 minutos para todos los estados del tamagotchi a excepcion del estado __Salud__ y el estado __Muerto__, pasado este tiempo ocurrira un cambio en el nivel del estado y el contador se reiniciara. En el modo test el valor del contador podra ser manipulado por el usuario para actualizar los estados rapidamente.
 
 #### Interacciones:
 Las interacciones del usuario pueden ser de dos tipos, cambio de estado y cuidado:
 * Cambio de estado: El usuario presionara el boton (1) lo que le permitira navegar por los diferentes estados de la mascota, cada pulsacion mostrara el siguiente estado (en la secuencia hambre, sueño, felicidad, higiene, condicion), esta interaccion no afectara los niveles de estado ni los temporizadores.
 * Cuidado: El ususario interactua ya sea con el boton (2) o con un sensor. Cada interaccion de cuidado afectara el nivel del estado activo de la mascota segun la tabla mostrada anteriormente.
+
+##### Interacciones especiales:
+Dentro de las interacciones de cuidado, existen acciones que requieren una secuencia de acciones especificas:
+* Sueño: En el estado __Descanso__ la mascota puede encontrarse despierta o durmiendo, cuando el usuario presione el boton(2) la mascota intentara dormir, si el sensor detecta demasiada luz en el ambiente la mascota no podra dormir y se contara una interaccion negativa, si por el contrario hay oscuridad la mascota dormira por un interavalo de 5 segundos y finalizado el tiempo se contara una interaccion positiva.
+* Diversion: En el estado __Felicidad__ el usuario debera presionar el boton (2) para activar una pequeña ventana de tiempo de 5 segundos de "escucha" durante este intervalo el tamagotchi leera la entrada del sensor de sonido, si el sensor detecta un sonido suficientemente alto para activar su señal de salida durante el intervalo de escucha, se otorgara una interaccion positiva mientras que si el sensor no se activa se tomara como una interaccion negativa.
+* Ejercicio: En el estado __Condicion__ el boton (2) no perimitira ninguna interaccion, en cambio el usuario debera acelerar el dispositivo (o el sensor de movimiento) para interactuar con la mascota. 
 
 
 
