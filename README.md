@@ -372,7 +372,16 @@ El estado de _descanso/sueño_ sera el estado inicial de la mascota. Pasado un p
 La salud es el unico estado que no dependera del paso del tiempo o la interacción, en cambio su valor esta definido en funcion del nivel de los demas estados, si el valor asociado a cualquier estado llega o se encuentra al maximo sumara un nivel a la salud, un estado del 1-6 no tendra efecto sobre la salud al actualizarse y un estado de 0 restara un nivel al ser detectado y por permanecer en dicho valor. Si el valor de la salud llega a 0 automaticamente hay una transicion al estado __Muerto__. Una vez en el estado __Muerto__ la unica interacción posible sera usar el boton __reset__ para reiniciar la mascota.
 
 #### Temporizadores:
-El temporizador se encarga de generar cambios en los estados de la mascota simulando el paso del tiempo. El temporizaron contabilizara intervalos de tiempo de 5 minutos para todos los estados del tamagotchi a excepcion del estado __Salud__ y el estado __Muerto__, pasado este tiempo ocurrira un cambio en el nivel del estado y el contador se reiniciara. En el modo test el valor del contador podra ser manipulado por el usuario para actualizar los estados rapidamente.
+El sistema contara con 5 temporizadores que se encargaran de generar cambios en los distintos estados de la mascota simulando el paso del tiempo. Cada estado tiene asociado un temporizador que contabilizara un intervalo determinado de tiempo a excepcion del estado __Salud__ y el estado __Muerto__, pasado este tiempo ocurrira un cambio en el nivel del estado y el contador se reiniciara.
+
+| Temporizador    | Tiempo |
+|-----------------|--------|
+| Sleep time      | 180s   |
+| Food time       | 60s    |
+| Bath time       | 120s   |
+| Fun time        | 90s    |
+| Exercise time   | 150s   |
+
 
 #### Interacciones:
 Las interacciones del usuario pueden ser de dos tipos, cambio de estado y cuidado:
