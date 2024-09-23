@@ -384,7 +384,7 @@ Dentro de las interacciones de cuidado, existen acciones que requieren una secue
 * Diversion: En el estado __Felicidad__ el usuario debera presionar el boton (2) para activar una pequeña ventana de tiempo de 5 segundos de "escucha" durante este intervalo el tamagotchi leera la entrada del sensor de sonido, si el sensor detecta un sonido suficientemente alto para activar su señal de salida durante el intervalo de escucha, se otorgara una interaccion positiva mientras que si el sensor no se activa se tomara como una interaccion negativa.
 * Ejercicio: En el estado __Condicion__ el boton (2) no perimitira ninguna interaccion, en cambio el usuario debera acelerar el dispositivo (o el sensor de movimiento) para interactuar con la mascota.
 
-##Desarrollo y simulacion del modelo:
+## Desarrollo y simulacion del modelo:
 
 ### Botones:
 Para el uso de los cuatro botones que hemos definido __Reset__, __Test__, __b1__, __b2__ no vemos necesario crear un modulo especifico para su gestion, ya que al ser señales de 1 bit pueden ser leidas directamente por la FSM tamagotchi, sin embargo es cricial implementar un modulo de antirrebote para evitar un funcinamiento incorrecto de los mismos debido a cambios rapidos al momento de presionar los botones. El antirrebote debe evitar que la oscilacion incial de la señal de los botones sea leida como un conjunto de muchas pulsaciones rapidas por la FSM y en su lugar solo se detecte un flanco de subida por cada pulsacion. \\
