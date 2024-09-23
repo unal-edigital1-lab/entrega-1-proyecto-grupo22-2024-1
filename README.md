@@ -387,8 +387,8 @@ Dentro de las interacciones de cuidado, existen acciones que requieren una secue
 ## Desarrollo y simulacion del modelo:
 
 ### Botones:
-Para el uso de los cuatro botones que hemos definido __Reset__, __Test__, __b3__, __b4__ no es necesario crear un modulo especifico para su gestion, ya que al ser señales de 1 bit pueden ser leidas directamente por la FSM tamagotchi, sin embargo es cricial implementar un modulo de antirrebote para evitar un funcinamiento incorrecto de los mismos debido a cambios rapidos al momento de presionar los botones. El antirrebote debe evitar que la oscilacion incial de la señal de los botones sea leida como un conjunto de muchas pulsaciones rapidas por la FSM y en su lugar solo se detecte un flanco de subida por cada pulsacion. \\
-<img src="img/switch-debounce-principle"> 
+Para el uso de los cuatro botones que hemos definido __Reset__, __Test__, __b3__, __b4__ no es necesario crear un modulo especifico para su gestion, ya que al ser señales de 1 bit pueden ser leidas directamente por la FSM tamagotchi, sin embargo es crucial implementar un modulo de antirrebote para evitar un funcinamiento incorrecto de los mismos debido a cambios rapidos al momento de presionar los botones. El antirrebote debe evitar que la oscilacion incial de la señal de los botones sea leida como un conjunto de muchas pulsaciones rapidas por la FSM y en su lugar solo se detecte un flanco de subida por cada pulsacion. \\
+<img src="img/switch-debounce-principle.jpg"> 
 Se desarrolló el siguiente modulo de antirrebote, en este modulo se establece un tiempo minimo en el cual la señal de entrada debe permanecer en un valor fijo para ser reflejada en la salida:
 ```verilog
 // antirebote  energia
@@ -416,8 +416,6 @@ always @(posedge clk) begin
 Realizamos un testbench para comprobar el correcto funcionamiento del antirrebote:
 <img src="img/Testbenches/debounce.png">
 En el resultado de la simulacion comprobamos que el modulo funciona correctamente negando los rebotes de la señal original, entregando una salida util para la FSM principal.
-
-### Sensores:
  
 
 ### Buzzer:
