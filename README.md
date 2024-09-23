@@ -387,7 +387,7 @@ Dentro de las interacciones de cuidado, existen acciones que requieren una secue
 ## Desarrollo y simulacion del modelo:
 
 ### Botones:
-Para el uso de los cuatro botones que hemos definido __Reset__, __Test__, __b1__, __b2__ no vemos necesario crear un modulo especifico para su gestion, ya que al ser señales de 1 bit pueden ser leidas directamente por la FSM tamagotchi, sin embargo es cricial implementar un modulo de antirrebote para evitar un funcinamiento incorrecto de los mismos debido a cambios rapidos al momento de presionar los botones. El antirrebote debe evitar que la oscilacion incial de la señal de los botones sea leida como un conjunto de muchas pulsaciones rapidas por la FSM y en su lugar solo se detecte un flanco de subida por cada pulsacion. \\
+Para el uso de los cuatro botones que hemos definido __Reset__, __Test__, __b3__, __b4__ no es necesario crear un modulo especifico para su gestion, ya que al ser señales de 1 bit pueden ser leidas directamente por la FSM tamagotchi, sin embargo es cricial implementar un modulo de antirrebote para evitar un funcinamiento incorrecto de los mismos debido a cambios rapidos al momento de presionar los botones. El antirrebote debe evitar que la oscilacion incial de la señal de los botones sea leida como un conjunto de muchas pulsaciones rapidas por la FSM y en su lugar solo se detecte un flanco de subida por cada pulsacion. \\
 <img src="img/switch-debounce-principle"> 
 Se desarrolló el siguiente modulo de antirrebote, en este modulo se establece un tiempo minimo en el cual la señal de entrada debe permanecer en un valor fijo para ser reflejada en la salida:
 ```verilog
