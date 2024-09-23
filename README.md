@@ -382,7 +382,293 @@ Las interacciones del usuario pueden ser de dos tipos, cambio de estado y cuidad
 Dentro de las interacciones de cuidado, existen acciones que requieren una secuencia de acciones especificas:
 * Sueño: En el estado __Descanso__ la mascota puede encontrarse despierta o durmiendo, cuando el usuario presione el boton(2) la mascota intentara dormir, si el sensor detecta demasiada luz en el ambiente la mascota no podra dormir y se contara una interaccion negativa, si por el contrario hay oscuridad la mascota dormira por un interavalo de 5 segundos y finalizado el tiempo se contara una interaccion positiva.
 * Diversion: En el estado __Felicidad__ el usuario debera presionar el boton (2) para activar una pequeña ventana de tiempo de 5 segundos de "escucha" durante este intervalo el tamagotchi leera la entrada del sensor de sonido, si el sensor detecta un sonido suficientemente alto para activar su señal de salida durante el intervalo de escucha, se otorgara una interaccion positiva mientras que si el sensor no se activa se tomara como una interaccion negativa.
-* Ejercicio: En el estado __Condicion__ el boton (2) no perimitira ninguna interaccion, en cambio el usuario debera acelerar el dispositivo (o el sensor de movimiento) para interactuar con la mascota. 
+* Ejercicio: En el estado __Condicion__ el boton (2) no perimitira ninguna interaccion, en cambio el usuario debera acelerar el dispositivo (o el sensor de movimiento) para interactuar con la mascota.
+
+##Desarrollo y simulacion del modelo:
+
+### Botones:
+Para el uso de los cuatro botones que hemos definido __Reset__, __Test__, __b1__, __b2__ no vemos necesario crear un modulo especifico para su gestion, ya que al ser señales de 1 bit pueden ser leidas directamente por la FSM tamagotchi, sin embargo es cricial implementar un modulo de antirrebote para evitar un funcinamiento incorrecto de los mismos debido a cambios rapidos al momento de presionar los botones. El antirrebote debe evitar que la oscilacion incial de la señal de los botones sea leida como un conjunto de muchas pulsaciones rapidas por la FSM y en su lugar solo se detecte un flanco de subida por cada pulsacion. \\
+<img src="img/switch-debounce-principle"> 
+Se desarrolló el siguiente modulo de antirrebote, en este modulo se establece un tiempo minimo en el cual la señal de entrada debe permanecer en un valor fijo para ser reflejada en la salida:
+```verilog
+// antirebote  energia
+always @(posedge clk) begin
+	if (~reset)begin
+		counter <=0;
+		boton_out<=~boton_in;
+	end else begin
+		if (boton_in==boton_out) begin
+			counter <= counter+1;			
+		end else begin
+			counter<=0;			
+		end
+		if (boton_in==0 && counter==COUNT_BOT)begin
+ // 			boton_out<=~boton_out;
+	 			boton_out<=1;
+				counter<=0;		
+		end
+		if (boton_in==1 && counter==COUNT_BOT/100+1)begin
+ // 			boton_out<=~boton_out;
+	 			boton_out<=0;
+				counter<=0;	
+		end
+```
+Realizamos un testbench para comprobar el correcto funcionamiento del antirrebote:
+<img src="img/Testbenches/debounce.png">
+En el resultado de la simulacion comprobamos que el modulo funciona correctamente negando los rebotes de la señal original, entregando una salida util para la FSM principal.
+
+### Sensores:
+ 
+
+### Buzzer:
+Para hacer uso del buzzer integrado de la FPGA necesitamos un modulo mediador que controle el tiempo que permanece activo el buzzer una vez la FSM principal ha generado un trigger:
+```verilog
+ always @(posedge clk or negedge reset) begin
+        if (~reset) begin
+            counter <= 0;
+            trigger_prev <= 0;
+            active <= 0;
+            buzzer_out <= 1;  // Inicialmente inactivo (alto)
+        end else begin
+            trigger_prev <= trigger;
+
+            if (trigger_posedge) begin
+                active <= 1;
+                counter <= 0;
+                buzzer_out <= 0;  // Activa el buzzer (bajo)
+            end else if (active) begin
+                if (counter < CLK_FREQ * DURATION - 1) begin
+                    counter <= counter + 1;
+                end else begin
+                    active <= 0;
+                    buzzer_out <= 1;  // Desactiva el buzzer (alto)
+                end
+            end
+        end
+    end
+```
+Con esta logica podemos establecer un tiempo activo para el buzzer, al momento de la implementacio lo estableceremos en el orden de los segundos, por ultimo realizaremos una simulacion para verificar el funcionamiento del modulo:
+<img src="img/Testbenches/buzzer.png"> 
+Observamos como el buzzer permanece activo unicamente por un intervalo previamente establecido de 200ns despues de recibir la señal de disparo.
+
+### FSM principal:
+La FSM principal del tamagotchi se encargara de toda la logica de cambios de estado previamente planteada, gestionando el sistema de sensado, contadores de tiempo transcurrido y entregando los datos a la visualizacion. Como esta logica es bastante extensa hemos decidido abordarla en diferentes bloques. 
+#### Modo test:
+Lo primero que hemos implementado es la logica del modo test del tamagotchi, el modo test se activa cuando se mantiene pulsado durante un intervalo definido de tiempo el boton __test__ , para notificar que el modo test esta activo usaremos un led de la FPGA y una vez en este modo, el boton test debe disminuir en 1 el nivel asociado al estado activo y si el nivel de estado esta en cero debe disminuir el nivel de salud de la mascota (reemplazando al contador de tiempo), adicionalmente tambien implementamos el reset y el cambio al estado muerto de la mascota para porbarlos en el mismo testbench.
+```verilog
+            // Test mode logic
+            if (b2_deb && current != DEAD) begin
+                if (test_timer == HOLD_TIME - 1) begin
+                    test_mode <= ~test_mode;
+                    test_timer <= 0;
+                end else begin
+                    test_timer <= test_timer + 1;
+                end
+            end else begin
+                test_timer <= 0;
+            end
+
+            // Manual state changes (test mode)
+            if (b2_posedge && test_mode && current != DEAD) begin
+                case (current)
+                    SLEEP:   	if (sleep_state == 3'd7) begin
+											sleep_state <= sleep_state - 1;
+											if (health_state < 3'd7) health_state <= health_state + 1;
+										end else if (sleep_state > 0) begin
+											sleep_state <= sleep_state - 1;
+										 end else if (health_state > 0) begin
+											health_state <= health_state - 1;
+										 end
+										 
+                    FOOD:    	if (food_state == 3'd7) begin
+											food_state <= food_state - 1;
+											if (health_state < 3'd7) health_state <= health_state + 1;
+										end else if (food_state > 0) begin
+											food_state <= food_state - 1;
+										 end else if (health_state > 0) begin
+											health_state <= health_state - 1;
+										 end
+										 
+                    BATH:    	if (bath_state == 3'd7) begin
+											bath_state <= bath_state - 1;
+											if (health_state < 3'd7) health_state <= health_state + 1;
+										end else if (bath_state > 0) begin
+											bath_state <= bath_state - 1;
+										 end else if (health_state > 0) begin
+											health_state <= health_state - 1;
+										 end
+										 
+                    MUSIC:   	if (music_state == 3'd7) begin
+											music_state <= music_state - 1;
+											if (health_state < 3'd7) health_state <= health_state + 1;
+										end else if (music_state > 0) begin
+											music_state <= music_state - 1;
+										 end else if (health_state > 0) begin
+											health_state <= health_state - 1;
+										 end
+										 
+                    EXERCISE: if (exercise_state == 3'd7) begin
+											exercise_state <= exercise_state - 1;
+											if (health_state < 3'd7) health_state <= health_state + 1;
+										end else if (exercise_state > 0) begin
+											exercise_state <= exercise_state - 1;
+										 end else if (health_state > 0) begin
+											health_state <= health_state - 1;
+										 end
+                endcase
+            end
+            // Check if health reaches 0
+            if (health_state == 0) begin
+                current <= DEAD;
+            end
+```
+<img src="img/Testbenches/test_mode.png">
+En la simulacion observamos como el modo test se activa correctamente (despues de mantener pulsado __test__ y activando el led) y una vez activo cada pulsacion de __test__ reduce los niveles de estado y salud de la mascota hasta llegar a 0, donde ocurre automaticamente un cambio al estado __Muerto__ y finalizamos con un reset que reestablece correctamente la mascota a su estado inicial.
+
+#### Logica de estados:
+Ahora probaremos la logica de estados del tamagotchi la cual permitira navegar por los estados del tamagotchi e interactuar con la mascota a travez de los botones de interaccion y los sensores. La mascota debe cambiar secuencialemten su estado activo con cada pulsacion de __b3__ y dependiendo del estado actual, el usuario podra interactuar con el tamagotchi por medio del boton __b4__ y los sensores. Para los estados de __Higiene__ y __Hambre__ cada pulsacionde __b4__ sumara 1 al nivel del estado, en el estado de __Condicion__ se interactua solo mediante el sensor de movimiento y en los estados restantes se necesita de la interaccion con ambos elemnetos, __b4__ y sensor. Tambien se incluye en la logica el aumento del nivel se salud cuando un nivel de estado alcanza su valor maximo.
+```verilog
+            // Mode switching
+            if (b3_posedge && current != DEAD) begin
+                case (current)
+                    SLEEP: current <= FOOD;
+                    FOOD: current <= BATH;
+                    BATH: current <= MUSIC;
+                    MUSIC: current <= EXERCISE;
+                    EXERCISE: current <= SLEEP;
+                    default: current <= SLEEP;
+                endcase
+            end
+				
+				// b4 logic
+            if (b4_posedge && current != DEAD) begin
+                case (current)
+                    FOOD: begin
+                        if (food_state < 3'd7) begin
+                            food_state <= food_state + 1;
+                            face <= 1;
+									 buzzer_trigger <= 1;
+                            face_timer <= 0;
+                        end else if (health_state > 0) begin
+                            health_state <= health_state - 1;
+                            face <= 2;
+									 buzzer_trigger <= 1;
+                            face_timer <= 0;
+                        end
+                    end
+                    BATH: begin
+                        if (bath_state < 3'd7) begin
+                            bath_state <= bath_state + 1;
+                            face <= 1;
+									 buzzer_trigger <= 1;
+                            face_timer <= 0;
+                        end else if (health_state > 0) begin
+                            health_state <= health_state - 1;
+                            face <= 2;
+									 buzzer_trigger <= 1;
+                            face_timer <= 0;
+                        end
+                    end
+                endcase
+            end
+				
+				// b4 logic for SLEEP
+            if (current == SLEEP && !sleep_hold_active) begin
+                if (b4_posedge && light_sensor) begin
+                    face <= 3;
+                    sleep_hold_active <= 1;
+                    sleep_hold_timer <= 0;
+                end
+            end
+
+            // timer for SLEEP
+            if (sleep_hold_active) begin
+                if (sleep_hold_timer < HOLD_TIME - 1) begin
+                    sleep_hold_timer <= sleep_hold_timer + 1;
+                end else begin
+                    sleep_hold_active <= 0;
+                    sleep_hold_timer <= 0;
+                    
+                    // Apply logic after HOLD_TIME
+                    if (sleep_state < 3'd7) begin
+                        sleep_state <= sleep_state + 1;
+                        face <= 1;
+								buzzer_trigger <= 1;
+                        face_timer <= 0;
+                    end else if (health_state > 0) begin
+                        health_state <= health_state - 1;
+                        face <= 2;
+								buzzer_trigger <= 1;
+                        face_timer <= 0;
+                    end
+                end
+            end
+				
+				// b4 logic for MUSIC
+            if (current == MUSIC && !music_hold_active) begin
+                if (b4_posedge) begin
+                    music_hold_active <= 1;
+                    music_hold_timer <= 0;
+                    sound_detected <= 0;
+                end
+            end
+
+            // timer and logic for MUSIC
+            if (music_hold_active) begin
+                if (music_hold_timer < HOLD_TIME - 1) begin
+                    music_hold_timer <= music_hold_timer + 1;
+                    
+                    // Sound check after 1s
+                    if (music_hold_timer >= ONE_SECOND) begin
+                        if (sound_sensor == 0 && !sound_detected) begin
+                            sound_detected <= 1;
+                        end
+                    end
+                end else begin
+                    music_hold_active <= 0;
+                    
+                    // Logic if sound detected
+                    if (sound_detected) begin
+                        if (music_state < 3'd7) begin
+                            music_state <= music_state + 1;
+                            face <= 1;
+									 buzzer_trigger <= 1;
+                            face_timer <= 0;
+                        end else if (health_state > 0) begin
+                            health_state <= health_state - 1;
+                            face <= 2;
+									 buzzer_trigger <= 1;
+                            face_timer <= 0;
+                        end
+                    end
+                    music_hold_timer <= 0;
+                    sound_detected <= 0;
+                end
+            end
+				
+				// Logic for exercise
+				if (current == EXERCISE && movement_posedge) begin
+                        if (exercise_state < 3'd7) begin
+                            exercise_state <= exercise_state + 1;
+                            face <= 1;
+									 buzzer_trigger <= 1;
+                            face_timer <= 0;
+                        end else if (health_state > 0) begin
+                            health_state <= health_state - 1;
+                            face <= 2;
+									 buzzer_trigger <= 1;
+                            face_timer <= 0;
+                        end
+                    end
+```
+Realizamos un testbench donde probamos la interaccion en todos los estados, para el testbench inicicializamos forzado los niveles de estado en 6 y el valor de salud en 1 para comprobar su funcionamiento:
+<img src="img/Testbenches/state_logic.png">
+La simulacion confirma el correcto funcionamiento de la logica de todos los estados asi como el correcto aumento en el nivel de vida de la mascota.
+
+### Interfaz SPI:
+La interfaz SPI es crucial para la visualizacion de los estados del tamagotchi, para comprobar que todo funcione correctamente ejecutamos la siguiente simulacion donde usamos el SPI para enviar un valor de prueba arbitrario:
+<img src="img/Testbenches/spi_master.png">
+Observamos que una vez se dispara start, el SPI comunica efectivamente la informacion de entrada de forma secuencial. 
 
 
 
