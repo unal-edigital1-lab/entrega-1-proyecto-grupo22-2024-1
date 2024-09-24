@@ -740,7 +740,25 @@ Observamos que una vez se dispara start, el SPI comunica efectivamente la inform
 
 ## Implemetacion del prototipo:
 
-[![Funcionamiento de botones](https://youtu.be/vfPyRaKIzsQ?si=MvFYQadg8U75JfgD)
+### Funcionamiento de botones:
+
+[![Botones](https://img.youtube.com/vi/vfPyRaKIzsQ/0.jpg)](https://www.youtube.com/watch?v=vfPyRaKIzsQ)
+
+### Funcionamiento de sensor de luz:
+
+[![Alt text](https://img.youtube.com/vi/F21b89-LHME/0.jpg)](https://www.youtube.com/watch?v=F21b89-LHME)
+
+### Funcionamiento de sensor de sonido:
+
+[![Alt text](https://img.youtube.com/vi/d5utMe7ux2o/0.jpg)](https://www.youtube.com/watch?v=d5utMe7ux2o)
+
+### Funcionamiento de sensor de movimiento:
+
+[![Alt text](https://img.youtube.com/vi/XK1VPEE6TXE/0.jpg)](https://www.youtube.com/watch?v=XK1VPEE6TXE)
+
+### Prototipo final:
+
+[![Alt text](https://img.youtube.com/vi/BRjTC2YD_R4/0.jpg)](https://www.youtube.com/watch?v=BRjTC2YD_R4)
 
 
 
