@@ -740,6 +740,8 @@ Observamos que una vez se dispara start, el SPI comunica efectivamente la inform
 
 ## Implemetacion del prototipo:
 
+[![Funcionamiento de botones](https://youtu.be/vfPyRaKIzsQ?si=MvFYQadg8U75JfgD)
+
 
 
 
