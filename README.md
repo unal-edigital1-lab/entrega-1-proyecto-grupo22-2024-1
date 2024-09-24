@@ -486,56 +486,43 @@ Lo primero que hemos implementado es la logica del modo test del tamagotchi, el 
             end else begin
                 test_timer <= 0;
             end
-
-            // Manual state changes (test mode)
+             // Manual state changes (test mode)
             if (b2_posedge && test_mode && current != DEAD) begin
                 case (current)
                     SLEEP:   	if (sleep_state == 3'd7) begin
-											sleep_state <= sleep_state - 1;
-											if (health_state < 3'd7) health_state <= health_state + 1;
-										end else if (sleep_state > 0) begin
-											sleep_state <= sleep_state - 1;
-										 end else if (health_state > 0) begin
-											health_state <= health_state - 1;
-										 end
+                                    sleep_state <= sleep_state - 1;
+                                    if (health_state < 3'd7) health_state <= health_state + 1;
+                                end else if (sleep_state > 0) begin
+                                    sleep_state <= sleep_state - 1;
+                                end else if (health_state > 0) begin
+                                    health_state <= health_state - 1;
+                                end
 										 
                     FOOD:    	if (food_state == 3'd7) begin
-											food_state <= food_state - 1;
-											if (health_state < 3'd7) health_state <= health_state + 1;
-										end else if (food_state > 0) begin
-											food_state <= food_state - 1;
-										 end else if (health_state > 0) begin
-											health_state <= health_state - 1;
-										 end
+					.
+                                        .
+						
 										 
                     BATH:    	if (bath_state == 3'd7) begin
-											bath_state <= bath_state - 1;
-											if (health_state < 3'd7) health_state <= health_state + 1;
-										end else if (bath_state > 0) begin
-											bath_state <= bath_state - 1;
-										 end else if (health_state > 0) begin
-											health_state <= health_state - 1;
-										 end
+                                        .
+                                        .
+					
 										 
                     MUSIC:   	if (music_state == 3'd7) begin
-											music_state <= music_state - 1;
-											if (health_state < 3'd7) health_state <= health_state + 1;
-										end else if (music_state > 0) begin
-											music_state <= music_state - 1;
-										 end else if (health_state > 0) begin
-											health_state <= health_state - 1;
-										 end
+                                        .
+                                        .					
 										 
-                    EXERCISE: if (exercise_state == 3'd7) begin
-											exercise_state <= exercise_state - 1;
-											if (health_state < 3'd7) health_state <= health_state + 1;
-										end else if (exercise_state > 0) begin
-											exercise_state <= exercise_state - 1;
-										 end else if (health_state > 0) begin
-											health_state <= health_state - 1;
-										 end
+                    EXERCISE:   if (exercise_state == 3'd7) begin
+                                    exercise_state <= exercise_state - 1;
+                                    if (health_state < 3'd7) health_state <= health_state + 1;
+                                end else if (exercise_state > 0) begin
+                                    exercise_state <= exercise_state - 1;
+                                end else if (health_state > 0) begin
+                                    health_state <= health_state - 1;
+                                end
                 endcase
             end
+            
             // Check if health reaches 0
             if (health_state == 0) begin
                 current <= DEAD;
@@ -562,14 +549,14 @@ Ahora probaremos la logica de estados del tamagotchi la cual permitira navegar p
                 endcase
             end
 				
-				// b4 logic
+             // b4 logic
             if (b4_posedge && current != DEAD) begin
                 case (current)
                     FOOD: begin
                         if (food_state < 3'd7) begin
                             food_state <= food_state + 1;
                             face <= 1;
-									 buzzer_trigger <= 1;
+                                                                         buzzer_trigger <= 1;
                             face_timer <= 0;
                         end else if (health_state > 0) begin
                             health_state <= health_state - 1;
@@ -579,22 +566,14 @@ Ahora probaremos la logica de estados del tamagotchi la cual permitira navegar p
                         end
                     end
                     BATH: begin
-                        if (bath_state < 3'd7) begin
-                            bath_state <= bath_state + 1;
-                            face <= 1;
-									 buzzer_trigger <= 1;
-                            face_timer <= 0;
-                        end else if (health_state > 0) begin
-                            health_state <= health_state - 1;
-                            face <= 2;
-									 buzzer_trigger <= 1;
-                            face_timer <= 0;
-                        end
+                        .
+                        .
+                        .
                     end
                 endcase
             end
 				
-				// b4 logic for SLEEP
+             // b4 logic for SLEEP
             if (current == SLEEP && !sleep_hold_active) begin
                 if (b4_posedge && light_sensor) begin
                     face <= 3;
@@ -626,7 +605,7 @@ Ahora probaremos la logica de estados del tamagotchi la cual permitira navegar p
                 end
             end
 				
-				// b4 logic for MUSIC
+             // b4 logic for MUSIC
             if (current == MUSIC && !music_hold_active) begin
                 if (b4_posedge) begin
                     music_hold_active <= 1;
@@ -668,8 +647,8 @@ Ahora probaremos la logica de estados del tamagotchi la cual permitira navegar p
                 end
             end
 				
-				// Logic for exercise
-				if (current == EXERCISE && movement_posedge) begin
+             // Logic for exercise
+            if (current == EXERCISE && movement_posedge) begin
                         if (exercise_state < 3'd7) begin
                             exercise_state <= exercise_state + 1;
                             face <= 1;
@@ -689,6 +668,68 @@ Realizamos un testbench donde probamos la interaccion en todos los estados, para
 
 La simulacion confirma el correcto funcionamiento de la logica de todos los estados asi como el correcto aumento en el nivel de vida de la mascota.
 
+#### Detrimento de niveles por el paso del tiempo:
+
+Se necesita implementar una logica que disminuya los niveles de los estados periodicamente con el paso del tiempo, para ello desarrolamos la siguiente logica. Definimos parametros de tiempo y contadores individulaes para cada estado y un contador adicional que se encargara de contabilizar el paso de un segundo, para simplificar. Cuando se complete un periodo de tiempo, el nivel de estado asociado debera disminuir su valor en 1, si el nivel de estado se encontraba al maximo, al decaer tambien se sumara 1 al nivel de salud, si el estado llega a 0 el nivel asociado a salud empezara a disminuir con cada periodo en el que algun nivel de estado permanezca en 0. 
+
+```verilog
+
+              // Timers (50MHz clock)
+            localparam ONE_SECOND = 50_000_000;  // Clock cycles in one second
+            localparam SLEEP_TIME = 180;  // 180 seconds
+            localparam FOOD_TIME = 60;  // 60 seconds
+            localparam BATH_TIME = 120;  // 120 seconds
+            localparam MUSIC_TIME = 90;  // 90 seconds
+            localparam EXERCISE_TIME = 150; // 150 seconds
+
+             // State timers
+            reg [27:0] second_counter;
+            reg [7:0] sleep_timer, food_timer, bath_timer, music_timer, exercise_timer;
+
+             // Second counter logic
+            if (second_counter < ONE_SECOND - 1) begin
+                second_counter <= second_counter + 1;
+            end else begin
+                second_counter <= 0;
+                sleep_timer <= sleep_timer + 1; // Increment state timers every second
+                .
+                .
+                exercise_timer <= exercise_timer + 1;
+            end
+
+             // State updates
+            if (sleep_timer >= SLEEP_TIME) begin
+                sleep_timer <= 0;
+                if (sleep_state == 3'd7) begin
+                    sleep_state <= sleep_state - 1;
+                    if (health_state < 3'd7) health_state <= health_state + 1;
+                end else if (sleep_state > 0) begin
+                    sleep_state <= sleep_state - 1;
+                end else if (health_state > 0) begin
+                    health_state <= health_state - 1;
+                end
+            end
+            
+            .
+            .
+            .
+            
+            if (exercise_timer >= EXERCISE_TIME) begin
+                exercise_timer <= 0;
+                if (exercise_state == 3'd7) begin
+                    exercise_state <= exercise_state - 1;
+                    if (health_state < 3'd7) health_state <= health_state + 1;
+                end else if (exercise_state > 0) begin
+                    exercise_state <= exercise_state - 1;
+                end else if (health_state > 0) begin
+                    health_state <= health_state - 1;
+                end
+            end
+```
+Realizamos un testbench para observar el comportamiento de los niveles de estado segun avanza el tiempo (ajustaremos los intervalos de tiempo al orden de ps). 
+<img src="img/Testbenches/time_decree.png">
+Encontramos que la logica implementada cumple satisfactoriamente su funcion disminuyendo los niveles de estado segun las especificacions, vemos como si la mascota es desatendida por completo al cabo de un tiempo su salud empezara a decaer rapidamente hasta llegar a 0 y morir (ya que se acumulan varios niveles de estado en 0).
+
 ### Interfaz SPI:
 
 La interfaz SPI es crucial para la visualizacion de los estados del tamagotchi, para comprobar que todo funcione correctamente ejecutamos la siguiente simulacion donde usamos el SPI para enviar un valor de prueba arbitrario:
@@ -696,3 +737,11 @@ La interfaz SPI es crucial para la visualizacion de los estados del tamagotchi, 
 <img src="img/Testbenches/spi_master.png">
 
 Observamos que una vez se dispara start, el SPI comunica efectivamente la informacion de entrada de forma secuencial. 
+
+## Implemetacion del prototipo:
+
+
+
+
+
+
